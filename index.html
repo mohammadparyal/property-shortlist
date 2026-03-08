@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubai Distress Deal Tracker</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e1e4ed;
+    --muted: #8b8fa3;
+    --green: #22c55e;
+    --green-bg: rgba(34,197,94,0.12);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234,179,8,0.12);
+    --red: #ef4444;
+    --red-bg: rgba(239,68,68,0.12);
+    --blue: #3b82f6;
+    --blue-bg: rgba(59,130,246,0.12);
+    --gold: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  .header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 24px 32px; }
+  .header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .header h1 span { color: var(--gold); }
+  .header .subtitle { color: var(--muted); font-size: 14px; }
+  .header .updated { color: var(--blue); font-size: 13px; margin-top: 6px; }
+
+  .stats-row { display: flex; gap: 16px; padding: 20px 32px; flex-wrap: wrap; }
+  .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; flex: 1; min-width: 160px; }
+  .stat-card .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; }
+  .stat-card .value.green { color: var(--green); }
+  .stat-card .value.yellow { color: var(--yellow); }
+  .stat-card .value.blue { color: var(--blue); }
+  .stat-card .value.gold { color: var(--gold); }
+
+  .controls { display: flex; gap: 12px; padding: 16px 32px; flex-wrap: wrap; align-items: center; }
+  .filter-btn { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .search-input { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 8px; font-size: 13px; width: 220px; outline: none; }
+  .search-input:focus { border-color: var(--blue); }
+  .sort-select { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 12px; border-radius: 8px; font-size: 13px; outline: none; cursor: pointer; }
+
+  .table-container { padding: 0 32px 40px; overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: var(--card); border-bottom: 2px solid var(--border); padding: 12px 14px; text-align: left; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; font-size: 11px; position: sticky; top: 0; cursor: pointer; white-space: nowrap; user-select: none; }
+  thead th:hover { color: var(--text); }
+  thead th .sort-arrow { margin-left: 4px; opacity: 0.4; }
+  thead th.sorted .sort-arrow { opacity: 1; color: var(--blue); }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:hover { background: rgba(59,130,246,0.06); }
+  td { padding: 12px 14px; vertical-align: middle; }
+
+  .score-badge { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 28px; border-radius: 6px; font-weight: 700; font-size: 13px; }
+  .score-high { background: var(--green-bg); color: var(--green); }
+  .score-mid { background: var(--yellow-bg); color: var(--yellow); }
+  .score-low { background: var(--red-bg); color: var(--red); }
+
+  .pct-badge { font-weight: 600; font-size: 12px; padding: 3px 8px; border-radius: 4px; }
+  .pct-great { color: var(--green); background: var(--green-bg); }
+  .pct-ok { color: var(--yellow); background: var(--yellow-bg); }
+  .pct-bad { color: var(--red); background: var(--red-bg); }
+
+  .source-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  .source-bayut { background: rgba(239,68,68,0.12); color: #f87171; }
+  .source-pf { background: rgba(168,85,247,0.12); color: #c084fc; }
+
+  .signal-tag { display: inline-block; padding: 2px 7px; border-radius: 3px; font-size: 11px; margin: 1px 2px; background: var(--blue-bg); color: var(--blue); }
+  .signal-hot { background: rgba(239,68,68,0.15); color: #f87171; }
+
+  .community-label { font-weight: 600; }
+  .cluster-label { color: var(--muted); font-size: 12px; }
+  .price-main { font-weight: 700; font-size: 14px; color: var(--text); }
+  .price-launch { color: var(--muted); font-size: 11px; }
+
+  a.link-btn { color: var(--blue); text-decoration: none; font-size: 12px; }
+  a.link-btn:hover { text-decoration: underline; }
+
+  .chart-section { padding: 20px 32px; display: flex; gap: 20px; flex-wrap: wrap; }
+  .chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; flex: 1; min-width: 340px; }
+  .chart-card h3 { font-size: 14px; margin-bottom: 14px; color: var(--muted); }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; }
+  .bar-label { width: 130px; font-size: 12px; color: var(--text); text-align: right; }
+  .bar-track { flex: 1; height: 24px; background: rgba(255,255,255,0.04); border-radius: 4px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; font-size: 11px; font-weight: 600; color: #fff; transition: width 0.6s ease; }
+  .bar-value { font-size: 12px; width: 55px; text-align: right; color: var(--muted); }
+
+  .legend { display: flex; gap: 20px; padding: 0 32px 10px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  .footer { text-align: center; padding: 30px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 20px; }
+
+  @media (max-width: 768px) {
+    .header, .stats-row, .controls, .table-container, .chart-section { padding-left: 16px; padding-right: 16px; }
+    .stats-row { gap: 10px; }
+    .stat-card { min-width: 130px; padding: 14px; }
+    .stat-card .value { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1><span>Dubai</span> Distress Deal Tracker</h1>
+  <div class="subtitle">Villas & Townhouses | AED 2M - 3M | 3BR+ | Panic Sell Monitor</div>
+  <div class="updated" id="lastUpdated">Loading...</div>
+</div>
+
+<div class="stats-row" id="statsRow"></div>
+
+<div class="chart-section" id="chartSection"></div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Score 80+ Exceptional</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--yellow)"></div> Score 60-79 Good</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Score &lt;60 Weak</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div> % vs Launch = premium over original price</div>
+</div>
+
+<div class="controls">
+  <button class="filter-btn active" onclick="filterCommunity('all')">All</button>
+  <div id="communityFilters"></div>
+  <input type="text" class="search-input" placeholder="Search title, cluster..." oninput="searchListings(this.value)" id="searchBox">
+  <select class="sort-select" onchange="sortListings(this.value)" id="sortSelect">
+    <option value="score_desc">Best Score First</option>
+    <option value="price_asc">Lowest Price</option>
+    <option value="price_desc">Highest Price</option>
+    <option value="pct_asc">Closest to Launch</option>
+    <option value="listed_desc">Newest Listed</option>
+  </select>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Score <span class="sort-arrow">▼</span></th>
+        <th>Community</th>
+        <th>Price (AED)</th>
+        <th>Beds</th>
+        <th>Sqft</th>
+        <th>PSF</th>
+        <th>% vs Launch</th>
+        <th>Source</th>
+        <th>Signals</th>
+        <th>Listed</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="footer">
+  Dubai Distress Deal Tracker &mdash; Data from Bayut & Property Finder &mdash; Auto-updated every 12 hours<br>
+  Budget: AED 2,000,000 &ndash; 3,000,000 | Min 3BR | Communities: DAMAC Lagoons, DAMAC Islands, The Valley
+</div>
+
+<script>
+// ===== DATA — will be replaced by the scheduled task =====
+const DATA = {"generated": "2026-03-08 18:22", "total_listings": 33, "sources": ["Bayut", "PropertyFinder"], "communities_searched": ["DAMAC Lagoons", "DAMAC Islands", "The Valley", "Tilal Al Ghaf", "Dubai Hills Estate", "DAMAC Hills", "Villanova", "DAMAC Hills 2"], "communities_with_listings_in_budget": ["DAMAC Lagoons", "DAMAC Islands", "The Valley"], "communities_no_listings_in_budget": ["Tilal Al Ghaf (4.65M+)", "Dubai Hills Estate (6.75M+)", "DAMAC Hills (3.5M+)", "Villanova (3BR+ above 3M)", "DAMAC Hills 2 (near airbase, flagged)"], "budget_range": {"min": 2000000, "max": 3000000, "currency": "AED"}, "launch_benchmarks": {"DAMAC Lagoons": {"3br": 1400000, "4br": 1700000, "source": "offplan-dubai.com, CONFIRMED"}, "DAMAC Islands": {"3br": null, "4br": 2250000, "source": "islands-dubai.com, Phase 1 Nov 2024, CONFIRMED"}, "The Valley": {"3br": 1530000, "4br": 2100000, "source": "Emaar 2023 launch, Orania/Elora"}, "Tilal Al Ghaf": {"3br": 1260000, "4br": 1800000, "source": "dubai.al, Aura Homes FB, 1newhomes.ae, CONFIRMED"}, "Dubai Hills Estate": {"3br": 2100000, "4br": 2600000, "source": "maple-3.com, offplan-dubai.com, CONFIRMED"}, "DAMAC Hills": {"3br": 1500000, "4br": 2200000, "source": "Trump Estates/Akoya"}, "DAMAC Hills 2": {"3br": 800000, "4br": 1200000, "source": "Akoya Oxygen 2021-22. NOTE: Near Al Minhad Air Base"}, "Villanova": {"3br": 1445000, "4br": 2000000, "source": "dubai.al, CONFIRMED"}}, "listings": [{"community": "DAMAC Islands", "cluster": "Seychelles", "price": 2300000, "beds": 4, "baths": 3, "sqft": null, "title": "Investor Deal | Quick Exit", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Investor Deal, Quick Exit", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/", "deal_score": 91, "pct_vs_launch": 2.2, "launch_price": 2250000, "psf": null}, {"community": "DAMAC Islands", "cluster": "Maldives 4", "price": 2341000, "beds": 4, "baths": 3, "sqft": null, "title": "Below OP | Assignment Deal", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Below OP, Assignment", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/", "deal_score": 91, "pct_vs_launch": 4.0, "launch_price": 2250000, "psf": null}, {"community": "DAMAC Islands", "cluster": "Maldives 2", "price": 2350000, "beds": 4, "baths": 3, "sqft": 1550, "title": "Below OP | Investor Deal | Genuine Resale", "source": "PropertyFinder", "listed": "2026-02-20", "status": "off_plan", "signals": "Below OP, Investor Deal, Genuine Resale", "ref": "4D7FSJ4RJ1P7HT4SXFGFVW4KPM", "link": null, "deal_score": 91, "pct_vs_launch": 4.4, "launch_price": 2250000, "psf": 1516}, {"community": "DAMAC Islands", "cluster": "Bora Bora 3", "price": 2296000, "beds": 4, "baths": 3, "sqft": null, "title": "Resale | Below OP", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Below OP", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/", "deal_score": 88, "pct_vs_launch": 2.0, "launch_price": 2250000, "psf": null}, {"community": "DAMAC Islands", "cluster": "Fiji 1", "price": 2251000, "beds": 4, "baths": 3, "sqft": null, "title": "Near Launch Price | Investor Exit", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Near Launch Price", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/", "deal_score": 85, "pct_vs_launch": 0.0, "launch_price": 2250000, "psf": null}, {"community": "DAMAC Islands", "cluster": "Seychelles", "price": 2300000, "beds": 4, "baths": 3, "sqft": null, "title": "Best Price | Genuine Listing", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Best Price", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/", "deal_score": 85, "pct_vs_launch": 2.2, "launch_price": 2250000, "psf": null}, {"community": "DAMAC Islands", "cluster": "Fiji", "price": 2370000, "beds": 4, "baths": 3, "sqft": 1550, "title": "Investor Deal | Close To Park | OP Deal | Hot Deal", "source": "PropertyFinder", "listed": "2026-02-27", "status": "off_plan", "signals": "Investor Deal, OP Deal, Hot Deal", "ref": "5M3PV3MC53X359CQNF343HMTFG", "link": null, "deal_score": 78, "pct_vs_launch": 5.3, "launch_price": 2250000, "psf": 1529}, {"community": "DAMAC Islands", "cluster": "Bora Bora", "price": 2470000, "beds": 4, "baths": 3, "sqft": 1550, "title": "Resort Style Living | Investor Deal | 4BR", "source": "PropertyFinder", "listed": null, "status": "off_plan", "signals": "Investor Deal", "ref": null, "link": null, "deal_score": 78, "pct_vs_launch": 9.8, "launch_price": 2250000, "psf": 1594}, {"community": "DAMAC Islands", "cluster": "Bora Bora", "price": 2450000, "beds": 4, "baths": 5, "sqft": 1550, "title": "Genuine Resale | Handover Q4 2028 | Island Living", "source": "PropertyFinder", "listed": "2026-01-30", "status": "off_plan", "signals": "Genuine Resale", "ref": "DH84ADKN2CEA9A554STS5HK86M", "link": null, "deal_score": 75, "pct_vs_launch": 8.9, "launch_price": 2250000, "psf": 1581}, {"community": "DAMAC Lagoons", "cluster": "Nice", "price": 2350000, "beds": 4, "baths": 3, "sqft": null, "title": "INVESTOR DEAL | Below OP | Quick Sale", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "INVESTOR DEAL", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 58, "pct_vs_launch": 38.2, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Monte Carlo", "price": 2300000, "beds": 4, "baths": 3, "sqft": null, "title": "BEST OFFER | Lagoon View | Prime Location", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "BEST OFFER", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 55, "pct_vs_launch": 35.3, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Nice", "price": 2500000, "beds": 4, "baths": 3, "sqft": null, "title": "Motivated Seller | Urgent Sale", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Motivated Seller, Urgent Sale", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 51, "pct_vs_launch": 47.1, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Nice", "price": 2500000, "beds": 4, "baths": 3, "sqft": 2277, "title": "B2B | Motivated Seller | Q4 2026 | Urgent Sale", "source": "PropertyFinder", "listed": "2026-03-03", "status": "off_plan", "signals": "Motivated Seller, Urgent Sale, B2B", "ref": "MPS-46656", "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-nice-2Prb4mTqXaK.html", "deal_score": 51, "pct_vs_launch": 47.1, "launch_price": 1700000, "psf": 1098}, {"community": "DAMAC Lagoons", "cluster": "Ibiza", "price": 2450000, "beds": 4, "baths": 3, "sqft": null, "title": "INVESTOR DEAL | SINGLE ROW | Below OP", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "INVESTOR DEAL, SINGLE ROW", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 48, "pct_vs_launch": 44.1, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Malta", "price": 2500000, "beds": 4, "baths": 3, "sqft": null, "title": "INVESTOR DEAL | Best Price", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "INVESTOR DEAL", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 48, "pct_vs_launch": 47.1, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Ibiza", "price": 2490000, "beds": 4, "baths": 3, "sqft": null, "title": "Resale | Good Location", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Resale", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 45, "pct_vs_launch": 46.5, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Monte Carlo", "price": 2600000, "beds": 4, "baths": 3, "sqft": 2286, "title": "Great Price | Genuine Resale | Lagoon Living", "source": "PropertyFinder", "listed": "2026-02-12", "status": "off_plan", "signals": "Genuine Resale", "ref": "DUL260613", "link": null, "deal_score": 45, "pct_vs_launch": 52.9, "launch_price": 1700000, "psf": 1137}, {"community": "DAMAC Lagoons", "cluster": "Monte Carlo", "price": 2620000, "beds": 4, "baths": 4, "sqft": 2315, "title": "Exclusive Unit | Close to Lagoon | Best Deal", "source": "PropertyFinder", "listed": "2026-02-24", "status": "off_plan", "signals": "Best Deal, Exclusive", "ref": null, "link": null, "deal_score": 45, "pct_vs_launch": 54.1, "launch_price": 1700000, "psf": 1132}, {"community": "DAMAC Lagoons", "cluster": "Nice", "price": 2650000, "beds": 4, "baths": 3, "sqft": null, "title": "80/20 Payment Plan", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "80/20 Plan", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 45, "pct_vs_launch": 55.9, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Mykonos", "price": 2650000, "beds": 4, "baths": 3, "sqft": 2286, "title": "Close To School And Mall | Premium Unit", "source": "PropertyFinder", "listed": "2025-12-05", "status": "off_plan", "signals": "Premium", "ref": null, "link": null, "deal_score": 45, "pct_vs_launch": 55.9, "launch_price": 1700000, "psf": 1159}, {"community": "The Valley", "cluster": "Nima", "price": 2650000, "beds": 3, "baths": 4, "sqft": 2244, "title": "Price dropped | Investor Deal | Multiple options", "source": "PropertyFinder", "listed": "2026-02-18", "status": "off_plan", "signals": "Price dropped, Investor Deal", "ref": "NFMRPQ41EMD12P365STTEJHGA8", "link": null, "deal_score": 41, "pct_vs_launch": 73.2, "launch_price": 1530000, "psf": 1181}, {"community": "The Valley", "cluster": "Nara", "price": 2800000, "beds": 3, "baths": 4, "sqft": null, "title": "Motivated Seller | Vacant on Transfer", "source": "Bayut", "listed": null, "status": "ready", "signals": "Motivated Seller, Vacant on Transfer", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/the-valley/", "deal_score": 38, "pct_vs_launch": 83.0, "launch_price": 1530000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Portofino", "price": 2400000, "beds": 3, "baths": 3, "sqft": null, "title": "No Commission | Vastu | Cheapest", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Cheapest, No Commission", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 35, "pct_vs_launch": 71.4, "launch_price": 1400000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Portofino", "price": 2490990, "beds": 3, "baths": 3, "sqft": null, "title": "Best Deal | Lagoon View", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "Best Deal", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 35, "pct_vs_launch": 77.9, "launch_price": 1400000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Costa Brava 2", "price": 2550000, "beds": 3, "baths": 3, "sqft": 2280, "title": "Lagoon Specialist | Exclusive | Handover Soon", "source": "PropertyFinder", "listed": "2025-11-13", "status": "off_plan", "signals": "Exclusive, Handover Soon", "ref": "L-12551", "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-costa-brava-at-damac-lagoons-costa-brava-2-15612121.html", "deal_score": 35, "pct_vs_launch": 82.1, "launch_price": 1400000, "psf": 1118}, {"community": "DAMAC Lagoons", "cluster": "Portofino", "price": 2600000, "beds": 3, "baths": 3, "sqft": 1550, "title": "Best Price | Handover Soon | Near Lagoon", "source": "PropertyFinder", "listed": "2026-02-27", "status": "off_plan", "signals": "Best Price, Handover Soon", "ref": "QA4NJBVY8499V789N0JWMESKRG", "link": null, "deal_score": 35, "pct_vs_launch": 85.7, "launch_price": 1400000, "psf": 1677}, {"community": "DAMAC Lagoons", "cluster": "Portofino", "price": 2600000, "beds": 3, "baths": 3, "sqft": 1550, "title": "Best Priced | Genuine Resale | Ideal location | ROI", "source": "PropertyFinder", "listed": "2026-01-27", "status": "off_plan", "signals": "Best Priced, Genuine Resale", "ref": "STAR500220QA", "link": null, "deal_score": 35, "pct_vs_launch": 85.7, "launch_price": 1400000, "psf": 1677}, {"community": "DAMAC Lagoons", "cluster": "Portofino", "price": 2620000, "beds": 3, "baths": 3, "sqft": 1550, "title": "Lagoon Community | Prime Location | Community View", "source": "PropertyFinder", "listed": "2026-01-05", "status": "off_plan", "signals": "", "ref": null, "link": null, "deal_score": 35, "pct_vs_launch": 87.1, "launch_price": 1400000, "psf": 1690}, {"community": "The Valley", "cluster": "Orania", "price": 2745000, "beds": 3, "baths": 3, "sqft": 1873, "title": "Great Location | Best Price | Multiple Options", "source": "PropertyFinder", "listed": "2026-02-16", "status": "completed", "signals": "Best Price", "ref": "MCC-S-52332", "link": null, "deal_score": 35, "pct_vs_launch": 79.4, "launch_price": 1530000, "psf": 1466}, {"community": "The Valley", "cluster": "Nara", "price": 2745000, "beds": 3, "baths": 4, "sqft": 1993, "title": "READY TO MOVE | NEAR TO AMENITIES | NO AGENTS", "source": "PropertyFinder", "listed": "2026-02-12", "status": "completed", "signals": "Ready, No Agents", "ref": "UMAIR-S-N-TH-1003", "link": null, "deal_score": 35, "pct_vs_launch": 79.4, "launch_price": 1530000, "psf": 1377}, {"community": "The Valley", "cluster": "Orania", "price": 2750000, "beds": 3, "baths": 4, "sqft": 1903, "title": "Green Belt | Near Pool and Park | 3 Beds", "source": "PropertyFinder", "listed": "2026-03-06", "status": "completed", "signals": "", "ref": "S-GJ011", "link": null, "deal_score": 35, "pct_vs_launch": 79.7, "launch_price": 1530000, "psf": 1445}, {"community": "DAMAC Lagoons", "cluster": "Costa Brava", "price": 2900000, "beds": 4, "baths": 3, "sqft": null, "title": "Near Amenities | Brand New", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 35, "pct_vs_launch": 70.6, "launch_price": 1700000, "psf": null}, {"community": "DAMAC Lagoons", "cluster": "Costa Brava", "price": 2990000, "beds": 4, "baths": 3, "sqft": null, "title": "Handover Soon | Premium", "source": "Bayut", "listed": null, "status": "off_plan", "signals": "", "ref": null, "link": "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/", "deal_score": 35, "pct_vs_launch": 75.9, "launch_price": 1700000, "psf": null}]};
+
+// ===== RENDER =====
+let currentFilter = 'all';
+let currentSearch = '';
+let currentSort = 'score_desc';
+let listings = DATA.listings || [];
+
+function init() {
+  document.getElementById('lastUpdated').textContent = 'Last scan: ' + (DATA.generated || 'Unknown') + ' | Sources: ' + (DATA.sources || []).join(', ');
+  renderStats();
+  renderCharts();
+  renderFilters();
+  renderTable();
+}
+
+function renderStats() {
+  const container = document.getElementById('statsRow');
+  const totalListings = listings.length;
+  const topDeals = listings.filter(l => l.deal_score >= 80).length;
+  const lowest = listings.length ? Math.min(...listings.map(l => l.price)) : 0;
+  const communities = [...new Set(listings.map(l => l.community))].length;
+
+  container.innerHTML = `
+    <div class="stat-card"><div class="label">Total Listings</div><div class="value blue">${totalListings}</div></div>
+    <div class="stat-card"><div class="label">Top Deals (80+)</div><div class="value green">${topDeals}</div></div>
+    <div class="stat-card"><div class="label">Lowest Price</div><div class="value gold">AED ${lowest.toLocaleString()}</div></div>
+    <div class="stat-card"><div class="label">Communities</div><div class="value">${communities}</div></div>
+    <div class="stat-card"><div class="label">Bayut</div><div class="value">${listings.filter(l=>l.source==='Bayut').length}</div></div>
+    <div class="stat-card"><div class="label">Property Finder</div><div class="value">${listings.filter(l=>l.source==='PropertyFinder').length}</div></div>
+  `;
+}
+
+function renderCharts() {
+  const container = document.getElementById('chartSection');
+  // Community breakdown
+  const commData = {};
+  listings.forEach(l => {
+    if (!commData[l.community]) commData[l.community] = { count: 0, minPrice: Infinity, bestScore: 0, totalPrice: 0 };
+    commData[l.community].count++;
+    commData[l.community].minPrice = Math.min(commData[l.community].minPrice, l.price);
+    commData[l.community].bestScore = Math.max(commData[l.community].bestScore, l.deal_score);
+    commData[l.community].totalPrice += l.price;
+  });
+
+  let barsHTML = '';
+  const maxCount = Math.max(...Object.values(commData).map(c => c.count));
+  const colors = {'DAMAC Islands': '#22c55e', 'DAMAC Lagoons': '#3b82f6', 'The Valley': '#f59e0b'};
+
+  Object.entries(commData).sort((a,b) => b[1].count - a[1].count).forEach(([name, data]) => {
+    const pct = (data.count / maxCount) * 100;
+    const color = colors[name] || '#8b8fa3';
+    barsHTML += `
+      <div class="bar-row">
+        <div class="bar-label">${name}</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${pct}%;background:${color}">${data.count}</div>
+        </div>
+        <div class="bar-value">Low: ${(data.minPrice/1e6).toFixed(2)}M</div>
+      </div>`;
+  });
+
+  // Score distribution
+  const scoreBuckets = { '90-100': 0, '80-89': 0, '70-79': 0, '60-69': 0, '50-59': 0, '40-49': 0, '<40': 0 };
+  listings.forEach(l => {
+    if (l.deal_score >= 90) scoreBuckets['90-100']++;
+    else if (l.deal_score >= 80) scoreBuckets['80-89']++;
+    else if (l.deal_score >= 70) scoreBuckets['70-79']++;
+    else if (l.deal_score >= 60) scoreBuckets['60-69']++;
+    else if (l.deal_score >= 50) scoreBuckets['50-59']++;
+    else if (l.deal_score >= 40) scoreBuckets['40-49']++;
+    else scoreBuckets['<40']++;
+  });
+
+  const maxBucket = Math.max(...Object.values(scoreBuckets));
+  const scoreColors = {'90-100':'#22c55e','80-89':'#4ade80','70-79':'#86efac','60-69':'#eab308','50-59':'#fbbf24','40-49':'#f87171','<40':'#ef4444'};
+  let scoreBarsHTML = '';
+  Object.entries(scoreBuckets).forEach(([range, count]) => {
+    const pct = maxBucket > 0 ? (count / maxBucket) * 100 : 0;
+    scoreBarsHTML += `
+      <div class="bar-row">
+        <div class="bar-label">${range}</div>
+        <div class="bar-track">
+          <div class="bar-fill" style="width:${pct}%;background:${scoreColors[range]}">${count}</div>
+        </div>
+        <div class="bar-value">${count} deals</div>
+      </div>`;
+  });
+
+  container.innerHTML = `
+    <div class="chart-card"><h3>Listings by Community</h3><div class="bar-chart">${barsHTML}</div></div>
+    <div class="chart-card"><h3>Score Distribution</h3><div class="bar-chart">${scoreBarsHTML}</div></div>
+  `;
+}
+
+function renderFilters() {
+  const container = document.getElementById('communityFilters');
+  const communities = [...new Set(listings.map(l => l.community))];
+  container.innerHTML = communities.map(c =>
+    `<button class="filter-btn" onclick="filterCommunity('${c}')">${c} (${listings.filter(l=>l.community===c).length})</button>`
+  ).join('');
+}
+
+function filterCommunity(community) {
+  currentFilter = community;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.includes(community === 'all' ? 'All' : community));
+  });
+  if (community === 'all') document.querySelector('.filter-btn').classList.add('active');
+  renderTable();
+}
+
+function searchListings(query) {
+  currentSearch = query.toLowerCase();
+  renderTable();
+}
+
+function sortListings(sort) {
+  currentSort = sort;
+  renderTable();
+}
+
+function getFiltered() {
+  let filtered = [...listings];
+  if (currentFilter !== 'all') filtered = filtered.filter(l => l.community === currentFilter);
+  if (currentSearch) filtered = filtered.filter(l =>
+    (l.title || '').toLowerCase().includes(currentSearch) ||
+    (l.cluster || '').toLowerCase().includes(currentSearch) ||
+    (l.signals || '').toLowerCase().includes(currentSearch) ||
+    (l.community || '').toLowerCase().includes(currentSearch)
+  );
+
+  switch (currentSort) {
+    case 'score_desc': filtered.sort((a,b) => b.deal_score - a.deal_score || a.price - b.price); break;
+    case 'price_asc': filtered.sort((a,b) => a.price - b.price); break;
+    case 'price_desc': filtered.sort((a,b) => b.price - a.price); break;
+    case 'pct_asc': filtered.sort((a,b) => (a.pct_vs_launch||999) - (b.pct_vs_launch||999)); break;
+    case 'listed_desc': filtered.sort((a,b) => (b.listed||'').localeCompare(a.listed||'')); break;
+  }
+  return filtered;
+}
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  const filtered = getFiltered();
+
+  tbody.innerHTML = filtered.map((l, i) => {
+    const scoreClass = l.deal_score >= 80 ? 'score-high' : l.deal_score >= 60 ? 'score-mid' : 'score-low';
+    const pctClass = l.pct_vs_launch <= 5 ? 'pct-great' : l.pct_vs_launch <= 20 ? 'pct-ok' : 'pct-bad';
+    const sourceClass = l.source === 'Bayut' ? 'source-bayut' : 'source-pf';
+    const sourceLabel = l.source === 'PropertyFinder' ? 'PF' : 'Bayut';
+
+    const hotKeywords = ['motivated', 'urgent', 'below op', 'distress', 'quick exit', 'assignment', 'price drop'];
+    const signals = (l.signals || '').split(',').map(s => s.trim()).filter(Boolean).map(s => {
+      const isHot = hotKeywords.some(kw => s.toLowerCase().includes(kw));
+      return `<span class="signal-tag ${isHot ? 'signal-hot' : ''}">${s}</span>`;
+    }).join('');
+
+    const linkHTML = l.link ? `<a href="${l.link}" target="_blank" class="link-btn">View &rarr;</a>` : '<span style="color:var(--muted)">—</span>';
+
+    return `<tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td><span class="score-badge ${scoreClass}">${l.deal_score}</span></td>
+      <td><div class="community-label">${l.community}</div><div class="cluster-label">${l.cluster || ''}</div></td>
+      <td><div class="price-main">AED ${l.price.toLocaleString()}</div><div class="price-launch">Launch: ${l.launch_price ? 'AED ' + l.launch_price.toLocaleString() : '—'}</div></td>
+      <td>${l.beds || '—'}</td>
+      <td>${l.sqft ? l.sqft.toLocaleString() : '—'}</td>
+      <td>${l.psf ? l.psf.toLocaleString() : '—'}</td>
+      <td><span class="pct-badge ${pctClass}">${l.pct_vs_launch !== null ? '+' + l.pct_vs_launch + '%' : '—'}</span></td>
+      <td><span class="source-badge ${sourceClass}">${sourceLabel}</span></td>
+      <td>${signals || '<span style="color:var(--muted)">—</span>'}</td>
+      <td style="color:var(--muted);font-size:12px">${l.listed || '—'}</td>
+      <td>${linkHTML}</td>
+    </tr>`;
+  }).join('');
+}
+
+init();
+</script>
+</body>
+</html>

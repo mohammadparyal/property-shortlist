@@ -166,10 +166,50 @@
     .stats-row { gap: 10px; }
     .stat-card { min-width: 130px; padding: 14px; }
     .stat-card .value { font-size: 22px; }
+    .welcome-content { width: 95vw !important; padding: 28px 20px !important; }
   }
+
+  .welcome-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); backdrop-filter: blur(6px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; animation: fadeOverlayIn 0.3s ease forwards; }
+  @keyframes fadeOverlayIn { to { opacity: 1; } }
+  .welcome-content { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 36px 40px; max-width: 520px; width: 90vw; box-shadow: 0 24px 80px rgba(0,0,0,0.3); animation: slideUp 0.35s ease forwards; }
+  @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .welcome-content h2 { font-size: 22px; margin-bottom: 6px; color: var(--text); }
+  .welcome-content h2 span { color: var(--blue); }
+  .welcome-tagline { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  .welcome-features { list-style: none; padding: 0; margin: 0 0 22px 0; }
+  .welcome-features li { padding: 8px 0; font-size: 14px; color: var(--text); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .welcome-features li .wf-icon { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+  .wf-green { background: var(--green-bg); color: var(--green); }
+  .wf-orange { background: var(--orange-bg); color: var(--orange); }
+  .wf-blue { background: var(--blue-bg); color: var(--blue); }
+  .wf-red { background: var(--red-bg); color: var(--red); }
+  .welcome-divider { height: 1px; background: var(--border); margin: 16px 0; }
+  .welcome-note { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+  .welcome-btn { width: 100%; padding: 12px; border: none; border-radius: 10px; background: var(--blue); color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .welcome-btn:hover { filter: brightness(1.15); transform: translateY(-1px); }
+  .welcome-check { display: flex; align-items: center; gap: 8px; margin-top: 12px; justify-content: center; }
+  .welcome-check label { font-size: 12px; color: var(--muted); cursor: pointer; }
+  .welcome-check input { cursor: pointer; }
 </style>
 </head>
 <body>
+
+<div class="welcome-overlay" id="welcomePopup" style="display:none;">
+  <div class="welcome-content">
+    <h2><span>Dubai</span> Distress Deal Tracker</h2>
+    <div class="welcome-tagline">Real-time villa & townhouse deals across Dubai's top communities</div>
+    <ul class="welcome-features">
+      <li><div class="wf-icon wf-green">&#9733;</div><div><strong>Deal Scoring</strong> — Every listing scored against original launch prices. Higher score = closer to launch price = better deal.</div></li>
+      <li><div class="wf-icon wf-orange">&#9888;</div><div><strong>Panic Sell Monitor</strong> — Listings posted after March 2026 (US-Iran conflict) are flagged as potential panic sells with bonus scoring.</div></li>
+      <li><div class="wf-icon wf-blue">&#128269;</div><div><strong>Multi-Source</strong> — Data scraped from Property Finder & Bayut, covering 8 communities with 3BR+ villas and townhouses.</div></li>
+      <li><div class="wf-icon wf-red">&#128200;</div><div><strong>Price vs Launch</strong> — See exactly how much above original launch price each listing sits, so you know what's a real deal.</div></li>
+    </ul>
+    <div class="welcome-divider"></div>
+    <div class="welcome-note">Communities tracked: DAMAC Lagoons, DAMAC Islands, The Valley, DAMAC Hills 2, Villanova, DAMAC Hills, Dubai Hills Estate & Tilal Al Ghaf. Data updates every 12 hours.</div>
+    <button class="welcome-btn" onclick="closeWelcome()">Got it, show me the deals</button>
+    <div class="welcome-check"><input type="checkbox" id="dontShowAgain"><label for="dontShowAgain">Don't show this again</label></div>
+  </div>
+</div>
 
 <div class="header">
   <h1><span>Dubai</span> Distress Deal Tracker</h1>
@@ -400,6 +440,26 @@ function renderTable() {
     '</tr>';
   }).join('');
 }
+
+function closeWelcome() {
+  var popup = document.getElementById('welcomePopup');
+  popup.style.opacity = '0';
+  popup.style.transition = 'opacity 0.25s ease';
+  setTimeout(function() { popup.style.display = 'none'; }, 250);
+  if (document.getElementById('dontShowAgain').checked) {
+    try { localStorage.setItem('dubai-tracker-welcomed', 'yes'); } catch(e) {}
+  }
+}
+
+(function() {
+  try {
+    if (localStorage.getItem('dubai-tracker-welcomed') !== 'yes') {
+      document.getElementById('welcomePopup').style.display = 'flex';
+    }
+  } catch(e) {
+    document.getElementById('welcomePopup').style.display = 'flex';
+  }
+})();
 
 function toggleTheme() {
   var html = document.documentElement;

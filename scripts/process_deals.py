@@ -78,13 +78,15 @@ def calc_score(price: int, beds: int, community: str, title: str, listed_date: s
     return deal_score, pct, launch_price, signals, panic
 
 
-def load_previous() -> tuple[dict, list]:
+def load_previous() -> tuple[dict, list, list]:
     """Load existing dubai_deals.json and return:
     - prev_map: uid → listing (for price history / slash price tracking)
-    - pf_carry: PF listings NOT re-scraped this run (carried forward if PF not in raw_data)
+    - pf_carry: PF listings (carried forward if PF not in raw_data)
+    - bayut_carry: Bayut listings (carried forward if Bayut not in raw_data)
     """
-    prev_map    = {}
-    pf_carry    = []
+    prev_map      = {}
+    pf_carry      = []
+    bayut_carry   = []
     if os.path.exists(JSON_OUT):
         with open(JSON_OUT) as f:
             prev_data = json.load(f)
@@ -92,8 +94,9 @@ def load_previous() -> tuple[dict, list]:
             uid = pl.get("unique_id")
             if uid:
                 prev_map[uid] = pl
-        pf_carry = [l for l in prev_data["listings"] if l.get("unique_id", "").startswith("pf-")]
-    return prev_map, pf_carry
+        pf_carry    = [l for l in prev_data["listings"] if l.get("unique_id", "").startswith("pf-")]
+        bayut_carry = [l for l in prev_data["listings"] if "bayut" in l.get("unique_id", "")]
+    return prev_map, pf_carry, bayut_carry
 
 
 def load_raw() -> dict:
@@ -188,8 +191,8 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
 def main():
     print(f"=== Dubai Deal Processor — {TODAY} ===\n")
 
-    prev_map, pf_carry = load_previous()
-    print(f"Previous data: {len(prev_map)} listings loaded for price history")
+    prev_map, pf_carry, bayut_carry = load_previous()
+    print(f"Previous data: {len(prev_map)} listings loaded for price history (PF: {len(pf_carry)}, Bayut: {len(bayut_carry)})")
 
     raw_data    = load_raw()
     communities = raw_data.get("communities", {})
@@ -245,6 +248,31 @@ def main():
             new_listings.append(pf_copy)
     else:
         print(f"PF scraped this run — {sum(1 for l in new_listings if l.get('source')=='PropertyFinder')} fresh PF listings included")
+
+    # ── Carry forward Bayut listings ONLY if Bayut was NOT scraped this run ──
+    if "Bayut" not in scraped_sources:
+        print(f"Bayut not scraped this run — carrying forward {len(bayut_carry)} previous Bayut listings (re-scored)")
+        for bl in bayut_carry:
+            uid = bl.get("unique_id")
+            if not uid or uid in seen_uids:
+                continue
+            seen_uids.add(uid)
+            price     = bl.get("price", 0)
+            beds      = bl.get("beds", 3)
+            community = bl.get("community", "")
+            title     = bl.get("title", "")
+            listed    = bl.get("listed", "")
+            deal_score, pct_vs_launch, launch_price, signals, panic = calc_score(price, beds, community, title, listed)
+            bl_copy = dict(bl)
+            bl_copy["deal_score"]    = deal_score
+            bl_copy["pct_vs_launch"] = pct_vs_launch
+            bl_copy["panic_period"]  = panic
+            if not bl.get("signals"):
+                bl_copy["signals"] = ", ".join(signals)
+            bl_copy.setdefault("note", "")
+            new_listings.append(bl_copy)
+    else:
+        print(f"Bayut scraped this run — {sum(1 for l in new_listings if 'bayut' in l.get('unique_id',''))} fresh Bayut listings included")
 
     # ── Sort by score ─────────────────────────────────────────────────────────
     new_listings.sort(key=lambda x: x["deal_score"], reverse=True)

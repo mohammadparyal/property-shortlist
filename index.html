@@ -251,7 +251,7 @@
 </div>
 
 <div class="controls">
-  <button class="filter-btn active" onclick="filterCommunity('all')">All</button>
+  <button class="filter-btn active" data-community="all" onclick="filterCommunity('all')">All</button>
   <div id="communityFilters" style="display:inline-flex;gap:8px;flex-wrap:wrap"></div>
   <input type="text" class="search-input" placeholder="Search title, cluster..." oninput="searchListings(this.value)" id="searchBox">
   <select class="sort-select" onchange="sortListings(this.value)" id="sortSelect">
@@ -386,16 +386,16 @@ function renderFilters() {
   var container = document.getElementById('communityFilters');
   var communities = [...new Set(listings.map(l => l.community))];
   container.innerHTML = communities.map(function(c) {
-    return '<button class="filter-btn" onclick="filterCommunity(\'' + c.replace(/'/g, "\\'") + '\')">' + c + ' (' + listings.filter(function(l){return l.community===c}).length + ')</button>';
+    return '<button class="filter-btn" data-community="' + c + '" onclick="filterCommunity(\'' + c.replace(/'/g, "\\'") + '\')">' + c + ' (' + listings.filter(function(l){return l.community===c}).length + ')</button>';
   }).join('');
 }
 
 function filterCommunity(community) {
   currentFilter = community;
   document.querySelectorAll('.filter-btn').forEach(function(btn) {
-    btn.classList.toggle('active', btn.textContent.includes(community === 'all' ? 'All' : community));
+    var btnComm = btn.getAttribute('data-community');
+    btn.classList.toggle('active', btnComm === community);
   });
-  if (community === 'all') document.querySelector('.filter-btn').classList.add('active');
   renderTable();
 }
 

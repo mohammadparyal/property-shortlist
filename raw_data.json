@@ -307,7 +307,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2025-11-26",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13407599",
@@ -321,7 +321,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2025-11-15",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13373441",
@@ -335,7 +335,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2025-11-12",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14377787",
@@ -349,7 +349,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-02-23",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14433342",
@@ -358,7 +358,7 @@
         "beds": 4,
         "baths": 3,
         "sqft": 2277,
-        "cluster": "Nice",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
@@ -377,7 +377,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-02-07",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-11522145",
@@ -390,8 +390,8 @@
         "title": "Back to Back | Premium Unit | Elegant Design",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-27",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14135666",
@@ -404,8 +404,8 @@
         "title": "Motivated | Close to Central Hub | Great Location",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-28",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14157456",
@@ -418,8 +418,8 @@
         "title": "Single Row | Best Deal | Near Completion",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-31",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14026849",
@@ -432,8 +432,8 @@
         "title": "Genuine SALE | Good Location | Close to Central Hub",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-17",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14145589",
@@ -446,8 +446,8 @@
         "title": "Luxurious 4-Bedroom Spacious Townhouse in Morocco, DAMAC Lagoons",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-29",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-10425580",
@@ -456,12 +456,12 @@
         "beds": 3,
         "baths": 3,
         "sqft": 2074,
-        "cluster": "Portofino",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-02-26",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14083710",
@@ -475,7 +475,7 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-01-23",
-        "isOffPlan": false
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14138840",
@@ -488,8 +488,8 @@
         "title": "3BR | Handover Soon | Payment Plan | Back to Back",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-29",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14040809",
@@ -502,8 +502,8 @@
         "title": "Motivated Seller | Handover Q2 2026 | Payment Plan",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-19",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14186588",
@@ -516,8 +516,8 @@
         "title": "Spacious 3BR | Resort-Style Lagoon | Handover Soon",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-02-03",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13898827",
@@ -530,8 +530,8 @@
         "title": "Lagoons Specialist | Exclusive | Motivated Seller",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-05",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14417529",
@@ -544,8 +544,8 @@
         "title": "3BR Townhouse | Mortgage | Prime Location",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-02-27",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13437638",
@@ -558,8 +558,8 @@
         "title": "Luxurious 3BR Townhouse | Near Lagoon | Prime Spot",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2025-11-18",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13376992",
@@ -586,8 +586,8 @@
         "title": "Rare Unit | Mortgage Available | Near Lagoon",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-02-10",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14312598",
@@ -600,8 +600,8 @@
         "title": "3BR | PORTOFINO | MORTGAGE ACCEPTED",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-02-16",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-14092013",
@@ -614,8 +614,8 @@
         "title": "",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
-        "listed": "",
-        "isOffPlan": false
+        "listed": "2026-01-24",
+        "isOffPlan": true
       },
       {
         "uid": "bayut-13314048",
@@ -630,6 +630,76 @@
         "source": "Bayut",
         "listed": "",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-L-12551",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-costa-brava-at-damac-lagoons-costa-brava-2-15612121.html",
+        "price": 2550000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 24542,
+        "cluster": "Costa Brava 2",
+        "title": "Lagoon Specialist | Exclusive | Handover Soon",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2025-11-13",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14143287",
+        "href": "https://www.bayut.com/property/details-14143287.html",
+        "price": 2550000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 2274,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-01-29",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14289661",
+        "href": "https://www.bayut.com/property/details-14289661.html",
+        "price": 2550000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Portofino",
+        "title": "Luxury 3BR | Lagoon Views | Single Row",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-02-13",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14500843",
+        "href": "https://www.bayut.com/property/details-14500843.html",
+        "price": 2550000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Malta",
+        "title": "Malta 1/ Ready Soon / Close to Park",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-10",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14500968",
+        "href": "https://www.bayut.com/property/details-14500968.html",
+        "price": 2550000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Marbella",
+        "title": "Genuine SALE | Good Location | Close to Central Hub",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-10",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -966,7 +1036,7 @@
         "title": "Motivated Seller | 1% Payment Plan | Genuine Resale",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-20",
         "isOffPlan": true
       },
       {
@@ -976,7 +1046,7 @@
         "beds": 4,
         "baths": 4,
         "sqft": 2208,
-        "cluster": "Fiji 1",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Islands",
         "source": "Bayut",
@@ -994,7 +1064,7 @@
         "title": "Prime Location | High ROI | Spacious Layout",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-05",
         "isOffPlan": true
       },
       {
@@ -1008,7 +1078,7 @@
         "title": "1% Monthly | 48% in 2028 | Transfer At 1.25M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-03",
         "isOffPlan": true
       },
       {
@@ -1018,7 +1088,7 @@
         "beds": 4,
         "baths": 3,
         "sqft": 2208,
-        "cluster": "Bora Bora 3",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Islands",
         "source": "Bayut",
@@ -1036,7 +1106,7 @@
         "title": "1% Monthly | 48% in 2028 | Transfer At 1.05M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-03",
         "isOffPlan": true
       },
       {
@@ -1046,7 +1116,7 @@
         "beds": 4,
         "baths": 3,
         "sqft": 2208,
-        "cluster": "Maldives 4",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Islands",
         "source": "Bayut",
@@ -1064,7 +1134,7 @@
         "title": "Waterfront community | 1% Monthly | Transfer At 1.13M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-02",
         "isOffPlan": true
       },
       {
@@ -1078,7 +1148,7 @@
         "title": "1% Monthly | 48% in 2028 | Transfer At 1.09M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-03",
         "isOffPlan": true
       },
       {
@@ -1092,7 +1162,7 @@
         "title": "DISTRESS RESALE | 1% MONTHLY | PARK FACING",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-07",
         "isOffPlan": true
       },
       {
@@ -1106,7 +1176,7 @@
         "title": "Genuine Resale | Contemporary | Prime Location",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-04",
         "isOffPlan": true
       },
       {
@@ -1120,7 +1190,7 @@
         "title": "Motivated Seller | Internal Row unit | Multiple Options",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-06",
         "isOffPlan": true
       },
       {
@@ -1134,7 +1204,7 @@
         "title": "Genuine Resale | Handover Q4 2028 | Island Living",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-30",
         "isOffPlan": true
       },
       {
@@ -1148,7 +1218,7 @@
         "title": "Resale | Back To Back | Below Market Price",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-03",
         "isOffPlan": true
       },
       {
@@ -1162,7 +1232,7 @@
         "title": "Close to Pool Park |1% Monthly | Transfer At 1.17M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-02",
         "isOffPlan": true
       },
       {
@@ -1176,7 +1246,7 @@
         "title": "Close to Pool Park|48% in 2028 |Transfer At1.13 M",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-02",
         "isOffPlan": true
       },
       {
@@ -1190,7 +1260,7 @@
         "title": "Resort Style Living | Investor Deal | Prime Location",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -1204,13 +1274,13 @@
         "title": "Negotiable | Premium Unit | Prime Location",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-06",
         "isOffPlan": true
       },
       {
         "uid": "bayut-14176627",
         "href": "https://www.bayut.com/property/details-14176627.html",
-        "price": 2450000,
+        "price": 2395000,
         "beds": 4,
         "baths": 3,
         "sqft": 1550,
@@ -1218,7 +1288,7 @@
         "title": "Modern 4BR | Middle Unit | Family Community",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-02",
         "isOffPlan": true
       },
       {
@@ -1232,7 +1302,7 @@
         "title": "",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-06",
         "isOffPlan": true
       },
       {
@@ -1246,7 +1316,7 @@
         "title": "Chic Resort Style | Waterfront | Prime Investment",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-13",
         "isOffPlan": true
       },
       {
@@ -1260,7 +1330,7 @@
         "title": "CLASSIC VIEW | WORLD CLASS AMENITIES | PREMIUM FINISHES | NEGOTIABLE",
         "community": "DAMAC Islands",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-25",
         "isOffPlan": true
       }
     ],
@@ -1584,7 +1654,7 @@
         "title": "Exclusive // Single Row // Genuine Seller",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-21",
         "isOffPlan": true
       },
       {
@@ -1598,7 +1668,7 @@
         "title": "Single Row/Prime Location/Ready Soon",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": true
       },
       {
@@ -1612,7 +1682,7 @@
         "title": "Vastu | Back to Back | Handover Q1 2027",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-06",
         "isOffPlan": true
       },
       {
@@ -1626,7 +1696,7 @@
         "title": "Single Row | Close to Park | Prime Location",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-23",
         "isOffPlan": true
       },
       {
@@ -1640,7 +1710,7 @@
         "title": "SINGLE ROW | CLOSE TO AMENITIES | CLOSE TO ENTRANCE",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-17",
         "isOffPlan": true
       },
       {
@@ -1654,7 +1724,7 @@
         "title": "Near Handover | Close to Amenities | Single Row",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-27",
         "isOffPlan": true
       },
       {
@@ -1668,7 +1738,7 @@
         "title": "Single Row | Prime Location | Q1 2027 Handover",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-26",
         "isOffPlan": true
       },
       {
@@ -1682,7 +1752,7 @@
         "title": "Investor Deal | Best Price | Good Location",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-17",
         "isOffPlan": true
       },
       {
@@ -1696,7 +1766,7 @@
         "title": "Elegant 3 Bedroom Townhouse | Close to Pool | Single Row",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-14",
         "isOffPlan": true
       },
       {
@@ -1710,7 +1780,7 @@
         "title": "",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-28",
         "isOffPlan": true
       },
       {
@@ -1724,7 +1794,7 @@
         "title": "Price dropped | Investor Deal | Multiple options",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-16",
         "isOffPlan": true
       },
       {
@@ -1738,7 +1808,7 @@
         "title": "Single Row | Investor Deal | Multiple options",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-09",
         "isOffPlan": true
       },
       {
@@ -1752,7 +1822,7 @@
         "title": "Price dropped | Investor Deal | Multiple options",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-09",
         "isOffPlan": true
       },
       {
@@ -1766,7 +1836,7 @@
         "title": "Close to Amenities | Multiple Options | Well priced",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-20",
         "isOffPlan": false
       },
       {
@@ -1780,7 +1850,7 @@
         "title": "Rare Park Facing 3BR Townhouse | Spacious Layout",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-24",
         "isOffPlan": true
       },
       {
@@ -1808,7 +1878,7 @@
         "title": "Big Layout | Close to Amenities | Community Expert",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-10",
         "isOffPlan": true
       },
       {
@@ -1822,7 +1892,7 @@
         "title": "3 Bedroom Townhouse | Elora Valley",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-28",
         "isOffPlan": true
       },
       {
@@ -1836,7 +1906,7 @@
         "title": "Cash Buyer Eden-3b | Single Row | Brand New",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-17",
         "isOffPlan": false
       },
       {
@@ -1845,12 +1915,12 @@
         "price": 2699999,
         "beds": 3,
         "baths": 4,
-        "sqft": 2041,
+        "sqft": 2040,
         "cluster": "Nima",
         "title": "Single Row | Near to Amenities | Negotiable",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-28",
         "isOffPlan": true
       },
       {
@@ -1864,7 +1934,7 @@
         "title": "",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-29",
         "isOffPlan": false
       },
       {
@@ -1878,7 +1948,7 @@
         "title": "3 BR | Prime Location | Best Price",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-25",
         "isOffPlan": true
       },
       {
@@ -1892,7 +1962,7 @@
         "title": "Cash Deal | Center Kitchen | Close To Amenities",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-07",
         "isOffPlan": false
       },
       {
@@ -1906,7 +1976,35 @@
         "title": "",
         "community": "The Valley",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-23",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-L-15614",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-the-valley-lillia-16285172.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 22949,
+        "cluster": "Lillia",
+        "title": "Park Backing | Emaar Community | Payment Plan",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-02-10",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14491925",
+        "href": "https://www.bayut.com/property/details-14491925.html",
+        "price": 2630000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1482,
+        "cluster": "Elora",
+        "title": "Good Location | Large Layout | Ready Soon",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-03-09",
         "isOffPlan": true
       }
     ],
@@ -2054,7 +2152,7 @@
       {
         "uid": "pf-PF-Mar-Nine-Twenty-Six-VS-160192",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-aquilegia-just-cavalli-villas-2Q1aedvEVLk.html",
-        "price": 1530000,
+        "price": 1600000,
         "beds": 3,
         "baths": 3,
         "sqft": 13003,
@@ -2468,7 +2566,7 @@
         "title": "IDEAL DEAL- 4 BED-CLOSED TO ENTRANCE- VACANT SOON",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-13",
         "isOffPlan": false
       },
       {
@@ -2482,7 +2580,7 @@
         "title": "4 BR | LOWEST IN MARKET | NEAR AMENETIES",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-12",
         "isOffPlan": false
       },
       {
@@ -2496,7 +2594,7 @@
         "title": "GENUINE RESALE | Rented | 3BED | B2B | SPACIOUS LAYOUT RRM",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2024-10-22",
         "isOffPlan": false
       },
       {
@@ -2510,7 +2608,7 @@
         "title": "GENUINE RESALE | Rented | 3B | SPACIOUS LAYOUT RRM | UNFURNISHED | Back to Back",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2024-09-09",
         "isOffPlan": false
       },
       {
@@ -2524,7 +2622,7 @@
         "title": "3 BEDROOM TOWNHOUSE | TENANTED | INVESTOR DEAL| CASH BUYER ONLY |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-18",
         "isOffPlan": false
       },
       {
@@ -2538,7 +2636,7 @@
         "title": "GENUINE RESALE | Rented | 3B | SPACIOUS LAYOUT RRM | UNFURNISHED | Back to Back",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2024-09-09",
         "isOffPlan": false
       },
       {
@@ -2552,7 +2650,7 @@
         "title": "Modern Townhouse | Investor Deal | No Agents",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -2566,7 +2664,7 @@
         "title": "3BR | 3 Bath | Rented | Close to Exit | NO AGENTS!",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-20",
         "isOffPlan": false
       },
       {
@@ -2576,7 +2674,7 @@
         "beds": 3,
         "baths": 3,
         "sqft": 1703,
-        "cluster": "Basswood",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
@@ -2594,7 +2692,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-02-07",
         "isOffPlan": false
       },
       {
@@ -2604,7 +2702,7 @@
         "beds": 3,
         "baths": 3,
         "sqft": 1671,
-        "cluster": "Vardon",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
@@ -2622,7 +2720,7 @@
         "title": "Vardon | DAMAC Hills 2 | Dubai",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-12",
         "isOffPlan": false
       },
       {
@@ -2636,7 +2734,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-23",
         "isOffPlan": false
       },
       {
@@ -2650,7 +2748,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-12",
         "isOffPlan": false
       },
       {
@@ -2664,7 +2762,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-12",
         "isOffPlan": false
       },
       {
@@ -2678,7 +2776,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-13",
         "isOffPlan": false
       },
       {
@@ -2692,7 +2790,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-10",
         "isOffPlan": false
       },
       {
@@ -2706,7 +2804,7 @@
         "title": "Luxury Spacious 3 Bedrooms For Sale | Ready To Move | Middle Unit",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-11-18",
         "isOffPlan": false
       },
       {
@@ -2720,7 +2818,7 @@
         "title": "Unfurnished | Family-Friendly Community | Exceptional Amenities",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-10-10",
         "isOffPlan": false
       },
       {
@@ -2734,7 +2832,7 @@
         "title": "Gated Community | Spacious 3-Bedroom Townhouse in Vardon Cluster, DAMAC Hills 2 \u2013 Unfurnished | Family-Friendly Community | Tenanted |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-08-26",
         "isOffPlan": false
       },
       {
@@ -2748,7 +2846,7 @@
         "title": "INVESTOR DEAL | READY COMMUNITY | 3 BEDROOM | Back to Back | Tenanted |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-16",
         "isOffPlan": false
       },
       {
@@ -2762,7 +2860,7 @@
         "title": "RENTED 3 BEDROOM | BACK TO BACK | INVESTOR DEAL | READY COMMUNITY |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-16",
         "isOffPlan": false
       },
       {
@@ -2776,7 +2874,7 @@
         "title": "Unfurnished | Best Offer | Investment Deal",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-24",
         "isOffPlan": false
       },
       {
@@ -2790,7 +2888,7 @@
         "title": "Motivated Seller | Resale | Negotiable",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-20",
         "isOffPlan": true
       },
       {
@@ -2818,7 +2916,7 @@
         "title": "Brand New | Single Row | Vaastu Compliant",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-04",
         "isOffPlan": false
       },
       {
@@ -2846,7 +2944,7 @@
         "title": "New Build | Roof Terrace | Study Room",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-26",
         "isOffPlan": true
       },
       {
@@ -2860,7 +2958,7 @@
         "title": "BRAND NEW | 4 BEDS+STUDY | G+2",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-14",
         "isOffPlan": false
       },
       {
@@ -2874,7 +2972,7 @@
         "title": "60-40 PP | Park and Pool View | Negotiable",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-11",
         "isOffPlan": true
       },
       {
@@ -2888,7 +2986,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -2902,7 +3000,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-08",
         "isOffPlan": false
       },
       {
@@ -2916,7 +3014,7 @@
         "title": "3BR Townhouse | Middle Unit | Back-to-Back",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-24",
         "isOffPlan": false
       },
       {
@@ -2930,7 +3028,7 @@
         "title": "Single Row I Tenanted I High ROI I Spacious",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": false
       },
       {
@@ -2940,7 +3038,7 @@
         "beds": 3,
         "baths": 3,
         "sqft": 2190,
-        "cluster": "Aquilegia",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
@@ -2958,7 +3056,7 @@
         "title": "Corner Unit | Single Row | Largest Plot",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-04",
         "isOffPlan": false
       },
       {
@@ -2982,7 +3080,7 @@
         "beds": 3,
         "baths": 5,
         "sqft": 2438,
-        "cluster": "Centaury",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
@@ -2996,7 +3094,7 @@
         "beds": 3,
         "baths": 5,
         "sqft": 2402,
-        "cluster": "Centaury",
+        "cluster": "",
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
@@ -3028,7 +3126,7 @@
         "title": "Vastu Complaint | Brand New | Ready To Move",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": false
       },
       {
@@ -3042,7 +3140,7 @@
         "title": "Prime Location | Luxury Townhouse | Exclusive unit",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": true
       },
       {
@@ -3056,7 +3154,7 @@
         "title": "Perfectly Crafted Townhouses | Prime Location",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-21",
         "isOffPlan": true
       },
       {
@@ -3070,7 +3168,7 @@
         "title": "Luxury Living | Premium View | Prime Location",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-21",
         "isOffPlan": true
       },
       {
@@ -3084,7 +3182,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-02",
         "isOffPlan": false
       },
       {
@@ -3098,7 +3196,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-03",
         "isOffPlan": false
       },
       {
@@ -3112,7 +3210,7 @@
         "title": "3BR+Maid | R2M | Closed Kitchen | Vacant Soon",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-20",
         "isOffPlan": false
       },
       {
@@ -3126,8 +3224,64 @@
         "title": "3Bed+Miad | R2EE | Corner End | Vacant Soon",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-20",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-Basheer-080",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-amargo-2PhbEiXk2Bk.html",
+        "price": 1750000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 13294,
+        "cluster": "Amargo 2",
+        "title": "Middle Unit | Brand New | Spacious Layout",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-25",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-1772707686006",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-vardon-aknan-villas-2PvAWXlqBF2.html",
+        "price": 1350000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 17965,
+        "cluster": "Aknan Villas",
+        "title": "GOOD DEAL | PRIME LOCATION |MOTIVATED SELLER",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-05",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14490801",
+        "href": "https://www.bayut.com/property/details-14490801.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1208,
+        "cluster": "Camelia",
+        "title": "Prime Location | Luxury Townhouse | Exclusive unitFajar Realty presents Camelia Villas at Damac Hills 2 brings a new joy brought by Damac Properties o",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-09",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14489479",
+        "href": "https://www.bayut.com/property/details-14489479.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1215,
+        "cluster": "Violet",
+        "title": "Q2 2026 | Motivated Seller | Type 4M",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-09",
+        "isOffPlan": true
       }
     ],
     "Villanova": [
@@ -3422,7 +3576,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-11",
         "isOffPlan": false
       },
       {
@@ -3436,7 +3590,7 @@
         "title": "Elegant 3-Bedroom Living in Amaranta 2",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-06",
         "isOffPlan": false
       },
       {
@@ -3450,7 +3604,7 @@
         "title": "Spacious 3-Bedroom Home for Sale \u2013 Amaranta 3",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-06",
         "isOffPlan": false
       },
       {
@@ -3464,7 +3618,7 @@
         "title": "3-Bedroom Townhouse for Sale | Amaranta B, Villanova",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-09",
         "isOffPlan": false
       },
       {
@@ -3478,7 +3632,7 @@
         "title": "Vacant on Transfer | Close to Pool | Unfurnished",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-26",
         "isOffPlan": false
       },
       {
@@ -3492,7 +3646,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-26",
         "isOffPlan": false
       },
       {
@@ -3520,7 +3674,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-04",
         "isOffPlan": false
       },
       {
@@ -3534,7 +3688,7 @@
         "title": "Amaranta 3, Amaranta, Villanova, Dubailand, Dubai",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-06",
         "isOffPlan": false
       }
     ],
@@ -3690,7 +3844,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-15",
         "isOffPlan": true
       },
       {
@@ -3704,7 +3858,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-03",
         "isOffPlan": true
       },
       {
@@ -3718,7 +3872,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-27",
         "isOffPlan": true
       },
       {
@@ -3732,7 +3886,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-29",
         "isOffPlan": true
       },
       {
@@ -3746,7 +3900,7 @@
         "title": "Single Row | Gated Golf Community | Private Garden",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -3760,7 +3914,7 @@
         "title": "High-ROI Golf Community Living | Pay with Ease",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -3774,7 +3928,7 @@
         "title": "Single Row Vastu | Ivory | Buy for 1.15 M",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-13",
         "isOffPlan": true
       },
       {
@@ -3788,7 +3942,7 @@
         "title": "Beside the Main Entrance | Handover Soon",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-11-20",
         "isOffPlan": true
       }
     ],
@@ -3818,7 +3972,7 @@
         "title": "Exclusive Townhouse | Access to the Park",
         "community": "Dubai Hills Estate",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-23",
         "isOffPlan": true
       },
       {
@@ -3832,7 +3986,7 @@
         "title": "",
         "community": "Dubai Hills Estate",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-23",
         "isOffPlan": false
       },
       {
@@ -3846,7 +4000,7 @@
         "title": "Direct Park Access | Ahead of Schedule | Luxury Unit",
         "community": "Dubai Hills Estate",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-27",
         "isOffPlan": true
       },
       {
@@ -3860,7 +4014,7 @@
         "title": "Exclusive | Park View | Prime Location",
         "community": "Dubai Hills Estate",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-23",
         "isOffPlan": true
       },
       {
@@ -3876,6 +4030,20 @@
         "source": "Bayut",
         "listed": "",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14223711",
+        "href": "https://www.bayut.com/property/details-14223711.html",
+        "price": 6499999,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2395,
+        "cluster": "Tower B",
+        "title": "Prime Investment Deal | Direct Access To The Dubai Hills Park | Multiple Options Available",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-02-06",
+        "isOffPlan": true
       }
     ],
     "Tilal Al Ghaf": [
@@ -3890,7 +4058,7 @@
         "title": "",
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": false
       },
       {
@@ -3904,7 +4072,7 @@
         "title": "Exclusive | Genuine | Internal Location",
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-20",
         "isOffPlan": false
       },
       {
@@ -3948,9 +4116,51 @@
         "source": "Bayut",
         "listed": "",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14048097",
+        "href": "https://www.bayut.com/property/details-14048097.html",
+        "price": 4500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2142,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-01-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-13972025",
+        "href": "https://www.bayut.com/property/details-13972025.html",
+        "price": 4500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2188,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-01-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-13925513",
+        "href": "https://www.bayut.com/property/details-13925513.html",
+        "price": 4500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2172,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-01-07",
+        "isOffPlan": false
       }
     ]
   },
-  "total_listings": 281,
-  "last_updated": "2026-03-09"
+  "total_listings": 296,
+  "last_updated": "2026-03-10"
 }

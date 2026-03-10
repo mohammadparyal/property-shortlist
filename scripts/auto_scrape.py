@@ -273,55 +273,44 @@ BAYUT_EXTRACT_JS = """
     const results = [];
 
     for (const art of articles) {
-        const link = art.querySelector('a[href*="/property/details"]');
+        const link = art.querySelector('a[href*="details-"]');
         if (!link) continue;
 
-        const href = link.getAttribute('href');
+        const href = link.href || ('https://www.bayut.com' + link.getAttribute('href'));
         const idMatch = href.match(/details-(\\d+)/);
         if (!idMatch) continue;
 
         const uid = 'bayut-' + idMatch[1];
-        const text = art.innerText;
-        const lines = text.split('\\n').map(l => l.trim()).filter(Boolean);
+        const lines = art.innerText.split('\\n').map(l => l.trim()).filter(l => l && l !== '|');
 
-        // Price
-        let price = 0;
-        for (const line of lines) {
-            const m = line.replace(/,/g, '').match(/AED\\s*(\\d+)/i);
-            if (m) { price = parseInt(m[1]); break; }
-        }
+        // Price: "AED" is on its own line, value is on the next line
+        const aedIdx = lines.indexOf('AED');
+        const price = aedIdx >= 0 ? parseInt((lines[aedIdx + 1] || '').replace(/\\D/g, '')) || 0 : 0;
         if (price <= 0) continue;
 
-        // Beds, baths, sqft from icon row
-        let beds = 0, baths = 0, sqft = 0;
-        for (const line of lines) {
-            const bm = line.match(/^(\\d+)$/);
-            if (bm && beds === 0) { beds = parseInt(bm[1]); continue; }
-            if (bm && baths === 0 && beds > 0) { baths = parseInt(bm[1]); continue; }
-            const sm = line.replace(/,/g, '').match(/^(\\d+)\\s*sqft$/i);
-            if (sm) { sqft = parseInt(sm[1]); }
-        }
+        // Beds/baths: line after "Townhouse" or "Villa"
+        const thIdx = lines.findIndex(l => l === 'Townhouse' || l === 'Villa');
+        const beds  = thIdx >= 0 ? parseInt(lines[thIdx + 1]) || 0 : 0;
+        const baths = thIdx >= 0 ? parseInt(lines[thIdx + 2]) || 0 : 0;
         if (beds < 3) continue;
 
-        // Title
-        const titleEl = art.querySelector('h2, [class*="title"]');
-        const title = titleEl ? titleEl.textContent.trim() : lines.slice(0, 2).join(' ');
+        // Sqft: line ending in "sqft"
+        const sqftLine = lines.find(l => l.endsWith('sqft'));
+        const sqft = sqftLine ? parseInt(sqftLine.replace(/\\D/g, '')) : 0;
 
-        // Location / cluster
-        let cluster = '';
-        for (const line of lines) {
-            if (line.includes(',') && (line.includes('Dubai') || line.includes('DAMAC') || line.includes('Valley'))) {
-                const parts = line.split(',').map(p => p.trim());
-                cluster = parts[0] || '';
-                break;
-            }
-        }
+        // Title and cluster: relative to "Area:" marker
+        const areaIdx = lines.indexOf('Area:');
+        const title   = areaIdx >= 0 ? (lines[areaIdx + 2] || '') : '';
+        const locLine = areaIdx >= 0 ? (lines[areaIdx + 3] || '') : '';
+        const cluster = locLine.split(',')[0].trim();
 
         // Off-plan
-        const isOffPlan = text.toLowerCase().includes('off plan') || text.toLowerCase().includes('off-plan');
+        const isOffPlan = lines.some(l => l === 'Off-Plan') ||
+                          art.innerText.toLowerCase().includes('off plan') ||
+                          art.innerText.toLowerCase().includes('off-plan');
 
         results.push({
-            uid, href: 'https://www.bayut.com' + href,
+            uid, href,
             price, beds, baths, sqft, cluster, title,
             community: '__COMMUNITY__',
             source: 'Bayut', listed: '', isOffPlan
@@ -441,34 +430,65 @@ async (urls) => {
 }
 """
 
-async def enrich_bayut_dates(page, listings):
-    """Fetch detail pages to get datePosted for Bayut listings."""
-    urls = [l["href"] for l in listings if l.get("source") == "Bayut" and l.get("href") and not l.get("listed")]
-    if not urls:
+async def enrich_bayut_dates(context, listings):
+    """Fetch detail pages to get datePosted for Bayut listings.
+
+    Uses a dedicated page so navigations/errors don't destroy the main scrape context.
+    Automatically re-navigates back to bayut.com if the context gets wiped between batches.
+    """
+    to_enrich = [l for l in listings if l.get("source") == "Bayut" and l.get("href") and not l.get("listed")]
+    if not to_enrich:
         return
 
-    log(f"  Enriching dates for {len(urls)} Bayut listings...")
+    log(f"  Enriching dates for {len(to_enrich)} Bayut listings...")
 
-    # Process in batches of 10
+    # Dedicated page — isolated from the main scraping page
+    date_page = await context.new_page()
+    try:
+        await date_page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=20000)
+        await asyncio.sleep(random.uniform(1, 2))
+    except Exception as e:
+        log(f"  Date page warmup failed (non-fatal): {e}")
+
     all_dates = {}
-    for i in range(0, len(urls), 10):
-        batch = urls[i:i+10]
+    batch_size = 10
+    urls = [l["href"] for l in to_enrich]
+
+    for i in range(0, len(urls), batch_size):
+        batch = urls[i:i+batch_size]
+        batch_num = i // batch_size + 1
         try:
-            dates = await page.evaluate(BAYUT_DATE_JS, batch)
+            # Re-anchor to bayut.com if we drifted (e.g. after a redirect)
+            if "bayut.com" not in date_page.url:
+                await date_page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=15000)
+                await asyncio.sleep(1)
+            dates = await date_page.evaluate(BAYUT_DATE_JS, batch)
             all_dates.update(dates)
-            log(f"    Batch {i//10+1}: got {len(dates)} dates")
+            log(f"    Batch {batch_num}: got {len(dates)} dates")
             await asyncio.sleep(random.uniform(1, 2))
         except Exception as e:
-            log(f"    Batch {i//10+1} error: {e}")
+            log(f"    Batch {batch_num} error: {e} — re-anchoring...")
+            try:
+                await date_page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=15000)
+                await asyncio.sleep(2)
+                # Retry the batch once after re-anchoring
+                dates = await date_page.evaluate(BAYUT_DATE_JS, batch)
+                all_dates.update(dates)
+                log(f"    Batch {batch_num} retry: got {len(dates)} dates")
+                await asyncio.sleep(random.uniform(1, 2))
+            except Exception as e2:
+                log(f"    Batch {batch_num} retry failed: {e2}")
 
-    # Apply dates back
+    await date_page.close()
+
+    # Apply dates back to the original listing dicts
     applied = 0
-    for l in listings:
-        if l.get("href") in all_dates and not l.get("listed"):
+    for l in to_enrich:
+        if l.get("href") in all_dates:
             l["listed"] = all_dates[l["href"]]
             applied += 1
 
-    log(f"  ✓ Applied dates to {applied}/{len(urls)} Bayut listings")
+    log(f"  ✓ Applied dates to {applied}/{len(to_enrich)} Bayut listings")
 
 
 # ─── MAIN ────────────────────────────────────────────────────────────────────
@@ -580,7 +600,7 @@ async def main():
 
             # Enrich Bayut listings with dates from detail pages
             if all_bayut:
-                await enrich_bayut_dates(page, all_bayut)
+                await enrich_bayut_dates(context, all_bayut)
                 # Re-save with dates
                 for community in set(l["community"] for l in all_bayut):
                     comm_listings = [l for l in all_bayut if l["community"] == community]

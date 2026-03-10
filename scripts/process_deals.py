@@ -140,6 +140,7 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
     history   = list(prev.get("price_history") or [])
     slash     = prev.get("slash_price") or old_price or price
     price_tag = None
+    fresh_drop = False
 
     if old_price and old_price != price:
         change = "drop" if price < old_price else "increase"
@@ -147,6 +148,7 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
         price_tag = change
         if change == "drop":
             price_drops.append(uid)
+            fresh_drop = True
         else:
             price_increases.append(uid)
     else:
@@ -160,6 +162,19 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
     status  = "off_plan" if is_off else "ready"
     deal_score, pct_vs_launch, launch_price, signals, panic = calc_score(price, beds, community, title, listed)
     psf     = round(price / sqft) if sqft > 0 else 0
+
+    # ── Price drop bonus ──────────────────────────────────────────────────────
+    # Fresh drop detected this run → big boost; prior drop in history → smaller boost.
+    # Also auto-inject "Price Dropped" signal so it shows in the UI regardless of title wording.
+    has_history_drop = any(h.get("change") == "drop" for h in history)
+    if fresh_drop:
+        deal_score += 10
+        if "Price Dropped" not in signals:
+            signals = ["Price Dropped"] + signals
+    elif has_history_drop:
+        deal_score += 5
+        if "Price Dropped" not in signals:
+            signals = ["Price Dropped"] + signals
 
     return {
         "community":     community,

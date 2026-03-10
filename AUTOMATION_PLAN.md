@@ -3,7 +3,7 @@
 ## The Problem With Current Manual Process
 
 Every scan requires:
-1. Manually navigating to 10+ URLs in Chrome (8 communities × 2 sources, plus DAMAC Hills 2 dual range)
+1. Manually navigating to 10+ URLs in Chrome (9 communities × 2 sources, plus DAMAC Hills 2 dual range)
 2. Running JavaScript in the browser console via the MCP extension
 3. Reading output in 900-char chunks (because MCP truncates)
 4. Assembling JSON in Python manually
@@ -148,11 +148,12 @@ PF is the easier target. The data lives in `<script id="__NEXT_DATA__">` which i
 
 **Alternative for PF only:** Once you have valid Cloudflare cookies from one browser session, you can sometimes make plain `httpx` requests with those cookies for subsequent calls. But Playwright is simpler and more reliable.
 
-**All 8 PF URLs (ready to use):**
+**All 9 PF URLs (ready to use):**
 ```python
 PF_COMMUNITIES = [
     ("DAMAC Lagoons",       11559, 3, 2_000_000, 3_000_000),
-    ("DAMAC Islands",       14611, 4, 2_000_000, 4_000_000),  # 4BR, wider range
+    ("DAMAC Islands",       14611, 4, 2_000_000, 3_000_000),
+    ("DAMAC Islands 2",     17773, 4, 2_000_000, 3_000_000),
     ("The Valley",          10757, 3, 2_000_000, 3_000_000),
     ("DAMAC Hills 2",       125,   3, 1_000_000, 2_000_000),  # sub-2M range
     ("DAMAC Hills 2",       125,   3, 2_000_000, 3_000_000),  # 2M-3M range (dedupe after)
@@ -178,11 +179,12 @@ Bayut needs real browser rendering. Approach:
 5. Extract via `page.evaluate()` running the existing bayut_extractor.js logic
 6. No chunks needed — `page.evaluate()` returns the full result directly (not limited by MCP truncation)
 
-**All 8 Bayut URLs (ready to use):**
+**All 9 Bayut URLs (ready to use):**
 ```python
 BAYUT_COMMUNITIES = [
     ("DAMAC Lagoons",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("DAMAC Islands",      "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
+    ("DAMAC Islands 2",    "https://www.bayut.com/for-sale/townhouses/dubai/damac-islands-2/?sort=price_asc&beds_min=4&price_min=2000000&price_max=3000000"),
     ("The Valley",         "https://www.bayut.com/for-sale/townhouses/dubai/the-valley-by-emaar/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("DAMAC Hills 2",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-hills-2-akoya-by-damac/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000"),
     ("DAMAC Hills 2",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-hills-2-akoya-by-damac/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),

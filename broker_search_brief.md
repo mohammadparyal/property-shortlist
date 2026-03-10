@@ -22,6 +22,7 @@
 1. **Tilal Al Ghaf** (Majid Al Futtaim) — Elan, Aura clusters
 2. **DAMAC Lagoons** — Morocco, Nice, Santorini, Costa Brava
 3. **DAMAC Islands** — Maldives, Seychelles, off-plan assignments
+4. **DAMAC Islands 2** — Bahamas, Bermuda, Barbados, Maui (handover 2029)
 
 ### High Priority (10-20km from Miracle Garden)
 4. Dubai Hills Estate — Maple, Sidra, Club Villas

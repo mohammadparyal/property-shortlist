@@ -1,6 +1,6 @@
 ---
 name: dubai-deal-scanner
-description: Scan Bayut & Property Finder for distress property deals across 8 Dubai communities, with price history tracking, detail page links, and panic sell scoring.
+description: Scan Bayut & Property Finder for distress property deals across 9 Dubai communities, with price history tracking, detail page links, and panic sell scoring.
 ---
 
 ## Dubai Deal Scanner — With Price History Tracking
@@ -100,7 +100,8 @@ https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D=3&pf=2000000&pt=300
 | Community | Location ID | Special Notes |
 |-----------|------------|---------------|
 | DAMAC Lagoons | 11559 | Standard |
-| DAMAC Islands | 14611 | **4BR ONLY** — use `bdr%5B%5D=4`, range `pf=2000000&pt=4000000` |
+| DAMAC Islands | 14611 | **4BR ONLY** — use `bdr%5B%5D=4`, range `pf=2000000&pt=3000000` |
+| DAMAC Islands 2 | 17773 | **4BR ONLY** — use `bdr%5B%5D=4`, range `pf=2000000&pt=3000000` |
 | The Valley | 10757 | Standard |
 | DAMAC Hills 2 | 125 | **TWO RANGES** — scrape `pf=1000000&pt=2000000` AND `pf=2000000&pt=3000000`, dedupe by uid |
 | Villanova | 8780 | Standard |
@@ -111,7 +112,8 @@ https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D=3&pf=2000000&pt=300
 **Full working URLs:**
 ```
 DAMAC Lagoons:      https://www.propertyfinder.ae/en/search?l=11559&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-DAMAC Islands:      https://www.propertyfinder.ae/en/search?l=14611&c=1&bdr%5B%5D=4&pf=2000000&pt=4000000&ob=pr
+DAMAC Islands:      https://www.propertyfinder.ae/en/search?l=14611&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
+DAMAC Islands 2:    https://www.propertyfinder.ae/en/search?l=17773&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
 The Valley:         https://www.propertyfinder.ae/en/search?l=10757&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
 DAMAC Hills 2 (A):  https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=1000000&pt=2000000&ob=pr
 DAMAC Hills 2 (B):  https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
@@ -195,6 +197,7 @@ python3 scripts/combine_append.py < /tmp/community_raw.json
 DAMAC Lagoons:      https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000
 DAMAC Islands:      https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000
                     ⚠️ MUST include dubailand/ — using damac-islands/ alone gives 0 results
+DAMAC Islands 2:    https://www.bayut.com/for-sale/townhouses/dubai/damac-islands-2/?sort=price_asc&beds_min=4&price_min=2000000&price_max=3000000
 The Valley:         https://www.bayut.com/for-sale/townhouses/dubai/the-valley-by-emaar/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000
                     ⚠️ MUST use the-valley-by-emaar not the-valley
 DAMAC Hills 2:      https://www.bayut.com/for-sale/townhouses/dubai/damac-hills-2-akoya-by-damac/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000
@@ -300,6 +303,7 @@ else:
 |-----------|-----|-----|
 | DAMAC Lagoons | 1,400,000 | 1,700,000 |
 | DAMAC Islands | — | 2,250,000 |
+| DAMAC Islands 2 | — | 2,750,000 |
 | The Valley | 1,530,000 | 2,100,000 |
 | DAMAC Hills 2 | 800,000 | 1,200,000 |
 | Villanova | 1,445,000 | 2,000,000 |
@@ -401,13 +405,13 @@ with open(HTML_OUT, "w") as f:
 ```
 1. Reset (optional):     python3 scripts/append_community.py --reset
 
-2. Bayut scraping (8 communities):
+2. Bayut scraping (9 communities):
    - Navigate to each Bayut URL
    - Run bayut_extractor.js
    - Read window._raw in slices of 12
    - Save: python3 scripts/append_community.py '[{...}]'
 
-3. PF scraping (8 communities):
+3. PF scraping (9 communities):
    - Navigate to each PF URL (verify c=1, ob=pr in URL)
    - Run pf_extractor.js (from scripts/pf_extractor.js)
    - Read window._numChunks → read that many .slice(n*900,(n+1)*900) chunks
@@ -415,7 +419,7 @@ with open(HTML_OUT, "w") as f:
    - json.loads() to verify, save to /tmp/community_raw.json
    - Save: python3 scripts/combine_append.py < /tmp/community_raw.json
 
-4. Special: DAMAC Islands → use 4BR filter + wider price range
+4. Special: DAMAC Islands & DAMAC Islands 2 → use 4BR filter
 5. Special: DAMAC Hills 2 → scrape two price ranges, dedupe, then combine_append
 6. Skip PF for Dubai Hills Estate / Tilal Al Ghaf (no results in 2M-3M range)
 

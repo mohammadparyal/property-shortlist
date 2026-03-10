@@ -26,6 +26,7 @@ TODAY    = datetime.now().strftime("%Y-%m-%d")
 LAUNCH = {
     "DAMAC Lagoons":      {3: 1_400_000, 4: 1_700_000},
     "DAMAC Islands":      {3: 1_800_000, 4: 2_250_000},
+    "DAMAC Islands 2":    {4: 2_750_000, 5: 3_350_000},
     "The Valley":         {3: 1_530_000, 4: 2_100_000},
     "DAMAC Hills 2":      {3:   800_000, 4: 1_200_000},
     "Villanova":          {3: 1_445_000, 4: 2_000_000},

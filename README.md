@@ -14,7 +14,7 @@ This tracker scrapes listings from **Property Finder** and **Bayut** every 12 ho
 - **Panic Sell Monitor** — Listings posted after March 1, 2026 are flagged with a PANIC tag and receive bonus scoring, as sellers may be exiting positions at a discount.
 - **Multi-Source Data** — Aggregates from both Property Finder and Bayut to ensure comprehensive coverage.
 - **Direct Listing Links** — Click through to the original listing on the source platform.
-- **Excel / Google Sheets Export** — Download the data as .xlsx or open directly in Google Sheets from the dashboard.
+- **Google Sheets Export** — Open the data directly in Google Sheets from the dashboard.
 - **Light / Dark Theme** — Toggle between themes with the button in the top-right corner.
 
 ## Communities Tracked
@@ -23,6 +23,7 @@ This tracker scrapes listings from **Property Finder** and **Bayut** every 12 ho
 |-----------|------|----------------------|----------------------|
 | DAMAC Lagoons | Off-plan | AED 1,400,000 | AED 1,700,000 |
 | DAMAC Islands | Off-plan | — | AED 2,250,000 |
+| DAMAC Islands 2 | Off-plan (2029) | — | AED 2,750,000 |
 | The Valley | Off-plan / Ready | AED 1,530,000 | AED 2,100,000 |
 | DAMAC Hills 2 | Ready / Off-plan | AED 800,000 | AED 1,200,000 |
 | Villanova | Ready | AED 1,445,000 | AED 2,000,000 |

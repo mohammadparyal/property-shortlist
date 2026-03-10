@@ -48,6 +48,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 PF_COMMUNITIES = [
     ("DAMAC Lagoons",       11559, 3, 2_000_000, 3_000_000),
     ("DAMAC Islands",       14611, 4, 2_000_000, 3_000_000),
+    ("DAMAC Islands 2",     17773, 4, 2_000_000, 3_000_000),
     ("The Valley",          10757, 3, 2_000_000, 3_000_000),
     ("DAMAC Hills 2",       125,   3, 1_000_000, 2_000_000),
     ("DAMAC Hills 2",       125,   3, 2_000_000, 3_000_000),
@@ -61,6 +62,7 @@ PF_COMMUNITIES = [
 BAYUT_COMMUNITIES = [
     ("DAMAC Lagoons",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("DAMAC Islands",      "https://www.bayut.com/for-sale/townhouses/dubai/dubailand/damac-islands/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
+    ("DAMAC Islands 2",    "https://www.bayut.com/for-sale/townhouses/dubai/damac-islands-2/?sort=price_asc&beds_min=4&price_min=2000000&price_max=3000000"),
     ("The Valley",         "https://www.bayut.com/for-sale/townhouses/dubai/the-valley-by-emaar/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("DAMAC Hills 2",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-hills-2-akoya-by-damac/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000"),
     ("DAMAC Hills 2",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-hills-2-akoya-by-damac/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
@@ -231,7 +233,10 @@ async def warmup_visit(page, domain):
 
 async def scrape_pf(page, community, location_id, beds, price_min, price_max):
     """Scrape Property Finder for one community/price range."""
-    url = f"https://www.propertyfinder.ae/en/search?l={location_id}&c=1&bdr%5B%5D={beds}&pf={price_min}&pt={price_max}&ob=pr"
+    if isinstance(location_id, str) and location_id.startswith("http"):
+        url = location_id  # Direct URL override (for communities without numeric ID)
+    else:
+        url = f"https://www.propertyfinder.ae/en/search?l={location_id}&c=1&bdr%5B%5D={beds}&pf={price_min}&pt={price_max}&ob=pr"
     log(f"  PF: {community}")
 
     try:

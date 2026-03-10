@@ -50,6 +50,12 @@ SIGNAL_PATTERNS = {
 }
 
 PANIC_START = datetime(2026, 3, 1)
+MAX_PRICE   = 3_000_000   # Skip listings above this price
+
+# ─── COMMUNITY NOTES (auto-applied to every listing in that community) ────────
+COMMUNITY_NOTES = {
+    "DAMAC Hills 2": "Near Al Minhad Air Base",
+}
 
 
 def detect_signals(title: str) -> list[str]:
@@ -78,15 +84,12 @@ def calc_score(price: int, beds: int, community: str, title: str, listed_date: s
     return deal_score, pct, launch_price, signals, panic
 
 
-def load_previous() -> tuple[dict, list, list]:
-    """Load existing dubai_deals.json and return:
-    - prev_map: uid → listing (for price history / slash price tracking)
-    - pf_carry: PF listings (carried forward if PF not in raw_data)
-    - bayut_carry: Bayut listings (carried forward if Bayut not in raw_data)
+def load_previous() -> dict:
+    """Load existing dubai_deals.json and return prev_map: uid → listing.
+    Used ONLY for price history / slash price tracking.
+    Listings not found in current scrape are dropped (sold/delisted).
     """
-    prev_map      = {}
-    pf_carry      = []
-    bayut_carry   = []
+    prev_map = {}
     if os.path.exists(JSON_OUT):
         with open(JSON_OUT) as f:
             prev_data = json.load(f)
@@ -94,9 +97,7 @@ def load_previous() -> tuple[dict, list, list]:
             uid = pl.get("unique_id")
             if uid:
                 prev_map[uid] = pl
-        pf_carry    = [l for l in prev_data["listings"] if l.get("unique_id", "").startswith("pf-")]
-        bayut_carry = [l for l in prev_data["listings"] if "bayut" in l.get("unique_id", "")]
-    return prev_map, pf_carry, bayut_carry
+    return prev_map
 
 
 def load_raw() -> dict:
@@ -176,6 +177,9 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
         if "Price Dropped" not in signals:
             signals = ["Price Dropped"] + signals
 
+    # Auto-apply community notes (e.g. airbase warning)
+    note = prev.get("note", "") or COMMUNITY_NOTES.get(community, "")
+
     return {
         "community":     community,
         "cluster":       cluster or prev.get("cluster", ""),
@@ -191,7 +195,8 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
         "ref":           ref,
         "link":          href,
         "unique_id":     uid,
-        "note":          prev.get("note", ""),
+        "note":          note,
+        "last_seen":     TODAY,
         "panic_period":  panic,
         "deal_score":    deal_score,
         "pct_vs_launch": pct_vs_launch,
@@ -206,8 +211,8 @@ def build_listing(raw: dict, prev_map: dict, price_drops: list, price_increases:
 def main():
     print(f"=== Dubai Deal Processor — {TODAY} ===\n")
 
-    prev_map, pf_carry, bayut_carry = load_previous()
-    print(f"Previous data: {len(prev_map)} listings loaded for price history (PF: {len(pf_carry)}, Bayut: {len(bayut_carry)})")
+    prev_map = load_previous()
+    print(f"Previous data: {len(prev_map)} listings loaded for price history")
 
     raw_data    = load_raw()
     communities = raw_data.get("communities", {})
@@ -218,19 +223,27 @@ def main():
     for listings in communities.values():
         for l in listings:
             scraped_sources.add(l.get("source", "Bayut" if l.get("uid","").startswith("bayut-") else "PropertyFinder"))
-    print(f"Sources scraped this run: {scraped_sources}\n")
+    print(f"Sources scraped this run: {scraped_sources}")
 
     new_listings  = []
     seen_uids     = set()
     price_drops   = []
     price_incrs   = []
     errors        = []
+    skipped_price = 0
 
-    # ── Process all scraped listings (Bayut + PF both go through same pipeline) ──
+    # ── Process ONLY listings found in current scrape ────────────────────────
+    # If a listing is not in raw_data, it's considered sold/delisted and dropped.
+    # Price history is still preserved via prev_map for returning listings.
     for community, listings in communities.items():
         for raw in listings:
             uid = raw.get("uid")
             if not uid or uid in seen_uids:
+                continue
+            # Price cap filter
+            raw_price = int(raw.get("price", 0))
+            if raw_price > MAX_PRICE:
+                skipped_price += 1
                 continue
             seen_uids.add(uid)
             try:
@@ -239,55 +252,39 @@ def main():
             except Exception as e:
                 errors.append(f"ERROR {uid}: {e}")
 
-    # ── Carry forward PF listings ONLY if PF was NOT scraped this run ────────
-    if "PropertyFinder" not in scraped_sources:
-        print(f"PF not scraped this run — carrying forward {len(pf_carry)} previous PF listings (re-scored)")
-        for pf in pf_carry:
-            uid = pf.get("unique_id")
-            if not uid or uid in seen_uids:
-                continue
-            seen_uids.add(uid)
-            price     = pf.get("price", 0)
-            beds      = pf.get("beds", 3)
-            community = pf.get("community", "")
-            title     = pf.get("title", "")
-            listed    = pf.get("listed", "")
-            deal_score, pct_vs_launch, launch_price, signals, panic = calc_score(price, beds, community, title, listed)
-            pf_copy = dict(pf)
-            pf_copy["deal_score"]    = deal_score
-            pf_copy["pct_vs_launch"] = pct_vs_launch
-            pf_copy["panic_period"]  = panic
-            if not pf.get("signals"):
-                pf_copy["signals"] = ", ".join(signals)
-            pf_copy.setdefault("note", "")
-            new_listings.append(pf_copy)
-    else:
-        print(f"PF scraped this run — {sum(1 for l in new_listings if l.get('source')=='PropertyFinder')} fresh PF listings included")
+    # Count sources
+    pf_count    = sum(1 for l in new_listings if l.get("source") == "PropertyFinder")
+    bayut_count = sum(1 for l in new_listings if "bayut" in l.get("unique_id", ""))
+    print(f"Fresh listings: {pf_count} PF + {bayut_count} Bayut = {len(new_listings)} total")
 
-    # ── Carry forward Bayut listings ONLY if Bayut was NOT scraped this run ──
-    if "Bayut" not in scraped_sources:
-        print(f"Bayut not scraped this run — carrying forward {len(bayut_carry)} previous Bayut listings (re-scored)")
-        for bl in bayut_carry:
-            uid = bl.get("unique_id")
-            if not uid or uid in seen_uids:
-                continue
-            seen_uids.add(uid)
-            price     = bl.get("price", 0)
-            beds      = bl.get("beds", 3)
-            community = bl.get("community", "")
-            title     = bl.get("title", "")
-            listed    = bl.get("listed", "")
-            deal_score, pct_vs_launch, launch_price, signals, panic = calc_score(price, beds, community, title, listed)
-            bl_copy = dict(bl)
-            bl_copy["deal_score"]    = deal_score
-            bl_copy["pct_vs_launch"] = pct_vs_launch
-            bl_copy["panic_period"]  = panic
-            if not bl.get("signals"):
-                bl_copy["signals"] = ", ".join(signals)
-            bl_copy.setdefault("note", "")
-            new_listings.append(bl_copy)
-    else:
-        print(f"Bayut scraped this run — {sum(1 for l in new_listings if 'bayut' in l.get('unique_id',''))} fresh Bayut listings included")
+    # Track how many previous listings were dropped (sold/delisted)
+    prev_uids   = set(prev_map.keys())
+    dropped     = prev_uids - seen_uids
+    if dropped:
+        print(f"Dropped {len(dropped)} listings not found in current scrape (sold/delisted)")
+
+    # ── Deduplicate (same price, beds, size, signals, listed date, community) ─
+    pre_dedup = len(new_listings)
+    seen_combos = set()
+    deduped = []
+    for l in new_listings:
+        combo = (l.get("price"), l.get("beds"), l.get("sqft"), l.get("signals",""), l.get("listed",""), l.get("community",""))
+        if combo in seen_combos:
+            continue
+        seen_combos.add(combo)
+        deduped.append(l)
+    new_listings = deduped
+    removed_dupes = pre_dedup - len(new_listings)
+    if removed_dupes:
+        print(f"Dedup: removed {removed_dupes} duplicate listings ({pre_dedup} → {len(new_listings)})")
+
+    # ── Apply community notes ────────────────────────────────────────────────
+    for l in new_listings:
+        if not l.get("note") and l.get("community") in COMMUNITY_NOTES:
+            l["note"] = COMMUNITY_NOTES[l["community"]]
+
+    if skipped_price:
+        print(f"Skipped {skipped_price} listings above AED {MAX_PRICE:,} price cap")
 
     # ── Sort by score ─────────────────────────────────────────────────────────
     new_listings.sort(key=lambda x: x["deal_score"], reverse=True)

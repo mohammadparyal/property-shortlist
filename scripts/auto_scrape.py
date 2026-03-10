@@ -47,7 +47,7 @@ os.makedirs(LOG_DIR, exist_ok=True)
 # PF: (community_name, location_id, min_beds, price_min, price_max)
 PF_COMMUNITIES = [
     ("DAMAC Lagoons",       11559, 3, 2_000_000, 3_000_000),
-    ("DAMAC Islands",       14611, 4, 2_000_000, 4_000_000),
+    ("DAMAC Islands",       14611, 4, 2_000_000, 3_000_000),
     ("The Valley",          10757, 3, 2_000_000, 3_000_000),
     ("DAMAC Hills 2",       125,   3, 1_000_000, 2_000_000),
     ("DAMAC Hills 2",       125,   3, 2_000_000, 3_000_000),

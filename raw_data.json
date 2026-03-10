@@ -728,6 +728,34 @@
         "source": "PropertyFinder",
         "listed": "2026-02-26",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14502415",
+        "href": "https://www.bayut.com/property/details-14502415.html",
+        "price": 2500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Costa Brava",
+        "title": "Spacious 3BR | Resort-Style Lagoon | Handover Soon",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-10",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14503113",
+        "href": "https://www.bayut.com/property/details-14503113.html",
+        "price": 2500000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Malta",
+        "title": "INVESTOR DEAL | P SERIES | HANDOVER SOON",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-10",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -3380,6 +3408,34 @@
         "source": "PropertyFinder",
         "listed": "2026-02-19",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-11435352",
+        "href": "https://www.bayut.com/property/details-11435352.html",
+        "price": 1350000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1208,
+        "cluster": "Vardon",
+        "title": "GENUINE RESALE | Rented | 3B | SPACIOUS LAYOUT RRM | UNFURNISHED | Back to Back",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2025-04-23",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-11435334",
+        "href": "https://www.bayut.com/property/details-11435334.html",
+        "price": 1350000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1703,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2025-04-23",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -4190,7 +4246,7 @@
       {
         "uid": "bayut-14333805",
         "href": "https://www.bayut.com/property/details-14333805.html",
-        "price": 4650000,
+        "price": 4400000,
         "beds": 3,
         "baths": 4,
         "sqft": 2175,
@@ -4198,7 +4254,7 @@
         "title": "Internal | Prime Location | Brand New",
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-18",
         "isOffPlan": false
       },
       {
@@ -4259,6 +4315,6 @@
       }
     ]
   },
-  "total_listings": 303,
+  "total_listings": 307,
   "last_updated": "2026-03-10"
 }

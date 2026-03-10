@@ -700,6 +700,34 @@
         "source": "Bayut",
         "listed": "2026-03-10",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-L-15018",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-2Q1YQHK7RXk.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Portofino",
+        "title": "Great Location | Easy Access | Handover Soon",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-03-09",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-DREL-4996",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-2PjB23TzCDY.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Portofino",
+        "title": "GENUINE RESALE | BACK TO BACK | QUICK DEAL",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-02-26",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -2006,6 +2034,48 @@
         "source": "Bayut",
         "listed": "2026-03-09",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-L-15387",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elora-2PeI2f1dn04.html",
+        "price": 2925000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 15952,
+        "cluster": "Elora",
+        "title": "Near Pocket Park | Handover Soon | By Clubhouse",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-02-23",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-CB-S-007168",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-nima-2PyRG7pOt0K.html",
+        "price": 2950000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20678,
+        "cluster": "Nima",
+        "title": "Best Deal in Nima | On Lagoon | Vastu",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-07",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-L-289283",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-nara-2Pv3oD8JWgC.html",
+        "price": 2975000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20161,
+        "cluster": "Nara",
+        "title": "Vacant | Park Backing Location | Palma Style",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-05",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills 2": [
@@ -3282,6 +3352,34 @@
         "source": "Bayut",
         "listed": "2026-03-09",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-AH-S-BSSWD290126",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-basswood-2Oz2br2e8QK.html",
+        "price": 1699900,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 21237,
+        "cluster": "Basswood",
+        "title": "FULLY FURNISHED | LUXURIOUS | BIG LAYOUT",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-01-29",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-ssprimrose",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-akoya-primrose-2PXlmLUoljk.html",
+        "price": 2150000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Primrose",
+        "title": "ELEGANT 3 BR + MAIDS | SPACIOUS BALCONY | R2MB",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-19",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -4161,6 +4259,6 @@
       }
     ]
   },
-  "total_listings": 296,
+  "total_listings": 303,
   "last_updated": "2026-03-10"
 }

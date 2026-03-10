@@ -307,6 +307,13 @@ function init() {
   renderTable();
 }
 
+function fmtPrice(v) {
+  if (!v) return '—';
+  if (v >= 1000000) return 'AED ' + (v / 1000000).toFixed(v % 1000000 === 0 ? 0 : (v % 100000 === 0 ? 1 : 2)) + 'M';
+  if (v >= 1000) return 'AED ' + (v / 1000).toFixed(v % 1000 === 0 ? 0 : 1) + 'K';
+  return 'AED ' + v.toLocaleString();
+}
+
 function renderStats() {
   const container = document.getElementById('statsRow');
   const totalListings = listings.length;
@@ -322,7 +329,7 @@ function renderStats() {
   container.innerHTML =
     '<div class="stat-card"><div class="label">Total Listings</div><div class="value blue">' + totalListings + '</div></div>' +
     '<div class="stat-card"><div class="label">Top Deals (80+)</div><div class="value green">' + topDeals + '</div></div>' +
-    '<div class="stat-card"><div class="label">Lowest Price</div><div class="value gold">AED ' + lowest.toLocaleString() + '</div></div>' +
+    '<div class="stat-card"><div class="label">Lowest Price</div><div class="value gold">' + fmtPrice(lowest) + '</div></div>' +
     '<div class="stat-card"><div class="label">Communities</div><div class="value">' + communities + '</div></div>' +
     '<div class="stat-card"><div class="label">Off-Plan</div><div class="value" style="color:#8b5cf6">' + offPlanCount + '</div></div>' +
     '<div class="stat-card"><div class="label">Resale</div><div class="value green">' + resaleCount + '</div></div>' +
@@ -447,15 +454,15 @@ function renderTable() {
     var linkHTML = l.link ? '<a href="' + l.link + '" target="_blank" class="link-btn">View &#8594;</a>' : '<span style="color:var(--muted)">&mdash;</span>';
 
     // Price with slash price and price tag
-    var priceStr = l.price ? 'AED ' + l.price.toLocaleString() : '&mdash;';
-    var slashHTML = (l.slash_price && l.slash_price > l.price) ? '<span class="slash-price">AED ' + l.slash_price.toLocaleString() + '</span> ' : '';
+    var priceStr = l.price ? fmtPrice(l.price) : '&mdash;';
+    var slashHTML = (l.slash_price && l.slash_price > l.price) ? '<span class="slash-price">' + fmtPrice(l.slash_price) + '</span> ' : '';
     var priceTagHTML = '';
     if (l.price_tag === 'drop') priceTagHTML = '<span class="price-drop-tag">PRICE DROP</span>';
     else if (l.price_tag === 'increase') priceTagHTML = '<span class="price-up-tag">PRICE UP</span>';
     var hasHistory = l.price_history && l.price_history.length > 0;
     var expandBtnHTML = hasHistory ? '<button class="expand-btn" onclick="toggleHistory(event,' + i + ')" title="View price history">&#9660;</button>' : '';
 
-    var launchStr = l.launch_price ? 'AED ' + l.launch_price.toLocaleString() : '&mdash;';
+    var launchStr = l.launch_price ? fmtPrice(l.launch_price) : '&mdash;';
     var pctStr = l.pct_vs_launch != null ? '+' + l.pct_vs_launch + '%' : '&mdash;';
 
     var mainRow = '<tr>' +
@@ -487,10 +494,10 @@ function renderTable() {
       var histRows = l.price_history.map(function(h) {
         var cls = h.change === 'drop' ? 'history-drop' : h.change === 'increase' ? 'history-increase' : '';
         var changeLabel = h.change === 'drop' ? '&#9660; Drop' : h.change === 'increase' ? '&#9650; Up' : '&mdash;';
-        var oldP = h.old_price ? 'AED ' + h.old_price.toLocaleString() : '&mdash;';
-        var newP = h.new_price ? 'AED ' + h.new_price.toLocaleString() : '&mdash;';
+        var oldP = h.old_price ? fmtPrice(h.old_price) : '&mdash;';
+        var newP = h.new_price ? fmtPrice(h.new_price) : '&mdash;';
         var diff = (h.old_price && h.new_price) ? (h.new_price - h.old_price) : 0;
-        var diffStr = diff !== 0 ? (diff < 0 ? '-' : '+') + 'AED ' + Math.abs(diff).toLocaleString() : '&mdash;';
+        var diffStr = diff !== 0 ? (diff < 0 ? '-' : '+') + fmtPrice(Math.abs(diff)) : '&mdash;';
         return '<tr><td>' + (h.date || '&mdash;') + '</td><td>' + oldP + '</td><td>' + newP + '</td><td class="' + cls + '">' + changeLabel + '</td><td class="' + cls + '">' + diffStr + '</td></tr>';
       }).join('');
 

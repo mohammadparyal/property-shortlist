@@ -1,0 +1,10 @@
+[2026-03-11 22:20:18] Scheduled scan complete
+  Mode: Full scan (headless)
+  Property Finder: 156 listings scraped across 9 communities
+  Bayut: CAPTCHA blocked (0 listings) — use --visible to re-authenticate
+  New listings added: 7 new across PF communities
+  Total in raw_data.json: 386 listings (9 communities)
+  Processed output: 361 scored listings (after dedup + price cap filter)
+  Panic period listings: 63
+  Price drops: 0 | Price increases: 1
+  Top deal: DAMAC Islands 2 4BR @ AED 2,800,000 (score 96, +1.8% vs launch)

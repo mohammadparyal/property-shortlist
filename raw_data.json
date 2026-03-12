@@ -896,6 +896,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-03",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14427285",
+        "href": "https://www.bayut.com/property/details-14427285.html",
+        "price": 2450000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1555,
+        "cluster": "Malta",
+        "title": "Mediterranean Elegance | Vibrant 4-BR Townhouse | Malta Cluster",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-02-28",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -1224,7 +1238,7 @@
       {
         "uid": "bayut-14353984",
         "href": "https://www.bayut.com/property/details-14353984.html",
-        "price": 2465000,
+        "price": 2399000,
         "beds": 4,
         "baths": 3,
         "sqft": 2208,
@@ -3891,9 +3905,9 @@
         "price": 2000000,
         "beds": 3,
         "baths": 5,
-        "sqft": 1882,
-        "cluster": "Sanctnary",
-        "title": "3 BHK+ Maid| Huge Layout | Lowest in Market",
+        "sqft": 1904,
+        "cluster": "",
+        "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
         "listed": "2026-03-11",
@@ -3996,6 +4010,34 @@
         "source": "PropertyFinder",
         "listed": "2025-04-02",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14528423",
+        "href": "https://www.bayut.com/property/details-14528423.html",
+        "price": 1325000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1696,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14352260",
+        "href": "https://www.bayut.com/property/details-14352260.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 2352,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-02-20",
+        "isOffPlan": true
       }
     ],
     "Villanova": [
@@ -4366,7 +4408,7 @@
       {
         "uid": "bayut-8240417",
         "href": "https://www.bayut.com/property/details-8240417.html",
-        "price": 2850000,
+        "price": 2800000,
         "beds": 3,
         "baths": 4,
         "sqft": 1765,
@@ -4870,6 +4912,48 @@
         "source": "Bayut",
         "listed": "2026-03-09",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14515315",
+        "href": "https://www.bayut.com/property/details-14515315.html",
+        "price": 6340000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2623,
+        "cluster": "Palace Residences Hillside A",
+        "title": "Branded Residence | Rare | Townhouse",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-03-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14116105",
+        "href": "https://www.bayut.com/property/details-14116105.html",
+        "price": 6399999,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2734,
+        "cluster": "",
+        "title": "",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-01-27",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-13894218",
+        "href": "https://www.bayut.com/property/details-13894218.html",
+        "price": 6500000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2627,
+        "cluster": "",
+        "title": "",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-01-05",
+        "isOffPlan": false
       }
     ],
     "Tilal Al Ghaf": [
@@ -4912,7 +4996,7 @@
         "title": "",
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-09-23",
         "isOffPlan": false
       },
       {
@@ -4936,11 +5020,11 @@
         "beds": 3,
         "baths": 4,
         "sqft": 2175,
-        "cluster": "Aura Gardens",
+        "cluster": "",
         "title": "",
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-25",
         "isOffPlan": false
       },
       {
@@ -5689,6 +5773,6 @@
       }
     ]
   },
-  "total_listings": 405,
+  "total_listings": 411,
   "last_updated": "2026-03-12"
 }

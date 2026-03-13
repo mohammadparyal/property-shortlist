@@ -952,6 +952,34 @@
         "source": "PropertyFinder",
         "listed": "2026-02-12",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14540592",
+        "href": "https://www.bayut.com/property/details-14540592.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1552,
+        "cluster": "Costa Brava",
+        "title": "NEAR TO LAGOON /PREMUIM LOCATION / LUXURY VILLA",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-13",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14387716",
+        "href": "https://www.bayut.com/property/details-14387716.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Nice",
+        "title": "Motivated | Resort Lifestyle | Investor Deal",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-02-24",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -2580,6 +2608,48 @@
         "source": "PropertyFinder",
         "listed": "2026-02-05",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14541417",
+        "href": "https://www.bayut.com/property/details-14541417.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1483,
+        "cluster": "Elora",
+        "title": "PRIME LOCATION | HANDOVER SOON | GENUINE RESALE",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-03-13",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-13943999",
+        "href": "https://www.bayut.com/property/details-13943999.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1872,
+        "cluster": "Orania",
+        "title": "ON POOL & PARK | SINGLE ROW | READY TO MOVE",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-01-08",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14538038",
+        "href": "https://www.bayut.com/property/details-14538038.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1483,
+        "cluster": "Elora",
+        "title": "Single Row | Spacious Layout | Handover Soon",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-03-13",
+        "isOffPlan": true
       }
     ],
     "DAMAC Hills 2": [
@@ -4164,6 +4234,20 @@
         "source": "PropertyFinder",
         "listed": "2026-02-26",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14540999",
+        "href": "https://www.bayut.com/property/details-14540999.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 2402,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-13",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -5008,7 +5092,7 @@
         "title": "Townhouse | Direct Park Access | Prime Investment | Grab your Lavish Living Now",
         "community": "Dubai Hills Estate",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-07",
         "isOffPlan": true
       },
       {
@@ -5080,6 +5164,20 @@
         "source": "Bayut",
         "listed": "2026-01-05",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14515311",
+        "href": "https://www.bayut.com/property/details-14515311.html",
+        "price": 6949999,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 2562,
+        "cluster": "Vida Residences Dubai Hills Estate",
+        "title": "Direct Park Access | Ahead of Schedule | Luxury Unit",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-03-11",
+        "isOffPlan": true
       }
     ],
     "Tilal Al Ghaf": [
@@ -5221,6 +5319,76 @@
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
         "listed": "2026-01-07",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14409209",
+        "href": "https://www.bayut.com/property/details-14409209.html",
+        "price": 4800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2219,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-26",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14290338",
+        "href": "https://www.bayut.com/property/details-14290338.html",
+        "price": 4800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2225,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-13",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14273194",
+        "href": "https://www.bayut.com/property/details-14273194.html",
+        "price": 4800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2197,
+        "cluster": "Jasmine Lane",
+        "title": "Upgraded | Vacant on Transfer | Fully Furnished",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-11",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14354948",
+        "href": "https://www.bayut.com/property/details-14354948.html",
+        "price": 5400000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2703,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14516870",
+        "href": "https://www.bayut.com/property/details-14516870.html",
+        "price": 5400000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2705,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-03-11",
         "isOffPlan": false
       }
     ],
@@ -5896,9 +6064,23 @@
         "source": "PropertyFinder",
         "listed": "2026-01-20",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-13730461",
+        "href": "https://www.bayut.com/property/details-13730461.html",
+        "price": 2824000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1551,
+        "cluster": "Bahamas",
+        "title": "Waterfront Community | Best Investment | 1% Payment Plan",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2025-12-17",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 420,
+  "total_listings": 433,
   "last_updated": "2026-03-13"
 }

@@ -3700,7 +3700,7 @@
         "title": "HOT INVESTOR DEALS | HIGH ROI |WELL MAINTAINED",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-07",
         "isOffPlan": true
       },
       {
@@ -5048,6 +5048,20 @@
         "source": "Bayut",
         "listed": "2026-03-14",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-VMBPVAT21CM2JSRZCJSGHBW8P0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-2Q6aShdT2mm.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 18654,
+        "cluster": "Amaranta 2",
+        "title": "Exclusive Upgraded| Pool-Park Side, Vastu Approved",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-03-12",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills": [
@@ -5570,6 +5584,20 @@
         "source": "Bayut",
         "listed": "2025-09-23",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14109226",
+        "href": "https://www.bayut.com/property/details-14109226.html",
+        "price": 7350000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 2848,
+        "cluster": "The Polo Townhouses",
+        "title": "Exclusive | Single Row | Vacant Soon | Polo Townhouses",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-01-26",
+        "isOffPlan": false
       }
     ],
     "Tilal Al Ghaf": [
@@ -5823,6 +5851,20 @@
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
         "listed": "2025-03-08",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14042987",
+        "href": "https://www.bayut.com/property/details-14042987.html",
+        "price": 5550000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2764,
+        "cluster": "Palmera 2",
+        "title": "Motivated Seller | Pool Backing | Upgraded",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-01-19",
         "isOffPlan": false
       }
     ],
@@ -6515,6 +6557,6 @@
       }
     ]
   },
-  "total_listings": 464,
+  "total_listings": 467,
   "last_updated": "2026-03-15"
 }

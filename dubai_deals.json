@@ -1,7 +1,7 @@
 {
   "last_updated": "2026-03-15",
-  "total": 421,
-  "price_drops": 2,
+  "total": 422,
+  "price_drops": 0,
   "price_increases": 0,
   "listings": [
     {
@@ -4357,7 +4357,7 @@
       "sqft": 1882,
       "title": "HOT INVESTOR DEALS | HIGH ROI |WELL MAINTAINED",
       "source": "Bayut",
-      "listed": "",
+      "listed": "2026-02-07",
       "status": "off_plan",
       "signals": "Investor Deal",
       "ref": "14229715",
@@ -6280,39 +6280,6 @@
       "price_tag": null
     },
     {
-      "community": "Villanova",
-      "cluster": "Amaranta 2",
-      "price": 2750000,
-      "beds": 3,
-      "baths": 4,
-      "sqft": 20753,
-      "title": "Stunning | Near Pool & Park | Ready to Move",
-      "source": "PropertyFinder",
-      "listed": "2026-02-04",
-      "status": "ready",
-      "signals": "Price Dropped",
-      "ref": "L-291313",
-      "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-16233308.html",
-      "unique_id": "pf-L-291313",
-      "note": "",
-      "last_seen": "2026-03-15",
-      "panic_period": false,
-      "deal_score": 21,
-      "pct_vs_launch": 90.3,
-      "launch_price": 1445000,
-      "psf": 133,
-      "slash_price": 2850000,
-      "price_history": [
-        {
-          "date": "2026-03-15",
-          "old_price": 2850000,
-          "new_price": 2750000,
-          "change": "drop"
-        }
-      ],
-      "price_tag": "drop"
-    },
-    {
       "community": "DAMAC Lagoons",
       "cluster": "Portofino",
       "price": 2600000,
@@ -6968,6 +6935,39 @@
       "slash_price": null,
       "price_history": [],
       "price_tag": null
+    },
+    {
+      "community": "Villanova",
+      "cluster": "Amaranta 2",
+      "price": 2750000,
+      "beds": 3,
+      "baths": 4,
+      "sqft": 20753,
+      "title": "Stunning | Near Pool & Park | Ready to Move",
+      "source": "PropertyFinder",
+      "listed": "2026-02-04",
+      "status": "ready",
+      "signals": "Price Dropped",
+      "ref": "L-291313",
+      "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-16233308.html",
+      "unique_id": "pf-L-291313",
+      "note": "",
+      "last_seen": "2026-03-15",
+      "panic_period": false,
+      "deal_score": 16,
+      "pct_vs_launch": 90.3,
+      "launch_price": 1445000,
+      "psf": 133,
+      "slash_price": 2850000,
+      "price_history": [
+        {
+          "date": "2026-03-15",
+          "old_price": 2850000,
+          "new_price": 2750000,
+          "change": "drop"
+        }
+      ],
+      "price_tag": "drop"
     },
     {
       "community": "Villanova",
@@ -7972,39 +7972,6 @@
       "price_tag": null
     },
     {
-      "community": "DAMAC Hills 2",
-      "cluster": "Amargo 2",
-      "price": 2000000,
-      "beds": 3,
-      "baths": 3,
-      "sqft": 21001,
-      "title": "Upgraded | Fully Furnished | Corner Unit | Vacant",
-      "source": "PropertyFinder",
-      "listed": "2026-02-25",
-      "status": "ready",
-      "signals": "Price Dropped",
-      "ref": "Basheer-035",
-      "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-amargo-amargo-2-2PhbogXJsKO.html",
-      "unique_id": "pf-Basheer-035",
-      "note": "Near Al Minhad Air Base",
-      "last_seen": "2026-03-15",
-      "panic_period": false,
-      "deal_score": 10,
-      "pct_vs_launch": 150.0,
-      "launch_price": 800000,
-      "psf": 95,
-      "slash_price": 2200000,
-      "price_history": [
-        {
-          "date": "2026-03-15",
-          "old_price": 2200000,
-          "new_price": 2000000,
-          "change": "drop"
-        }
-      ],
-      "price_tag": "drop"
-    },
-    {
       "community": "Villanova",
       "cluster": "Amaranta 3",
       "price": 2800000,
@@ -8878,6 +8845,39 @@
     },
     {
       "community": "DAMAC Hills 2",
+      "cluster": "Amargo 2",
+      "price": 2000000,
+      "beds": 3,
+      "baths": 3,
+      "sqft": 21001,
+      "title": "Upgraded | Fully Furnished | Corner Unit | Vacant",
+      "source": "PropertyFinder",
+      "listed": "2026-02-25",
+      "status": "ready",
+      "signals": "Price Dropped",
+      "ref": "Basheer-035",
+      "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-amargo-amargo-2-2PhbogXJsKO.html",
+      "unique_id": "pf-Basheer-035",
+      "note": "Near Al Minhad Air Base",
+      "last_seen": "2026-03-15",
+      "panic_period": false,
+      "deal_score": 5,
+      "pct_vs_launch": 150.0,
+      "launch_price": 800000,
+      "psf": 95,
+      "slash_price": 2200000,
+      "price_history": [
+        {
+          "date": "2026-03-15",
+          "old_price": 2200000,
+          "new_price": 2000000,
+          "change": "drop"
+        }
+      ],
+      "price_tag": "drop"
+    },
+    {
+      "community": "DAMAC Hills 2",
       "cluster": "Aquilegia",
       "price": 2000000,
       "beds": 3,
@@ -9002,6 +9002,32 @@
       "pct_vs_launch": 150.0,
       "launch_price": 800000,
       "psf": 1304,
+      "slash_price": null,
+      "price_history": [],
+      "price_tag": null
+    },
+    {
+      "community": "Villanova",
+      "cluster": "Amaranta 2",
+      "price": 3000000,
+      "beds": 3,
+      "baths": 4,
+      "sqft": 18654,
+      "title": "Exclusive Upgraded| Pool-Park Side, Vastu Approved",
+      "source": "PropertyFinder",
+      "listed": "2026-03-12",
+      "status": "ready",
+      "signals": "",
+      "ref": "VMBPVAT21CM2JSRZCJSGHBW8P0",
+      "link": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-2Q6aShdT2mm.html",
+      "unique_id": "pf-VMBPVAT21CM2JSRZCJSGHBW8P0",
+      "note": "",
+      "last_seen": "2026-03-15",
+      "panic_period": true,
+      "deal_score": 5,
+      "pct_vs_launch": 107.6,
+      "launch_price": 1445000,
+      "psf": 161,
       "slash_price": null,
       "price_history": [],
       "price_tag": null

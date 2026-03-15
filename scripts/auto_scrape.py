@@ -508,6 +508,17 @@ async def main():
     mode_str = "PF only" if pf_only else "Bayut only" if bayut_only else "Full scan"
     log(f"Mode: {mode_str}{' (VISIBLE)' if visible else ''}{' (DRY RUN)' if dry_run else ''}")
 
+    # ── Cleanup: delete logs older than 2 days ──────────────────────────────
+    import glob as _glob
+    cutoff = time.time() - 2 * 86400
+    for old_log in _glob.glob(os.path.join(LOG_DIR, "*.log")):
+        try:
+            if os.path.getmtime(old_log) < cutoff:
+                os.remove(old_log)
+                log(f"  Cleaned old log: {os.path.basename(old_log)}")
+        except OSError:
+            pass
+
     # Import here so missing packages give clear error
     from playwright.async_api import async_playwright
     from playwright_stealth import Stealth

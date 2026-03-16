@@ -1008,6 +1008,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-13",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-ZUL-S-010032026",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-2Q3JNk0sUVs.html",
+        "price": 2600000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 22314,
+        "cluster": "Portofino",
+        "title": "No Agents | 3BR Townhouses from AED 2.6M",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-03-10",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -1906,6 +1920,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-10",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14569951",
+        "href": "https://www.bayut.com/property/details-14569951.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-03-16",
+        "isOffPlan": true
       }
     ],
     "The Valley": [
@@ -2491,7 +2519,7 @@
         "baths": 4,
         "sqft": 2041,
         "cluster": "Nima",
-        "title": "Single Row | Near to Amenities | Spacious Unit",
+        "title": "Price Drop | Single Row | Spacious Layout",
         "community": "The Valley",
         "source": "Bayut",
         "listed": "2026-02-28",
@@ -2804,6 +2832,62 @@
         "source": "PropertyFinder",
         "listed": "2026-03-06",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-QW4VMDNRS18T47X1JSJKAX0J60",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-the-valley-elora-64430003.html",
+        "price": 2449999,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20150,
+        "cluster": "Elora",
+        "title": "Elora 3b | Cash Buyer Only | No Negotiation",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-16",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-HI-S-011044",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-nara-2Q6fXUgTPvM.html",
+        "price": 2950000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20129,
+        "cluster": "Nara",
+        "title": "Brand New | Single Row | Vastu | Near to Park",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Elora-2.6M-CL3",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elora-2Q9rAcOAnaK.html",
+        "price": 2780000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 15963,
+        "cluster": "Elora",
+        "title": "Single Row | Q3 2026 | Near Community Clubhouse",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-14",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14564246",
+        "href": "https://www.bayut.com/property/details-14564246.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1483,
+        "cluster": "Elora",
+        "title": "Multiple options | Green Space | Community Expert",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-03-16",
+        "isOffPlan": true
       }
     ],
     "DAMAC Hills 2": [
@@ -2843,7 +2927,7 @@
         "baths": 5,
         "sqft": 17578,
         "cluster": "Centaury",
-        "title": "Lowest Price | Spacious | Closed Kitchen | R2M14",
+        "title": "Vacant | Lowest Price | Spacious | Closed Kitchen",
         "community": "DAMAC Hills 2",
         "source": "PropertyFinder",
         "listed": "2026-03-02",
@@ -4556,6 +4640,62 @@
         "source": "PropertyFinder",
         "listed": "2025-12-23",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-5HE7QSSTGCPJN788X4WW4XB854",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-centaury-64403924.html",
+        "price": 1800000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 17578,
+        "cluster": "Centaury",
+        "title": "R2M14 | Closed Kitchen |  Spacious Living Room",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-16",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-sevenline-193",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-centaury-2Q6kUfyRCy0.html",
+        "price": 1795000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Centaury",
+        "title": "Brand new | Vacant | Spacious Layout",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-01K5RSV7G306N4Z3Z40ZWQ08A1",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-camelia-15222823.html",
+        "price": 2050000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 20721,
+        "cluster": "Camelia",
+        "title": "End Corner 3 Bed+Storage In Cameila Never Used D2",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2025-09-22",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14569296",
+        "href": "https://www.bayut.com/property/details-14569296.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1215,
+        "cluster": "Violet 4",
+        "title": "Luxurious 4BR Townhouse | DAMAC Hills 2 | Spacious layout",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-16",
+        "isOffPlan": true
       }
     ],
     "Villanova": [
@@ -4814,7 +4954,7 @@
       {
         "uid": "pf-9WMG20TD4WNX5RE5DHM34CFTY8Abdou",
         "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-2PWAMUiQ1Q1.html",
-        "price": 2850000,
+        "price": 2750000,
         "beds": 3,
         "baths": 4,
         "sqft": 19300,
@@ -4870,7 +5010,7 @@
       {
         "uid": "bayut-14222433",
         "href": "https://www.bayut.com/property/details-14222433.html",
-        "price": 2850000,
+        "price": 2900000,
         "beds": 3,
         "baths": 4,
         "sqft": 1927,
@@ -5344,6 +5484,34 @@
         "source": "Bayut",
         "listed": "2026-03-11",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-1773645566310",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-park-residences-park-residence-1-64404413.html",
+        "price": 2970000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 15985,
+        "cluster": "Park Residence 1",
+        "title": "Beside the Main Entrance | Handover Soon",
+        "community": "DAMAC Hills",
+        "source": "PropertyFinder",
+        "listed": "2026-03-16",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14565042",
+        "href": "https://www.bayut.com/property/details-14565042.html",
+        "price": 2970000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1485,
+        "cluster": "Park Residences 1",
+        "title": "Beside the Main Entrance | Handover Soon",
+        "community": "DAMAC Hills",
+        "source": "Bayut",
+        "listed": "2026-03-16",
+        "isOffPlan": true
       }
     ],
     "Dubai Hills Estate": [
@@ -5598,6 +5766,34 @@
         "source": "Bayut",
         "listed": "2026-01-26",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14291645",
+        "href": "https://www.bayut.com/property/details-14291645.html",
+        "price": 7000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2395,
+        "cluster": "Tower A",
+        "title": "Limited Layout with Private Garden and Maids Room",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-02-13",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14254188",
+        "href": "https://www.bayut.com/property/details-14254188.html",
+        "price": 7000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2394,
+        "cluster": "Tower A",
+        "title": "RARE PARK-FACING | HIGH-DEMAND LOCATION",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-02-10",
+        "isOffPlan": true
       }
     ],
     "Tilal Al Ghaf": [
@@ -5865,6 +6061,34 @@
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
         "listed": "2026-01-19",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14352706",
+        "href": "https://www.bayut.com/property/details-14352706.html",
+        "price": 4750000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2298,
+        "cluster": "Jasmine Lane",
+        "title": "Modern | Prime Location | Investment",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14248704",
+        "href": "https://www.bayut.com/property/details-14248704.html",
+        "price": 4750000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2165,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-02-09",
         "isOffPlan": false
       }
     ],
@@ -6554,9 +6778,23 @@
         "source": "Bayut",
         "listed": "2025-12-17",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-13707604",
+        "href": "https://www.bayut.com/property/details-13707604.html",
+        "price": 2824000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "Bahamas 2",
+        "title": "4BR Townhouse | Gated Community | 0% Commission",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2025-12-15",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 467,
-  "last_updated": "2026-03-15"
+  "total_listings": 484,
+  "last_updated": "2026-03-17"
 }

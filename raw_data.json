@@ -5144,6 +5144,20 @@
         "source": "PropertyFinder",
         "listed": "2025-09-04",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-SHZB-S-TRXS120326",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-trixis-2Q6spmlCd8a.html",
+        "price": 1749900,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20247,
+        "cluster": "Trixis",
+        "title": "VACANT SOON | CORNER UNIT | NEAR TO POOL PARK",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-12",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -5691,6 +5705,20 @@
         "community": "Villanova",
         "source": "PropertyFinder",
         "listed": "2026-03-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Portal-AT-401344",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-3-16110633.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 19074,
+        "cluster": "Amaranta 3",
+        "title": "3 Bedroom + Maids Townhouse |  Villanova",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-01-20",
         "isOffPlan": false
       }
     ],
@@ -6424,6 +6452,20 @@
         "source": "Bayut",
         "listed": "2026-03-06",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14266059",
+        "href": "https://www.bayut.com/property/details-14266059.html",
+        "price": 6500000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 3252,
+        "cluster": "Nad Al Sheba Gardens 7",
+        "title": "Burj View | Park Backing | Prime Location",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-02-11",
+        "isOffPlan": true
       }
     ],
     "Tilal Al Ghaf": [
@@ -7565,6 +7607,6 @@
       }
     ]
   },
-  "total_listings": 539,
-  "last_updated": "2026-03-19"
+  "total_listings": 542,
+  "last_updated": "2026-03-20"
 }

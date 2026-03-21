@@ -2088,6 +2088,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-12",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-PL-S-20250184",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-fiji-at-damac-islands-16144780.html",
+        "price": 2700000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 16684,
+        "cluster": "FIJI at Damac Islands",
+        "title": "4BR Townhouse | off plan | genuine resale",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-01-23",
+        "isOffPlan": true
       }
     ],
     "The Valley": [
@@ -3182,6 +3196,20 @@
         "source": "Bayut",
         "listed": "2026-03-19",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-RJD92ZJ25CA4V409Y25KF7M2FG",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-orania-65588347.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20161,
+        "cluster": "Orania",
+        "title": "Lowest | Corner Kitchen | Brand new",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-18",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills 2": [
@@ -5158,6 +5186,104 @@
         "source": "PropertyFinder",
         "listed": "2026-03-12",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-BE6W7981G89ECXE1HV8DZRTR4W",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-basswood-66334719.html",
+        "price": 1400000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 17944,
+        "cluster": "Basswood",
+        "title": "Single Row | Vaastu | RRM | Close to Pool",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-5GAQKR0B1Q42P61V7WZY0FJZGR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-janusia-66334571.html",
+        "price": 1980000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Janusia",
+        "title": "Single Row | R2M | Lowest Price | Huge Lounge",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-SBCREBAE6RSYZEDVM3DQN2B82M",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-the-roots-damac-hills-2-zinnia-65555433.html",
+        "price": 1625000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Zinnia",
+        "title": "Closed Kitchen | Unfurnished | Spacious",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-18",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-44C2XK36ET8AR1C3HJEBYM4J0R",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-odora-aurum-villas-66336807.html",
+        "price": 2100000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Aurum Villas",
+        "title": "R2M Layout | Huge Lounge | Vacant Soon | Vaastu",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-0E5F6YQD464AK1A1Q8EH1CGKQ0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-odora-aurum-villas-66336846.html",
+        "price": 2100000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Aurum Villas",
+        "title": "Fully Furnished | R2M | Spacious Lounge | Deal",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Y6P6QXDSGHH7GX6F6ABPS1K7FR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-mulberry-casablanca-boutique-villas-66337574.html",
+        "price": 2050000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20258,
+        "cluster": "Casablanca Boutique Villas",
+        "title": "R2MB | Spacious Lounge | Investor Deal | Terrace",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14455888",
+        "href": "https://www.bayut.com/property/details-14455888.html",
+        "price": 1350000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1669,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-05",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -6804,6 +6930,20 @@
         "source": "Bayut",
         "listed": "2026-03-18",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14570425",
+        "href": "https://www.bayut.com/property/details-14570425.html",
+        "price": 4500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2170,
+        "cluster": "Aura Gardens",
+        "title": "Vacant | Back to Back | Close to Amenities",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2026-03-16",
+        "isOffPlan": false
       }
     ],
     "DAMAC Islands 2": [
@@ -7604,9 +7744,51 @@
         "source": "Bayut",
         "listed": "2026-01-06",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-TF0H72Z371NC92285CZ0XJ2GD6W80",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-damac-islands-2-barbados-2PhqPX7aI5I.html",
+        "price": 2700000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 23466,
+        "cluster": "Barbados",
+        "title": "BE READY FOR THE NEW PHASE l 20% DOWN PAYMENT l 1%",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-25",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-AK7CRJK75ZRN4YCKSY40830QXF38",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-islands-2-dubai-land-bahamas-1-2PhhYBr6nIW.html",
+        "price": 2800000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 23519,
+        "cluster": "Bahamas 1",
+        "title": "REAL PRICE | 1% MONTHLY | LIMITED UNITS | LUXURY",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-25",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-AKXQX50WC8KTH0GYY71K9JCMWZKR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-damac-islands-2-barbados-2Phh8gLI048.html",
+        "price": 2700000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 23466,
+        "cluster": "Barbados",
+        "title": "1% MONTHLY | LUXURY LIFE STYLE | EASY PAYMENT PLAN",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-25",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 542,
-  "last_updated": "2026-03-20"
+  "total_listings": 555,
+  "last_updated": "2026-03-21"
 }

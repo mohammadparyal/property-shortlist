@@ -1134,6 +1134,20 @@
         "source": "Bayut",
         "listed": "2026-03-19",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14146362",
+        "href": "https://www.bayut.com/property/details-14146362.html",
+        "price": 2550000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Nice",
+        "title": "Single Row | Great Location| Investor Deal",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-01-29",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -2101,6 +2115,20 @@
         "community": "DAMAC Islands",
         "source": "PropertyFinder",
         "listed": "2026-01-23",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-BITS-RS-2510",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-bora-bora-2Q9lNrRVYCv.html",
+        "price": 2499998,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Bora Bora",
+        "title": "Investment | Spacious | Premium Location | Q4 2028",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-03-14",
         "isOffPlan": true
       }
     ],
@@ -5284,6 +5312,34 @@
         "source": "Bayut",
         "listed": "2026-03-05",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14600108",
+        "href": "https://www.bayut.com/property/details-14600108.html",
+        "price": 1320000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1208,
+        "cluster": "Vardon",
+        "title": "3BR | 3 Bath | Rented | Close to Exit | NO AGENTS!",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-21",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-C5J3DD9CJRJM6AD4K7T7K1VXVC",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-aster-2PkvB7qVvEG.html",
+        "price": 2100000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 28428,
+        "cluster": "Aurum Villas",
+        "title": "BACK TO BACK - CORNER - LARGE PLOT",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-27",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -6592,6 +6648,20 @@
         "source": "Bayut",
         "listed": "2026-02-11",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-13803743",
+        "href": "https://www.bayut.com/property/details-13803743.html",
+        "price": 6600000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2462,
+        "cluster": "Maple 2",
+        "title": "Community Expert | Green Belt | Prime Location",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2025-12-25",
+        "isOffPlan": false
       }
     ],
     "Tilal Al Ghaf": [
@@ -7786,9 +7856,23 @@
         "source": "PropertyFinder",
         "listed": "2026-02-25",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-TH15376",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-2-bahamas-2-15924668.html",
+        "price": 2824000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Bahamas 2",
+        "title": "4BR TH Luxury Waterfront Living | 1% Payment Plan",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2025-12-25",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 555,
-  "last_updated": "2026-03-21"
+  "total_listings": 561,
+  "last_updated": "2026-03-23"
 }

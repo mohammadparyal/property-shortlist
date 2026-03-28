@@ -1498,6 +1498,20 @@
         "source": "Bayut",
         "listed": "2026-03-27",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14415263",
+        "href": "https://www.bayut.com/property/details-14415263.html",
+        "price": 2500000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Portofino",
+        "title": "Luxury 4-Bedroom | Close to Amenities | High Demand",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-02-27",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -2731,6 +2745,20 @@
         "community": "DAMAC Islands",
         "source": "Bayut",
         "listed": "2026-03-17",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-JX6PACSVJ3PN91D50KPVP321RR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-bora-bora-69103390.html",
+        "price": 2350000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Bora Bora",
+        "title": "Below OP | Investor Deal |Single Row |Lagoon View",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
         "isOffPlan": true
       }
     ],
@@ -4504,7 +4532,7 @@
       {
         "uid": "pf-Portal-AT-400989",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-sycamore-aurum-villas-15887940.html",
-        "price": 2100000,
+        "price": 2000000,
         "beds": 3,
         "baths": 3,
         "sqft": 20258,
@@ -7204,6 +7232,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-14",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14661803",
+        "href": "https://www.bayut.com/property/details-14661803.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1733,
+        "cluster": "Amaranta",
+        "title": "Park Backing | Single Row | Vacant Now",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills": [
@@ -8188,6 +8230,20 @@
         "source": "Bayut",
         "listed": "2025-12-08",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14151816",
+        "href": "https://www.bayut.com/property/details-14151816.html",
+        "price": 6450000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2456,
+        "cluster": "",
+        "title": "",
+        "community": "Dubai Hills Estate",
+        "source": "Bayut",
+        "listed": "2026-01-30",
+        "isOffPlan": false
       }
     ],
     "Tilal Al Ghaf": [
@@ -8833,6 +8889,20 @@
         "community": "Tilal Al Ghaf",
         "source": "Bayut",
         "listed": "2026-03-18",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-13369623",
+        "href": "https://www.bayut.com/property/details-13369623.html",
+        "price": 4475000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2172,
+        "cluster": "",
+        "title": "",
+        "community": "Tilal Al Ghaf",
+        "source": "Bayut",
+        "listed": "2025-11-12",
         "isOffPlan": false
       }
     ],
@@ -9819,6 +9889,6 @@
       }
     ]
   },
-  "total_listings": 700,
-  "last_updated": "2026-03-27"
+  "total_listings": 705,
+  "last_updated": "2026-03-28"
 }

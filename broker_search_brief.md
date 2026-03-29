@@ -36,8 +36,9 @@
 12. Arabian Ranches 3 — Ruba, Joy, Sun, Bliss, Caya
 
 ### Medium Priority
-13. Town Square — Hayat, Zahra, Safi
-14. Serena — Casa Viva, Bella Casa
+13. Emaar South — Golf Links, Greenview, Parkside (Dubai South / DWC)
+14. Town Square — Hayat, Zahra, Safi
+15. Serena — Casa Viva, Bella Casa
 15. Motor City — Green Community
 16. Dubai Sports City — Victory Heights, Bloomingdale
 17. Al Furjan — Masakin, Quortaj
@@ -86,6 +87,8 @@
 | Villanova (Amaranta) | AED 1,445,000 | ~AED 2,000,000 | CONFIRMED 3BR: dubai.al |
 | Mudon | ~AED 1,800,000 | ~AED 2,400,000 | Dubai Properties. Al Naseem/Arabella |
 | The Valley | AED 1,530,000 | ~AED 2,100,000 | Emaar 2023 launch. Orania/Elora |
+| Emaar South | AED 1,750,000 | AED 2,400,000 | Emaar. Golf Links, Greenview, Parkside |
+| Town Square | AED 1,300,000 | AED 1,500,000 | Nshama. Hayat, Zahra, Safi |
 | Reem / Mira | ~AED 1,600,000 | ~AED 2,200,000 | Emaar. Mira/Mira Oasis |
 
 *"~" = estimated. No prefix = confirmed from multiple sources. "—" = no 3BR units available.*

@@ -1,8 +1,9 @@
 # Dubai Distress Deal Tracker
 
-Real-time dashboard tracking villa and townhouse deals across Dubai's top communities, scored against original launch prices to help investors spot undervalued properties.
+Real-time dashboards tracking villa/townhouse and apartment deals across Dubai's top communities, scored against original launch prices to help investors spot undervalued properties.
 
-**Live Dashboard:** [mohammadparyal.github.io/property-shortlist](https://mohammadparyal.github.io/property-shortlist/)
+**Villa/Townhouse Dashboard:** [mohammadparyal.github.io/property-shortlist](https://mohammadparyal.github.io/property-shortlist/)
+**Apartment Dashboard:** [mohammadparyal.github.io/property-shortlist/apartments.html](https://mohammadparyal.github.io/property-shortlist/apartments.html)
 
 ## What This Does
 
@@ -30,6 +31,10 @@ This tracker scrapes listings from **Property Finder** and **Bayut** every 12 ho
 | DAMAC Hills | Off-plan | AED 1,500,000 | AED 2,200,000 |
 | Dubai Hills Estate | Off-plan | AED 2,100,000 | AED 2,600,000 |
 | Tilal Al Ghaf | Off-plan / Ready | AED 1,260,000 | AED 1,800,000 |
+| Emaar South | Off-plan / Ready | AED 1,750,000 | AED 2,400,000 |
+| Arabian Ranches 3 | Off-plan / Ready | AED 2,000,000 | AED 2,580,000 |
+| Town Square | Ready | AED 1,300,000 | AED 1,500,000 |
+| Mudon | Ready / Off-plan | AED 1,900,000 | AED 2,400,000 |
 
 ## How Scoring Works
 
@@ -50,10 +55,16 @@ This tracker scrapes listings from **Property Finder** and **Bayut** every 12 ho
 
 | File | Description |
 |------|-------------|
-| `index.html` | Interactive dashboard with embedded data, charts, filters, and sorting |
-| `dubai_deals.json` | Raw JSON data for all tracked listings |
+| `index.html` | Villa/Townhouse dashboard with embedded data, charts, filters, and sorting |
+| `apartments.html` | Apartment dashboard — low-rise, reputable developers, 3BR+, AED 1.5-2.5M |
+| `dubai_deals.json` | Raw JSON data for villa/townhouse listings |
+| `apartments_deals.json` | Raw JSON data for apartment listings |
 | `Dubai_Deal_Tracker.xlsx` | Excel spreadsheet with Deal Tracker, Summary, and Launch Benchmarks sheets |
 | `broker_search_brief.md` | Briefing document for real estate brokers with search criteria |
+| `scripts/auto_scrape.py` | Automated villa/townhouse scraper (Playwright + stealth) |
+| `scripts/auto_scrape_apartments.py` | Automated apartment scraper (Playwright + stealth) |
+| `scripts/process_deals.py` | Villa/townhouse deal scorer and processor |
+| `scripts/process_apartments.py` | Apartment deal scorer and processor |
 
 ## Data Updates
 

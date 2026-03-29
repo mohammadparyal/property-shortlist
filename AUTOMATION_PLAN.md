@@ -3,7 +3,7 @@
 ## The Problem With Current Manual Process
 
 Every scan requires:
-1. Manually navigating to 10+ URLs in Chrome (9 communities × 2 sources, plus DAMAC Hills 2 dual range)
+1. Manually navigating to 20+ URLs in Chrome (13 communities × 2 sources, plus DAMAC Hills 2 and Town Square dual ranges)
 2. Running JavaScript in the browser console via the MCP extension
 3. Reading output in 900-char chunks (because MCP truncates)
 4. Assembling JSON in Python manually
@@ -148,7 +148,7 @@ PF is the easier target. The data lives in `<script id="__NEXT_DATA__">` which i
 
 **Alternative for PF only:** Once you have valid Cloudflare cookies from one browser session, you can sometimes make plain `httpx` requests with those cookies for subsequent calls. But Playwright is simpler and more reliable.
 
-**All 9 PF URLs (ready to use):**
+**All 13 PF communities (ready to use):**
 ```python
 PF_COMMUNITIES = [
     ("DAMAC Lagoons",       11559, 3, 2_000_000, 3_000_000),
@@ -161,9 +161,16 @@ PF_COMMUNITIES = [
     ("DAMAC Hills",         129,   3, 2_000_000, 3_000_000),
     ("Dubai Hills Estate",  105,   3, 2_000_000, 3_000_000),
     ("Tilal Al Ghaf",       9885,  3, 2_000_000, 3_000_000),
+    # ── New communities ──
+    ("Emaar South",         "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-dubai-south-dubai-world-central-emaar-south.html?beds_min=3&price_min=1500000&price_max=3000000&sort=pa", 3, 1_500_000, 3_000_000),  # URL-based (no numeric PF ID)
+    ("Arabian Ranches 3",   10393, 3, 2_000_000, 3_000_000),
+    ("Town Square",         131,   3, 1_000_000, 2_000_000),  # sub-2M range
+    ("Town Square",         131,   3, 2_000_000, 3_000_000),  # 2M-3M range
+    ("Mudon",               8250,  3, 1_500_000, 3_000_000),
 ]
 # URL template:
 # https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D={beds}&pf={min}&pt={max}&ob=pr
+# Emaar South uses direct URL (no numeric location ID on PF)
 ```
 
 ---
@@ -179,7 +186,7 @@ Bayut needs real browser rendering. Approach:
 5. Extract via `page.evaluate()` running the existing bayut_extractor.js logic
 6. No chunks needed — `page.evaluate()` returns the full result directly (not limited by MCP truncation)
 
-**All 9 Bayut URLs (ready to use):**
+**All 13 Bayut communities (ready to use):**
 ```python
 BAYUT_COMMUNITIES = [
     ("DAMAC Lagoons",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
@@ -192,6 +199,11 @@ BAYUT_COMMUNITIES = [
     ("DAMAC Hills",        "https://www.bayut.com/for-sale/townhouses/dubai/damac-hills/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("Dubai Hills Estate", "https://www.bayut.com/for-sale/townhouses/dubai/dubai-hills-estate/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("Tilal Al Ghaf",      "https://www.bayut.com/for-sale/townhouses/dubai/tilal-al-ghaf/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
+    # ── New communities ──
+    ("Emaar South",        "https://www.bayut.com/for-sale/townhouses/dubai/dubai-south-dubai-world-central/emaar-south/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
+    ("Arabian Ranches 3",  "https://www.bayut.com/for-sale/townhouses/dubai/arabian-ranches-3/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
+    ("Town Square",        "https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("Mudon",              "https://www.bayut.com/for-sale/townhouses/dubai/mudon/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
 ]
 ```
 

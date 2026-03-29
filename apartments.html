@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Dubai Apartment Deal Tracker</title>
+<style>
+  :root {
+    --bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--text:#e1e4ed;--muted:#8b8fa3;
+    --green:#22c55e;--green-bg:rgba(34,197,94,.12);--yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);
+    --red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);
+    --gold:#f59e0b;--orange:#f97316;--orange-bg:rgba(249,115,22,.15);
+    --purple:#8b5cf6;--purple-bg:rgba(139,92,246,.12);
+    --header-bg:linear-gradient(135deg,#1a1d27,#0f1117);
+    --bar-track:rgba(255,255,255,.04);--hover-row:rgba(59,130,246,.06);
+  }
+  [data-theme="light"]{
+    --bg:#f5f7fa;--card:#fff;--border:#e2e6ed;--text:#1a1d27;--muted:#64748b;
+    --green:#16a34a;--green-bg:rgba(22,163,74,.1);--yellow:#ca8a04;--yellow-bg:rgba(202,138,4,.1);
+    --red:#dc2626;--red-bg:rgba(220,38,38,.1);--blue:#2563eb;--blue-bg:rgba(37,99,235,.08);
+    --gold:#d97706;--orange:#ea580c;--orange-bg:rgba(234,88,12,.1);
+    --purple:#7c3aed;--purple-bg:rgba(124,58,237,.08);
+    --header-bg:linear-gradient(135deg,#fff,#f0f4f8);
+    --bar-track:rgba(0,0,0,.05);--hover-row:rgba(37,99,235,.04);
+  }
+  [data-theme="dark"]{
+    --bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--text:#e1e4ed;--muted:#8b8fa3;
+    --green:#22c55e;--green-bg:rgba(34,197,94,.12);--yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);
+    --red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);
+    --gold:#f59e0b;--orange:#f97316;--orange-bg:rgba(249,115,22,.15);
+    --purple:#8b5cf6;--purple-bg:rgba(139,92,246,.12);
+    --header-bg:linear-gradient(135deg,#1a1d27,#0f1117);
+    --bar-track:rgba(255,255,255,.04);--hover-row:rgba(59,130,246,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+
+  /* ── Header ── */
+  .header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .header-left h1{font-size:16px;font-weight:700} .header-left h1 span{color:var(--purple)}
+  .header-left .sub{color:var(--muted);font-size:10px;margin-top:1px}
+  .header-left .upd{color:var(--blue);font-size:10px;margin-top:1px}
+  .hdr-actions{margin-left:auto;display:flex;gap:6px;align-items:center}
+  .hdr-actions a,.hdr-actions button{padding:4px 10px;border-radius:5px;font-size:10px;font-weight:600;text-decoration:none;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;transition:all .2s;white-space:nowrap}
+  .hdr-actions .nav-villa{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+  .hdr-actions .nav-villa:hover{background:var(--blue);color:#fff}
+  .hdr-actions .theme-btn:hover{border-color:var(--purple)}
+
+  /* ── Stats (compact row) ── */
+  .stats{display:flex;gap:6px;padding:8px 24px;flex-wrap:wrap}
+  .st{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 12px;flex:1;min-width:85px;display:flex;align-items:center;gap:7px}
+  .st .ico{font-size:14px;opacity:.65}
+  .st .lbl{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.3px}
+  .st .val{font-size:16px;font-weight:700;line-height:1.1}
+
+  /* ── Chart ── */
+  .chart-area{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin:6px 24px}
+  .chart-area h3{font-size:10px;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px}
+  .bar-chart{display:flex;align-items:flex-end;gap:3px;height:65px}
+  .bar-col{display:flex;flex-direction:column;align-items:center;flex:1;min-width:28px;cursor:pointer}
+  .bar-col .bar{width:100%;max-width:36px;border-radius:2px 2px 0 0;transition:height .4s}
+  .bar-col .bar:hover{opacity:.8}
+  .bar-col .blbl{font-size:8px;color:var(--muted);margin-top:2px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50px}
+  .bar-col .bcnt{font-size:8px;font-weight:700;color:var(--text);margin-bottom:1px}
+
+  /* ── Toolbar ── */
+  .toolbar{display:flex;align-items:center;gap:8px;padding:6px 24px;flex-wrap:wrap}
+  .search-box{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:5px 10px;color:var(--text);font-size:11px;width:220px;outline:none}
+  .search-box:focus{border-color:var(--purple)}
+  .rcnt{font-size:10px;color:var(--muted)}
+
+  /* ── Filters ── */
+  .filters{display:flex;gap:4px;flex-wrap:wrap;padding:2px 24px 6px}
+  .fbtn{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3px 10px;color:var(--muted);font-size:10px;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .fbtn:hover{border-color:var(--purple);color:var(--text)}
+  .fbtn.active{background:var(--purple-bg);border-color:var(--purple);color:var(--purple);font-weight:600}
+
+  /* ── Table ── */
+  .tw{padding:0 24px 16px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  thead th{text-align:left;padding:6px 6px;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.3px;border-bottom:2px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--bg);z-index:2;user-select:none}
+  thead th.sortable{cursor:pointer} thead th.sortable:hover{color:var(--text)}
+  thead th .sa{font-size:8px;margin-left:2px;opacity:.4}
+  thead th.sort-active{color:var(--purple)} thead th.sort-active .sa{opacity:1;color:var(--purple)}
+  tbody tr{border-bottom:1px solid var(--border);transition:background .12s}
+  tbody tr:hover{background:var(--hover-row)}
+  td{padding:5px 6px;vertical-align:middle}
+
+  .cn{font-weight:600;font-size:11px} .cl{color:var(--muted);font-size:9px}
+  .pm{font-weight:700;font-size:12px} .ps{text-decoration:line-through;color:var(--red);font-size:9px}
+  .pp{color:var(--muted);font-size:9px} .pl{color:var(--muted);font-size:9px}
+
+  .sb{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:19px;border-radius:4px;font-weight:700;font-size:10px;padding:0 5px}
+  .sh{background:var(--green-bg);color:var(--green)} .sm{background:var(--yellow-bg);color:var(--yellow)} .sl{background:var(--red-bg);color:var(--red)}
+
+  .pb{font-weight:600;font-size:10px;padding:2px 5px;border-radius:3px}
+  .pg{color:var(--green);background:var(--green-bg)} .po{color:var(--yellow);background:var(--yellow-bg)} .pr{color:var(--red);background:var(--red-bg)}
+
+  .src{display:inline-block;padding:2px 5px;border-radius:3px;font-size:9px;font-weight:600}
+  .src-b{background:rgba(239,68,68,.12);color:var(--red)} .src-p{background:rgba(139,92,246,.12);color:var(--purple)}
+
+  .sig{display:inline-block;padding:1px 4px;border-radius:2px;font-size:8px;margin:0 1px;background:var(--blue-bg);color:var(--blue)}
+  .sig-h{background:rgba(239,68,68,.12);color:var(--red)}
+  .sig-op{background:rgba(139,92,246,.12);color:var(--purple);font-weight:600}
+  .sig-re{background:rgba(34,197,94,.12);color:var(--green);font-weight:600}
+
+  .dt{display:inline-block;padding:1px 4px;border-radius:2px;font-size:8px;font-weight:700;margin-left:2px}
+  .dt-d{background:var(--green-bg);color:var(--green)} .dt-u{background:var(--red-bg);color:var(--red)}
+  .pt{display:inline-block;padding:1px 5px;border-radius:2px;font-size:8px;font-weight:700;background:var(--orange-bg);color:var(--orange);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+  .ni{cursor:help;color:var(--orange);font-size:11px}
+
+  .eb{background:none;border:1px solid var(--border);color:var(--blue);cursor:pointer;font-size:8px;padding:1px 3px;border-radius:2px;margin-right:2px;transition:all .15s}
+  .eb:hover{background:var(--blue-bg)} .eb.open{transform:rotate(180deg)}
+  .hr{display:none} .hr.active{display:table-row}
+  .hr td{padding:0 6px 6px}
+  .ht{width:100%;max-width:380px;border-collapse:collapse;font-size:10px;margin:3px 0;background:var(--card);border:1px solid var(--border);border-radius:5px;overflow:hidden}
+  .ht th{text-align:left;font-weight:600;color:var(--muted);padding:4px 6px;background:var(--bar-track);font-size:9px}
+  .ht td{padding:3px 6px;border-top:1px solid var(--border)}
+  .hd{color:var(--green);font-weight:600} .hi{color:var(--red);font-weight:600}
+
+  a.lnk{color:var(--purple);text-decoration:none;font-size:10px;font-weight:600} a.lnk:hover{text-decoration:underline}
+  .footer{text-align:center;padding:16px;color:var(--muted);font-size:9px;border-top:1px solid var(--border);margin-top:10px}
+
+  @media(max-width:900px){
+    .header,.stats,.toolbar,.filters,.tw,.chart-area{padding-left:10px;padding-right:10px}
+    .st{min-width:70px;padding:4px 8px} .st .val{font-size:13px}
+    table{font-size:10px} td,th{padding:4px 3px}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>Dubai <span>Apartment</span> Deal Tracker</h1>
+    <div class="sub">Low-rise | Reputable Developers | 3BR+ | AED 1.5M&ndash;2.5M</div>
+    <div class="upd" id="lastUpdated"></div>
+  </div>
+  <div class="hdr-actions">
+    <a href="index.html" class="nav-villa">Villa Tracker</a>
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">&#9790;</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="ico">&#128202;</div><div><div class="lbl">Total</div><div class="val" style="color:var(--purple)" id="sT">0</div></div></div>
+  <div class="st"><div class="ico">&#128197;</div><div><div class="lbl">Off-Plan</div><div class="val" style="color:var(--blue)" id="sO">0</div></div></div>
+  <div class="st"><div class="ico">&#127968;</div><div><div class="lbl">Resale</div><div class="val" style="color:var(--green)" id="sR">0</div></div></div>
+  <div class="st"><div class="ico">&#128200;</div><div><div class="lbl">Drops</div><div class="val" style="color:var(--orange)" id="sD">0</div></div></div>
+  <div class="st"><div class="ico">&#11088;</div><div><div class="lbl">Avg Score</div><div class="val" style="color:var(--gold)" id="sA">0</div></div></div>
+</div>
+
+<div class="chart-area">
+  <h3>Listings by Community</h3>
+  <div class="bar-chart" id="chart"></div>
+</div>
+
+<div class="toolbar">
+  <input type="text" class="search-box" id="sBox" placeholder="Search community, title, ref...">
+  <span class="rcnt" id="rCnt"></span>
+</div>
+
+<div class="filters" id="fBar">
+  <button class="fbtn active" data-community="all" onclick="fC('all')">All</button>
+</div>
+
+<div class="tw">
+  <table>
+    <thead><tr>
+      <th class="sortable" data-sort="score" onclick="sB('score')">Score <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="community" onclick="sB('community')">Community <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="price" onclick="sB('price')">Price <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="beds" onclick="sB('beds')">Beds <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="sqft" onclick="sB('sqft')">Size <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="psf" onclick="sB('psf')">PSF <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="pct" onclick="sB('pct')">vs Launch <span class="sa">&#9660;</span></th>
+      <th>Signals</th>
+      <th class="sortable" data-sort="source" onclick="sB('source')">Src <span class="sa">&#9660;</span></th>
+      <th>Type</th>
+      <th class="sortable" data-sort="listed" onclick="sB('listed')">Listed <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="last_seen" onclick="sB('last_seen')">Checked <span class="sa">&#9660;</span></th>
+      <th>Link</th>
+    </tr></thead>
+    <tbody id="tB"></tbody>
+  </table>
+</div>
+
+<div class="footer">Dubai Apartment Deal Tracker &mdash; 11 communities &mdash; Low-rise, reputable developers &mdash; Playwright</div>
+
+<script>
+const DATA = {"last_updated": "2026-03-29", "total": 28, "price_drops": 0, "price_increases": 0, "listings": [{"community": "Al Furjan", "cluster": "Equiti Home", "price": 1778000, "beds": 3, "baths": 2, "sqft": 16727, "title": "URGENT SALE | HIGH FLOOR | BRAND NEW | BEST PRICE", "source": "PropertyFinder", "listed": "2026-03-24", "status": "off_plan", "signals": "Motivated Seller", "ref": "8PPWPMAM9ZR9E8GAACB8ZF1X5R", "link": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-equiti-home-67908318.html", "unique_id": "pf-8PPWPMAM9ZR9E8GAACB8ZF1X5R", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 44, "pct_vs_launch": 61.6, "launch_price": 1100000, "psf": 106, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 15", "price": 1950000, "beds": 3, "baths": 4, "sqft": 1500, "title": "3BR Apartment | Park & Garden Views | Maids Room", "source": "Bayut", "listed": "2026-03-25", "status": "ready", "signals": "Low Floor", "ref": "14633080", "link": "https://www.bayut.com/property/details-14633080.html", "unique_id": "bayut-14633080", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 8, "pct_vs_launch": 160.0, "launch_price": 750000, "psf": 1300, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Al Furjan", "cluster": "Daisy", "price": 2150000, "beds": 3, "baths": 4, "sqft": 19268, "title": "Facing Dubai Skyline | Walkable to Metro", "source": "PropertyFinder", "listed": "2025-06-30", "status": "ready", "signals": "", "ref": "5Pillars-3006202502", "link": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-daisy-14627900.html", "unique_id": "pf-5Pillars-3006202502", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 6, "pct_vs_launch": 95.5, "launch_price": 1100000, "psf": 112, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "DAMAC Hills 2", "cluster": "Verona", "price": 2300000, "beds": 4, "baths": 5, "sqft": 1216, "title": "Motivated Seller | Single Row | Genuine Resale", "source": "Bayut", "listed": "2026-02-12", "status": "off_plan", "signals": "Motivated Seller, Genuine Resale", "ref": "14279838", "link": "https://www.bayut.com/property/details-14279838.html", "unique_id": "bayut-14279838", "note": "Near Al Minhad Air Base", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 6, "pct_vs_launch": 155.6, "launch_price": 900000, "psf": 1891, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Emaar South", "cluster": "Block 13", "price": 2495000, "beds": 3, "baths": 2, "sqft": 24876, "title": "Upgraded and Fully Furnished | Single Row | VOT", "source": "PropertyFinder", "listed": "2026-03-13", "status": "ready", "signals": "", "ref": "DPF-S-44220", "link": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-urbana-urbana-3-block-13-2Q8VCqlBN8S.html", "unique_id": "pf-DPF-S-44220", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 126.8, "launch_price": 1100000, "psf": 100, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Motor City", "cluster": "Abbey Crescent 2", "price": 2390000, "beds": 3, "baths": 4, "sqft": 22368, "title": "Three Bed + Maids I 2077 Sqft I Vacant Now", "source": "PropertyFinder", "listed": "2026-03-05", "status": "ready", "signals": "", "ref": "L-292249", "link": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-abbey-crescent-abbey-crescent-2-2PupDOShRIG.html", "unique_id": "pf-L-292249", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 151.6, "launch_price": 950000, "psf": 107, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 13", "price": 1550000, "beds": 3, "baths": 4, "sqft": 1482, "title": "Upgraded 3BR | Vacant | High Floor | 2 Parking", "source": "Bayut", "listed": "2026-03-25", "status": "ready", "signals": "", "ref": "14636270", "link": "https://www.bayut.com/property/details-14636270.html", "unique_id": "bayut-14636270", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 106.7, "launch_price": 750000, "psf": 1046, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 35", "price": 1600000, "beds": 3, "baths": 4, "sqft": 1482, "title": "Rare Top-Floor | Exclusive U-Layout | 2 Terraces", "source": "Bayut", "listed": "2026-03-23", "status": "ready", "signals": "", "ref": "14608342", "link": "https://www.bayut.com/property/details-14608342.html", "unique_id": "bayut-14608342", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 113.3, "launch_price": 750000, "psf": 1080, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 11", "price": 1648500, "beds": 3, "baths": 4, "sqft": 1496, "title": "3 Bedroom | Semi Closed Kitchen | Double Balcony", "source": "Bayut", "listed": "2026-03-13", "status": "ready", "signals": "", "ref": "12679257", "link": "https://www.bayut.com/property/details-12679257.html", "unique_id": "bayut-12679257", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 119.8, "launch_price": 750000, "psf": 1102, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 11", "price": 1648500, "beds": 3, "baths": 4, "sqft": 1496, "title": "Hot Deal | 3BR Spacious | Maids Room | Rented", "source": "Bayut", "listed": "2026-03-21", "status": "ready", "signals": "", "ref": "14599667", "link": "https://www.bayut.com/property/details-14599667.html", "unique_id": "bayut-14599667", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 119.8, "launch_price": 750000, "psf": 1102, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 45", "price": 1720000, "beds": 3, "baths": 4, "sqft": 1500, "title": "Spacious Layout Park View 2Balcony Well Maintained", "source": "Bayut", "listed": "2026-03-18", "status": "ready", "signals": "", "ref": "14588883", "link": "https://www.bayut.com/property/details-14588883.html", "unique_id": "bayut-14588883", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 129.3, "launch_price": 750000, "psf": 1147, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 61", "price": 1900000, "beds": 3, "baths": 4, "sqft": 2295, "title": "3BHK |Podium Level |Community View |Closed Kitchen", "source": "Bayut", "listed": "2026-03-02", "status": "ready", "signals": "", "ref": "14435619", "link": "https://www.bayut.com/property/details-14435619.html", "unique_id": "bayut-14435619", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 153.3, "launch_price": 750000, "psf": 828, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 41", "price": 1950000, "beds": 3, "baths": 2, "sqft": 1497, "title": "Fully Furnished 3BR | VOT | Prime Location", "source": "Bayut", "listed": "2026-03-13", "status": "ready", "signals": "", "ref": "14537124", "link": "https://www.bayut.com/property/details-14537124.html", "unique_id": "bayut-14537124", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 160.0, "launch_price": 750000, "psf": 1303, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 39", "price": 1999000, "beds": 3, "baths": 4, "sqft": 2210, "title": "Huge Balcony | 3 Bedrooms + Maid's | Ready To Move", "source": "Bayut", "listed": "2026-03-28", "status": "ready", "signals": "", "ref": "14667668", "link": "https://www.bayut.com/property/details-14667668.html", "unique_id": "bayut-14667668", "note": "", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 166.5, "launch_price": 750000, "psf": 905, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "DAMAC Hills 2", "cluster": "Camelia", "price": 1940000, "beds": 3, "baths": 3, "sqft": 1208, "title": "Terrace + Roof | Close to Beach | Semi-Furnished", "source": "Bayut", "listed": "2026-03-17", "status": "ready", "signals": "", "ref": "14578684", "link": "https://www.bayut.com/property/details-14578684.html", "unique_id": "bayut-14578684", "note": "Near Al Minhad Air Base", "last_seen": "2026-03-29", "panic_period": true, "deal_score": 5, "pct_vs_launch": 198.5, "launch_price": 650000, "psf": 1606, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 11", "price": 1650000, "beds": 3, "baths": 3, "sqft": 1495, "title": "Spacious Layout |Closed Kitchen | Garden View", "source": "Bayut", "listed": "2026-02-10", "status": "ready", "signals": "Low Floor", "ref": "14260131", "link": "https://www.bayut.com/property/details-14260131.html", "unique_id": "bayut-14260131", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 3, "pct_vs_launch": 120.0, "launch_price": 750000, "psf": 1104, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 53", "price": 2100000, "beds": 3, "baths": 4, "sqft": 2210, "title": "Vacant - Vastu Compliant \u2013 Garden View - Corner", "source": "Bayut", "listed": "2026-02-10", "status": "ready", "signals": "Low Floor", "ref": "14253431", "link": "https://www.bayut.com/property/details-14253431.html", "unique_id": "bayut-14253431", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 3, "pct_vs_launch": 180.0, "launch_price": 750000, "psf": 950, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "DAMAC Hills 2", "cluster": "Camelia", "price": 2100000, "beds": 4, "baths": 4, "sqft": 1208, "title": "Genuine Resale | Handover in month | Brand New", "source": "Bayut", "listed": "2026-02-14", "status": "off_plan", "signals": "Genuine Resale", "ref": "14302332", "link": "https://www.bayut.com/property/details-14302332.html", "unique_id": "bayut-14302332", "note": "Near Al Minhad Air Base", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 3, "pct_vs_launch": 133.3, "launch_price": 900000, "psf": 1738, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 47", "price": 1575000, "beds": 3, "baths": 3, "sqft": 1495, "title": "Exclusive I Closed Kitchen I 2 Balconies I Rented", "source": "Bayut", "listed": "2026-01-19", "status": "ready", "signals": "", "ref": "14043668", "link": "https://www.bayut.com/property/details-14043668.html", "unique_id": "bayut-14043668", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 110.0, "launch_price": 750000, "psf": 1054, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 39", "price": 1650000, "beds": 3, "baths": 4, "sqft": 1496, "title": "Large Layout |Semi Closed Kitchen| Well Maintained", "source": "Bayut", "listed": "2025-09-09", "status": "ready", "signals": "", "ref": "12743345", "link": "https://www.bayut.com/property/details-12743345.html", "unique_id": "bayut-12743345", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 120.0, "launch_price": 750000, "psf": 1103, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Ramth 39", "price": 1680000, "beds": 3, "baths": 4, "sqft": 1496, "title": "3 Bedroom I Closed Kitchen I 2 Balconies I Rented", "source": "Bayut", "listed": "2025-11-24", "status": "ready", "signals": "", "ref": "13495429", "link": "https://www.bayut.com/property/details-13495429.html", "unique_id": "bayut-13495429", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 124.0, "launch_price": 750000, "psf": 1123, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 61", "price": 1950000, "beds": 3, "baths": 4, "sqft": 2295, "title": "Spacious 3-Bedroom | Modern Living", "source": "Bayut", "listed": "2026-02-07", "status": "ready", "signals": "", "ref": "14229022", "link": "https://www.bayut.com/property/details-14229022.html", "unique_id": "bayut-14229022", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 160.0, "launch_price": 750000, "psf": 850, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 15", "price": 1950000, "beds": 3, "baths": 4, "sqft": 1500, "title": "With Maids Room | Great Location | Fully Renovated", "source": "Bayut", "listed": "2025-10-24", "status": "ready", "signals": "", "ref": "13167920", "link": "https://www.bayut.com/property/details-13167920.html", "unique_id": "bayut-13167920", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 160.0, "launch_price": 750000, "psf": 1300, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 15", "price": 1950000, "beds": 3, "baths": 4, "sqft": 1500, "title": "Elegant 3-Bedroom APT for Sale | Prime Location", "source": "Bayut", "listed": "2025-09-09", "status": "ready", "signals": "", "ref": "12736200", "link": "https://www.bayut.com/property/details-12736200.html", "unique_id": "bayut-12736200", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 160.0, "launch_price": 750000, "psf": 1300, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 01", "price": 2100000, "beds": 3, "baths": 4, "sqft": 1499, "title": "Fully Upgraded I Vacant on Transfer I 2 Balconies", "source": "Bayut", "listed": "2026-01-28", "status": "ready", "signals": "", "ref": "14130087", "link": "https://www.bayut.com/property/details-14130087.html", "unique_id": "bayut-14130087", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 180.0, "launch_price": 750000, "psf": 1401, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "Remraam", "cluster": "Al Thamam 03", "price": 2100000, "beds": 3, "baths": 4, "sqft": 2295, "title": "Upgraded 3BR maids-Huge Terrace-Best Location", "source": "Bayut", "listed": "2026-02-27", "status": "ready", "signals": "", "ref": "14420526", "link": "https://www.bayut.com/property/details-14420526.html", "unique_id": "bayut-14420526", "note": "", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 180.0, "launch_price": 750000, "psf": 915, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "DAMAC Hills 2", "cluster": "Pacifica", "price": 2200000, "beds": 3, "baths": 5, "sqft": 2142, "title": "CORNER UNIT | BIG LAYOUT | LUXURY LIFESTYLE | NEGOTIABLE | IDEAL FOR END USERS | 3BHK+PLUS MAID ROOM", "source": "Bayut", "listed": "2026-01-20", "status": "ready", "signals": "", "ref": "14053492", "link": "https://www.bayut.com/property/details-14053492.html", "unique_id": "bayut-14053492", "note": "Near Al Minhad Air Base", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 238.5, "launch_price": 650000, "psf": 1027, "slash_price": null, "price_history": [], "price_tag": null}, {"community": "DAMAC Hills 2", "cluster": "Violet", "price": 2300000, "beds": 4, "baths": 4, "sqft": 1842, "title": "Corner Unit | Single Row | Spacious", "source": "Bayut", "listed": "2025-10-14", "status": "off_plan", "signals": "", "ref": "13061082", "link": "https://www.bayut.com/property/details-13061082.html", "unique_id": "bayut-13061082", "note": "Near Al Minhad Air Base", "last_seen": "2026-03-29", "panic_period": false, "deal_score": 0, "pct_vs_launch": 155.6, "launch_price": 900000, "psf": 1249, "slash_price": null, "price_history": [], "price_tag": null}]};
+
+var cF='all',cS='',sK='score',sA=false;
+
+function fp(v){if(!v)return'\u2014';if(v>=1e6)return'AED '+(v/1e6).toFixed(v%1e6===0?0:v%1e5===0?1:2)+'M';if(v>=1e3)return'AED '+(v/1e3).toFixed(v%1e3===0?0:1)+'K';return'AED '+v.toLocaleString()}
+function toggleTheme(){var h=document.documentElement,c=h.getAttribute('data-theme');h.setAttribute('data-theme',c==='dark'?'light':'dark');try{localStorage.setItem('apt-theme',h.getAttribute('data-theme'))}catch(e){}}
+(function(){try{var s=localStorage.getItem('apt-theme');if(s)document.documentElement.setAttribute('data-theme',s)}catch(e){}})();
+
+function sB(key){
+  if(sK===key){sA=!sA}else{sK=key;sA=(key==='community'||key==='source')}
+  document.querySelectorAll('thead th').forEach(function(th){th.classList.remove('sort-active');var a=th.querySelector('.sa');if(a)a.innerHTML='&#9660;'});
+  var th=document.querySelector('th[data-sort="'+key+'"]');
+  if(th){th.classList.add('sort-active');var a=th.querySelector('.sa');if(a)a.innerHTML=sA?'&#9650;':'&#9660;'}
+  rT();
+}
+
+function cmp(a,b){
+  var va,vb;
+  switch(sK){
+    case'score':va=a.deal_score||0;vb=b.deal_score||0;break;
+    case'community':va=(a.community||'').toLowerCase();vb=(b.community||'').toLowerCase();return sA?va.localeCompare(vb):vb.localeCompare(va);
+    case'price':va=a.price||0;vb=b.price||0;break;
+    case'beds':va=a.beds||0;vb=b.beds||0;break;
+    case'sqft':va=a.sqft||0;vb=b.sqft||0;break;
+    case'psf':va=a.psf||0;vb=b.psf||0;break;
+    case'pct':va=a.pct_vs_launch!=null?a.pct_vs_launch:999;vb=b.pct_vs_launch!=null?b.pct_vs_launch:999;break;
+    case'source':va=(a.source||'').toLowerCase();vb=(b.source||'').toLowerCase();return sA?va.localeCompare(vb):vb.localeCompare(va);
+    case'listed':va=a.listed||'';vb=b.listed||'';return sA?va.localeCompare(vb):vb.localeCompare(va);
+    case'last_seen':va=a.last_seen||'';vb=b.last_seen||'';return sA?va.localeCompare(vb):vb.localeCompare(va);
+    default:va=0;vb=0;
+  }
+  return sA?(va-vb):(vb-va);
+}
+
+function gF(){
+  return(DATA.listings||[]).filter(function(l){
+    if(cF!=='all'&&l.community!==cF)return false;
+    if(cS){var h=[l.community,l.cluster,l.title,l.ref,l.signals,l.source,l.note].join(' ').toLowerCase();if(h.indexOf(cS)===-1)return false}
+    return true;
+  }).sort(cmp);
+}
+
+function fC(c){
+  cF=c;
+  document.querySelectorAll('.fbtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-community')===c)});
+  rT();
+}
+
+function rS(){
+  var L=DATA.listings||[];
+  document.getElementById('lastUpdated').textContent='Updated: '+(DATA.last_updated||'N/A');
+  document.getElementById('sT').textContent=L.length;
+  document.getElementById('sO').textContent=L.filter(function(l){return l.status==='off_plan'}).length;
+  document.getElementById('sR').textContent=L.filter(function(l){return l.status==='ready'}).length;
+  document.getElementById('sD').textContent=DATA.price_drops||0;
+  document.getElementById('sA').textContent=L.length?Math.round(L.reduce(function(s,l){return s+l.deal_score},0)/L.length):0;
+}
+
+function rC(){
+  var L=DATA.listings||[],cm={};
+  L.forEach(function(l){cm[l.community]=(cm[l.community]||0)+1});
+  var sk=Object.keys(cm).sort(function(a,b){return cm[b]-cm[a]});
+  var mx=Math.max.apply(null,sk.map(function(c){return cm[c]}))||1;
+  var co=['#8b5cf6','#3b82f6','#22c55e','#eab308','#f97316','#ef4444','#ec4899','#06b6d4','#14b8a6','#84cc16','#6366f1'];
+  document.getElementById('chart').innerHTML=sk.map(function(c,i){
+    var h=Math.max(12,Math.round(cm[c]/mx*55));
+    return'<div class="bar-col" onclick="fC(\''+c.replace(/'/g,"\\'")+'\')">'+'<div class="bcnt">'+cm[c]+'</div>'+'<div class="bar" style="height:'+h+'px;background:'+co[i%co.length]+'"></div>'+'<div class="blbl" title="'+c+'">'+c.replace(/ /g,'&nbsp;')+'</div></div>';
+  }).join('');
+}
+
+function rF(){
+  var L=DATA.listings||[],cm={};
+  L.forEach(function(l){cm[l.community]=(cm[l.community]||0)+1});
+  var sk=Object.keys(cm).sort(function(a,b){return cm[b]-cm[a]});
+  var h='<button class="fbtn'+(cF==='all'?' active':'')+'" data-community="all" onclick="fC(\'all\')">All ('+L.length+')</button>';
+  sk.forEach(function(c){h+='<button class="fbtn" data-community="'+c+'" onclick="fC(\''+c.replace(/'/g,"\\'")+'\')">'+c+' ('+L.filter(function(l){return l.community===c}).length+')</button>'});
+  document.getElementById('fBar').innerHTML=h;
+}
+
+function rT(){
+  var fl=gF();
+  document.getElementById('rCnt').textContent=fl.length+' listings';
+  var html='';
+  fl.forEach(function(l,i){
+    var sc=l.deal_score||0,scC=sc>=80?'sh':sc>=60?'sm':'sl';
+    var pct=l.pct_vs_launch!=null?l.pct_vs_launch:999;
+    var pC=pct<=5?'pg':pct<=20?'po':'pr';
+    var pS=(pct>=0?'+':'')+pct+'%';
+    var sC=l.source==='Bayut'?'src-b':'src-p',sL=l.source==='PropertyFinder'?'PF':'Bayut';
+    var hk=['motivated','urgent','below op','distress','quick exit','assignment','price drop'];
+    var sigs=(l.signals||'').split(',').map(function(s){return s.trim()}).filter(Boolean).map(function(s){
+      var hot=hk.some(function(k){return s.toLowerCase().indexOf(k)!==-1});
+      return'<span class="sig'+(hot?' sig-h':'')+'">'+s+'</span>';
+    }).join('');
+    var stTag=l.status==='off_plan'?'<span class="sig sig-op">Off-Plan</span>':'<span class="sig sig-re">Resale</span>';
+    var panic=l.panic_period?' <span class="pt">PANIC</span>':'';
+    var note=l.note?' <span class="ni" title="'+l.note.replace(/"/g,'&quot;')+'">&#9888;</span>':'';
+    var pStr=fp(l.price);
+    var slash=(l.slash_price&&l.slash_price>l.price)?'<div class="ps">'+fp(l.slash_price)+'</div>':'';
+    var ptag='';
+    if(l.price_tag==='drop')ptag='<span class="dt dt-d">&#9660;Drop</span>';
+    else if(l.price_tag==='increase')ptag='<span class="dt dt-u">&#9650;Up</span>';
+    var hH=l.price_history&&l.price_history.length>0;
+    var eBtn=hH?'<button class="eb" onclick="tH(event,'+i+')" title="History">&#9660;</button>':'';
+    var lc=(function(){
+      var ls=l.last_seen||'';if(!ls)return'<td style="color:var(--muted);font-size:10px">&mdash;</td>';
+      var d=Math.floor((new Date()-new Date(ls))/864e5);
+      var c=d<=1?'var(--green)':d<=3?'var(--yellow)':'var(--red)';
+      var lb=d===0?'Today':d===1?'1d':d+'d';
+      return'<td style="font-size:10px"><span style="color:'+c+';font-weight:600">'+lb+'</span></td>';
+    })();
+    html+='<tr>'+'<td><span class="sb '+scC+'">'+sc+'</span></td>'+'<td><div class="cn">'+l.community+note+'</div><div class="cl">'+(l.cluster||'')+'</div></td>'+'<td><div class="pm">'+eBtn+pStr+ptag+'</div>'+slash+'<div class="pl">Launch: '+fp(l.launch_price)+'</div></td>'+'<td>'+l.beds+'</td>'+'<td>'+(l.sqft?l.sqft.toLocaleString():'&mdash;')+'</td>'+'<td style="font-size:10px">'+(l.psf?l.psf.toLocaleString():'&mdash;')+'</td>'+'<td><span class="pb '+pC+'">'+pS+'</span></td>'+'<td>'+sigs+'</td>'+'<td><span class="src '+sC+'">'+sL+'</span></td>'+'<td>'+stTag+'</td>'+'<td style="font-size:10px;color:var(--muted)">'+(l.listed||'&mdash;')+panic+'</td>'+lc+'<td><a href="'+(l.link||'#')+'" target="_blank" class="lnk" onclick="event.stopPropagation()">View</a></td>'+'</tr>';
+    if(hH){
+      var hr=l.price_history.map(function(h){
+        var cls=h.change==='drop'?'hd':'hi';var ar=h.change==='drop'?'&#9660;Drop':'&#9650;Up';
+        var df=(h.old_price&&h.new_price)?(h.new_price-h.old_price):0;var ds=df!==0?(df<0?'-':'+')+fp(Math.abs(df)):'&mdash;';
+        return'<tr><td>'+(h.date||'')+'</td><td>'+fp(h.old_price)+'</td><td>'+fp(h.new_price)+'</td><td class="'+cls+'">'+ar+'</td><td class="'+cls+'">'+ds+'</td></tr>';
+      }).join('');
+      html+='<tr class="hr" id="h-'+i+'"><td colspan="13"><table class="ht"><tr><th>Date</th><th>Old</th><th>New</th><th>Change</th><th>Diff</th></tr>'+hr+'</table></td></tr>';
+    }
+  });
+  document.getElementById('tB').innerHTML=html||'<tr><td colspan="13" style="text-align:center;padding:24px;color:var(--muted)">No listings yet. Run the apartment scraper first.</td></tr>';
+}
+
+function tH(e,i){e.stopPropagation();var r=document.getElementById('h-'+i),b=e.target;if(r){r.classList.toggle('active');b.classList.toggle('open')}}
+
+rS();rC();rF();rT();
+document.getElementById('sBox').addEventListener('input',function(){cS=this.value.toLowerCase();rT()});
+(function(){var th=document.querySelector('th[data-sort="score"]');if(th)th.classList.add('sort-active')})();
+</script>
+</body>
+</html>

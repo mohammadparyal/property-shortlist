@@ -1,6 +1,6 @@
 ---
 name: dubai-deal-scanner
-description: Scan Bayut & Property Finder for distress property deals across 9 Dubai communities, with price history tracking, detail page links, and panic sell scoring.
+description: Scan Bayut & Property Finder for distress property deals across 13 Dubai communities, with price history tracking, detail page links, and panic sell scoring.
 ---
 
 ## Dubai Deal Scanner — With Price History Tracking
@@ -108,19 +108,28 @@ https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D=3&pf=2000000&pt=300
 | DAMAC Hills | 129 | Standard |
 | Dubai Hills Estate | 105 | Market now 6M+, expect ~0 results in 2M-3M (keep Bayut data) |
 | Tilal Al Ghaf | 9885 | Market now 4.5M+, expect 0 results in 2M-3M (keep Bayut data) |
+| Emaar South | URL-based | Uses browse URL (no numeric ID found) |
+| Arabian Ranches 3 | 10393 | Emaar — Anya, Raya, Bliss clusters |
+| Town Square | 131 | **TWO RANGES** — `pf=1000000&pt=2000000` AND `pf=2000000&pt=3000000` |
+| Mudon | 8250 | Dubai Properties — Al Ranim, Arabella clusters |
 
 **Full working URLs:**
 ```
-DAMAC Lagoons:      https://www.propertyfinder.ae/en/search?l=11559&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-DAMAC Islands:      https://www.propertyfinder.ae/en/search?l=14611&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
-DAMAC Islands 2:    https://www.propertyfinder.ae/en/search?l=17773&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
-The Valley:         https://www.propertyfinder.ae/en/search?l=10757&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-DAMAC Hills 2 (A):  https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=1000000&pt=2000000&ob=pr
-DAMAC Hills 2 (B):  https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-Villanova:          https://www.propertyfinder.ae/en/search?l=8780&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-DAMAC Hills:        https://www.propertyfinder.ae/en/search?l=129&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-Dubai Hills Estate: https://www.propertyfinder.ae/en/search?l=105&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
-Tilal Al Ghaf:      https://www.propertyfinder.ae/en/search?l=9885&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+DAMAC Lagoons:        https://www.propertyfinder.ae/en/search?l=11559&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+DAMAC Islands:        https://www.propertyfinder.ae/en/search?l=14611&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
+DAMAC Islands 2:      https://www.propertyfinder.ae/en/search?l=17773&c=1&bdr%5B%5D=4&pf=2000000&pt=3000000&ob=pr
+The Valley:           https://www.propertyfinder.ae/en/search?l=10757&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+DAMAC Hills 2 (A):    https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=1000000&pt=2000000&ob=pr
+DAMAC Hills 2 (B):    https://www.propertyfinder.ae/en/search?l=125&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Villanova:            https://www.propertyfinder.ae/en/search?l=8780&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+DAMAC Hills:          https://www.propertyfinder.ae/en/search?l=129&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Dubai Hills Estate:   https://www.propertyfinder.ae/en/search?l=105&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Tilal Al Ghaf:        https://www.propertyfinder.ae/en/search?l=9885&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Emaar South:          (URL-based — see auto_scrape.py)
+Arabian Ranches 3:    https://www.propertyfinder.ae/en/search?l=10393&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Town Square (A):      https://www.propertyfinder.ae/en/search?l=131&c=1&bdr%5B%5D=3&pf=1000000&pt=2000000&ob=pr
+Town Square (B):      https://www.propertyfinder.ae/en/search?l=131&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
+Mudon:                https://www.propertyfinder.ae/en/search?l=8250&c=1&bdr%5B%5D=3&pf=1500000&pt=3000000&ob=pr
 ```
 
 #### Property Finder Extractor Script
@@ -209,6 +218,11 @@ Dubai Hills Estate: https://www.bayut.com/for-sale/townhouses/dubai/dubai-hills-
                     Note: market now 6M+, price filter won't restrict much
 Tilal Al Ghaf:      https://www.bayut.com/for-sale/townhouses/dubai/tilal-al-ghaf/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000
                     Note: market now 4.5M+
+Emaar South:        https://www.bayut.com/for-sale/townhouses/dubai/dubai-south/emaar-south/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000
+Arabian Ranches 3:  https://www.bayut.com/for-sale/townhouses/dubai/arabian-ranches-3/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000
+Town Square:        https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000
+                    AND: price_min=2000000&price_max=3000000
+Mudon:              https://www.bayut.com/for-sale/townhouses/dubai/mudon/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000
 ```
 
 ⚠️ **Bayut does NOT use `__NEXT_DATA__`** — use DOM extraction via `article` elements.
@@ -310,6 +324,10 @@ else:
 | DAMAC Hills | 1,500,000 | 2,200,000 |
 | Dubai Hills Estate | 2,100,000 | 2,600,000 |
 | Tilal Al Ghaf | 1,260,000 | 1,800,000 |
+| Emaar South | 1,750,000 | 2,400,000 |
+| Arabian Ranches 3 | 2,000,000 | 2,580,000 |
+| Town Square | 1,300,000 | 1,500,000 |
+| Mudon | 1,900,000 | 2,400,000 |
 
 ```python
 score = base + signal_bonus + panic_bonus
@@ -405,13 +423,13 @@ with open(HTML_OUT, "w") as f:
 ```
 1. Reset (optional):     python3 scripts/append_community.py --reset
 
-2. Bayut scraping (9 communities):
+2. Bayut scraping (13 communities):
    - Navigate to each Bayut URL
    - Run bayut_extractor.js
    - Read window._raw in slices of 12
    - Save: python3 scripts/append_community.py '[{...}]'
 
-3. PF scraping (9 communities):
+3. PF scraping (13 communities):
    - Navigate to each PF URL (verify c=1, ob=pr in URL)
    - Run pf_extractor.js (from scripts/pf_extractor.js)
    - Read window._numChunks → read that many .slice(n*900,(n+1)*900) chunks

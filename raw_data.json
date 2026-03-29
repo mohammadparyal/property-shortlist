@@ -1512,6 +1512,34 @@
         "source": "Bayut",
         "listed": "2026-02-27",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14668716",
+        "href": "https://www.bayut.com/property/details-14668716.html",
+        "price": 2150000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2273,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14540882",
+        "href": "https://www.bayut.com/property/details-14540882.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 2364,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-13",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -3438,7 +3466,7 @@
       {
         "uid": "pf-L-15387",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elora-2PeI2f1dn04.html",
-        "price": 2925000,
+        "price": 2790000,
         "beds": 3,
         "baths": 4,
         "sqft": 15952,
@@ -6530,6 +6558,34 @@
         "source": "Bayut",
         "listed": "2026-03-27",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-SSP-AS-01",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-camelia-65154239.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 20914,
+        "cluster": "Camelia",
+        "title": "3-Bed | Big Plot | Mid-Corner | High Demand",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-17",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14663960",
+        "href": "https://www.bayut.com/property/details-14663960.html",
+        "price": 1300000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1704,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": false
       }
     ],
     "Villanova": [
@@ -7054,7 +7110,7 @@
       {
         "uid": "bayut-14579131",
         "href": "https://www.bayut.com/property/details-14579131.html",
-        "price": 2750000,
+        "price": 2600000,
         "beds": 3,
         "baths": 4,
         "sqft": 1793,
@@ -7239,9 +7295,23 @@
         "price": 2850000,
         "beds": 3,
         "baths": 4,
-        "sqft": 1733,
-        "cluster": "Amaranta",
-        "title": "Park Backing | Single Row | Vacant Now",
+        "sqft": 1918,
+        "cluster": "",
+        "title": "",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14664937",
+        "href": "https://www.bayut.com/property/details-14664937.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1732,
+        "cluster": "Amaranta B",
+        "title": "Private Garden | Close to Pool | Single Row",
         "community": "Villanova",
         "source": "Bayut",
         "listed": "2026-03-28",
@@ -9886,9 +9956,65 @@
         "source": "Bayut",
         "listed": "2026-03-24",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14665966",
+        "href": "https://www.bayut.com/property/details-14665966.html",
+        "price": 2746000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2186,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14667696",
+        "href": "https://www.bayut.com/property/details-14667696.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2192,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14666887",
+        "href": "https://www.bayut.com/property/details-14666887.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2186,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-28",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14673104",
+        "href": "https://www.bayut.com/property/details-14673104.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2186,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-29",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 705,
-  "last_updated": "2026-03-28"
+  "total_listings": 714,
+  "last_updated": "2026-03-29"
 }

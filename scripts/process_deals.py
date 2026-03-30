@@ -38,6 +38,10 @@ LAUNCH = {
     "Arabian Ranches 3":  {3: 2_000_000, 4: 2_580_000},
     "Town Square":        {3: 1_300_000, 4: 1_500_000},
     "Mudon":              {3: 1_900_000, 4: 2_400_000},
+    # ── Batch 3 ──
+    "Al Barsha South 2":  {3: 2_300_000, 4: 2_800_000},
+    "JVC":                {3: 1_200_000, 4: 1_600_000},
+    "JVT":                {3: 1_300_000, 4: 1_700_000},
 }
 
 # ─── DISTRESS SIGNAL PATTERNS ─────────────────────────────────────────────────
@@ -53,6 +57,8 @@ SIGNAL_PATTERNS = {
     "Single Row":       r"single row",
     "No Agent Fee":     r"no (agent|commission|agents)",
     "Assignment Sale":  r"assignment|transfer at \d+%",
+    "Closed Kitchen":   r"closed kitchen|enclosed kitchen",
+    "Ground Bedroom":   r"ground (floor )?bed|ground (floor )?room|bed(room)? (on |at )?ground|maid.?s.*(ground|down)|downstairs bed",
 }
 
 PANIC_START = datetime(2026, 3, 1)
@@ -269,16 +275,62 @@ def main():
     if dropped:
         print(f"Dropped {len(dropped)} listings not found in current scrape (sold/delisted)")
 
-    # ── Deduplicate (same price, beds, size, signals, listed date, community) ─
+    # ── Smart deduplication ────────────────────────────────────────────────────
+    # Agents re-list the same property many times.  Two listings are considered
+    # the "same property" when they share community + beds + similar sqft (±5%)
+    # + similar price (±3%).  Among duplicates we keep ONLY the one with the
+    # most recent last_seen (tie-break: most recent listed, then highest score).
     pre_dedup = len(new_listings)
-    seen_combos = set()
-    deduped = []
+
+    def _dedup_key(l):
+        """Coarse bucket: community + beds + rounded sqft + rounded price."""
+        sqft = l.get("sqft") or 0
+        price = l.get("price") or 0
+        # Round sqft to nearest 50 and price to nearest 25k for fuzzy match
+        return (
+            l.get("community", ""),
+            l.get("beds", 0),
+            round(sqft / 50) * 50 if sqft else 0,
+            round(price / 25_000) * 25_000 if price else 0,
+        )
+
+    def _pick_best(group):
+        """From a group of duplicate listings, pick the best one to keep."""
+        # Prefer: most recent last_seen → most recent listed → highest score
+        return max(group, key=lambda l: (
+            l.get("last_seen", ""),
+            l.get("listed", ""),
+            l.get("deal_score", 0),
+        ))
+
+    buckets: dict[tuple, list] = {}
     for l in new_listings:
-        combo = (l.get("price"), l.get("beds"), l.get("sqft"), l.get("signals",""), l.get("listed",""), l.get("community",""))
-        if combo in seen_combos:
-            continue
-        seen_combos.add(combo)
-        deduped.append(l)
+        key = _dedup_key(l)
+        buckets.setdefault(key, []).append(l)
+
+    deduped = []
+    for key, group in buckets.items():
+        best = _pick_best(group)
+        # Merge price history from all duplicates into the kept listing
+        if len(group) > 1:
+            all_history = []
+            for l in group:
+                all_history.extend(l.get("price_history") or [])
+            # Deduplicate history entries by (date, old_price, new_price)
+            seen_hist = set()
+            merged_history = []
+            for h in sorted(all_history, key=lambda x: x.get("date", ""), reverse=True):
+                hk = (h.get("date"), h.get("old_price"), h.get("new_price"))
+                if hk not in seen_hist:
+                    seen_hist.add(hk)
+                    merged_history.append(h)
+            best["price_history"] = merged_history[:10]
+            # If any duplicate had a slash_price, keep the highest
+            slash_prices = [l.get("slash_price") for l in group if l.get("slash_price")]
+            if slash_prices:
+                best["slash_price"] = max(slash_prices)
+        deduped.append(best)
+
     new_listings = deduped
     removed_dupes = pre_dedup - len(new_listings)
     if removed_dupes:

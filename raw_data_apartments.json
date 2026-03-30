@@ -156,13 +156,27 @@
         "source": "PropertyFinder",
         "listed": "2026-03-24",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-0N0R25HKXWFZDM2X83GND29X7C",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-azizi-sakandar-69103364.html",
+        "price": 575000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 3509,
+        "cluster": "Azizi Sakandar",
+        "title": "Investor Deal | Near Metro | High ROI",
+        "community": "Al Furjan",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
+        "isOffPlan": true
       }
     ],
     "JVC": [
       {
         "uid": "pf-whitewill-WG1202",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-18-westwood-grande-16312533.html",
-        "price": 790000,
+        "price": 750000,
         "beds": NaN,
         "baths": 1,
         "sqft": 4661,
@@ -227,6 +241,34 @@
         "community": "JVC",
         "source": "PropertyFinder",
         "listed": "2026-03-18",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-CB48XH2G21ZG2P1VPGXWWYFV6C",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-13-pantheon-elysee-16308437.html",
+        "price": 610000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 4768,
+        "cluster": "Pantheon Elysee",
+        "title": "Pool view | Huge Size | Best Price",
+        "community": "JVC",
+        "source": "PropertyFinder",
+        "listed": "2026-02-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-N8Z35X378WH3EJJEHMX9V1STK8",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-hanover-square-69092149.html",
+        "price": 485000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 4855,
+        "cluster": "Hanover Square",
+        "title": "FURNISHED | INVESTOR DEAL | PRIME LOCATION",
+        "community": "JVC",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
         "isOffPlan": false
       }
     ],
@@ -342,6 +384,20 @@
         "source": "PropertyFinder",
         "listed": "2026-01-15",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-S1VRSX8SQ46JZ736K5VJZS5BYG",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-dickens-circus-dickens-circus-1-67826116.html",
+        "price": 800000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 7083,
+        "cluster": "Dickens Circus 1",
+        "title": "Furnished Studio | Community View | Ready to Move",
+        "community": "Motor City",
+        "source": "PropertyFinder",
+        "listed": "2026-03-24",
+        "isOffPlan": false
       }
     ],
     "Remraam": [
@@ -682,9 +738,23 @@
         "source": "Bayut",
         "listed": "2025-10-14",
         "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14657611",
+        "href": "https://www.bayut.com/property/details-14657611.html",
+        "price": 2152000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2352,
+        "cluster": "Violet 4",
+        "title": "Voilet 4 | Premium 4 BR | Modern Architecture | Hot Deal",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-03-27",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 48,
-  "last_updated": "2026-03-29"
+  "total_listings": 53,
+  "last_updated": "2026-03-30"
 }

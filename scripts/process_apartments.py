@@ -47,6 +47,8 @@ SIGNAL_PATTERNS = {
     "Low Floor":        r"low floor|ground floor|garden",
     "No Agent Fee":     r"no (agent|commission|agents)",
     "Assignment Sale":  r"assignment|transfer at \d+%",
+    "Closed Kitchen":   r"closed kitchen|enclosed kitchen",
+    "Ground Bedroom":   r"ground (floor )?bed|ground (floor )?room|bed(room)? (on |at )?ground|maid.?s.*(ground|down)|downstairs bed",
 }
 
 PANIC_START = datetime(2026, 3, 1)
@@ -235,16 +237,55 @@ def main():
     if dropped:
         print(f"Dropped {len(dropped)} listings not found in current scrape (sold/delisted)")
 
-    # ── Deduplicate ──
+    # ── Smart deduplication ────────────────────────────────────────────────────
+    # Agents re-list the same property many times.  Two listings are considered
+    # the "same property" when they share community + beds + similar sqft (±50)
+    # + similar price (±25k).  Among duplicates we keep ONLY the one with the
+    # most recent last_seen (tie-break: most recent listed, then highest score).
     pre_dedup = len(new_listings)
-    seen_combos = set()
-    deduped = []
+
+    def _dedup_key(l):
+        sqft = l.get("sqft") or 0
+        price = l.get("price") or 0
+        return (
+            l.get("community", ""),
+            l.get("beds", 0),
+            round(sqft / 50) * 50 if sqft else 0,
+            round(price / 25_000) * 25_000 if price else 0,
+        )
+
+    def _pick_best(group):
+        return max(group, key=lambda l: (
+            l.get("last_seen", ""),
+            l.get("listed", ""),
+            l.get("deal_score", 0),
+        ))
+
+    buckets: dict[tuple, list] = {}
     for l in new_listings:
-        combo = (l.get("price"), l.get("beds"), l.get("sqft"), l.get("signals",""), l.get("listed",""), l.get("community",""))
-        if combo in seen_combos:
-            continue
-        seen_combos.add(combo)
-        deduped.append(l)
+        key = _dedup_key(l)
+        buckets.setdefault(key, []).append(l)
+
+    deduped = []
+    for key, group in buckets.items():
+        best = _pick_best(group)
+        if len(group) > 1:
+            all_history = []
+            for l in group:
+                all_history.extend(l.get("price_history") or [])
+            seen_hist = set()
+            merged_history = []
+            for h in sorted(all_history, key=lambda x: x.get("date", ""), reverse=True):
+                hk = (h.get("date"), h.get("old_price"), h.get("new_price"))
+                if hk not in seen_hist:
+                    seen_hist.add(hk)
+                    merged_history.append(h)
+            best["price_history"] = merged_history[:10]
+            slash_prices = [l.get("slash_price") for l in group if l.get("slash_price")]
+            if slash_prices:
+                best["slash_price"] = max(slash_prices)
+        deduped.append(best)
+
     new_listings = deduped
     removed_dupes = pre_dedup - len(new_listings)
     if removed_dupes:

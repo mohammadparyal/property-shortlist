@@ -62,6 +62,10 @@ PF_COMMUNITIES = [
     ("Town Square",         131,   3, 1_000_000, 2_000_000),
     ("Town Square",         131,   3, 2_000_000, 3_000_000),
     ("Mudon",               8250,  3, 1_500_000, 3_000_000),
+    # ── Batch 3: Al Barsha South 2, JVC, JVT ──
+    ("Al Barsha South 2",   "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-al-barsha-al-barsha-south-al-barsha-south-second.html?beds_min=3&price_min=1500000&price_max=3000000&sort=pa", 3, 1_500_000, 3_000_000),
+    ("JVC",                 "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-circle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa", 3, 1_000_000, 3_000_000),
+    ("JVT",                 "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-triangle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa", 3, 1_000_000, 3_000_000),
 ]
 
 # Bayut: (community_name, url)
@@ -82,6 +86,12 @@ BAYUT_COMMUNITIES = [
     ("Town Square",        "https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000"),
     ("Town Square",        "https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("Mudon",              "https://www.bayut.com/for-sale/townhouses/dubai/mudon/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
+    # ── Batch 3: Al Barsha South 2, JVC, JVT ──
+    ("Al Barsha South 2",  "https://www.bayut.com/for-sale/townhouses/dubai/al-barsha/al-barsha-south/al-barsha-south-2/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
+    ("JVC",                "https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVC",                "https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVT",                "https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVT",                "https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
 ]
 
 

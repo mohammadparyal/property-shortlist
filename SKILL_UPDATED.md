@@ -112,6 +112,9 @@ https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D=3&pf=2000000&pt=300
 | Arabian Ranches 3 | 10393 | Emaar — Anya, Raya, Bliss clusters |
 | Town Square | 131 | **TWO RANGES** — `pf=1000000&pt=2000000` AND `pf=2000000&pt=3000000` |
 | Mudon | 8250 | Dubai Properties — Al Ranim, Arabella clusters |
+| Al Barsha South 2 | URL-based | Established area near MOE, villas & townhouses |
+| JVC | URL-based | Multiple developers — compact villas & townhouses, under 3M |
+| JVT | URL-based | Nakheel — villas & townhouses, under 3M |
 
 **Full working URLs:**
 ```
@@ -130,6 +133,9 @@ Arabian Ranches 3:    https://www.propertyfinder.ae/en/search?l=10393&c=1&bdr%5B
 Town Square (A):      https://www.propertyfinder.ae/en/search?l=131&c=1&bdr%5B%5D=3&pf=1000000&pt=2000000&ob=pr
 Town Square (B):      https://www.propertyfinder.ae/en/search?l=131&c=1&bdr%5B%5D=3&pf=2000000&pt=3000000&ob=pr
 Mudon:                https://www.propertyfinder.ae/en/search?l=8250&c=1&bdr%5B%5D=3&pf=1500000&pt=3000000&ob=pr
+Al Barsha South 2:    (URL-based — see auto_scrape.py)
+JVC:                  (URL-based — see auto_scrape.py)
+JVT:                  (URL-based — see auto_scrape.py)
 ```
 
 #### Property Finder Extractor Script
@@ -223,6 +229,11 @@ Arabian Ranches 3:  https://www.bayut.com/for-sale/townhouses/dubai/arabian-ranc
 Town Square:        https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=1000000&price_max=2000000
                     AND: price_min=2000000&price_max=3000000
 Mudon:              https://www.bayut.com/for-sale/townhouses/dubai/mudon/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000
+Al Barsha South 2:  https://www.bayut.com/for-sale/townhouses/dubai/al-barsha/al-barsha-south/al-barsha-south-2/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000
+JVC (villas):       https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000
+JVC (townhouses):   https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000
+JVT (villas):       https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000
+JVT (townhouses):   https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000
 ```
 
 ⚠️ **Bayut does NOT use `__NEXT_DATA__`** — use DOM extraction via `article` elements.
@@ -328,6 +339,9 @@ else:
 | Arabian Ranches 3 | 2,000,000 | 2,580,000 |
 | Town Square | 1,300,000 | 1,500,000 |
 | Mudon | 1,900,000 | 2,400,000 |
+| Al Barsha South 2 | 2,300,000 | 2,800,000 |
+| JVC | 1,200,000 | 1,600,000 |
+| JVT | 1,300,000 | 1,700,000 |
 
 ```python
 score = base + signal_bonus + panic_bonus
@@ -423,13 +437,13 @@ with open(HTML_OUT, "w") as f:
 ```
 1. Reset (optional):     python3 scripts/append_community.py --reset
 
-2. Bayut scraping (13 communities):
+2. Bayut scraping (16 communities):
    - Navigate to each Bayut URL
    - Run bayut_extractor.js
    - Read window._raw in slices of 12
    - Save: python3 scripts/append_community.py '[{...}]'
 
-3. PF scraping (13 communities):
+3. PF scraping (16 communities):
    - Navigate to each PF URL (verify c=1, ob=pr in URL)
    - Run pf_extractor.js (from scripts/pf_extractor.js)
    - Read window._numChunks → read that many .slice(n*900,(n+1)*900) chunks

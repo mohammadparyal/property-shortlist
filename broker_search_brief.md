@@ -38,13 +38,16 @@
 ### Medium Priority
 13. Emaar South — Golf Links, Greenview, Parkside (Dubai South / DWC)
 14. Town Square — Hayat, Zahra, Safi
-15. Serena — Casa Viva, Bella Casa
-15. Motor City — Green Community
-16. Dubai Sports City — Victory Heights, Bloomingdale
-17. Al Furjan — Masakin, Quortaj
-18. Arjan — Near Miracle Garden
-19. Dubailand — Falcon City, Living Legends
-20. Layan, Nad Al Sheba, JVT
+15. Al Barsha South 2 — Established area near MOE, villas & townhouses
+16. JVC — Jumeirah Village Circle, multiple developers, compact villas & townhouses
+17. JVT — Jumeirah Village Triangle, Nakheel villas & townhouses
+18. Serena — Casa Viva, Bella Casa
+19. Motor City — Green Community
+20. Dubai Sports City — Victory Heights, Bloomingdale
+21. Al Furjan — Masakin, Quortaj
+22. Arjan — Near Miracle Garden
+23. Dubailand — Falcon City, Living Legends
+24. Layan, Nad Al Sheba
 
 ### Lower Priority (mostly above budget)
 21. Arabian Ranches 1 & 2
@@ -90,6 +93,9 @@
 | Emaar South | AED 1,750,000 | AED 2,400,000 | Emaar. Golf Links, Greenview, Parkside |
 | Town Square | AED 1,300,000 | AED 1,500,000 | Nshama. Hayat, Zahra, Safi |
 | Reem / Mira | ~AED 1,600,000 | ~AED 2,200,000 | Emaar. Mira/Mira Oasis |
+| Al Barsha South 2 | ~AED 2,300,000 | ~AED 2,800,000 | Established area near MOE |
+| JVC | ~AED 1,200,000 | ~AED 1,600,000 | Multiple developers. Compact villas/TH |
+| JVT | ~AED 1,300,000 | ~AED 1,700,000 | Nakheel. Villas & townhouses |
 
 *"~" = estimated. No prefix = confirmed from multiple sources. "—" = no 3BR units available.*
 

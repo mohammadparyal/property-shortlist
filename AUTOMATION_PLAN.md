@@ -3,7 +3,7 @@
 ## The Problem With Current Manual Process
 
 Every scan requires:
-1. Manually navigating to 20+ URLs in Chrome (13 communities × 2 sources, plus DAMAC Hills 2 and Town Square dual ranges)
+1. Manually navigating to 25+ URLs in Chrome (16 communities × 2 sources, plus DAMAC Hills 2 and Town Square dual ranges, JVC/JVT villas+townhouses)
 2. Running JavaScript in the browser console via the MCP extension
 3. Reading output in 900-char chunks (because MCP truncates)
 4. Assembling JSON in Python manually
@@ -167,10 +167,14 @@ PF_COMMUNITIES = [
     ("Town Square",         131,   3, 1_000_000, 2_000_000),  # sub-2M range
     ("Town Square",         131,   3, 2_000_000, 3_000_000),  # 2M-3M range
     ("Mudon",               8250,  3, 1_500_000, 3_000_000),
+    # ── Batch 3: Al Barsha South 2, JVC, JVT ──
+    ("Al Barsha South 2",   "URL-based", 3, 1_500_000, 3_000_000),  # URL-based (no numeric PF ID)
+    ("JVC",                 "URL-based", 3, 1_000_000, 3_000_000),  # villas-townhouses combined URL
+    ("JVT",                 "URL-based", 3, 1_000_000, 3_000_000),  # villas-townhouses combined URL
 ]
 # URL template:
 # https://www.propertyfinder.ae/en/search?l={id}&c=1&bdr%5B%5D={beds}&pf={min}&pt={max}&ob=pr
-# Emaar South uses direct URL (no numeric location ID on PF)
+# Emaar South, Al Barsha South 2, JVC, JVT use direct URLs (no numeric PF IDs)
 ```
 
 ---
@@ -186,7 +190,7 @@ Bayut needs real browser rendering. Approach:
 5. Extract via `page.evaluate()` running the existing bayut_extractor.js logic
 6. No chunks needed — `page.evaluate()` returns the full result directly (not limited by MCP truncation)
 
-**All 13 Bayut communities (ready to use):**
+**All 16 Bayut communities (ready to use):**
 ```python
 BAYUT_COMMUNITIES = [
     ("DAMAC Lagoons",      "https://www.bayut.com/for-sale/townhouses/dubai/damac-lagoons/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
@@ -204,6 +208,12 @@ BAYUT_COMMUNITIES = [
     ("Arabian Ranches 3",  "https://www.bayut.com/for-sale/townhouses/dubai/arabian-ranches-3/?sort=price_asc&beds_min=3&price_min=2000000&price_max=3000000"),
     ("Town Square",        "https://www.bayut.com/for-sale/townhouses/dubai/town-square/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
     ("Mudon",              "https://www.bayut.com/for-sale/townhouses/dubai/mudon/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
+    # ── Batch 3: Al Barsha South 2, JVC, JVT ──
+    ("Al Barsha South 2",  "https://www.bayut.com/for-sale/townhouses/dubai/al-barsha/al-barsha-south/al-barsha-south-2/?sort=price_asc&beds_min=3&price_min=1500000&price_max=3000000"),
+    ("JVC",                "https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVC",                "https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-circle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVT",                "https://www.bayut.com/for-sale/villas/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
+    ("JVT",                "https://www.bayut.com/for-sale/townhouses/dubai/jumeirah-village-triangle/?sort=price_asc&beds_min=3&price_min=1000000&price_max=3000000"),
 ]
 ```
 

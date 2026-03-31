@@ -170,6 +170,20 @@
         "source": "PropertyFinder",
         "listed": "2026-03-27",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-BI-S-20-16779",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-prime-residency-3-2Q1ZxoPoHyq.html",
+        "price": 799000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 4510,
+        "cluster": "Prime Residency 3",
+        "title": "Fully Furnished | High ROI | Well Maintained",
+        "community": "Al Furjan",
+        "source": "PropertyFinder",
+        "listed": "2026-03-09",
+        "isOffPlan": false
       }
     ],
     "JVC": [
@@ -266,6 +280,34 @@
         "sqft": 4855,
         "cluster": "Hanover Square",
         "title": "FURNISHED | INVESTOR DEAL | PRIME LOCATION",
+        "community": "JVC",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-72KWBZ2SN5B888QR783D3WP8SR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-15-oxford-boulevard-16318325.html",
+        "price": 780000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 4036,
+        "cluster": "Oxford Boulevard",
+        "title": "Bright Unit | Investor Deal | Luxury Building",
+        "community": "JVC",
+        "source": "PropertyFinder",
+        "listed": "2026-02-13",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-0ZSQX2A41X0PPP8W26MW5705P0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-13-pantheon-elysee-69105988.html",
+        "price": 625000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 4166,
+        "cluster": "Pantheon Elysee",
+        "title": "Fully Furnished | Good Quality | Open for Offers",
         "community": "JVC",
         "source": "PropertyFinder",
         "listed": "2026-03-27",
@@ -397,6 +439,20 @@
         "community": "Motor City",
         "source": "PropertyFinder",
         "listed": "2026-03-24",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-AP8240",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-widcombe-house-widcombe-house-2-2PUHCDADkLQ.html",
+        "price": 800000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 7890,
+        "cluster": "Widcombe House 2",
+        "title": "Large Studio | Tenanted | Greenery View",
+        "community": "Motor City",
+        "source": "PropertyFinder",
+        "listed": "2026-02-17",
         "isOffPlan": false
       }
     ],
@@ -666,6 +722,20 @@
         "source": "Bayut",
         "listed": "2026-02-27",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14144393",
+        "href": "https://www.bayut.com/property/details-14144393.html",
+        "price": 2100000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2209,
+        "cluster": "Al Ramth 53",
+        "title": "Ground Floor | | Vacant | Vastu | Best Location",
+        "community": "Remraam",
+        "source": "Bayut",
+        "listed": "2026-01-29",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills 2": [
@@ -755,6 +825,6 @@
       }
     ]
   },
-  "total_listings": 53,
-  "last_updated": "2026-03-30"
+  "total_listings": 58,
+  "last_updated": "2026-03-31"
 }

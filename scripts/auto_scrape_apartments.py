@@ -227,42 +227,208 @@ async def warmup_visit(page, domain):
         log(f"  Warmup failed (non-fatal): {e}")
 
 
-async def scrape_pf(page, community, location_id, beds, price_min, price_max):
-    """Scrape Property Finder for apartments in one community."""
+async def check_pf_captcha(page):
+    """Check if PF is showing a CAPTCHA / human verification page.
+    PF uses Cloudflare Turnstile: 'Let's confirm you are human' + 'Begin >' button."""
+    is_challenge = await page.evaluate("""
+        (() => {
+            const text = (document.body && document.body.innerText) || '';
+            const lc = text.toLowerCase();
+            return lc.includes('confirm you are human') ||
+                   lc.includes('complete the security check') ||
+                   lc.includes('verify you are human') ||
+                   lc.includes("let's confirm you are human") ||
+                   lc.includes('one more step') ||
+                   !!(document.querySelector('iframe[src*="captcha"]') ||
+                      document.querySelector('iframe[src*="challenge"]') ||
+                      document.querySelector('iframe[src*="turnstile"]'));
+        })()
+    """)
+    if is_challenge:
+        return True
+    title = (await page.title()).lower()
+    if any(kw in title for kw in ["just a moment", "challenge", "captcha", "verify", "security"]):
+        return True
+    has_data = await page.evaluate("!!document.getElementById('__NEXT_DATA__')")
+    return not has_data
+
+
+CAPTCHA_SIGNAL = os.path.join(BASE, ".captcha_signal")
+
+
+def write_captcha_signal(status, community=""):
+    with open(CAPTCHA_SIGNAL, "w") as f:
+        json.dump({"status": status, "community": community, "time": time.time()}, f)
+
+
+def read_captcha_signal():
+    try:
+        if os.path.exists(CAPTCHA_SIGNAL):
+            with open(CAPTCHA_SIGNAL) as f:
+                return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        pass
+    return None
+
+
+def clear_captcha_signal():
+    try:
+        if os.path.exists(CAPTCHA_SIGNAL):
+            os.remove(CAPTCHA_SIGNAL)
+    except OSError:
+        pass
+
+
+async def wait_for_pf_captcha(page, visible_mode, community="", timeout=600):
+    """Wait for user to solve PF CAPTCHA in visible mode.
+    Pauses until __NEXT_DATA__ appears or user clicks Continue in control panel."""
+    if not visible_mode:
+        return False
+    log(f"  🔒 CAPTCHA:WAITING:{community}")
+    log("  👉 Solve the CAPTCHA in the browser window, then click Continue in the control panel")
+    log(f"  ⏳ Scraper PAUSED — waiting for you (up to {timeout//60} min)...")
+    write_captcha_signal("waiting", community)
+    start = time.time()
+    while time.time() - start < timeout:
+        await asyncio.sleep(2)
+        try:
+            has_data = await page.evaluate("!!document.getElementById('__NEXT_DATA__')")
+            if has_data:
+                log("  ✅ CAPTCHA solved! PF page loaded. Continuing...")
+                clear_captcha_signal()
+                return True
+        except Exception:
+            pass
+        sig = read_captcha_signal()
+        if sig and sig.get("status") == "continue":
+            log("  ▶ Continue signal received from control panel")
+            clear_captcha_signal()
+            await asyncio.sleep(2)
+            try:
+                has_data = await page.evaluate("!!document.getElementById('__NEXT_DATA__')")
+                if has_data:
+                    log("  ✅ Page loaded after CAPTCHA. Continuing...")
+                    return True
+                else:
+                    log("  ↻ Page not ready yet — reloading...")
+                    await page.reload(wait_until="domcontentloaded", timeout=30000)
+                    await asyncio.sleep(random.uniform(3, 5))
+                    has_data = await page.evaluate("!!document.getElementById('__NEXT_DATA__')")
+                    if has_data:
+                        log("  ✅ Page loaded after reload. Continuing...")
+                        return True
+                    else:
+                        log("  ⚠ Still no data — CAPTCHA may not be solved yet")
+                        write_captcha_signal("waiting", community)
+                        continue
+            except Exception as e:
+                log(f"  ⚠ Error checking page: {e}")
+                continue
+        try:
+            title = (await page.title()).lower()
+            if "property" in title or "search" in title or "finder" in title:
+                await asyncio.sleep(1)
+                has_data = await page.evaluate("!!document.getElementById('__NEXT_DATA__')")
+                if has_data:
+                    log("  ✅ CAPTCHA solved! PF page loaded. Continuing...")
+                    clear_captcha_signal()
+                    return True
+        except Exception:
+            pass
+    log("  ✗ Timed out waiting for CAPTCHA solve (10 min)")
+    clear_captcha_signal()
+    return False
+
+
+async def scrape_pf(page, community, location_id, beds, price_min, price_max, visible_mode=False, max_retries=3):
+    """Scrape Property Finder for apartments in one community.
+    Detects CAPTCHA and waits for human solve in visible mode."""
     if isinstance(location_id, str) and location_id.startswith("http"):
-        url = location_id  # Direct URL override
+        url = location_id
     else:
-        # c=2 for apartments (c=1 is villas/townhouses)
         url = f"https://www.propertyfinder.ae/en/search?l={location_id}&c=2&bdr%5B%5D={beds}&pf={price_min}&pt={price_max}&ob=pr"
     log(f"  PF: {community}")
 
-    try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=30000)
-        await asyncio.sleep(random.uniform(3, 6))
+    for attempt in range(max_retries + 1):
+        try:
+            if attempt > 0 and not visible_mode:
+                log(f"  ↻ PF {community}: Retry {attempt}/{max_retries} — navigating fresh...")
+                try:
+                    await page.goto("https://www.propertyfinder.ae/en", wait_until="domcontentloaded", timeout=15000)
+                    await asyncio.sleep(random.uniform(3, 6))
+                    await human_mouse(page)
+                    await human_scroll(page)
+                    await asyncio.sleep(random.uniform(2, 4))
+                except Exception:
+                    pass
 
-        title = await page.title()
-        if "just a moment" in title.lower() or "challenge" in title.lower():
-            log(f"  ⚠ Cloudflare challenge detected, waiting 12s...")
-            await asyncio.sleep(12)
-            await page.wait_for_load_state("networkidle", timeout=15000)
+            await page.goto(url, wait_until="domcontentloaded", timeout=30000)
+            await asyncio.sleep(random.uniform(3, 6))
 
-        await human_mouse(page)
-        await asyncio.sleep(random.uniform(0.5, 1.5))
+            # Check for CAPTCHA / human verification
+            if await check_pf_captcha(page):
+                if visible_mode:
+                    solved = await wait_for_pf_captcha(page, visible_mode, community)
+                    if solved:
+                        await asyncio.sleep(random.uniform(1, 2))
+                    else:
+                        if attempt < max_retries:
+                            log(f"  ⚠ PF {community}: CAPTCHA not solved, will retry...")
+                            continue
+                        log(f"  ✗ PF {community}: CAPTCHA not solved after {max_retries} attempts")
+                        return []
+                else:
+                    log(f"  ⚠ PF {community}: CAPTCHA detected (headless), waiting 15s...")
+                    await asyncio.sleep(15)
+                    if attempt < max_retries:
+                        continue
+                    log(f"  ✗ PF {community}: CAPTCHA in headless mode. Try --visible to solve manually")
+                    return []
 
-        js = PF_EXTRACT_JS.replace("'__COMMUNITY__'", f"'{community}'")
-        result = await page.evaluate(js)
+            await human_mouse(page)
+            await asyncio.sleep(random.uniform(0.5, 1.5))
 
-        if "error" in result:
-            log(f"  ✗ PF {community}: {result['error']} (keys: {result.get('keys', [])})")
+            js = PF_EXTRACT_JS.replace("'__COMMUNITY__'", f"'{community}'")
+            result = await page.evaluate(js)
+
+            if "error" in result:
+                error_msg = result.get("error", "")
+                if "No __NEXT_DATA__" in error_msg:
+                    if visible_mode:
+                        log(f"  🔒 PF {community}: No __NEXT_DATA__ — CAPTCHA page. Solve it in the browser!")
+                        solved = await wait_for_pf_captcha(page, visible_mode, community)
+                        if solved:
+                            js = PF_EXTRACT_JS.replace("'__COMMUNITY__'", f"'{community}'")
+                            result = await page.evaluate(js)
+                            if "error" not in result:
+                                listings = result.get("listings", [])
+                                log(f"  ✓ PF {community}: {result['filtered']} listings (after CAPTCHA)")
+                                return listings
+                        if attempt < max_retries:
+                            continue
+                    elif attempt < max_retries:
+                        log(f"  ⚠ PF {community}: {error_msg} — CAPTCHA page, will retry...")
+                        await asyncio.sleep(random.uniform(5, 10))
+                        continue
+                log(f"  ✗ PF {community}: {error_msg} (keys: {result.get('keys', [])})")
+                return []
+
+            listings = result.get("listings", [])
+            if attempt > 0:
+                log(f"  ✓ PF {community}: {result['filtered']} listings (retry {attempt} succeeded)")
+            else:
+                log(f"  ✓ PF {community}: {result['filtered']} listings (of {result['total']} total properties)")
+            return listings
+
+        except Exception as e:
+            if attempt < max_retries:
+                log(f"  ⚠ PF {community} error: {e} — will retry...")
+                await asyncio.sleep(random.uniform(3, 6))
+                continue
+            log(f"  ✗ PF {community} ERROR: {e}")
             return []
 
-        listings = result.get("listings", [])
-        log(f"  ✓ PF {community}: {result['filtered']} listings (of {result['total']} total properties)")
-        return listings
-
-    except Exception as e:
-        log(f"  ✗ PF {community} ERROR: {e}")
-        return []
+    return []
 
 
 # ─── BAYUT SCRAPER (APARTMENTS) ────────────────────────────────────────────
@@ -444,17 +610,90 @@ async def enrich_bayut_dates(context, listings):
     log(f"  ✓ Applied dates to {applied}/{len(to_enrich)} Bayut listings")
 
 
+# ─── CONFIG LOADER ──────────────────────────────────────────────────────────
+def load_communities_from_config(config_path, mode="apartment"):
+    """Load PF and Bayut community lists from communities.json.
+    Returns (pf_list, bayut_list) matching the hardcoded format."""
+    with open(config_path) as f:
+        config = json.load(f)
+
+    pf_list = []
+    bayut_list = []
+
+    for comm in config.get(mode, []):
+        if not comm.get("enabled", True):
+            continue
+        name = comm["name"]
+        beds = comm.get("beds_min", 3)
+        pmin = comm.get("price_min", 1500000)
+        pmax = comm.get("price_max", 2500000)
+
+        # Build PF entries
+        pf = comm.get("pf")
+        if pf:
+            ranges = comm.get("pf_ranges", [{"beds_min": beds, "price_min": pmin, "price_max": pmax}])
+            for r in ranges:
+                r_beds = r.get("beds_min", beds)
+                r_pmin = r.get("price_min", pmin)
+                r_pmax = r.get("price_max", pmax)
+                if pf["type"] == "url":
+                    pf_list.append((name, pf["value"], r_beds, r_pmin, r_pmax))
+                else:
+                    pf_list.append((name, pf["value"], r_beds, r_pmin, r_pmax))
+
+        # Build Bayut entries
+        bayut_entries = comm.get("bayut", [])
+        bayut_ranges = comm.get("bayut_ranges")
+        if bayut_entries:
+            if bayut_ranges:
+                for entry in bayut_entries:
+                    for r in bayut_ranges:
+                        r_beds = r.get("beds_min", beds)
+                        r_pmin = r.get("price_min", pmin)
+                        r_pmax = r.get("price_max", pmax)
+                        url = f"https://www.bayut.com/for-sale/{entry['prop_type']}/dubai/{entry['path']}/?sort=price_asc&beds_min={r_beds}&price_min={r_pmin}&price_max={r_pmax}"
+                        bayut_list.append((name, url))
+            else:
+                for entry in bayut_entries:
+                    url = f"https://www.bayut.com/for-sale/{entry['prop_type']}/dubai/{entry['path']}/?sort=price_asc&beds_min={beds}&price_min={pmin}&price_max={pmax}"
+                    bayut_list.append((name, url))
+
+    return pf_list, bayut_list
+
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 async def main():
-    args        = set(sys.argv[1:])
-    pf_only     = "--pf-only" in args
-    bayut_only  = "--bayut-only" in args
-    dry_run     = "--dry-run" in args
-    visible     = "--visible" in args
+    argv = sys.argv[1:]
+    pf_only     = "--pf-only" in argv
+    bayut_only  = "--bayut-only" in argv
+    dry_run     = "--dry-run" in argv
+    visible     = "--visible" in argv
+    no_process  = "--no-process" in argv
+
+    # Parse --config <path>
+    config_path = None
+    if "--config" in argv:
+        ci = argv.index("--config")
+        if ci + 1 < len(argv):
+            config_path = argv[ci + 1]
 
     log(f"═══ Dubai Apartment Scraper — {TODAY} ═══")
     mode_str = "PF only" if pf_only else "Bayut only" if bayut_only else "Full scan"
     log(f"Mode: {mode_str}{' (VISIBLE)' if visible else ''}{' (DRY RUN)' if dry_run else ''}")
+
+    # Load communities from config file or use hardcoded defaults
+    global PF_COMMUNITIES, BAYUT_COMMUNITIES
+    if config_path and os.path.exists(config_path):
+        log(f"Loading communities from {os.path.basename(config_path)}")
+        pf_from_config, bayut_from_config = load_communities_from_config(config_path, mode="apartment")
+        if pf_from_config:
+            PF_COMMUNITIES = pf_from_config
+            log(f"  PF: {len(PF_COMMUNITIES)} entries from config")
+        if bayut_from_config:
+            BAYUT_COMMUNITIES = bayut_from_config
+            log(f"  Bayut: {len(BAYUT_COMMUNITIES)} entries from config")
+    else:
+        log("Using hardcoded community lists")
 
     # ── Cleanup: delete logs older than 2 days ──────────────────────────────
     import glob as _glob
@@ -513,7 +752,7 @@ async def main():
             await warmup_visit(page, "propertyfinder.ae")
             pf_total = 0
             for idx, (community, loc_id, beds, pmin, pmax) in enumerate(PF_COMMUNITIES):
-                listings = await scrape_pf(page, community, loc_id, beds, pmin, pmax)
+                listings = await scrape_pf(page, community, loc_id, beds, pmin, pmax, visible_mode=visible)
                 if listings:
                     append_community(raw_data, community, listings)
                     pf_total += len(listings)
@@ -573,7 +812,9 @@ async def main():
     log(f"\nScraping complete in {elapsed:.0f}s ({elapsed/60:.1f} min)")
 
     # ── Run process_apartments.py ────────────────────────────────────────
-    if not dry_run:
+    if no_process:
+        log("\n--no-process flag set — skipping process_apartments.py (server will run it)")
+    elif not dry_run:
         log("\n── Running process_apartments.py ──")
         process_script = os.path.join(SCRIPTS, "process_apartments.py")
         if os.path.exists(process_script):

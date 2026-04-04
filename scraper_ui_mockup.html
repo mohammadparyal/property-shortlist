@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubai Property Scraper — Control Panel (Mockup)</title>
+<style>
+  :root {
+    --bg: #0f1117; --card: #1a1d27; --border: #2a2d3a; --text: #e1e4ed;
+    --muted: #8b8fa3; --green: #22c55e; --green-bg: rgba(34,197,94,0.12);
+    --yellow: #eab308; --yellow-bg: rgba(234,179,8,0.12);
+    --red: #ef4444; --red-bg: rgba(239,68,68,0.12);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.12);
+    --purple: #a855f7; --purple-bg: rgba(168,85,247,0.12);
+    --orange: #f97316; --orange-bg: rgba(249,115,22,0.15);
+    --gold: #f59e0b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* ── Layout ── */
+  .app { display: grid; grid-template-columns: 280px 1fr; grid-template-rows: 56px 1fr; height: 100vh; }
+
+  /* ── Top Bar ── */
+  .topbar { grid-column: 1 / -1; background: var(--card); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  .topbar h1 { font-size: 16px; font-weight: 700; }
+  .topbar h1 span { color: var(--gold); }
+  .topbar-right { display: flex; align-items: center; gap: 12px; }
+  .server-status { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--green); }
+  .server-status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  /* ── Sidebar ── */
+  .sidebar { background: var(--card); border-right: 1px solid var(--border); overflow-y: auto; padding: 16px; }
+  .sidebar h3 { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
+  .sidebar-section { margin-bottom: 20px; }
+
+  .mode-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .mode-tab { flex: 1; text-align: center; padding: 8px 6px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); transition: all 0.2s; }
+  .mode-tab.active { background: var(--blue-bg); border-color: var(--blue); color: var(--blue); }
+  .mode-tab:hover:not(.active) { border-color: var(--muted); color: var(--text); }
+
+  .comm-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 6px; margin-bottom: 3px; cursor: pointer; transition: background 0.15s; font-size: 12px; }
+  .comm-item:hover { background: rgba(255,255,255,0.04); }
+  .comm-toggle { width: 32px; height: 18px; border-radius: 10px; background: var(--border); position: relative; cursor: pointer; transition: background 0.2s; flex-shrink: 0; }
+  .comm-toggle.on { background: var(--green); }
+  .comm-toggle .knob { width: 14px; height: 14px; border-radius: 50%; background: #fff; position: absolute; top: 2px; left: 2px; transition: left 0.2s; }
+  .comm-toggle.on .knob { left: 16px; }
+  .comm-name { flex: 1; }
+  .comm-count { font-size: 10px; color: var(--muted); }
+  .comm-status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .comm-status-dot.idle { background: var(--muted); opacity: 0.4; }
+  .comm-status-dot.running { background: var(--blue); animation: pulse 1s infinite; }
+  .comm-status-dot.done { background: var(--green); }
+  .comm-status-dot.error { background: var(--red); }
+  .comm-status-dot.captcha { background: var(--orange); animation: pulse 0.8s infinite; }
+
+  .sidebar-actions { display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+  .btn { padding: 8px 14px; border-radius: 6px; font-size: 12px; font-weight: 600; border: none; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .btn-primary { background: var(--blue); color: #fff; }
+  .btn-primary:hover { background: #2563eb; }
+  .btn-danger { background: var(--red-bg); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+  .btn-danger:hover { background: rgba(239,68,68,0.2); }
+  .btn-secondary { background: var(--border); color: var(--text); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.12); }
+  .btn-sm { padding: 5px 10px; font-size: 11px; }
+  .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+  .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+  .select-actions { display: flex; gap: 6px; margin-bottom: 8px; }
+  .select-btn { font-size: 10px; color: var(--blue); cursor: pointer; background: none; border: none; padding: 2px 0; }
+  .select-btn:hover { text-decoration: underline; }
+
+  /* ── Main Content ── */
+  .main { overflow-y: auto; padding: 20px; }
+
+  /* ── Stats Row ── */
+  .stats-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .stat-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; flex: 1; min-width: 120px; }
+  .stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 4px; }
+  .stat-value { font-size: 22px; font-weight: 700; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.blue { color: var(--blue); }
+  .stat-value.orange { color: var(--orange); }
+  .stat-value.red { color: var(--red); }
+  .stat-sub { font-size: 10px; color: var(--muted); margin-top: 2px; }
+
+  /* ── Progress Section ── */
+  .section-title { font-size: 13px; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .section-title .badge { font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+  .badge-running { background: var(--blue-bg); color: var(--blue); }
+  .badge-done { background: var(--green-bg); color: var(--green); }
+
+  /* ── Community Progress Table ── */
+  .progress-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .progress-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  .progress-table td { padding: 10px 12px; border-bottom: 1px solid rgba(42,45,58,0.5); font-size: 12px; vertical-align: middle; }
+  .progress-table tr:hover td { background: rgba(59,130,246,0.04); }
+
+  .source-badge { font-size: 10px; padding: 2px 7px; border-radius: 4px; font-weight: 600; }
+  .source-pf { background: var(--purple-bg); color: var(--purple); }
+  .source-bayut { background: var(--red-bg); color: var(--red); }
+
+  .status-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+  .status-idle { background: rgba(255,255,255,0.04); color: var(--muted); }
+  .status-running { background: var(--blue-bg); color: var(--blue); }
+  .status-done { background: var(--green-bg); color: var(--green); }
+  .status-error { background: var(--red-bg); color: var(--red); }
+  .status-captcha { background: var(--orange-bg); color: var(--orange); }
+  .status-retrying { background: var(--yellow-bg); color: var(--yellow); }
+
+  .progress-bar-bg { width: 80px; height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .progress-bar-fill.green { background: var(--green); }
+  .progress-bar-fill.blue { background: var(--blue); }
+  .progress-bar-fill.red { background: var(--red); }
+  .progress-bar-fill.orange { background: var(--orange); }
+
+  .action-btns { display: flex; gap: 4px; }
+
+  /* ── Log Panel ── */
+  .log-panel { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 20px; }
+  .log-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .log-header h3 { font-size: 12px; font-weight: 600; }
+  .log-body { max-height: 200px; overflow-y: auto; font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.7; }
+  .log-line { padding: 1px 0; }
+  .log-time { color: var(--muted); margin-right: 8px; }
+  .log-ok { color: var(--green); }
+  .log-warn { color: var(--orange); }
+  .log-err { color: var(--red); }
+  .log-info { color: var(--blue); }
+
+  /* ── Cookie / Error Alert Banner ── */
+  .alert-banner { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 8px; margin-bottom: 16px; font-size: 12px; }
+  .alert-warn { background: var(--orange-bg); border: 1px solid rgba(249,115,22,0.3); color: var(--orange); }
+  .alert-error { background: var(--red-bg); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
+  .alert-success { background: var(--green-bg); border: 1px solid rgba(34,197,94,0.3); color: var(--green); }
+  .alert-icon { font-size: 16px; flex-shrink: 0; }
+  .alert-text { flex: 1; }
+  .alert-text strong { font-weight: 700; }
+  .alert-action { flex-shrink: 0; }
+
+  /* ── Settings Panel ── */
+  .settings-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(42,45,58,0.4); }
+  .settings-label { font-size: 12px; }
+  .settings-desc { font-size: 10px; color: var(--muted); }
+  .settings-input { background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 5px 8px; color: var(--text); font-size: 12px; width: 80px; text-align: center; }
+
+  /* ── Overall Progress Bar (top) ── */
+  .overall-progress { margin-bottom: 20px; }
+  .overall-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; display: flex; }
+  .overall-fill { height: 100%; transition: width 0.5s; }
+  .overall-fill.done { background: var(--green); }
+  .overall-fill.running { background: var(--blue); }
+  .overall-fill.error { background: var(--red); }
+  .overall-fill.pending { background: rgba(255,255,255,0.08); }
+  .overall-meta { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 5px; }
+
+  /* ── Tabs for PF / Bayut ── */
+  .source-tabs { display: flex; gap: 4px; margin-bottom: 16px; }
+  .source-tab { padding: 6px 14px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); }
+  .source-tab.active { background: var(--purple-bg); border-color: var(--purple); color: var(--purple); }
+  .source-tab.active.bayut { background: var(--red-bg); border-color: var(--red); color: var(--red); }
+
+  /* ── Mockup Notice ── */
+  .mockup-banner { background: linear-gradient(135deg, rgba(168,85,247,0.15), rgba(59,130,246,0.15)); border: 1px dashed var(--purple); border-radius: 8px; padding: 10px 16px; margin-bottom: 20px; font-size: 11px; color: var(--purple); text-align: center; }
+
+  /* ── Add Community Button ── */
+  .add-comm-btn { width: 100%; padding: 6px 10px; border-radius: 6px; font-size: 11px; font-weight: 600; border: 1px dashed var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; margin-top: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  .add-comm-btn:hover { border-color: var(--blue); color: var(--blue); background: rgba(59,130,246,0.04); }
+
+  /* ── Modal ── */
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 100; display: flex; align-items: center; justify-content: center; }
+  .modal-overlay.hidden { display: none; }
+  .modal { background: var(--card); border: 1px solid var(--border); border-radius: 12px; width: 520px; max-height: 85vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px solid var(--border); }
+  .modal-header h2 { font-size: 15px; font-weight: 700; }
+  .modal-close { background: none; border: none; color: var(--muted); font-size: 18px; cursor: pointer; padding: 4px; line-height: 1; }
+  .modal-close:hover { color: var(--text); }
+  .modal-body { padding: 20px; }
+  .modal-footer { padding: 14px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 8px; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-label { display: block; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 6px; }
+  .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 9px 12px; color: var(--text); font-size: 13px; font-family: inherit; transition: border-color 0.15s; }
+  .form-input:focus { outline: none; border-color: var(--blue); }
+  .form-input::placeholder { color: var(--muted); opacity: 0.6; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-hint { font-size: 10px; color: var(--muted); margin-top: 4px; }
+  .form-checkbox-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; }
+  .form-checkbox { width: 16px; height: 16px; accent-color: var(--blue); }
+  .form-checkbox-label { font-size: 12px; }
+
+  .url-preview { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; color: var(--muted); word-break: break-all; margin-top: 8px; }
+  .url-preview .url-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--purple); margin-bottom: 4px; display: block; font-weight: 600; }
+  .url-preview .url-text { color: var(--text); opacity: 0.7; }
+
+  /* ── Delete button on community items ── */
+  .comm-delete { opacity: 0; background: none; border: none; color: var(--red); font-size: 12px; cursor: pointer; padding: 2px 4px; transition: opacity 0.15s; flex-shrink: 0; }
+  .comm-item:hover .comm-delete { opacity: 0.7; }
+  .comm-delete:hover { opacity: 1 !important; }
+
+  /* ── Edit community (pencil icon) ── */
+  .comm-edit { opacity: 0; background: none; border: none; color: var(--blue); font-size: 11px; cursor: pointer; padding: 2px 4px; transition: opacity 0.15s; flex-shrink: 0; }
+  .comm-item:hover .comm-edit { opacity: 0.7; }
+  .comm-edit:hover { opacity: 1 !important; }
+
+  /* ── Responsive scroll ── */
+  .sidebar::-webkit-scrollbar, .main::-webkit-scrollbar, .log-body::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb, .log-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ═══ TOP BAR ═══ -->
+  <div class="topbar">
+    <h1>Dubai <span>Scraper</span> Control Panel</h1>
+    <div class="topbar-right">
+      <div class="server-status"><div class="dot"></div> Server running on localhost:8080</div>
+      <button class="btn btn-sm btn-outline" onclick="alert('Opens settings modal')">Settings</button>
+    </div>
+  </div>
+
+  <!-- ═══ SIDEBAR ═══ -->
+  <div class="sidebar">
+
+    <!-- Mode Toggle -->
+    <div class="sidebar-section">
+      <h3>Scrape Mode</h3>
+      <div class="mode-tabs">
+        <div class="mode-tab active" onclick="setMode(this)">Villas</div>
+        <div class="mode-tab" onclick="setMode(this)">Apartments</div>
+        <div class="mode-tab" onclick="setMode(this)">Both</div>
+      </div>
+    </div>
+
+    <!-- Source Filter -->
+    <div class="sidebar-section">
+      <h3>Sources</h3>
+      <div class="mode-tabs" style="margin-bottom:0">
+        <div class="mode-tab active" onclick="setMode(this)">All</div>
+        <div class="mode-tab" onclick="setMode(this)">PF Only</div>
+        <div class="mode-tab" onclick="setMode(this)">Bayut Only</div>
+      </div>
+    </div>
+
+    <!-- Communities -->
+    <div class="sidebar-section">
+      <h3>Villa Communities (16)</h3>
+      <div class="select-actions">
+        <button class="select-btn" onclick="toggleAll(true)">Select All</button>
+        <span style="color:var(--border)">|</span>
+        <button class="select-btn" onclick="toggleAll(false)">Deselect All</button>
+      </div>
+      <div id="villaComms">
+        <!-- Populated by JS -->
+      </div>
+      <button class="add-comm-btn" onclick="openAddModal('villa')">+ Add Villa Community</button>
+    </div>
+
+    <div class="sidebar-section" id="aptSection">
+      <h3>Apartment Communities (11)</h3>
+      <div class="select-actions">
+        <button class="select-btn">Select All</button>
+        <span style="color:var(--border)">|</span>
+        <button class="select-btn">Deselect All</button>
+      </div>
+      <div id="aptComms"></div>
+      <button class="add-comm-btn" onclick="openAddModal('apartment')">+ Add Apartment Community</button>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="sidebar-actions">
+      <button class="btn btn-primary" onclick="startScrape()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Start Scraping
+      </button>
+      <button class="btn btn-danger" onclick="stopScrape()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
+        Stop All
+      </button>
+      <button class="btn btn-secondary" onclick="alert('Clears cookies and retries')">
+        Clear Cookies & Retry
+      </button>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN PANEL ═══ -->
+  <div class="main">
+
+    <div class="mockup-banner">
+      This is an interactive mockup — click buttons to see planned interactions. No actual scraping occurs.
+    </div>
+
+    <!-- Alert Banners (shown during scraping) -->
+    <div id="alertArea">
+      <div class="alert-banner alert-warn">
+        <div class="alert-icon">&#9888;</div>
+        <div class="alert-text">
+          <strong>CAPTCHA detected</strong> on Bayut — DAMAC Hills 2. Please solve it in the visible browser window.
+        </div>
+        <button class="btn btn-sm btn-outline" style="color:var(--orange);border-color:var(--orange)">I solved it</button>
+      </div>
+      <div class="alert-banner alert-error">
+        <div class="alert-icon">&#10060;</div>
+        <div class="alert-text">
+          <strong>No __NEXT_DATA__ found</strong> on PF — Emaar South. Cookie issue detected. Auto-retrying with fresh cookies...
+        </div>
+        <button class="btn btn-sm btn-outline" style="color:var(--red);border-color:var(--red)">Retry Now</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Total Scraped</div>
+        <div class="stat-value green">847</div>
+        <div class="stat-sub">Across 16 communities</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">After Dedup</div>
+        <div class="stat-value blue">492</div>
+        <div class="stat-sub">355 duplicates removed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Errors</div>
+        <div class="stat-value red">2</div>
+        <div class="stat-sub">1 cookie, 1 CAPTCHA</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Elapsed</div>
+        <div class="stat-value" style="color:var(--muted)">4:32</div>
+        <div class="stat-sub">~2 min remaining</div>
+      </div>
+    </div>
+
+    <!-- Overall Progress -->
+    <div class="overall-progress">
+      <div class="overall-bar">
+        <div class="overall-fill done" style="width:45%"></div>
+        <div class="overall-fill running" style="width:8%"></div>
+        <div class="overall-fill error" style="width:3%"></div>
+        <div class="overall-fill pending" style="width:44%"></div>
+      </div>
+      <div class="overall-meta">
+        <span>PropertyFinder: 9/16 done &nbsp;&bull;&nbsp; Bayut: 5/16 done</span>
+        <span>14 of 32 tasks complete</span>
+      </div>
+    </div>
+
+    <!-- Source Tabs -->
+    <div class="source-tabs">
+      <div class="source-tab active">All Sources</div>
+      <div class="source-tab">PropertyFinder</div>
+      <div class="source-tab bayut">Bayut</div>
+    </div>
+
+    <!-- Progress Table -->
+    <div class="section-title">Scraping Progress <span class="badge badge-running">IN PROGRESS</span></div>
+    <table class="progress-table">
+      <thead>
+        <tr>
+          <th>Community</th>
+          <th>Source</th>
+          <th>Status</th>
+          <th>Listings</th>
+          <th>Deduped</th>
+          <th>Progress</th>
+          <th>Time</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="progressBody">
+        <!-- Populated by JS -->
+      </tbody>
+    </table>
+
+    <!-- Live Log -->
+    <div class="log-panel">
+      <div class="log-header">
+        <h3>Live Log</h3>
+        <button class="btn btn-sm btn-outline">Clear</button>
+      </div>
+      <div class="log-body" id="logBody">
+        <div class="log-line"><span class="log-time">14:32:01</span> <span class="log-info">Starting scrape — Villas mode, 16 communities × 2 sources</span></div>
+        <div class="log-line"><span class="log-time">14:32:02</span> <span class="log-ok">Browser launched (visible mode)</span></div>
+        <div class="log-line"><span class="log-time">14:32:05</span> <span class="log-info">PF: Navigating to DAMAC Lagoons...</span></div>
+        <div class="log-line"><span class="log-time">14:32:12</span> <span class="log-ok">PF: DAMAC Lagoons — 62 listings found</span></div>
+        <div class="log-line"><span class="log-time">14:32:18</span> <span class="log-info">PF: Navigating to DAMAC Islands...</span></div>
+        <div class="log-line"><span class="log-time">14:32:25</span> <span class="log-ok">PF: DAMAC Islands — 38 listings found</span></div>
+        <div class="log-line"><span class="log-time">14:33:01</span> <span class="log-info">PF: Navigating to Emaar South...</span></div>
+        <div class="log-line"><span class="log-time">14:33:08</span> <span class="log-err">PF: Emaar South — ERROR: No __NEXT_DATA__ found (keys: [])</span></div>
+        <div class="log-line"><span class="log-time">14:33:08</span> <span class="log-warn">Cookie issue detected! Going back, clearing cookies...</span></div>
+        <div class="log-line"><span class="log-time">14:33:12</span> <span class="log-info">Retrying Emaar South with fresh page...</span></div>
+        <div class="log-line"><span class="log-time">14:33:20</span> <span class="log-ok">PF: Emaar South — 15 listings found (retry succeeded)</span></div>
+        <div class="log-line"><span class="log-time">14:34:10</span> <span class="log-info">Bayut: Navigating to DAMAC Hills 2...</span></div>
+        <div class="log-line"><span class="log-time">14:34:18</span> <span class="log-warn">Bayut: CAPTCHA detected on DAMAC Hills 2 — waiting for you to solve it...</span></div>
+        <div class="log-line"><span class="log-time">14:34:45</span> <span class="log-ok">Bayut: CAPTCHA solved! Continuing...</span></div>
+        <div class="log-line"><span class="log-time">14:34:52</span> <span class="log-ok">Bayut: DAMAC Hills 2 — 44 listings found</span></div>
+        <div class="log-line"><span class="log-time">14:35:30</span> <span class="log-info">Bayut: Navigating to JVC (villas)...</span></div>
+        <div class="log-line"><span class="log-time">14:35:38</span> <span class="log-ok">Bayut: JVC — 28 listings found</span></div>
+      </div>
+    </div>
+
+    <!-- Settings Section -->
+    <div class="section-title" style="margin-top: 24px;">Scraper Settings</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px;">
+      <div class="settings-row">
+        <div><div class="settings-label">Delay between communities</div><div class="settings-desc">Random delay range (seconds) between each community scrape</div></div>
+        <div style="display:flex;gap:6px;align-items:center;"><input class="settings-input" value="5" /> <span style="font-size:11px;color:var(--muted)">to</span> <input class="settings-input" value="10" /> <span style="font-size:11px;color:var(--muted)">sec</span></div>
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">Max retries on cookie error</div><div class="settings-desc">How many times to retry when __NEXT_DATA__ is missing</div></div>
+        <input class="settings-input" value="3" />
+      </div>
+      <div class="settings-row">
+        <div><div class="settings-label">CAPTCHA timeout</div><div class="settings-desc">Seconds to wait for you to solve a CAPTCHA before skipping</div></div>
+        <input class="settings-input" value="120" />
+      </div>
+      <div class="settings-row" style="border:none">
+        <div><div class="settings-label">Auto-process after scrape</div><div class="settings-desc">Automatically run process_deals.py / process_apartments.py and update dashboards</div></div>
+        <div class="comm-toggle on" onclick="this.classList.toggle('on')"><div class="knob"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ═══ ADD COMMUNITY MODAL ═══ -->
+<div class="modal-overlay hidden" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Add Villa Community</h2>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="form-group">
+        <label class="form-label">Community Name</label>
+        <input class="form-input" id="commName" placeholder="e.g. Al Barsha South 2, JVC, Arabian Ranches 3" oninput="updateUrlPreview()">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Property Type</label>
+        <div style="display:flex;gap:8px">
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" id="typeVilla" checked onchange="updateUrlPreview()"><span class="form-checkbox-label">Villas</span></label>
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" id="typeTH" checked onchange="updateUrlPreview()"><span class="form-checkbox-label">Townhouses</span></label>
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" id="typeApt" onchange="updateUrlPreview()"><span class="form-checkbox-label">Apartments</span></label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Min Beds</label>
+          <input class="form-input" id="minBeds" type="number" value="3" min="1" max="10" oninput="updateUrlPreview()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Max Beds (optional)</label>
+          <input class="form-input" id="maxBeds" type="number" placeholder="Any" min="1" max="10" oninput="updateUrlPreview()">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Min Price (AED)</label>
+          <input class="form-input" id="minPrice" type="number" value="1500000" step="100000" oninput="updateUrlPreview()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Max Price (AED)</label>
+          <input class="form-input" id="maxPrice" type="number" value="3000000" step="100000" oninput="updateUrlPreview()">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Launch Price 3BR (AED)</label>
+          <input class="form-input" id="launch3br" type="number" placeholder="e.g. 1500000" step="50000">
+          <div class="form-hint">Used for % vs Launch scoring</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Launch Price 4BR (AED)</label>
+          <input class="form-input" id="launch4br" type="number" placeholder="e.g. 2000000" step="50000">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Sources</label>
+        <div style="display:flex;gap:12px">
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" id="srcPF" checked onchange="updateUrlPreview()"><span class="form-checkbox-label">PropertyFinder</span></label>
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" id="srcBayut" checked onchange="updateUrlPreview()"><span class="form-checkbox-label">Bayut</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">PropertyFinder URL or Location ID</label>
+        <input class="form-input" id="pfUrl" placeholder="e.g. 8250 or full URL like https://www.propertyfinder.ae/en/buy/dubai/..." oninput="updateUrlPreview()">
+        <div class="form-hint">Enter a numeric PF location ID, or paste the full PF search URL if the community doesn't have a numeric ID</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Bayut URL Path</label>
+        <input class="form-input" id="bayutPath" placeholder="e.g. jumeirah-village-circle or al-barsha/al-barsha-south/al-barsha-south-2" oninput="updateUrlPreview()">
+        <div class="form-hint">The path after /dubai/ in the Bayut URL — the system builds the full URL automatically</div>
+      </div>
+
+      <!-- Auto-generated URL preview -->
+      <div id="urlPreviewSection" style="margin-top:16px">
+        <label class="form-label">Generated URLs (Preview)</label>
+        <div class="url-preview" id="urlPreview">
+          <div style="margin-bottom:8px">
+            <span class="url-label">PropertyFinder</span>
+            <span class="url-text" id="pfPreview">Enter details above to see generated URL...</span>
+          </div>
+          <div>
+            <span class="url-label">Bayut</span>
+            <span class="url-text" id="bayutPreview">Enter details above to see generated URL...</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveCommunity()">Add Community</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MANAGE COMMUNITY MODAL (edit existing) ═══ -->
+<div class="modal-overlay hidden" id="editModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="editModalTitle">Edit Community — DAMAC Lagoons</h2>
+      <button class="modal-close" onclick="closeEditModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Community Name</label>
+        <input class="form-input" value="DAMAC Lagoons">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Min Price (AED)</label>
+          <input class="form-input" type="number" value="2000000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Max Price (AED)</label>
+          <input class="form-input" type="number" value="3000000">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Launch Price 3BR</label>
+          <input class="form-input" type="number" value="1400000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Launch Price 4BR</label>
+          <input class="form-input" type="number" value="1700000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">PF Location ID / URL</label>
+        <input class="form-input" value="11559">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Bayut URL Path</label>
+        <input class="form-input" value="damac-lagoons">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Sources</label>
+        <div style="display:flex;gap:12px">
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" checked><span class="form-checkbox-label">PropertyFinder</span></label>
+          <label class="form-checkbox-row"><input type="checkbox" class="form-checkbox" checked><span class="form-checkbox-label">Bayut</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger btn-sm" onclick="alert('Would delete this community from config');closeEditModal()">Delete Community</button>
+      <div style="flex:1"></div>
+      <button class="btn btn-outline" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="alert('Saved!');closeEditModal()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Mock data ──
+const villaComms = [
+  {name:"DAMAC Lagoons", on:true, status:"done", listings:62},
+  {name:"DAMAC Islands", on:true, status:"done", listings:38},
+  {name:"DAMAC Islands 2", on:true, status:"done", listings:22},
+  {name:"The Valley", on:true, status:"done", listings:55},
+  {name:"DAMAC Hills 2", on:true, status:"done", listings:88},
+  {name:"Villanova", on:true, status:"done", listings:45},
+  {name:"DAMAC Hills", on:true, status:"running", listings:31},
+  {name:"Dubai Hills Estate", on:true, status:"idle", listings:0},
+  {name:"Tilal Al Ghaf", on:true, status:"idle", listings:0},
+  {name:"Emaar South", on:true, status:"error", listings:15},
+  {name:"Arabian Ranches 3", on:true, status:"idle", listings:0},
+  {name:"Town Square", on:true, status:"idle", listings:0},
+  {name:"Mudon", on:true, status:"idle", listings:0},
+  {name:"Al Barsha South 2", on:true, status:"idle", listings:0},
+  {name:"JVC", on:true, status:"idle", listings:0},
+  {name:"JVT", on:true, status:"idle", listings:0},
+];
+
+const aptComms = [
+  {name:"Dubai Hills Estate", on:true, status:"idle", listings:0},
+  {name:"Emaar South", on:true, status:"idle", listings:0},
+  {name:"Mirdif Hills", on:true, status:"idle", listings:0},
+  {name:"Town Square", on:true, status:"idle", listings:0},
+  {name:"Al Furjan", on:true, status:"idle", listings:0},
+  {name:"Mudon", on:true, status:"idle", listings:0},
+  {name:"Remraam", on:true, status:"idle", listings:0},
+  {name:"DAMAC Hills 2", on:true, status:"idle", listings:0},
+  {name:"DAMAC Hills", on:true, status:"idle", listings:0},
+  {name:"JVC", on:true, status:"idle", listings:0},
+  {name:"Motor City", on:true, status:"idle", listings:0},
+];
+
+function renderComms(list, containerId) {
+  const c = document.getElementById(containerId);
+  c.innerHTML = list.map((cm, i) => `
+    <div class="comm-item">
+      <div class="comm-toggle ${cm.on?'on':''}" onclick="this.classList.toggle('on');event.stopPropagation()"><div class="knob"></div></div>
+      <span class="comm-name">${cm.name}</span>
+      ${cm.listings > 0 ? `<span class="comm-count">${cm.listings}</span>` : ''}
+      <button class="comm-edit" onclick="openEditModal('${cm.name}');event.stopPropagation()" title="Edit community">&#9998;</button>
+      <button class="comm-delete" onclick="deleteCommunity('${cm.name}');event.stopPropagation()" title="Remove community">&times;</button>
+      <div class="comm-status-dot ${cm.status}"></div>
+    </div>
+  `).join('');
+}
+renderComms(villaComms, 'villaComms');
+renderComms(aptComms, 'aptComms');
+
+// ── Progress table mock data ──
+const progress = [
+  {comm:"DAMAC Lagoons", src:"PF", status:"done", listings:62, dedup:48, pct:100, time:"0:28"},
+  {comm:"DAMAC Lagoons", src:"Bayut", status:"done", listings:55, dedup:42, pct:100, time:"0:35"},
+  {comm:"DAMAC Islands", src:"PF", status:"done", listings:38, dedup:30, pct:100, time:"0:22"},
+  {comm:"DAMAC Islands", src:"Bayut", status:"done", listings:32, dedup:25, pct:100, time:"0:30"},
+  {comm:"DAMAC Hills 2", src:"PF", status:"done", listings:88, dedup:61, pct:100, time:"0:40"},
+  {comm:"DAMAC Hills 2", src:"Bayut", status:"captcha", listings:44, dedup:33, pct:80, time:"1:12"},
+  {comm:"Emaar South", src:"PF", status:"retrying", listings:0, dedup:0, pct:50, time:"0:18"},
+  {comm:"DAMAC Hills", src:"PF", status:"running", listings:31, dedup:0, pct:60, time:"0:15"},
+  {comm:"JVC", src:"Bayut", status:"idle", listings:0, dedup:0, pct:0, time:"—"},
+  {comm:"JVT", src:"PF", status:"idle", listings:0, dedup:0, pct:0, time:"—"},
+  {comm:"Al Barsha South 2", src:"PF", status:"idle", listings:0, dedup:0, pct:0, time:"—"},
+];
+
+const tbody = document.getElementById('progressBody');
+tbody.innerHTML = progress.map(p => {
+  const srcClass = p.src === 'PF' ? 'source-pf' : 'source-bayut';
+  const statusLabels = {idle:'Queued', running:'Scraping...', done:'Complete', error:'Failed', captcha:'CAPTCHA', retrying:'Retrying...'};
+  const barColor = {idle:'', running:'blue', done:'green', error:'red', captcha:'orange', retrying:'blue'}[p.status];
+  const retryBtn = (p.status === 'error' || p.status === 'captcha') ?
+    `<button class="btn btn-sm btn-outline" style="font-size:10px">Retry</button>` : '';
+  const skipBtn = p.status !== 'done' && p.status !== 'idle' ?
+    `<button class="btn btn-sm btn-outline" style="font-size:10px">Skip</button>` : '';
+  return `<tr>
+    <td><strong>${p.comm}</strong></td>
+    <td><span class="source-badge ${srcClass}">${p.src}</span></td>
+    <td><span class="status-pill status-${p.status}">${statusLabels[p.status]}</span></td>
+    <td>${p.listings || '—'}</td>
+    <td>${p.dedup || '—'}</td>
+    <td><div class="progress-bar-bg"><div class="progress-bar-fill ${barColor}" style="width:${p.pct}%"></div></div></td>
+    <td style="color:var(--muted);font-size:11px">${p.time}</td>
+    <td><div class="action-btns">${retryBtn}${skipBtn}</div></td>
+  </tr>`;
+}).join('');
+
+function setMode(el) {
+  el.parentElement.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function toggleAll(on) {
+  document.querySelectorAll('#villaComms .comm-toggle').forEach(t => {
+    if (on) t.classList.add('on'); else t.classList.remove('on');
+  });
+}
+
+// ── Add Community Modal ──
+let addModalType = 'villa';
+
+function openAddModal(type) {
+  addModalType = type;
+  document.getElementById('modalTitle').textContent = type === 'villa' ? 'Add Villa Community' : 'Add Apartment Community';
+  // Set checkboxes based on type
+  document.getElementById('typeVilla').checked = type === 'villa';
+  document.getElementById('typeTH').checked = type === 'villa';
+  document.getElementById('typeApt').checked = type === 'apartment';
+  document.getElementById('addModal').classList.remove('hidden');
+  document.getElementById('commName').focus();
+  updateUrlPreview();
+}
+
+function closeModal() {
+  document.getElementById('addModal').classList.add('hidden');
+  // Reset form
+  document.getElementById('commName').value = '';
+  document.getElementById('pfUrl').value = '';
+  document.getElementById('bayutPath').value = '';
+  document.getElementById('launch3br').value = '';
+  document.getElementById('launch4br').value = '';
+}
+
+function updateUrlPreview() {
+  const name = document.getElementById('commName').value || 'community-name';
+  const beds = document.getElementById('minBeds').value || 3;
+  const pmin = document.getElementById('minPrice').value || 1500000;
+  const pmax = document.getElementById('maxPrice').value || 3000000;
+  const pfId = document.getElementById('pfUrl').value;
+  const bayutPath = document.getElementById('bayutPath').value;
+  const isVilla = document.getElementById('typeVilla').checked;
+  const isTH = document.getElementById('typeTH').checked;
+  const isApt = document.getElementById('typeApt').checked;
+  const usePF = document.getElementById('srcPF').checked;
+  const useBayut = document.getElementById('srcBayut').checked;
+
+  // PF preview
+  let pfText = 'Disabled';
+  if (usePF) {
+    if (pfId && !isNaN(pfId)) {
+      pfText = `https://www.propertyfinder.ae/en/search?l=${pfId}&c=${isApt?'2':'1'}&bdr%5B%5D=${beds}&pf=${pmin}&pt=${pmax}&ob=pr`;
+    } else if (pfId && pfId.startsWith('http')) {
+      pfText = pfId;
+    } else {
+      const slug = name.toLowerCase().replace(/\s+/g, '-');
+      const propType = isApt ? 'apartments' : (isVilla && isTH ? 'villas-townhouses' : isVilla ? 'villas' : 'townhouses');
+      pfText = `https://www.propertyfinder.ae/en/buy/dubai/${propType}-for-sale-${slug}.html?beds_min=${beds}&price_min=${pmin}&price_max=${pmax}&sort=pa`;
+    }
+  }
+
+  // Bayut preview
+  let bayutText = 'Disabled';
+  if (useBayut && bayutPath) {
+    const propType = isApt ? 'apartments' : 'townhouses';
+    bayutText = `https://www.bayut.com/for-sale/${propType}/dubai/${bayutPath}/?sort=price_asc&beds_min=${beds}&price_min=${pmin}&price_max=${pmax}`;
+    if (isVilla && isTH && !isApt) {
+      bayutText += '\n+ https://www.bayut.com/for-sale/villas/dubai/' + bayutPath + '/?sort=price_asc&beds_min=' + beds + '&price_min=' + pmin + '&price_max=' + pmax;
+    }
+  } else if (useBayut) {
+    bayutText = 'Enter Bayut path to generate URL...';
+  }
+
+  document.getElementById('pfPreview').textContent = pfText;
+  document.getElementById('bayutPreview').textContent = bayutText;
+}
+
+function saveCommunity() {
+  const name = document.getElementById('commName').value.trim();
+  if (!name) { alert('Please enter a community name'); return; }
+  const launch3 = document.getElementById('launch3br').value;
+  const launch4 = document.getElementById('launch4br').value;
+  if (!launch3) { alert('Please enter at least the 3BR launch price — this is needed for deal scoring'); return; }
+
+  alert(
+    'Community "' + name + '" would be saved!\n\n' +
+    'This will:\n' +
+    '1. Add to communities.json config file\n' +
+    '2. Add PF & Bayut URLs to the scraper\n' +
+    '3. Add launch benchmarks to the processor\n' +
+    '4. Appear in sidebar ready to scrape\n\n' +
+    'All config is stored in one JSON file — no code changes needed.'
+  );
+  closeModal();
+}
+
+// ── Edit Community Modal ──
+function openEditModal(name) {
+  document.getElementById('editModalTitle').textContent = 'Edit Community — ' + name;
+  document.getElementById('editModal').classList.remove('hidden');
+}
+function closeEditModal() {
+  document.getElementById('editModal').classList.add('hidden');
+}
+
+function deleteCommunity(name) {
+  if (confirm('Remove "' + name + '" from the scraper?\n\nThis won\'t delete any existing scraped data — it just stops scraping this community in future runs.')) {
+    alert('"' + name + '" would be removed from communities.json config.');
+  }
+}
+
+function startScrape() {
+  alert('This would:\n\n1. Open a visible Chrome browser via Playwright\n2. Loop through all enabled communities\n3. Scrape PF first, then Bayut\n4. Auto-retry on __NEXT_DATA__ errors (clear cookies + go back)\n5. Pause and alert you on CAPTCHAs\n6. Show real-time progress in this panel\n7. Auto-run processor when done to update dashboards');
+}
+function stopScrape() {
+  alert('This would stop all scraping immediately, save whatever data has been collected so far, and run the processor on partial results.');
+}
+</script>
+</body>
+</html>

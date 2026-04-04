@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubai Scraper Control Panel</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.min.js"></script>
+<style>
+:root{--bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--text:#e1e4ed;--muted:#8b8fa3;--green:#22c55e;--green-bg:rgba(34,197,94,.12);--yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);--red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);--purple:#a855f7;--purple-bg:rgba(168,85,247,.12);--orange:#f97316;--orange-bg:rgba(249,115,22,.15);--gold:#f59e0b}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden}
+.app{display:grid;grid-template-columns:280px 1fr;grid-template-rows:52px 1fr;height:100vh}
+
+/* Top Bar */
+.topbar{grid-column:1/-1;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.topbar h1{font-size:15px;font-weight:700} .topbar h1 span{color:var(--gold)}
+.topbar-r{display:flex;align-items:center;gap:10px}
+.server-dot{width:7px;height:7px;border-radius:50%;animation:pulse 2s infinite}
+.server-dot.on{background:var(--green)} .server-dot.off{background:var(--red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.server-label{font-size:10px;color:var(--muted)}
+
+/* Sidebar */
+.sidebar{background:var(--card);border-right:1px solid var(--border);overflow-y:auto;padding:14px;display:flex;flex-direction:column}
+.sb-section{margin-bottom:14px}
+.sb-title{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:6px;font-weight:600}
+
+.tabs{display:flex;gap:3px;margin-bottom:10px}
+.tab{flex:1;text-align:center;padding:6px 4px;border-radius:5px;font-size:10px;font-weight:600;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--muted);transition:all .15s}
+.tab.active{background:var(--blue-bg);border-color:var(--blue);color:var(--blue)}
+.tab:hover:not(.active){border-color:var(--muted);color:var(--text)}
+
+.comm-list{max-height:calc(100vh - 420px);overflow-y:auto}
+.comm-item{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:5px;margin-bottom:2px;font-size:11px;transition:background .1s}
+.comm-item:hover{background:rgba(255,255,255,.04)}
+.tgl{width:28px;height:16px;border-radius:8px;background:var(--border);position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.tgl.on{background:var(--green)}
+.tgl .knob{width:12px;height:12px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:left .15s}
+.tgl.on .knob{left:14px}
+.comm-name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.comm-cnt{font-size:9px;color:var(--muted);min-width:16px;text-align:right}
+.comm-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.comm-dot.idle{background:var(--muted);opacity:.3} .comm-dot.running{background:var(--blue);animation:pulse .8s infinite}
+.comm-dot.done{background:var(--green)} .comm-dot.error{background:var(--red)} .comm-dot.captcha{background:var(--orange);animation:pulse .8s infinite}
+.comm-edit,.comm-del{opacity:0;background:none;border:none;font-size:11px;cursor:pointer;padding:1px 3px;transition:opacity .1s;flex-shrink:0}
+.comm-item:hover .comm-edit,.comm-item:hover .comm-del{opacity:.6}
+.comm-edit{color:var(--blue)} .comm-del{color:var(--red)}
+.comm-edit:hover,.comm-del:hover{opacity:1!important}
+
+.add-btn{width:100%;padding:5px;border-radius:5px;font-size:10px;font-weight:600;border:1px dashed var(--border);background:transparent;color:var(--muted);cursor:pointer;margin-top:4px;transition:all .1s}
+.add-btn:hover{border-color:var(--blue);color:var(--blue);background:rgba(59,130,246,.04)}
+
+.sel-btns{display:flex;gap:6px;margin-bottom:4px}
+.sel-btn{font-size:9px;color:var(--blue);cursor:pointer;background:none;border:none}
+.sel-btn:hover{text-decoration:underline}
+
+.sb-actions{margin-top:auto;display:flex;flex-direction:column;gap:5px;padding-top:10px;border-top:1px solid var(--border)}
+.btn{padding:7px 12px;border-radius:5px;font-size:11px;font-weight:600;border:none;cursor:pointer;transition:all .12s;display:flex;align-items:center;justify-content:center;gap:5px}
+.btn-primary{background:var(--blue);color:#fff} .btn-primary:hover{background:#2563eb}
+.btn-primary:disabled{opacity:.5;cursor:not-allowed}
+.btn-danger{background:var(--red-bg);color:var(--red);border:1px solid rgba(239,68,68,.3)} .btn-danger:hover{background:rgba(239,68,68,.2)}
+.btn-secondary{background:var(--border);color:var(--text)} .btn-secondary:hover{background:rgba(255,255,255,.1)}
+.btn-sm{padding:4px 8px;font-size:10px}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--muted)} .btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+
+/* Main */
+.main{overflow-y:auto;padding:16px}
+
+/* Stats */
+.stats{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:10px 14px;flex:1;min-width:100px}
+.stat-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:2px}
+.stat-val{font-size:20px;font-weight:700} .stat-sub{font-size:9px;color:var(--muted);margin-top:1px}
+.green{color:var(--green)} .blue{color:var(--blue)} .red{color:var(--red)} .orange{color:var(--orange)} .muted{color:var(--muted)}
+
+/* Overall Progress */
+.overall{margin-bottom:14px}
+.overall-bar{width:100%;height:6px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;display:flex}
+.overall-fill{height:100%;transition:width .4s}
+.of-done{background:var(--green)} .of-run{background:var(--blue)} .of-err{background:var(--red)} .of-q{background:rgba(255,255,255,.06)}
+.overall-meta{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:3px}
+
+/* Alert */
+.alerts{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.alert{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:6px;font-size:11px;animation:fadeIn .3s}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.alert-warn{background:var(--orange-bg);border:1px solid rgba(249,115,22,.3);color:var(--orange)}
+.alert-error{background:var(--red-bg);border:1px solid rgba(239,68,68,.3);color:var(--red)}
+.alert-success{background:var(--green-bg);border:1px solid rgba(34,197,94,.3);color:var(--green)}
+.alert-icon{font-size:14px;flex-shrink:0} .alert-text{flex:1} .alert-text strong{font-weight:700}
+.alert-close{background:none;border:none;color:inherit;cursor:pointer;font-size:14px;opacity:.6} .alert-close:hover{opacity:1}
+
+/* Progress Table */
+.ptable{width:100%;border-collapse:collapse;margin-bottom:16px}
+.ptable th{font-size:9px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);text-align:left;padding:6px 10px;border-bottom:1px solid var(--border)}
+.ptable td{padding:8px 10px;border-bottom:1px solid rgba(42,45,58,.4);font-size:11px;vertical-align:middle}
+.ptable tr:hover td{background:rgba(59,130,246,.03)}
+.src-badge{font-size:9px;padding:2px 6px;border-radius:3px;font-weight:600}
+.src-pf{background:var(--purple-bg);color:var(--purple)} .src-bayut{background:var(--red-bg);color:var(--red)}
+.st-pill{display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:600}
+.st-queued{background:rgba(255,255,255,.04);color:var(--muted)}
+.st-running{background:var(--blue-bg);color:var(--blue)}
+.st-done{background:var(--green-bg);color:var(--green)}
+.st-error{background:var(--red-bg);color:var(--red)}
+.st-captcha{background:var(--orange-bg);color:var(--orange)}
+.st-retrying{background:var(--yellow-bg);color:var(--yellow)}
+.pbar{width:60px;height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:2px;transition:width .3s}
+
+/* Log */
+.log-panel{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:10px;margin-bottom:14px}
+.log-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.log-hdr h3{font-size:11px;font-weight:600}
+.log-body{max-height:180px;overflow-y:auto;font-family:'SF Mono','Fira Code','JetBrains Mono',monospace;font-size:10px;line-height:1.6}
+.log-line{padding:1px 0;white-space:pre-wrap;word-break:break-all}
+.log-time{color:var(--muted);margin-right:6px}
+.log-ok{color:var(--green)} .log-warn{color:var(--orange)} .log-err{color:var(--red)} .log-info{color:var(--blue)}
+
+/* Section */
+.sec-title{font-size:12px;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.badge{font-size:9px;padding:2px 6px;border-radius:8px;font-weight:600}
+.badge-run{background:var(--blue-bg);color:var(--blue)} .badge-done{background:var(--green-bg);color:var(--green)} .badge-idle{background:rgba(255,255,255,.04);color:var(--muted)}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);z-index:100;display:flex;align-items:center;justify-content:center}
+.modal-bg.hidden{display:none}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:10px;width:500px;max-height:80vh;overflow-y:auto;box-shadow:0 16px 50px rgba(0,0,0,.4)}
+.modal-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+.modal-hdr h2{font-size:14px;font-weight:700}
+.modal-close{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;line-height:1} .modal-close:hover{color:var(--text)}
+.modal-body{padding:16px 18px} .modal-footer{padding:12px 18px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:6px}
+.fg{margin-bottom:12px}
+.fl{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin-bottom:4px}
+.fi{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:7px 10px;color:var(--text);font-size:12px;font-family:inherit;transition:border-color .1s}
+.fi:focus{outline:none;border-color:var(--blue)} .fi::placeholder{color:var(--muted);opacity:.5}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fhint{font-size:9px;color:var(--muted);margin-top:2px}
+.fchk-row{display:flex;align-items:center;gap:6px;padding:4px 0}
+.fchk{width:14px;height:14px;accent-color:var(--blue)}
+.fchk-lbl{font-size:11px}
+.url-pre{background:var(--bg);border:1px solid var(--border);border-radius:5px;padding:8px 10px;font-family:'SF Mono',monospace;font-size:9px;color:var(--muted);word-break:break-all;margin-top:6px}
+.url-lbl{font-size:8px;text-transform:uppercase;letter-spacing:.4px;color:var(--purple);margin-bottom:2px;display:block;font-weight:600}
+.url-txt{color:var(--text);opacity:.7}
+
+.sidebar::-webkit-scrollbar,.main::-webkit-scrollbar,.log-body::-webkit-scrollbar,.comm-list::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb,.main::-webkit-scrollbar-thumb,.log-body::-webkit-scrollbar-thumb,.comm-list::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <h1>Dubai <span>Scraper</span> Control Panel</h1>
+  <div class="topbar-r">
+    <div class="server-dot on" id="serverDot"></div>
+    <span class="server-label" id="serverLabel">Connected</span>
+  </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sb-section">
+    <div class="sb-title">Scrape Mode</div>
+    <div class="tabs" id="modeTabs">
+      <div class="tab active" data-val="villa" onclick="setTab(this,'modeTabs')">Villas</div>
+      <div class="tab" data-val="apartment" onclick="setTab(this,'modeTabs')">Apartments</div>
+      <div class="tab" data-val="both" onclick="setTab(this,'modeTabs')">Both</div>
+    </div>
+  </div>
+  <div class="sb-section">
+    <div class="sb-title">Sources</div>
+    <div class="tabs" id="srcTabs">
+      <div class="tab active" data-val="all" onclick="setTab(this,'srcTabs')">All</div>
+      <div class="tab" data-val="pf" onclick="setTab(this,'srcTabs')">PF Only</div>
+      <div class="tab" data-val="bayut" onclick="setTab(this,'srcTabs')">Bayut Only</div>
+    </div>
+  </div>
+
+  <!-- Villa Communities -->
+  <div class="sb-section" id="villaSection">
+    <div class="sb-title">Villa Communities (<span id="villaCount">0</span>)</div>
+    <div class="sel-btns">
+      <button class="sel-btn" onclick="toggleAll('villa',true)">Select All</button>
+      <span style="color:var(--border)">|</span>
+      <button class="sel-btn" onclick="toggleAll('villa',false)">Deselect All</button>
+    </div>
+    <div class="comm-list" id="villaList"></div>
+    <button class="add-btn" onclick="openAdd('villa')">+ Add Villa Community</button>
+  </div>
+
+  <!-- Apartment Communities -->
+  <div class="sb-section" id="aptSection">
+    <div class="sb-title">Apartment Communities (<span id="aptCount">0</span>)</div>
+    <div class="sel-btns">
+      <button class="sel-btn" onclick="toggleAll('apartment',true)">Select All</button>
+      <span style="color:var(--border)">|</span>
+      <button class="sel-btn" onclick="toggleAll('apartment',false)">Deselect All</button>
+    </div>
+    <div class="comm-list" id="aptList"></div>
+    <button class="add-btn" onclick="openAdd('apartment')">+ Add Apartment Community</button>
+  </div>
+
+  <!-- Actions -->
+  <div class="sb-actions">
+    <button class="btn btn-primary" id="startBtn" onclick="startScrape()">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Start Scraping
+    </button>
+    <button class="btn btn-danger" id="stopBtn" onclick="stopScrape()" style="display:none">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
+      Stop All
+    </button>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="alerts" id="alertArea"></div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-lbl">Total Scraped</div><div class="stat-val green" id="sTotalRaw">0</div><div class="stat-sub" id="sCommSub">—</div></div>
+    <div class="stat"><div class="stat-lbl">After Dedup</div><div class="stat-val blue" id="sTotalDedup">0</div><div class="stat-sub" id="sDedupSub">—</div></div>
+    <div class="stat"><div class="stat-lbl">Errors</div><div class="stat-val red" id="sErrors">0</div><div class="stat-sub" id="sErrSub">—</div></div>
+    <div class="stat"><div class="stat-lbl">Elapsed</div><div class="stat-val muted" id="sElapsed">0:00</div><div class="stat-sub" id="sElSub">—</div></div>
+  </div>
+
+  <div class="overall" id="overallSection" style="display:none">
+    <div class="overall-bar">
+      <div class="of-done" id="ofDone" style="width:0"></div>
+      <div class="of-run" id="ofRun" style="width:0"></div>
+      <div class="of-err" id="ofErr" style="width:0"></div>
+      <div class="of-q" id="ofQ" style="width:100%"></div>
+    </div>
+    <div class="overall-meta"><span id="ofMeta1">—</span><span id="ofMeta2">—</span></div>
+  </div>
+
+  <div class="sec-title">Scraping Progress <span class="badge badge-idle" id="statusBadge">IDLE</span></div>
+  <table class="ptable">
+    <thead><tr><th>Community</th><th>Source</th><th>Status</th><th>Listings</th><th>Progress</th><th>Actions</th></tr></thead>
+    <tbody id="progressBody"><tr><td colspan="6" style="color:var(--muted);text-align:center;padding:20px">Click "Start Scraping" to begin</td></tr></tbody>
+  </table>
+
+  <div class="log-panel">
+    <div class="log-hdr"><h3>Live Log</h3><button class="btn btn-sm btn-outline" onclick="clearLog()">Clear</button></div>
+    <div class="log-body" id="logBody">
+      <div class="log-line"><span class="log-time">—</span> <span class="log-info">Waiting to start...</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal-bg hidden" id="modalBg">
+<div class="modal">
+  <div class="modal-hdr">
+    <h2 id="modalTitle">Add Community</h2>
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <div class="fg"><label class="fl">Community Name</label><input class="fi" id="mName" placeholder="e.g. Al Barsha South 2"></div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Min Beds</label><input class="fi" id="mBeds" type="number" value="3" min="1"></div>
+      <div class="fg"><label class="fl">Max Beds (optional)</label><input class="fi" id="mBedsMax" type="number" placeholder="Any"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Min Price (AED)</label><input class="fi" id="mPmin" type="number" value="1500000" step="100000"></div>
+      <div class="fg"><label class="fl">Max Price (AED)</label><input class="fi" id="mPmax" type="number" value="3000000" step="100000"></div>
+    </div>
+    <div class="frow">
+      <div class="fg"><label class="fl">Launch Price 3BR</label><input class="fi" id="mL3" type="number" placeholder="e.g. 1500000" step="50000"><div class="fhint">For % vs Launch scoring</div></div>
+      <div class="fg"><label class="fl">Launch Price 4BR</label><input class="fi" id="mL4" type="number" placeholder="e.g. 2000000" step="50000"></div>
+    </div>
+    <div class="fg">
+      <label class="fl">Sources</label>
+      <div style="display:flex;gap:10px">
+        <label class="fchk-row"><input type="checkbox" class="fchk" id="mSrcPF" checked><span class="fchk-lbl">PropertyFinder</span></label>
+        <label class="fchk-row"><input type="checkbox" class="fchk" id="mSrcBayut" checked><span class="fchk-lbl">Bayut</span></label>
+      </div>
+    </div>
+    <div class="fg" id="mPfGroup">
+      <label class="fl">PF Location ID or Full URL</label>
+      <input class="fi" id="mPfVal" placeholder="e.g. 8250 or https://www.propertyfinder.ae/en/buy/...">
+      <div class="fhint">Numeric ID or paste full PF search URL</div>
+    </div>
+    <div class="fg" id="mBayutGroup">
+      <label class="fl">Bayut Path</label>
+      <input class="fi" id="mBayutPath" placeholder="e.g. jumeirah-village-circle">
+      <div class="fhint">Path after /dubai/ — system builds the full URL</div>
+    </div>
+    <div class="fg">
+      <label class="fl">Bayut Property Types</label>
+      <div style="display:flex;gap:10px">
+        <label class="fchk-row"><input type="checkbox" class="fchk" id="mBayutTH" checked><span class="fchk-lbl">Townhouses</span></label>
+        <label class="fchk-row"><input type="checkbox" class="fchk" id="mBayutVilla"><span class="fchk-lbl">Villas</span></label>
+        <label class="fchk-row"><input type="checkbox" class="fchk" id="mBayutApt"><span class="fchk-lbl">Apartments</span></label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger btn-sm" id="mDelBtn" onclick="deleteCommunity()" style="display:none">Delete</button>
+    <div style="flex:1"></div>
+    <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+    <button class="btn btn-primary" id="mSaveBtn" onclick="saveCommunity()">Add Community</button>
+  </div>
+</div>
+</div>
+
+<script>
+// ── State ──
+let config = {villa: [], apartment: []};
+let progressMap = {};
+let modalMode = 'villa';
+let editIdx = -1; // -1 = add mode
+
+const socket = io();
+let timerInterval = null;
+let elapsedSec = 0;
+
+// ── Socket Events ──
+socket.on('connect', () => {
+  document.getElementById('serverDot').className = 'server-dot on';
+  document.getElementById('serverLabel').textContent = 'Connected';
+  loadConfig();
+});
+socket.on('disconnect', () => {
+  document.getElementById('serverDot').className = 'server-dot off';
+  document.getElementById('serverLabel').textContent = 'Disconnected';
+});
+
+socket.on('log', (d) => addLog(d.time, d.msg, d.level));
+socket.on('progress', (d) => updateProgress(d));
+socket.on('alert', (d) => showAlert(d));
+socket.on('stats', (d) => updateStats(d));
+socket.on('scrape_started', () => {
+  document.getElementById('startBtn').style.display = 'none';
+  document.getElementById('stopBtn').style.display = 'flex';
+  document.getElementById('statusBadge').className = 'badge badge-run';
+  document.getElementById('statusBadge').textContent = 'IN PROGRESS';
+  document.getElementById('overallSection').style.display = 'block';
+  elapsedSec = 0;
+  timerInterval = setInterval(() => {
+    elapsedSec++;
+    document.getElementById('sElapsed').textContent = fmtTime(elapsedSec);
+  }, 1000);
+});
+socket.on('scrape_done', (d) => {
+  document.getElementById('startBtn').style.display = 'flex';
+  document.getElementById('stopBtn').style.display = 'none';
+  document.getElementById('statusBadge').className = 'badge badge-done';
+  document.getElementById('statusBadge').textContent = 'COMPLETE';
+  if (timerInterval) clearInterval(timerInterval);
+  updateStats(d);
+  showAlert({type: 'success', msg: `Scraping complete! ${d.total_scraped} scraped, ${d.total_deduped} after dedup.`});
+  loadConfig(); // refresh counts
+});
+
+// ── Config ──
+function loadConfig() {
+  fetch('/api/config').then(r => r.json()).then(d => {
+    config = d;
+    renderComms();
+  });
+}
+
+function renderComms() {
+  renderCommList('villa', 'villaList', 'villaCount');
+  renderCommList('apartment', 'aptList', 'aptCount');
+}
+
+function renderCommList(mode, containerId, countId) {
+  const list = config[mode] || [];
+  document.getElementById(countId).textContent = list.length;
+  const el = document.getElementById(containerId);
+  el.innerHTML = list.map((c, i) => {
+    const on = c.enabled !== false;
+    const status = getCommStatus(mode, c.name);
+    const cnt = getCommListings(mode, c.name);
+    return `<div class="comm-item">
+      <div class="tgl ${on?'on':''}" onclick="toggleComm('${mode}',${i});event.stopPropagation()"><div class="knob"></div></div>
+      <span class="comm-name" title="${c.name}">${c.name}</span>
+      ${cnt > 0 ? `<span class="comm-cnt">${cnt}</span>` : ''}
+      <button class="comm-edit" onclick="openEdit('${mode}',${i});event.stopPropagation()" title="Edit">&#9998;</button>
+      <button class="comm-del" onclick="delComm('${mode}',${i});event.stopPropagation()" title="Delete">&times;</button>
+      <div class="comm-dot ${status}"></div>
+    </div>`;
+  }).join('');
+}
+
+function getCommStatus(mode, name) {
+  let best = 'idle';
+  for (const [tid, p] of Object.entries(progressMap)) {
+    if (p.community === name && p.mode === mode) {
+      if (p.status === 'running' || p.status === 'captcha' || p.status === 'retrying') return p.status;
+      if (p.status === 'done') best = 'done';
+      else if (p.status === 'error' && best !== 'done') best = 'error';
+    }
+  }
+  return best;
+}
+
+function getCommListings(mode, name) {
+  let total = 0;
+  for (const [tid, p] of Object.entries(progressMap)) {
+    if (p.community === name && p.mode === mode) total += (p.listings || 0);
+  }
+  return total;
+}
+
+function toggleComm(mode, idx) {
+  fetch('/api/community/toggle', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode, index: idx})
+  }).then(() => loadConfig());
+}
+
+function toggleAll(mode, on) {
+  // Use batch endpoint — single request instead of N parallel toggles
+  fetch('/api/community/toggle-all', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode, enabled: on})
+  }).then(() => loadConfig());
+}
+
+function delComm(mode, idx) {
+  const name = config[mode][idx].name;
+  if (!confirm(`Remove "${name}" from the scraper?`)) return;
+  fetch('/api/community/delete', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode, index: idx})
+  }).then(() => loadConfig());
+}
+
+// ── Scraper Control ──
+function getActiveTab(groupId) {
+  const t = document.querySelector(`#${groupId} .tab.active`);
+  return t ? t.dataset.val : null;
+}
+
+function setTab(el, groupId) {
+  document.querySelectorAll(`#${groupId} .tab`).forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function startScrape() {
+  const mode = getActiveTab('modeTabs');
+  const source = getActiveTab('srcTabs');
+  progressMap = {};
+  document.getElementById('progressBody').innerHTML = '<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:16px">Starting...</td></tr>';
+  document.getElementById('alertArea').innerHTML = '';
+  socket.emit('start_scrape', {mode, source});
+}
+
+function stopScrape() {
+  socket.emit('stop_scrape', {});
+}
+
+// ── Progress ──
+function updateProgress(d) {
+  const tid = d.task_id;
+  progressMap[tid] = d;
+
+  // Rebuild table
+  const entries = Object.entries(progressMap);
+  if (entries.length === 0) return;
+
+  const tbody = document.getElementById('progressBody');
+  tbody.innerHTML = entries.map(([tid, p]) => {
+    const srcCls = (p.source||'').toLowerCase().includes('bayut') ? 'src-bayut' : 'src-pf';
+    const srcLbl = (p.source||'').toLowerCase().includes('bayut') ? 'Bayut' : 'PF';
+    const stCls = 'st-' + (p.status || 'queued');
+    const stLbl = {queued:'Queued',running:'Scraping...',done:'Complete',error:'Failed',captcha:'CAPTCHA',retrying:'Retrying...'}[p.status] || p.status;
+    const pct = p.status === 'done' ? 100 : p.status === 'running' ? 60 : p.status === 'retrying' ? 40 : 0;
+    const barCls = {done:'green',running:'blue',error:'red',captcha:'orange',retrying:'blue'}[p.status] || '';
+    const retryBtn = (p.status === 'error') ? `<button class="btn btn-sm btn-outline" onclick="retryTask('${tid}')">Retry</button>` : '';
+    return `<tr>
+      <td><strong>${p.community||''}</strong></td>
+      <td><span class="src-badge ${srcCls}">${srcLbl}</span></td>
+      <td><span class="st-pill ${stCls}">${stLbl}</span></td>
+      <td>${p.listings || '—'}</td>
+      <td><div class="pbar"><div class="pbar-fill" style="width:${pct}%;background:var(--${barCls||'muted'})"></div></div></td>
+      <td>${retryBtn}</td>
+    </tr>`;
+  }).join('');
+
+  // Update overall bar
+  const total = entries.length;
+  const done = entries.filter(([,p]) => p.status === 'done').length;
+  const running = entries.filter(([,p]) => p.status === 'running' || p.status === 'retrying' || p.status === 'captcha').length;
+  const err = entries.filter(([,p]) => p.status === 'error').length;
+  const queued = total - done - running - err;
+  document.getElementById('ofDone').style.width = (done/total*100)+'%';
+  document.getElementById('ofRun').style.width = (running/total*100)+'%';
+  document.getElementById('ofErr').style.width = (err/total*100)+'%';
+  document.getElementById('ofQ').style.width = (queued/total*100)+'%';
+  document.getElementById('ofMeta1').textContent = `${done} done, ${running} running, ${err} errors`;
+  document.getElementById('ofMeta2').textContent = `${done + running + err} of ${total} tasks`;
+
+  // Update sidebar dots
+  renderComms();
+}
+
+function updateStats(d) {
+  document.getElementById('sTotalRaw').textContent = d.total_scraped || 0;
+  document.getElementById('sTotalDedup').textContent = d.total_deduped || 0;
+  document.getElementById('sErrors').textContent = d.errors || 0;
+  if (d.elapsed) document.getElementById('sElapsed').textContent = fmtTime(d.elapsed);
+}
+
+// ── Alerts ──
+function showAlert(d) {
+  const area = document.getElementById('alertArea');
+
+  // Special CAPTCHA pause alert with Continue button
+  if (d.type === 'captcha_pause') {
+    // Remove any previous CAPTCHA alerts
+    area.querySelectorAll('.alert-captcha-pause').forEach(el => el.remove());
+    const div = document.createElement('div');
+    div.className = 'alert alert-warn alert-captcha-pause';
+    div.style.flexWrap = 'wrap';
+    div.innerHTML = `
+      <span class="alert-icon" style="font-size:18px">🔒</span>
+      <span class="alert-text" style="flex:1"><strong>CAPTCHA Detected!</strong> Scraper is PAUSED. Solve the CAPTCHA in the browser window, then click Continue.</span>
+      <button class="btn btn-primary btn-sm" onclick="captchaContinue(this)" style="margin-left:8px;padding:6px 16px;font-size:12px">
+        ▶ I've solved it — Continue
+      </button>
+      <button class="alert-close" onclick="this.parentElement.remove()" style="margin-left:4px">&times;</button>
+    `;
+    area.prepend(div);
+    // Don't auto-remove — user needs to click Continue
+    return;
+  }
+
+  const cls = d.type === 'error' ? 'alert-error' : d.type === 'captcha' ? 'alert-warn' : d.type === 'success' ? 'alert-success' : 'alert-warn';
+  const icon = d.type === 'error' ? '&#10060;' : d.type === 'success' ? '&#9989;' : '&#9888;';
+  const div = document.createElement('div');
+  div.className = 'alert ' + cls;
+  div.innerHTML = `<span class="alert-icon">${icon}</span><span class="alert-text">${d.msg}</span><button class="alert-close" onclick="this.parentElement.remove()">&times;</button>`;
+  area.prepend(div);
+
+  // On success, remove CAPTCHA pause alerts
+  if (d.type === 'success') {
+    area.querySelectorAll('.alert-captcha-pause').forEach(el => el.remove());
+  }
+
+  // Auto-remove after 15s (except CAPTCHA pause)
+  setTimeout(() => { if (div.parentElement) div.remove(); }, 15000);
+}
+
+function captchaContinue(btn) {
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  fetch('/api/captcha/continue', {method: 'POST', headers: {'Content-Type':'application/json'}, body: '{}'})
+    .then(r => r.json())
+    .then(d => {
+      if (d.ok) {
+        btn.textContent = '✓ Signal sent!';
+        btn.style.background = 'var(--green)';
+        // Remove the CAPTCHA alert after a moment
+        setTimeout(() => {
+          const alert = btn.closest('.alert');
+          if (alert) alert.remove();
+        }, 3000);
+      }
+    })
+    .catch(() => {
+      btn.disabled = false;
+      btn.textContent = '▶ Retry — Continue';
+    });
+}
+
+// ── Log ──
+function addLog(time, msg, level) {
+  const body = document.getElementById('logBody');
+  const div = document.createElement('div');
+  div.className = 'log-line';
+  div.innerHTML = `<span class="log-time">${time}</span> <span class="log-${level||'info'}">${escHtml(msg)}</span>`;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+  // Keep max 200 lines
+  while (body.children.length > 200) body.removeChild(body.firstChild);
+}
+
+function clearLog() {
+  document.getElementById('logBody').innerHTML = '';
+}
+
+// ── Modal ──
+function openAdd(mode) {
+  modalMode = mode;
+  editIdx = -1;
+  document.getElementById('modalTitle').textContent = mode === 'villa' ? 'Add Villa Community' : 'Add Apartment Community';
+  document.getElementById('mSaveBtn').textContent = 'Add Community';
+  document.getElementById('mDelBtn').style.display = 'none';
+  // Reset form
+  document.getElementById('mName').value = '';
+  document.getElementById('mBeds').value = '3';
+  document.getElementById('mPmin').value = mode === 'villa' ? '1500000' : '1500000';
+  document.getElementById('mPmax').value = mode === 'villa' ? '3000000' : '2500000';
+  document.getElementById('mL3').value = '';
+  document.getElementById('mL4').value = '';
+  document.getElementById('mPfVal').value = '';
+  document.getElementById('mBayutPath').value = '';
+  document.getElementById('mSrcPF').checked = true;
+  document.getElementById('mSrcBayut').checked = true;
+  document.getElementById('mBayutTH').checked = mode === 'villa';
+  document.getElementById('mBayutVilla').checked = false;
+  document.getElementById('mBayutApt').checked = mode === 'apartment';
+  document.getElementById('modalBg').classList.remove('hidden');
+  document.getElementById('mName').focus();
+}
+
+function openEdit(mode, idx) {
+  modalMode = mode;
+  editIdx = idx;
+  const c = config[mode][idx];
+  document.getElementById('modalTitle').textContent = 'Edit — ' + c.name;
+  document.getElementById('mSaveBtn').textContent = 'Save Changes';
+  document.getElementById('mDelBtn').style.display = 'inline-flex';
+  // Populate
+  document.getElementById('mName').value = c.name;
+  document.getElementById('mBeds').value = c.beds_min || 3;
+  document.getElementById('mPmin').value = c.price_min || 1500000;
+  document.getElementById('mPmax').value = c.price_max || 3000000;
+  document.getElementById('mL3').value = c.launch_3br || '';
+  document.getElementById('mL4').value = c.launch_4br || '';
+  // PF
+  const pf = c.pf || {};
+  document.getElementById('mSrcPF').checked = !!c.pf;
+  document.getElementById('mPfVal').value = pf.type === 'url' ? pf.value : (pf.value || '');
+  // Bayut
+  const bayut = c.bayut || [];
+  document.getElementById('mSrcBayut').checked = bayut.length > 0;
+  document.getElementById('mBayutPath').value = bayut.length > 0 ? bayut[0].path : '';
+  document.getElementById('mBayutTH').checked = bayut.some(b => b.prop_type === 'townhouses');
+  document.getElementById('mBayutVilla').checked = bayut.some(b => b.prop_type === 'villas');
+  document.getElementById('mBayutApt').checked = bayut.some(b => b.prop_type === 'apartments');
+  document.getElementById('modalBg').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modalBg').classList.add('hidden');
+}
+
+function saveCommunity() {
+  const name = document.getElementById('mName').value.trim();
+  if (!name) { alert('Name required'); return; }
+  const beds = parseInt(document.getElementById('mBeds').value) || 3;
+  const pmin = parseInt(document.getElementById('mPmin').value) || 1500000;
+  const pmax = parseInt(document.getElementById('mPmax').value) || 3000000;
+  const l3 = parseInt(document.getElementById('mL3').value) || null;
+  const l4 = parseInt(document.getElementById('mL4').value) || null;
+  if (!l3) { alert('3BR launch price is required for deal scoring'); return; }
+
+  // Build PF config
+  let pf = null;
+  if (document.getElementById('mSrcPF').checked) {
+    const pfVal = document.getElementById('mPfVal').value.trim();
+    if (pfVal.startsWith('http')) {
+      pf = {type: 'url', value: pfVal};
+    } else if (pfVal && !isNaN(pfVal)) {
+      const cat = modalMode === 'apartment' ? 2 : 1;
+      pf = {type: 'id', value: parseInt(pfVal), category: cat};
+    }
+  }
+
+  // Build Bayut config
+  let bayut = [];
+  if (document.getElementById('mSrcBayut').checked) {
+    const path = document.getElementById('mBayutPath').value.trim();
+    if (path) {
+      if (document.getElementById('mBayutTH').checked) bayut.push({path, prop_type: 'townhouses'});
+      if (document.getElementById('mBayutVilla').checked) bayut.push({path, prop_type: 'villas'});
+      if (document.getElementById('mBayutApt').checked) bayut.push({path, prop_type: 'apartments'});
+    }
+  }
+
+  const community = {
+    name, enabled: true, beds_min: beds, price_min: pmin, price_max: pmax,
+    launch_3br: l3, launch_4br: l4, pf, bayut
+  };
+
+  if (editIdx >= 0) {
+    fetch('/api/community/update', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({mode: modalMode, index: editIdx, community})
+    }).then(() => { loadConfig(); closeModal(); });
+  } else {
+    fetch('/api/community/add', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({mode: modalMode, community})
+    }).then(() => { loadConfig(); closeModal(); });
+  }
+}
+
+function deleteCommunity() {
+  if (editIdx < 0) return;
+  const name = config[modalMode][editIdx].name;
+  if (!confirm(`Remove "${name}"?`)) return;
+  fetch('/api/community/delete', {
+    method: 'POST', headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({mode: modalMode, index: editIdx})
+  }).then(() => { loadConfig(); closeModal(); });
+}
+
+// ── Helpers ──
+function fmtTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return m + ':' + String(s).padStart(2, '0');
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+</body>
+</html>

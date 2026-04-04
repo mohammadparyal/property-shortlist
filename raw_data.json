@@ -144,7 +144,7 @@
       {
         "uid": "pf-GMR-22500",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-16195991.html",
-        "price": 2750000,
+        "price": 2550000,
         "beds": 3,
         "baths": 3,
         "sqft": 17610,
@@ -1059,7 +1059,7 @@
         "baths": 4,
         "sqft": 1550,
         "cluster": "Malta",
-        "title": "4 Bedroom | Malta | Investor Deal",
+        "title": "4 Bedroom | Malta | Mortgage Accepted",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-03-17",
@@ -1679,6 +1679,216 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-03-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-TREO-S-48171",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-costa-brava-at-damac-lagoons-costa-brava-2-71905256.html",
+        "price": 2699999,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Costa Brava 2",
+        "title": "Lagoon | Motivated | Close to Handover",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-TH7771-10",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-69091614.html",
+        "price": 2450000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Portofino",
+        "title": "3BR | Handover Soon | Payment Plan | Back to Back",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-EJH4X23QER44KHW917S5P9W3D0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-costa-brava-at-damac-lagoons-costa-brava-2-71085184.html",
+        "price": 2525000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 218294,
+        "cluster": "Costa Brava 2",
+        "title": "Mortgage Possible | Negotiable | 50% Handover",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-ZO0000000551",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-lagoons-costa-brava-at-damac-lagoons-costa-brava-1-67840094.html",
+        "price": 2750000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Costa Brava 1",
+        "title": "Ready-to-Move! Single Row 3BR + Maid",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-03-24",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-012026-1464TT-Thomas",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-lagoons-santorini-71513497.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 22303,
+        "cluster": "Santorini",
+        "title": "Motivated Seller | Single Row | Next to Park",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-1010402560818",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-nice-2PZV4jp1He4.html",
+        "price": 2790000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16684,
+        "cluster": "Nice",
+        "title": "BRIGHT l Brand New |Spacious 3 BED l Best Location",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-02-20",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-PFDLSB19",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-71462412.html",
+        "price": 2390000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 24757,
+        "cluster": "",
+        "title": "Price Slash-Down:Damac-Lagoons 3BR Townhouse",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-N81KFS5QRDKV9ZKQ63S65J28M8",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-71118026.html",
+        "price": 2450000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 22314,
+        "cluster": "Portofino",
+        "title": "Best Price | Near Amenities | Motivated Seller",
+        "community": "DAMAC Lagoons",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14513864",
+        "href": "https://www.bayut.com/property/details-14513864.html",
+        "price": 2250000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Nice",
+        "title": "NICE | 50\\50 PP | PREMIUM LOCATION",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14740868",
+        "href": "https://www.bayut.com/property/details-14740868.html",
+        "price": 2299999,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 2273,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-04",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14731018",
+        "href": "https://www.bayut.com/property/details-14731018.html",
+        "price": 2300000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Malta",
+        "title": "Distress Deal | Handover Soon | Urgent Sale",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14736589",
+        "href": "https://www.bayut.com/property/details-14736589.html",
+        "price": 2350000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2315,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-04",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14680662",
+        "href": "https://www.bayut.com/property/details-14680662.html",
+        "price": 2375000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Malta",
+        "title": "CLOSE TO THE CENTRAL HUB | BACK TO BACK | HIGH ROI",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-03-30",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14712870",
+        "href": "https://www.bayut.com/property/details-14712870.html",
+        "price": 2390000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2050,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14706873",
+        "href": "https://www.bayut.com/property/details-14706873.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 2280,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-01",
         "isOffPlan": true
       }
     ],
@@ -2624,7 +2834,7 @@
       {
         "uid": "pf-DP-S-59171",
         "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-damac-islands-maldives-4-2Q6RsFxts8W.html",
-        "price": 2717400,
+        "price": 2567400,
         "beds": 4,
         "baths": 5,
         "sqft": 23616,
@@ -3011,6 +3221,104 @@
         "community": "DAMAC Islands",
         "source": "PropertyFinder",
         "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-JVG260130",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-maldives-maldives-2-71461768.html",
+        "price": 2550000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 23767,
+        "cluster": "Maldives 2",
+        "title": "Close to Lagoon | Close to OP | Q4 2028",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-RKBKNRN506RB1017RJZTQHG6G0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-maldives-maldives-4-2Pej94xhyQi.html",
+        "price": 2850000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 16684,
+        "cluster": "Maldives 4",
+        "title": "Waterfront Living Close to Island Lagoon Community",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-02-23",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-SkyView-32100",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-islands-maldives-dubai-land-maldives-1-70293121.html",
+        "price": 2600000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 16684,
+        "cluster": "Maldives 1",
+        "title": "Luxury | Waterfront Living | Maldives Cluster",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-03-30",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-Y0ZVXFJB8D9VC8DG0XEMBEE6XR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-damac-islands-bali-at-damac-islands-71116078.html",
+        "price": 2600000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 16684,
+        "cluster": "Bali at Damac Islands",
+        "title": "Exquisite Resale 4 BR Villa | Great Investment Buy",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14738150",
+        "href": "https://www.bayut.com/property/details-14738150.html",
+        "price": 2200000,
+        "beds": 4,
+        "baths": 3,
+        "sqft": 1550,
+        "cluster": "Bali 2",
+        "title": "Elegant 4 Bedroom Townhouse | Waterfront Living | DAMAC Islands \u2013 Bali 2",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-04",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14688135",
+        "href": "https://www.bayut.com/property/details-14688135.html",
+        "price": 2277000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2209,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-03-30",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14733974",
+        "href": "https://www.bayut.com/property/details-14733974.html",
+        "price": 2300000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "Seychelles",
+        "title": "Near to Lagoon | Exclusive | Single raw",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-03",
         "isOffPlan": true
       }
     ],
@@ -3844,7 +4152,7 @@
       {
         "uid": "bayut-14541417",
         "href": "https://www.bayut.com/property/details-14541417.html",
-        "price": 2650000,
+        "price": 2590000,
         "beds": 3,
         "baths": 4,
         "sqft": 1483,
@@ -4470,6 +4778,132 @@
         "source": "Bayut",
         "listed": "2026-03-24",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-4Q4QPG19XEBS6ZQWRPDTXRR780",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elora-71085740.html",
+        "price": 2600000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 22551,
+        "cluster": "Elora",
+        "title": "Best Price | Near handover | Prime Location",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-SkyView-31916",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elva-at-the-valley-65574169.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20850,
+        "cluster": "Elva at The Valley",
+        "title": "Prime Investment | OP and DLD | Near Amenities",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-18",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-rnshs-YNGR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-nara-68663064.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20161,
+        "cluster": "Nara",
+        "title": "Call Now | Near Pool | Prime Location",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-26",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-L-170743",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-elora-70288020.html",
+        "price": 2699999,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 22723,
+        "cluster": "Elora",
+        "title": "Handover Soon | Motivated | Mortgage Accepted",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-30",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-L-295840",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-eden-70267587.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21108,
+        "cluster": "Eden",
+        "title": "Vacant On Transfer | Landscaped | Single Row",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-03-30",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14722794",
+        "href": "https://www.bayut.com/property/details-14722794.html",
+        "price": 2250000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2190,
+        "cluster": "",
+        "title": "",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14727822",
+        "href": "https://www.bayut.com/property/details-14727822.html",
+        "price": 2450000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1482,
+        "cluster": "Lillia",
+        "title": "Golden Beach | Great Location | Vastu Compliant",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14722610",
+        "href": "https://www.bayut.com/property/details-14722610.html",
+        "price": 2550000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2345,
+        "cluster": "",
+        "title": "",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14721909",
+        "href": "https://www.bayut.com/property/details-14721909.html",
+        "price": 2600000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1482,
+        "cluster": "Elora",
+        "title": "Real Listing, Near Handover, 3br+m",
+        "community": "The Valley",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
       }
     ],
     "DAMAC Hills 2": [
@@ -5072,7 +5506,7 @@
         "title": "GENUINE RESALE | Rented | 3B | SPACIOUS LAYOUT RRM | UNFURNISHED | Back to Back",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2024-09-09",
         "isOffPlan": false
       },
       {
@@ -5086,7 +5520,7 @@
         "title": "3 BEDROOM TOWNHOUSE | TENANTED | INVESTOR DEAL| CASH BUYER ONLY |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-18",
         "isOffPlan": false
       },
       {
@@ -5100,7 +5534,7 @@
         "title": "GENUINE RESALE | Rented | 3B | SPACIOUS LAYOUT RRM | UNFURNISHED | Back to Back",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2024-09-09",
         "isOffPlan": false
       },
       {
@@ -5226,7 +5660,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-12",
         "isOffPlan": false
       },
       {
@@ -5268,7 +5702,7 @@
         "title": "Luxury Spacious 3 Bedrooms For Sale | Ready To Move | Middle Unit",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-11-18",
         "isOffPlan": false
       },
       {
@@ -5282,7 +5716,7 @@
         "title": "Unfurnished | Family-Friendly Community | Exceptional Amenities",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-10-10",
         "isOffPlan": false
       },
       {
@@ -5296,7 +5730,7 @@
         "title": "Gated Community | Spacious 3-Bedroom Townhouse in Vardon Cluster, DAMAC Hills 2 \u2013 Unfurnished | Family-Friendly Community | Tenanted |",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-08-26",
         "isOffPlan": false
       },
       {
@@ -5352,7 +5786,7 @@
         "title": "Motivated Seller | Resale | Negotiable",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-20",
         "isOffPlan": true
       },
       {
@@ -5408,7 +5842,7 @@
         "title": "New Build | Roof Terrace | Study Room",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-26",
         "isOffPlan": true
       },
       {
@@ -5422,7 +5856,7 @@
         "title": "BRAND NEW | 4 BEDS+STUDY | G+2",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-14",
         "isOffPlan": false
       },
       {
@@ -5492,7 +5926,7 @@
         "title": "Single Row I Tenanted I High ROI I Spacious",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-19",
         "isOffPlan": false
       },
       {
@@ -5534,7 +5968,7 @@
         "title": "Townhouse| Prime community locationpeaceful & Private living",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-11-08",
         "isOffPlan": true
       },
       {
@@ -5548,7 +5982,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-09-18",
         "isOffPlan": false
       },
       {
@@ -5562,7 +5996,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-27",
         "isOffPlan": false
       },
       {
@@ -5730,7 +6164,7 @@
         "title": "Prime Location | Luxury Townhouse | Exclusive unitFajar Realty presents Camelia Villas at Damac Hills 2 brings a new joy brought by Damac Properties o",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-09",
         "isOffPlan": true
       },
       {
@@ -5744,7 +6178,7 @@
         "title": "Q2 2026 | Motivated Seller | Type 4M",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-09",
         "isOffPlan": true
       },
       {
@@ -5842,7 +6276,7 @@
         "title": "SPACIOUS 3BR TOWNHOUSE - FREE HOLD - GATED COMMUNITY",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-11",
         "isOffPlan": false
       },
       {
@@ -5884,7 +6318,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-11",
         "isOffPlan": false
       },
       {
@@ -6066,7 +6500,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-13",
         "isOffPlan": false
       },
       {
@@ -6276,7 +6710,7 @@
         "title": "Best-Priced 4BR in Violet | High ROI Potential | Investment Opportunity | Handover Soon",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-16",
         "isOffPlan": true
       },
       {
@@ -6332,7 +6766,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-17",
         "isOffPlan": false
       },
       {
@@ -6402,7 +6836,7 @@
         "title": "Hot Deal | Spacious 3BR + Maid for Sale | Prime Location",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-18",
         "isOffPlan": false
       },
       {
@@ -6556,7 +6990,7 @@
         "title": "3BR | 3 Bath | Rented | Close to Exit | NO AGENTS!",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-21",
         "isOffPlan": false
       },
       {
@@ -6612,7 +7046,7 @@
         "title": "",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-23",
         "isOffPlan": false
       },
       {
@@ -6710,7 +7144,7 @@
         "title": "Gated Community | Single Row | Close to Amenities",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-24",
         "isOffPlan": false
       },
       {
@@ -6724,7 +7158,7 @@
         "title": "High ROI | Spacious Layout | Prime Location",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-25",
         "isOffPlan": true
       },
       {
@@ -6780,7 +7214,7 @@
         "title": "Corner Unit | Single Row | Largest Plot",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-26",
         "isOffPlan": false
       },
       {
@@ -6850,7 +7284,7 @@
         "title": "3BR Townhouse | Aquilegia Cluster | Ready",
         "community": "DAMAC Hills 2",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
         "isOffPlan": false
       },
       {
@@ -6957,7 +7391,7 @@
         "price": 1850000,
         "beds": 3,
         "baths": 3,
-        "sqft": 2071532,
+        "sqft": 13003,
         "cluster": "Camelia",
         "title": "3-bedroom townhouse DAMAC Hills 2 \u2013 Camelia,",
         "community": "DAMAC Hills 2",
@@ -7010,7 +7444,7 @@
       {
         "uid": "bayut-14686961",
         "href": "https://www.bayut.com/property/details-14686961.html",
-        "price": 1200000,
+        "price": 1270000,
         "beds": 3,
         "baths": 3,
         "sqft": 1600,
@@ -7117,6 +7551,188 @@
         "community": "DAMAC Hills 2",
         "source": "Bayut",
         "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Ghaith-pacifica1.8M",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-pacifica-casablanca-boutique-villas-71118660.html",
+        "price": 1810000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 17578,
+        "cluster": "Casablanca Boutique Villas",
+        "title": "3BR+Maid  | Investor Deal | Rented | Prime Unit",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-DP-S-59566",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-victoria-victoria-1-70692333.html",
+        "price": 1250000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 18256,
+        "cluster": "Victoria 1",
+        "title": "High End Townhouse | Serene Location | Best Deal",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Abbas-165-San",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-sanctnary-aurum-villas-71118471.html",
+        "price": 1650000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20247,
+        "cluster": "Aurum Villas",
+        "title": "3BR+Maid | Single Row | Rented | Investor Deal",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-DOW260308",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-victoria-victoria-2-65153310.html",
+        "price": 1500000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 24488,
+        "cluster": "Victoria 2",
+        "title": "Upgraded | Basement Gym | Best Deal",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-03-17",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-CPR1149",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-sycamore-aurum-villas-16182752.html",
+        "price": 2350000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 20699,
+        "cluster": "Aurum Villas",
+        "title": "Most Sought After R2M Layout | Single Row | Rented",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-01-28",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-SAZJSBPHJ5JFNGAGQAT8K0BT44",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-mimosa-16275409.html",
+        "price": 2250000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 24305,
+        "cluster": "Mimosa",
+        "title": "3BR VILLA | DAMAC HILLS 2 \u2013 MIMOSA | VACANT SOON",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-09",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Abdu-MadinatHind-Land/Villa-Sale",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-hills-2-mulberry-madinat-hind-16304019.html",
+        "price": 2100000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20247,
+        "cluster": "Madinat Hind",
+        "title": "3BR Family Villa | Peaceful Location | Great Value",
+        "community": "DAMAC Hills 2",
+        "source": "PropertyFinder",
+        "listed": "2026-02-11",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14104417",
+        "href": "https://www.bayut.com/property/details-14104417.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2443,
+        "cluster": "Janusia",
+        "title": "3 BR + Multipurpose | Spacious Layout | Great Deal",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-01-26",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-13419480",
+        "href": "https://www.bayut.com/property/details-13419480.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1215,
+        "cluster": "Violet",
+        "title": "4 Bedrooms Townhouse | Violet - Damac Hills 2",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2025-11-17",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14722251",
+        "href": "https://www.bayut.com/property/details-14722251.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1215,
+        "cluster": "Violet",
+        "title": "4BR+Store | Closed Kitchen | Violet 1",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14705152",
+        "href": "https://www.bayut.com/property/details-14705152.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 1965,
+        "cluster": "Amazonia",
+        "title": "Fully Furnished | Single Row | Investor Deal",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14725477",
+        "href": "https://www.bayut.com/property/details-14725477.html",
+        "price": 2000000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 2352,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14702333",
+        "href": "https://www.bayut.com/property/details-14702333.html",
+        "price": 2000000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 2458,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Hills 2",
+        "source": "Bayut",
+        "listed": "2026-04-01",
         "isOffPlan": false
       }
     ],
@@ -7412,7 +8028,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "2025-12-11",
+        "listed": "2026-04-01",
         "isOffPlan": false
       },
       {
@@ -7502,7 +8118,7 @@
       {
         "uid": "bayut-14201912",
         "href": "https://www.bayut.com/property/details-14201912.html",
-        "price": 2750000,
+        "price": 2500000,
         "beds": 3,
         "baths": 4,
         "sqft": 1929,
@@ -7510,7 +8126,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-04",
         "isOffPlan": false
       },
       {
@@ -7628,7 +8244,7 @@
       {
         "uid": "pf-S-JS039",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-65163874.html",
-        "price": 2750000,
+        "price": 2600000,
         "beds": 3,
         "baths": 4,
         "sqft": 20764,
@@ -7650,7 +8266,7 @@
         "title": "Unique | Great Location | Close to Amenities",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-17",
         "isOffPlan": false
       },
       {
@@ -7930,7 +8546,7 @@
         "title": "",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-31",
         "isOffPlan": false
       },
       {
@@ -7944,7 +8560,105 @@
         "title": "Single Row | Vacant On Transfer | Call For Viewing",
         "community": "Villanova",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-DUL253126",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-villanova-amaranta-amaranta-b-69101868.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 18643,
+        "cluster": "Amaranta B",
+        "title": "Private Garden | Close to Pool | Single Row",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-03-27",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-Huaxia-S-369517090",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-villanova-la-rosa-la-rosa-3-70292002.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 18912,
+        "cluster": "La Rosa 3",
+        "title": "Ready To Move | Single Row | Next To Park",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-03-30",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-TREO-S-050200",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-67442129.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20602,
+        "cluster": "Amaranta 2",
+        "title": "Extended | Vastu | Single Row | Unique",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-03-23",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-SUNDEEP-LATILIA-010426-1557",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-villanova-la-tilia-la-tilia-1-71127821.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 25295,
+        "cluster": "La Tilia 1",
+        "title": "OP + DLD | Close to Amenities | Single Row",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-GMR-23138",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-amaranta-dubai-land-villanova-amaranta-2-70686078.html",
+        "price": 2450000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21377,
+        "cluster": "Amaranta 2",
+        "title": "Single Row | Vacant On Transfer | Call For Viewing",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14733836",
+        "href": "https://www.bayut.com/property/details-14733836.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1733,
+        "cluster": "",
+        "title": "",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14689972",
+        "href": "https://www.bayut.com/property/details-14689972.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2024,
+        "cluster": "",
+        "title": "",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-03-31",
         "isOffPlan": false
       }
     ],
@@ -8100,7 +8814,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-15",
         "isOffPlan": true
       },
       {
@@ -8114,7 +8828,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-03",
         "isOffPlan": true
       },
       {
@@ -8128,7 +8842,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-27",
         "isOffPlan": true
       },
       {
@@ -8142,7 +8856,7 @@
         "title": "",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-29",
         "isOffPlan": true
       },
       {
@@ -8170,7 +8884,7 @@
         "title": "High-ROI Golf Community Living | Pay with Ease",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": true
       },
       {
@@ -8184,7 +8898,7 @@
         "title": "Single Row Vastu | Ivory | Buy for 1.15 M",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-13",
         "isOffPlan": true
       },
       {
@@ -8226,7 +8940,7 @@
         "title": "Rented I Single Row I Genuine Resale",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-11",
         "isOffPlan": false
       },
       {
@@ -8293,7 +9007,7 @@
         "baths": 3,
         "sqft": 21323,
         "cluster": "Park Residence 1",
-        "title": "Single Row | Ready to Move | Near Park | Brand New",
+        "title": "SINGLE ROW | READY TO MOVE | BRAND NEW",
         "community": "DAMAC Hills",
         "source": "PropertyFinder",
         "listed": "2026-03-26",
@@ -8338,7 +9052,7 @@
         "title": "SINGLE ROW | MOTIVATED SELLER | 1% MONTHLY PP",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-26",
         "isOffPlan": true
       },
       {
@@ -8352,7 +9066,49 @@
         "title": "Golf Course | Handover Soon | Top Quality",
         "community": "DAMAC Hills",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-1048002631033",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-hills-ivory-by-damac-72308715.html",
+        "price": 2859000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 21259,
+        "cluster": "Ivory by Damac",
+        "title": "OP Price | Single Row | Investors Deal | High ROI",
+        "community": "DAMAC Hills",
+        "source": "PropertyFinder",
+        "listed": "2026-04-04",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-GEAHMD7YGHD8V820K6YDZW3A04",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-ivory-by-damac-71901935.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21259,
+        "cluster": "Ivory by Damac",
+        "title": "1% Monthly PP |Single Row | New Launch",
+        "community": "DAMAC Hills",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-H4DB9KQKHHRV17J0NA6QX16KCM",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-ivory-by-damac-71902804.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21259,
+        "cluster": "Ivory by Damac",
+        "title": "3BRLimited Residences with Strong Growth Potential",
+        "community": "DAMAC Hills",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
         "isOffPlan": true
       }
     ],
@@ -10721,7 +11477,7 @@
         "baths": 5,
         "sqft": 23519,
         "cluster": "Bahamas 2",
-        "title": "Elegant 4BR Townhouse | DAMAC Islands 2 | Handover 2030",
+        "title": "Elegant Townhouse | DAMAC Islands 2 | Handover 2030",
         "community": "DAMAC Islands 2",
         "source": "PropertyFinder",
         "listed": "2026-03-30",
@@ -10762,6 +11518,62 @@
         "beds": 4,
         "baths": 4,
         "sqft": 2210,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-PF_SA_29",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-damac-islands-2-bahamas-2-71515603.html",
+        "price": 2855840,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 23788,
+        "cluster": "Bahamas 2",
+        "title": "4BR Villa | Mid Unit | Lagoon and Garden Views",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14734754",
+        "href": "https://www.bayut.com/property/details-14734754.html",
+        "price": 2799000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2184,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14724035",
+        "href": "https://www.bayut.com/property/details-14724035.html",
+        "price": 2825000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Bahamas",
+        "title": "4 BEDROOM TOWN HOUSE ON DAMAC ISLANDS 2 IN BAHAMAS 1",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14701034",
+        "href": "https://www.bayut.com/property/details-14701034.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2186,
         "cluster": "",
         "title": "",
         "community": "DAMAC Islands 2",
@@ -11090,7 +11902,7 @@
         "title": "Single Row | Best Price | Motivated Seller",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-23",
         "isOffPlan": false
       },
       {
@@ -11104,7 +11916,7 @@
         "title": "Prime Location | Gated Community | Near Amenities",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-10",
         "isOffPlan": false
       },
       {
@@ -11118,7 +11930,7 @@
         "title": "Ready To Move | Multiple Options | No Agents PLZ",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-25",
         "isOffPlan": false
       },
       {
@@ -11132,7 +11944,7 @@
         "title": "",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-12",
         "isOffPlan": false
       },
       {
@@ -11146,7 +11958,7 @@
         "title": "Genuine Listing | Tenanted | Fixed Price",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-20",
         "isOffPlan": false
       },
       {
@@ -11160,7 +11972,7 @@
         "title": "Single Row | Vacant | Brand New",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
         "isOffPlan": false
       },
       {
@@ -11174,7 +11986,7 @@
         "title": "",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-25",
         "isOffPlan": false
       },
       {
@@ -11194,7 +12006,7 @@
       {
         "uid": "bayut-14639875",
         "href": "https://www.bayut.com/property/details-14639875.html",
-        "price": 2345000,
+        "price": 2195000,
         "beds": 3,
         "baths": 4,
         "sqft": 1939,
@@ -11202,7 +12014,7 @@
         "title": "Best Price | Investors Deal | Prime Location",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-25",
         "isOffPlan": false
       },
       {
@@ -11216,7 +12028,7 @@
         "title": "No Agent PLZ | Prime Location | Multiple Options",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-24",
         "isOffPlan": false
       },
       {
@@ -11230,7 +12042,7 @@
         "title": "Hot Deal | Genuine Listing |Tenanted",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-06",
         "isOffPlan": false
       },
       {
@@ -11244,7 +12056,7 @@
         "title": "Close to Amenities | Prime Location | VOT",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
         "isOffPlan": false
       },
       {
@@ -11258,7 +12070,7 @@
         "title": "Private Pool | Single Row | Vacant on 15 May",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-12",
         "isOffPlan": false
       },
       {
@@ -11272,7 +12084,7 @@
         "title": "Vacant | Open Plan | Spacious Layout",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-23",
         "isOffPlan": false
       },
       {
@@ -11286,7 +12098,7 @@
         "title": "",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-24",
         "isOffPlan": false
       },
       {
@@ -11300,7 +12112,7 @@
         "title": "",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-26",
         "isOffPlan": false
       },
       {
@@ -11314,7 +12126,7 @@
         "title": "Exclusive | Perfect Location | Near Amenities",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-06",
         "isOffPlan": false
       },
       {
@@ -11328,7 +12140,7 @@
         "title": "Emaar South 3BR Townhome | 2 Parking",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-05",
         "isOffPlan": false
       },
       {
@@ -11342,7 +12154,7 @@
         "title": "",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-28",
         "isOffPlan": false
       },
       {
@@ -11356,7 +12168,7 @@
         "title": "3 BR Plus Maid | Modern | Vacant",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-24",
         "isOffPlan": false
       },
       {
@@ -11398,8 +12210,148 @@
         "title": "Vacant on Transfer | Well Priced | Emaar",
         "community": "Emaar South",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-31",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-I-1020",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-parkside-3-65579572.html",
+        "price": 2250000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16889,
+        "cluster": "Parkside 3",
+        "title": "Hot Deal | Below Market | Genuine Listing",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-18",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-BI-S-20-16939",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-greenview-71085168.html",
+        "price": 3500000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 34154,
+        "cluster": "Greenview",
+        "title": "Type E1| Corner | Single Row | Large Plot",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-S-H-Z-2026010418",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-greenviews-2-71130933.html",
+        "price": 2550000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16716,
+        "cluster": "Greenviews 2",
+        "title": "Close to Amenities |Rented | Landscaped |No Agents",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-S-H-Z-2026140118-1903",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-greenview-65961480.html",
+        "price": 2490000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16340,
+        "cluster": "Greenview",
+        "title": "Rented | Close to the Amenities | PHPP | No Agents",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-19",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-S-H-Z-2026120314",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-parkside-3-2Q71ykZAZzE.html",
+        "price": 2250000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16340,
+        "cluster": "Parkside 3",
+        "title": "B2B | Rented | Close to Amenities | No Agent",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-S-H-Z-2026010419",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-parkside-2-71461735.html",
+        "price": 3000000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 26770,
+        "cluster": "Parkside 2",
+        "title": "Close to Amenities | Best Price | No Agents",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-MPS-47372",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-greenway-2-70691349.html",
+        "price": 2980000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 26329,
+        "cluster": "Greenway 2",
+        "title": "Best Price | Greenway 2 | 3BR+Maid | Back to Back",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-RIRE-1018",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-parkside-3-70696849.html",
+        "price": 3250000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 27491,
+        "cluster": "Parkside 3",
+        "title": "Vacant | Landscaped | Single Row",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-RIRE-1079",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-parkside-1-70694652.html",
+        "price": 2450000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 14994,
+        "cluster": "Parkside 1",
+        "title": "Close To Pool | Motivated Seller | Greenbelt",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-TH42560",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-greenspoint-16076337.html",
+        "price": 4450000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 39558,
+        "cluster": "Greenspoint",
+        "title": "Selling below OP | Corner Big Plot | Single row",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-01-15",
+        "isOffPlan": true
       }
     ],
     "Arabian Ranches 3": [
@@ -11694,7 +12646,7 @@
         "title": "Handover 2026 | Payment Plan | Genuine Resale",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-09-30",
         "isOffPlan": true
       },
       {
@@ -11708,7 +12660,7 @@
         "title": "Close to Pool&Park | Genuine | Exclusive",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-05",
         "isOffPlan": true
       },
       {
@@ -11722,7 +12674,7 @@
         "title": "Single Row | Best Location | Spacious Layout",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-18",
         "isOffPlan": true
       },
       {
@@ -11750,7 +12702,7 @@
         "title": "",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-29",
         "isOffPlan": false
       },
       {
@@ -11764,7 +12716,7 @@
         "title": "3BR Townhouse for Sale | Joy Cluster | Prime Location",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-24",
         "isOffPlan": false
       },
       {
@@ -11774,11 +12726,11 @@
         "beds": 3,
         "baths": 4,
         "sqft": 1940,
-        "cluster": "Joy",
-        "title": "Facing the Park | Spacious | Amenities closeby",
+        "cluster": "",
+        "title": "",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-28",
         "isOffPlan": false
       },
       {
@@ -11806,7 +12758,7 @@
         "title": "Near Pool and Amenities | Motivated Seller",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-17",
         "isOffPlan": true
       },
       {
@@ -11820,7 +12772,7 @@
         "title": "",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-28",
         "isOffPlan": false
       },
       {
@@ -11834,7 +12786,7 @@
         "title": "Motivated Seller | Prime Location | Single Row",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-25",
         "isOffPlan": true
       },
       {
@@ -11848,7 +12800,7 @@
         "title": "Exclusive I Single Row I Payment Plan | Gated Community",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-10-09",
         "isOffPlan": true
       },
       {
@@ -11862,7 +12814,7 @@
         "title": "SINGLE ROW | PRIME LOCATION | GENUINE LISTING | RESALE",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-12",
         "isOffPlan": true
       },
       {
@@ -11876,7 +12828,7 @@
         "title": "",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-17",
         "isOffPlan": false
       },
       {
@@ -11890,7 +12842,7 @@
         "title": "Motivated Seller | Handover Soon | Prime Location",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-17",
         "isOffPlan": true
       },
       {
@@ -11904,7 +12856,7 @@
         "title": "Vacant l Single Row l Multiple Options",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-11",
         "isOffPlan": false
       },
       {
@@ -11918,7 +12870,7 @@
         "title": "Exclusive 3Bed + Maids | Prime Location",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-04",
         "isOffPlan": false
       },
       {
@@ -11932,7 +12884,7 @@
         "title": "Near to Amenities | Call Now | Exclusive",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-24",
         "isOffPlan": true
       },
       {
@@ -11946,7 +12898,7 @@
         "title": "Single Row | Modern Design | Investors Deal",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-08-09",
         "isOffPlan": true
       },
       {
@@ -11960,7 +12912,7 @@
         "title": "",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-23",
         "isOffPlan": true
       },
       {
@@ -12114,7 +13066,161 @@
         "title": "Real Listing, 3br+maid, Back to Back,Near Handover",
         "community": "Arabian Ranches 3",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-S-WA.061",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-joy-71809953.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 14919,
+        "cluster": "Joy",
+        "title": "Investor deal | Emaar | Multiple Options Available",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-BH-S-225369",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-raya-71902106.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 20484,
+        "cluster": "Raya",
+        "title": "Single Row | Mortgage Eligible | Brand New",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-giproperties-17730862",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-arabian-ranches-3-joy-65172928.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 14897,
+        "cluster": "Joy",
+        "title": "3BR+M | Vacant and Ready to Move | Unfurnished",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-03-17",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-ANYA-0303-WASEEM",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-anya-anya-1-2PsELyBCaI4.html",
+        "price": 2900000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 16781,
+        "cluster": "Anya 1",
+        "title": "Large Layout | Prime Location | Multiple Options",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-03-03",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-S-WA-067",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-sun-71460783.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21097,
+        "cluster": "Sun",
+        "title": "Single Row | Close to Amenities | Emaar Community",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-QYEH3QN952WQMTTAD4T62G3RAR",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-joy-71930854.html",
+        "price": 2670000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 14897,
+        "cluster": "Joy",
+        "title": "Single Road not 611/ Investor Deal/Good Location",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14724871",
+        "href": "https://www.bayut.com/property/details-14724871.html",
+        "price": 2500000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1918,
+        "cluster": "Anya",
+        "title": "Below Market | Near Handover | Prime Location",
+        "community": "Arabian Ranches 3",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14727551",
+        "href": "https://www.bayut.com/property/details-14727551.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1386,
+        "cluster": "Joy",
+        "title": "Investor deal | Emaar | Multiple Options Available",
+        "community": "Arabian Ranches 3",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14705776",
+        "href": "https://www.bayut.com/property/details-14705776.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2033,
+        "cluster": "",
+        "title": "",
+        "community": "Arabian Ranches 3",
+        "source": "Bayut",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14719632",
+        "href": "https://www.bayut.com/property/details-14719632.html",
+        "price": 2900000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1897,
+        "cluster": "Raya",
+        "title": "3BR in Raya | Genuine Resale | Below Market | AED 2.9M",
+        "community": "Arabian Ranches 3",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14577062",
+        "href": "https://www.bayut.com/property/details-14577062.html",
+        "price": 2950000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1937,
+        "cluster": "Anya",
+        "title": "Handover Q4 2026 | Single Row | Negotiable",
+        "community": "Arabian Ranches 3",
+        "source": "Bayut",
+        "listed": "2026-03-17",
         "isOffPlan": true
       }
     ],
@@ -12206,7 +13312,7 @@
       {
         "uid": "pf-L-295146",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-town-square-hayat-townhouses-hayat-townhouses-1-64440777.html",
-        "price": 2550000,
+        "price": 2400000,
         "beds": 3,
         "baths": 3,
         "sqft": 22281,
@@ -12424,13 +13530,13 @@
         "title": "Vacant On Transfer | Single Row | Type 2",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-09",
         "isOffPlan": false
       },
       {
         "uid": "bayut-14573289",
         "href": "https://www.bayut.com/property/details-14573289.html",
-        "price": 2550000,
+        "price": 2400000,
         "beds": 3,
         "baths": 3,
         "sqft": 2070,
@@ -12438,7 +13544,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-16",
         "isOffPlan": false
       },
       {
@@ -12452,7 +13558,7 @@
         "title": "3 Bed,Next to Pool and park, FREE mortgage service",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-05-09",
         "isOffPlan": false
       },
       {
@@ -12480,7 +13586,7 @@
         "title": "Single Row | Vacant on transfer | Type 1",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-12",
         "isOffPlan": false
       },
       {
@@ -12494,7 +13600,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-27",
         "isOffPlan": false
       },
       {
@@ -12508,7 +13614,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-26",
         "isOffPlan": false
       },
       {
@@ -12536,13 +13642,13 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-19",
         "isOffPlan": false
       },
       {
         "uid": "bayut-14504423",
         "href": "https://www.bayut.com/property/details-14504423.html",
-        "price": 2775000,
+        "price": 2750000,
         "beds": 3,
         "baths": 4,
         "sqft": 2185,
@@ -12550,7 +13656,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-10",
         "isOffPlan": false
       },
       {
@@ -12564,7 +13670,7 @@
         "title": "Close to Amenities I Type 2 I Vacant on Transfer",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-09",
         "isOffPlan": false
       },
       {
@@ -12578,7 +13684,7 @@
         "title": "Removated Three Bedroom Townhiuse in Naseem - VOT - Great Deal",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-26",
         "isOffPlan": false
       },
       {
@@ -12592,13 +13698,13 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
         "isOffPlan": false
       },
       {
         "uid": "bayut-14657905",
         "href": "https://www.bayut.com/property/details-14657905.html",
-        "price": 2800000,
+        "price": 2700000,
         "beds": 3,
         "baths": 4,
         "sqft": 2118,
@@ -12606,7 +13712,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-27",
         "isOffPlan": false
       },
       {
@@ -12620,7 +13726,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-16",
         "isOffPlan": false
       },
       {
@@ -12634,7 +13740,7 @@
         "title": "Single Row| Type 2| Vacant On Transfer",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-12",
         "isOffPlan": false
       },
       {
@@ -12648,7 +13754,7 @@
         "title": "Vacant | Spacious | Well-Maintained",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-18",
         "isOffPlan": false
       },
       {
@@ -12662,7 +13768,7 @@
         "title": "Type 1 | Well Maintained | Notice Served",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-04",
         "isOffPlan": false
       },
       {
@@ -12676,7 +13782,7 @@
         "title": "Single Row | Type 2 | Well Maintained",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-13",
         "isOffPlan": false
       },
       {
@@ -12690,7 +13796,7 @@
         "title": "",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-26",
         "isOffPlan": false
       },
       {
@@ -12732,7 +13838,7 @@
         "title": "Rented I Green Belt I Type 1 I Call Now",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-26",
         "isOffPlan": false
       },
       {
@@ -12830,7 +13936,91 @@
         "title": "VACANT ON TRANSFER | BACK TO BACK | UNFURNISHED",
         "community": "Town Square",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-BH-S-223967-1",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-town-square-naseem-townhouses-71087725.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 22927,
+        "cluster": "Naseem Townhouses",
+        "title": "VOT | Close to Pool and Park | Well Maintained",
+        "community": "Town Square",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-0QERKDQTHXQK3NPYNGFK6FEYPG",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-town-square-hayat-townhouses-hayat-townhouses-1-71917757.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21776,
+        "cluster": "Hayat Townhouses 1",
+        "title": "Type-1 | Vacant | Best Placed | Perfect Condition",
+        "community": "Town Square",
+        "source": "PropertyFinder",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14713221",
+        "href": "https://www.bayut.com/property/details-14713221.html",
+        "price": 2600000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2023,
+        "cluster": "Noor Townhouses",
+        "title": "MULTIPLE UNITS | AREA EXPERT | DIRECT VIEWING",
+        "community": "Town Square",
+        "source": "Bayut",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14705285",
+        "href": "https://www.bayut.com/property/details-14705285.html",
+        "price": 2650000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2131,
+        "cluster": "",
+        "title": "",
+        "community": "Town Square",
+        "source": "Bayut",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14729425",
+        "href": "https://www.bayut.com/property/details-14729425.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2018,
+        "cluster": "Noor Townhouses",
+        "title": "Type 1 | Close to Amenities | Vacant soon",
+        "community": "Town Square",
+        "source": "Bayut",
+        "listed": "2026-04-03",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14724444",
+        "href": "https://www.bayut.com/property/details-14724444.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 2022,
+        "cluster": "Safi Townhouses",
+        "title": "Great Deal | 3 BR + Maid Room | Pool & Park",
+        "community": "Town Square",
+        "source": "Bayut",
+        "listed": "2026-04-02",
         "isOffPlan": false
       }
     ],
@@ -12843,7 +14033,7 @@
         "baths": 4,
         "sqft": 18643,
         "cluster": "Arabella Townhouses 3",
-        "title": "Arabella 3 Bedrooms Type B Close To Park & Pool",
+        "title": "Arabella Type B  3 Bedrooms Lowest In The Market",
         "community": "Mudon",
         "source": "PropertyFinder",
         "listed": "2026-03-06",
@@ -13009,7 +14199,7 @@
         "price": 2875000,
         "beds": 3,
         "baths": 3,
-        "sqft": 16523,
+        "sqft": 16534,
         "cluster": "Arabella Townhouses 3",
         "title": "Type B | Rented-Notice Served | Motivated",
         "community": "Mudon",
@@ -13023,7 +14213,7 @@
         "price": 3000000,
         "beds": 3,
         "baths": 3,
-        "sqft": 16480,
+        "sqft": 16490,
         "cluster": "Arabella Townhouses 3",
         "title": "Exclusive | Single Row | Type B Townhouse",
         "community": "Mudon",
@@ -13081,10 +14271,10 @@
         "baths": 4,
         "sqft": 1732,
         "cluster": "Arabella 3",
-        "title": "Arabella 3 Bedrooms Type B Close To Park & Pool",
+        "title": "Arabella Type B 3 Bedrooms Lowest In The Market",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-06",
         "isOffPlan": false
       },
       {
@@ -13098,7 +14288,7 @@
         "title": "Pool View | Vacant | Well Maintained",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-09",
         "isOffPlan": false
       },
       {
@@ -13112,7 +14302,7 @@
         "title": "Well Maintained | 3 Bed | Type B",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-09",
         "isOffPlan": false
       },
       {
@@ -13126,7 +14316,7 @@
         "title": "",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-28",
         "isOffPlan": false
       },
       {
@@ -13140,7 +14330,7 @@
         "title": "Type B | Mid-Unit | Tenanted til December",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-15",
         "isOffPlan": false
       },
       {
@@ -13154,7 +14344,7 @@
         "title": "Park and Pool facing | Type B | Tenanted",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-13",
         "isOffPlan": false
       },
       {
@@ -13168,7 +14358,7 @@
         "title": "Well Maintained | Park facing | 3 bed",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-22",
         "isOffPlan": false
       },
       {
@@ -13182,7 +14372,7 @@
         "title": "Spacious 3-Bed | Type B | Luxury| Prime Location",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-02-26",
         "isOffPlan": false
       },
       {
@@ -13196,7 +14386,7 @@
         "title": "Well Maintained | 3 Bed | Prime Location",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-16",
         "isOffPlan": false
       },
       {
@@ -13210,7 +14400,7 @@
         "title": "Prime Location | 3 Bed plus Maid | Single Row",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-02-16",
         "isOffPlan": false
       },
       {
@@ -13224,7 +14414,7 @@
         "title": "3 Bed Type B | Mid Unit | Well Maintained",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-12-28",
         "isOffPlan": false
       },
       {
@@ -13238,7 +14428,7 @@
         "title": "3BR + Maids | Facing the Pool | TYPE B",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-10-30",
         "isOffPlan": false
       },
       {
@@ -13252,7 +14442,7 @@
         "title": "",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-13",
         "isOffPlan": false
       },
       {
@@ -13266,7 +14456,7 @@
         "title": "Spacious Layout | 3-Bedroom | Prime Location",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-11-05",
         "isOffPlan": false
       },
       {
@@ -13280,7 +14470,7 @@
         "title": "3 Bedrooms Townhouse I Greenery | Spacious Layout",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-01-17",
         "isOffPlan": false
       },
       {
@@ -13294,7 +14484,7 @@
         "title": "3BR + Maids | Facing the Pool | TYPE B",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2025-08-28",
         "isOffPlan": false
       },
       {
@@ -13359,7 +14549,7 @@
         "price": 3000000,
         "beds": 3,
         "baths": 4,
-        "sqft": 16620,
+        "sqft": 21420,
         "cluster": "Arabella Townhouses 3",
         "title": "RARE UNIT | VACANT ON TRANSFER | SINGLE ROW",
         "community": "Mudon",
@@ -13378,7 +14568,7 @@
         "title": "Modern | Fully Furnished | Landscaped Garden",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-09",
         "isOffPlan": false
       },
       {
@@ -13387,12 +14577,12 @@
         "price": 3000000,
         "beds": 3,
         "baths": 4,
-        "sqft": 1544,
+        "sqft": 1991,
         "cluster": "Arabella 3",
         "title": "RARE UNIT | VACANT ON TRANSFER | SINGLE ROW",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-30",
         "isOffPlan": false
       },
       {
@@ -13403,7 +14593,7 @@
         "baths": 4,
         "sqft": 21280,
         "cluster": "Arabella Townhouses 3",
-        "title": "Large garden l Upgraded l investor Deal l VOT",
+        "title": "Large garden l Upgraded l Extra Storage l VOT",
         "community": "Mudon",
         "source": "PropertyFinder",
         "listed": "2026-03-31",
@@ -13417,14 +14607,126 @@
         "baths": 4,
         "sqft": 1978,
         "cluster": "Arabella 3",
-        "title": "Large garden l Upgraded l investor Deal l VOT",
+        "title": "Large garden l Upgraded l Extra Storage l VOT",
         "community": "Mudon",
         "source": "Bayut",
-        "listed": "",
+        "listed": "2026-03-31",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-mnrrealestate-67867867-2",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-mudon-mudon-al-ranim-6-71132391.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 19817,
+        "cluster": "Mudon Al Ranim 6",
+        "title": "G+1 | On Pool and Park | Genuine Resale",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-RL-207659",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-mudon-mudon-al-ranim-5-71465126.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 25295,
+        "cluster": "Mudon Al Ranim 5",
+        "title": "Hot Deal | Single Row G+1 | Park Backing",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-RL-201519",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-mudon-mudon-al-ranim-5-71463643.html",
+        "price": 2760000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 25295,
+        "cluster": "Mudon Al Ranim 5",
+        "title": "Hot Deal | Single Row G+1 | Park Backing",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-Fakhra-R-A3-260",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-mudon-arabella-townhouses-arabella-townhouses-3-71100951.html",
+        "price": 2600000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 18643,
+        "cluster": "Arabella Townhouses 3",
+        "title": "Exclusive | Hot Deal | Close to Amenities",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-01",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-C61EZNKQ5YSX2MHZP9TGVXKC8C",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-mudon-arabella-townhouses-arabella-townhouses-3-71465882.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 21280,
+        "cluster": "Arabella Townhouses 3",
+        "title": "Spacious 3-Bed Type B | Luxury| Prime Location",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14715390",
+        "href": "https://www.bayut.com/property/details-14715390.html",
+        "price": 2760000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2351,
+        "cluster": "",
+        "title": "",
+        "community": "Mudon",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14719816",
+        "href": "https://www.bayut.com/property/details-14719816.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 2351,
+        "cluster": "",
+        "title": "",
+        "community": "Mudon",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14720661",
+        "href": "https://www.bayut.com/property/details-14720661.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1977,
+        "cluster": "Arabella 3",
+        "title": "Spacious 3-Bed Type B | Luxury| Prime Location",
+        "community": "Mudon",
+        "source": "Bayut",
+        "listed": "2026-04-02",
         "isOffPlan": false
       }
     ]
   },
-  "total_listings": 957,
-  "last_updated": "2026-03-31"
+  "total_listings": 1050,
+  "last_updated": "2026-04-04"
 }

@@ -1,0 +1,588 @@
+{
+  "villa": [
+    {
+      "name": "DAMAC Lagoons",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1400000,
+      "launch_4br": 1700000,
+      "pf": {
+        "type": "id",
+        "value": 11559,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "damac-lagoons",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Islands",
+      "enabled": true,
+      "beds_min": 4,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1800000,
+      "launch_4br": 2250000,
+      "pf": {
+        "type": "id",
+        "value": 14611,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "dubailand/damac-islands",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Islands 2",
+      "enabled": true,
+      "beds_min": 4,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": null,
+      "launch_4br": 2750000,
+      "pf": {
+        "type": "id",
+        "value": 17773,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "damac-islands-2",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "The Valley",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1530000,
+      "launch_4br": 2100000,
+      "pf": {
+        "type": "id",
+        "value": 10757,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "the-valley-by-emaar",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Hills 2",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1000000,
+      "price_max": 3000000,
+      "launch_3br": 800000,
+      "launch_4br": 1200000,
+      "pf": {
+        "type": "id",
+        "value": 125,
+        "category": 1
+      },
+      "pf_ranges": [
+        {
+          "beds_min": 3,
+          "price_min": 1000000,
+          "price_max": 2000000
+        },
+        {
+          "beds_min": 3,
+          "price_min": 2000000,
+          "price_max": 3000000
+        }
+      ],
+      "bayut": [
+        {
+          "path": "damac-hills-2-akoya-by-damac",
+          "prop_type": "townhouses"
+        }
+      ],
+      "bayut_ranges": [
+        {
+          "price_min": 1000000,
+          "price_max": 2000000
+        },
+        {
+          "price_min": 2000000,
+          "price_max": 3000000
+        }
+      ]
+    },
+    {
+      "name": "Villanova",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1445000,
+      "launch_4br": 2000000,
+      "pf": {
+        "type": "id",
+        "value": 8780,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "dubailand/villanova",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Hills",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1500000,
+      "launch_4br": 2200000,
+      "pf": {
+        "type": "id",
+        "value": 129,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "damac-hills",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Dubai Hills Estate",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 2100000,
+      "launch_4br": 2600000,
+      "pf": {
+        "type": "id",
+        "value": 105,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "dubai-hills-estate",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Tilal Al Ghaf",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 1260000,
+      "launch_4br": 1800000,
+      "pf": {
+        "type": "id",
+        "value": 9885,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "tilal-al-ghaf",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Emaar South",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 3000000,
+      "launch_3br": 1750000,
+      "launch_4br": 2400000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-dubai-south-dubai-world-central-emaar-south.html?beds_min=3&price_min=1500000&price_max=3000000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "dubai-south/emaar-south",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Arabian Ranches 3",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 2000000,
+      "price_max": 3000000,
+      "launch_3br": 2000000,
+      "launch_4br": 2580000,
+      "pf": {
+        "type": "id",
+        "value": 10393,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "arabian-ranches-3",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Town Square",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1000000,
+      "price_max": 3000000,
+      "launch_3br": 1300000,
+      "launch_4br": 1500000,
+      "pf": {
+        "type": "id",
+        "value": 131,
+        "category": 1
+      },
+      "pf_ranges": [
+        {
+          "beds_min": 3,
+          "price_min": 1000000,
+          "price_max": 2000000
+        },
+        {
+          "beds_min": 3,
+          "price_min": 2000000,
+          "price_max": 3000000
+        }
+      ],
+      "bayut": [
+        {
+          "path": "town-square",
+          "prop_type": "townhouses"
+        }
+      ],
+      "bayut_ranges": [
+        {
+          "price_min": 1000000,
+          "price_max": 2000000
+        },
+        {
+          "price_min": 2000000,
+          "price_max": 3000000
+        }
+      ]
+    },
+    {
+      "name": "Mudon",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 3000000,
+      "launch_3br": 1900000,
+      "launch_4br": 2400000,
+      "pf": {
+        "type": "id",
+        "value": 8250,
+        "category": 1
+      },
+      "bayut": [
+        {
+          "path": "mudon",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "Al Barsha South 2",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 3000000,
+      "launch_3br": 2300000,
+      "launch_4br": 2800000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-al-barsha-al-barsha-south-al-barsha-south-second.html?beds_min=3&price_min=1500000&price_max=3000000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "al-barsha/al-barsha-south/al-barsha-south-2",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "JVC",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1000000,
+      "price_max": 3000000,
+      "launch_3br": 1200000,
+      "launch_4br": 1600000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-circle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "jumeirah-village-circle",
+          "prop_type": "villas"
+        },
+        {
+          "path": "jumeirah-village-circle",
+          "prop_type": "townhouses"
+        }
+      ]
+    },
+    {
+      "name": "JVT",
+      "enabled": true,
+      "beds_min": 3,
+      "price_min": 1000000,
+      "price_max": 3000000,
+      "launch_3br": 1300000,
+      "launch_4br": 1700000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-triangle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "jumeirah-village-triangle",
+          "prop_type": "villas"
+        },
+        {
+          "path": "jumeirah-village-triangle",
+          "prop_type": "townhouses"
+        }
+      ]
+    }
+  ],
+  "apartment": [
+    {
+      "name": "Dubai Hills Estate",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1800000,
+      "launch_4br": 2400000,
+      "pf": {
+        "type": "id",
+        "value": 105,
+        "category": 2
+      },
+      "bayut": [
+        {
+          "path": "dubai-hills-estate",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Emaar South",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1100000,
+      "launch_4br": 1500000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-dubai-south-dubai-world-central-emaar-south.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "dubai-south-dubai-world-central/emaar-south",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Mirdif Hills",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1400000,
+      "launch_4br": 1800000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-mirdif-hills.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "mirdif/mirdif-hills",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Town Square",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 850000,
+      "launch_4br": 1100000,
+      "pf": {
+        "type": "id",
+        "value": 131,
+        "category": 2
+      },
+      "bayut": [
+        {
+          "path": "town-square",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Al Furjan",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1100000,
+      "launch_4br": 1500000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-al-furjan.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "al-furjan",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Mudon",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1100000,
+      "launch_4br": 1400000,
+      "pf": {
+        "type": "id",
+        "value": 8250,
+        "category": 2
+      },
+      "bayut": [
+        {
+          "path": "mudon",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Remraam",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 750000,
+      "launch_4br": 950000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-remraam.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "remraam",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Hills 2",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 650000,
+      "launch_4br": 900000,
+      "pf": {
+        "type": "id",
+        "value": 125,
+        "category": 2
+      },
+      "bayut": [
+        {
+          "path": "damac-hills-2-akoya-by-damac",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "DAMAC Hills",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1200000,
+      "launch_4br": 1600000,
+      "pf": {
+        "type": "id",
+        "value": 129,
+        "category": 2
+      },
+      "bayut": [
+        {
+          "path": "damac-hills",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "JVC",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 1000000,
+      "launch_4br": 1400000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-jumeirah-village-circle.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "jumeirah-village-circle-jvc",
+          "prop_type": "apartments"
+        }
+      ]
+    },
+    {
+      "name": "Motor City",
+      "enabled": false,
+      "beds_min": 3,
+      "price_min": 1500000,
+      "price_max": 2500000,
+      "launch_3br": 950000,
+      "launch_4br": 1250000,
+      "pf": {
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/buy/dubai/apartments-for-sale-motor-city.html?beds_min=3&price_min=1500000&price_max=2500000&sort=pa"
+      },
+      "bayut": [
+        {
+          "path": "motor-city",
+          "prop_type": "apartments"
+        }
+      ]
+    }
+  ]
+}

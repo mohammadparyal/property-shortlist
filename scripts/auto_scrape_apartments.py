@@ -481,30 +481,128 @@ BAYUT_EXTRACT_JS = """
 }
 """
 
-async def check_blocked(page):
-    title = (await page.title()).lower()
-    blocked_keywords = ["captcha", "just a moment", "blocked", "security", "access denied", "verify"]
-    return any(kw in title for kw in blocked_keywords)
+async def check_bayut_blocked(page):
+    """Check if Bayut is showing a CAPTCHA or block page.
+    Uses positive signals (normal page elements) to avoid false positives."""
+    result = await page.evaluate("""
+        (() => {
+            const hasNav = !!document.querySelector('nav, header, [class*="navbar"], [class*="header"]');
+            const hasSearch = !!document.querySelector('input[type="search"], [class*="search"], form[action*="search"]');
+            const hasArticles = document.querySelectorAll('article').length > 0;
+            const hasFooter = !!document.querySelector('footer, [class*="footer"]');
+            const isNormalPage = (hasNav && hasFooter) || hasArticles || hasSearch;
+
+            const hasTurnstile = !!(
+                document.querySelector('iframe[src*="captcha"]') ||
+                document.querySelector('iframe[src*="challenge"]') ||
+                document.querySelector('iframe[src*="turnstile"]') ||
+                document.querySelector('#challenge-running') ||
+                document.querySelector('#challenge-stage') ||
+                document.querySelector('.cf-turnstile')
+            );
+
+            const text = (document.body && document.body.innerText) || '';
+            const lc = text.toLowerCase();
+            const bodyLen = text.length;
+
+            const hasChallengeText = (
+                lc.includes("let's confirm you are human") ||
+                lc.includes('verify you are human') ||
+                lc.includes('checking if the site connection is secure') ||
+                lc.includes('checking your browser')
+            );
+
+            if (isNormalPage && !hasTurnstile) return false;
+            if (hasTurnstile) return true;
+            if (hasChallengeText && bodyLen < 2000) return true;
+
+            const title = document.title.toLowerCase();
+            if (title.includes('just a moment') || title.includes('attention required') ||
+                title === '' || title === 'just a moment...') return true;
+
+            return false;
+        })()
+    """)
+    return result
 
 
-async def wait_for_human_captcha(page, visible_mode, timeout=120):
+async def bayut_page_is_ready(page):
+    """Check if Bayut page has loaded real content (nav, articles, search, etc.)."""
+    try:
+        return await page.evaluate("""
+            (() => {
+                const hasNav = !!document.querySelector('nav, header, [class*="navbar"], [class*="header"]');
+                const hasFooter = !!document.querySelector('footer, [class*="footer"]');
+                const hasArticles = document.querySelectorAll('article').length > 0;
+                const hasSearch = !!document.querySelector('input[type="search"], [class*="search"]');
+                const bodyLen = (document.body && document.body.innerText || '').length;
+                return (hasNav && hasFooter) || hasArticles || (hasSearch && bodyLen > 3000);
+            })()
+        """)
+    except Exception:
+        return False
+
+
+async def wait_for_bayut_captcha(page, visible_mode, community="", timeout=600):
+    """Wait for user to solve Bayut CAPTCHA in visible mode.
+    Polls for: 1) normal Bayut content appearing, 2) Continue signal from panel.
+    Bayut puts CAPTCHA on homepage — once solved, cookies persist for community pages."""
     if not visible_mode:
         return False
-    if not await check_blocked(page):
+    if await bayut_page_is_ready(page):
         return True
-    log("  🔒 CAPTCHA detected! Solve it in the browser window...")
-    log(f"  ⏳ Waiting up to {timeout}s for you to solve it...")
+
+    log(f"  🔒 CAPTCHA:WAITING:{community}")
+    log("  👉 Solve the Bayut CAPTCHA in the browser window, then click Continue in the control panel")
+    log(f"  ⏳ Scraper PAUSED — waiting for you (up to {timeout//60} min)...")
+    write_captcha_signal("waiting", community)
+
     start = time.time()
     while time.time() - start < timeout:
         await asyncio.sleep(2)
-        if not await check_blocked(page):
-            log("  ✅ CAPTCHA solved! Continuing...")
-            return True
-    log("  ✗ Timed out waiting for CAPTCHA solve")
+        try:
+            if await bayut_page_is_ready(page):
+                log("  ✅ CAPTCHA solved! Bayut page loaded. Continuing...")
+                clear_captcha_signal()
+                return True
+        except Exception:
+            pass
+        sig = read_captcha_signal()
+        if sig and sig.get("status") == "continue":
+            log("  ▶ Continue signal received from control panel")
+            clear_captcha_signal()
+            await asyncio.sleep(3)
+            try:
+                if await bayut_page_is_ready(page):
+                    log("  ✅ Bayut page loaded. Continuing...")
+                    return True
+                log("  ↻ Page not ready — navigating to Bayut homepage...")
+                await page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=20000)
+                await asyncio.sleep(random.uniform(3, 5))
+                if await bayut_page_is_ready(page):
+                    log("  ✅ Bayut homepage loaded. Continuing...")
+                    return True
+                if await check_bayut_blocked(page):
+                    log("  ⚠ Still showing CAPTCHA — please solve it and click Continue again")
+                    write_captcha_signal("waiting", community)
+                    continue
+                else:
+                    await asyncio.sleep(3)
+                    log("  ✅ Page seems clear. Continuing...")
+                    return True
+            except Exception as e:
+                log(f"  ⚠ Error: {e} — will keep waiting")
+                write_captcha_signal("waiting", community)
+                continue
+
+    log("  ✗ Timed out waiting for Bayut CAPTCHA solve (10 min)")
+    clear_captcha_signal()
     return False
 
 
 async def scrape_bayut(page, community, url, visible_mode=False, retries=2):
+    """Scrape Bayut for one community URL with human-like behavior.
+    When CAPTCHA is detected in visible mode, pauses and waits for user to solve."""
     log(f"  Bayut: {community}")
     for attempt in range(retries + 1):
         try:
@@ -513,9 +611,9 @@ async def scrape_bayut(page, community, url, visible_mode=False, retries=2):
                 await asyncio.sleep(random.uniform(15, 25))
             await page.goto(url, wait_until="domcontentloaded", timeout=30000)
             await asyncio.sleep(random.uniform(4, 8))
-            if await check_blocked(page):
+            if await check_bayut_blocked(page):
                 if visible_mode:
-                    solved = await wait_for_human_captcha(page, visible_mode)
+                    solved = await wait_for_bayut_captcha(page, visible_mode, community)
                     if not solved:
                         log(f"  ✗ Bayut {community}: CAPTCHA not solved")
                         return []
@@ -523,7 +621,7 @@ async def scrape_bayut(page, community, url, visible_mode=False, retries=2):
                     title = await page.title()
                     log(f"  ⚠ Bot detection: '{title}' — waiting 20s...")
                     await asyncio.sleep(20)
-                    if await check_blocked(page):
+                    if await check_bayut_blocked(page):
                         if attempt < retries:
                             continue
                         log(f"  ✗ Bayut {community}: blocked after {retries} retries (try --visible mode)")
@@ -765,8 +863,8 @@ async def main():
         if not pf_only:
             log("\n── Bayut (Apartments) ──")
             await warmup_visit(page, "bayut.com")
-            if visible and await check_blocked(page):
-                solved = await wait_for_human_captcha(page, visible)
+            if visible and await check_bayut_blocked(page):
+                solved = await wait_for_bayut_captcha(page, visible, "Bayut Homepage")
                 if not solved:
                     log("  ✗ Could not get past Bayut CAPTCHA — skipping Bayut")
             bayut_total = 0
@@ -780,7 +878,7 @@ async def main():
                     all_bayut.extend(listings)
                     append_community(raw_data, community, listings)
                     bayut_total += len(listings)
-                elif not visible and await check_blocked(page):
+                elif not visible and await check_bayut_blocked(page):
                     log("  ⚠ Bayut is blocking us — stopping Bayut scraping")
                     log("  💡 Tip: run with --visible to solve CAPTCHA manually")
                     bayut_blocked = True

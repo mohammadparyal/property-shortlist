@@ -8660,6 +8660,20 @@
         "source": "Bayut",
         "listed": "2026-03-31",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14679522",
+        "href": "https://www.bayut.com/property/details-14679522.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1986,
+        "cluster": "",
+        "title": "",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-03-30",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills": [
@@ -11558,10 +11572,10 @@
         "href": "https://www.bayut.com/property/details-14724035.html",
         "price": 2825000,
         "beds": 4,
-        "baths": 4,
-        "sqft": 1550,
-        "cluster": "Bahamas",
-        "title": "4 BEDROOM TOWN HOUSE ON DAMAC ISLANDS 2 IN BAHAMAS 1",
+        "baths": 5,
+        "sqft": 2184,
+        "cluster": "",
+        "title": "",
         "community": "DAMAC Islands 2",
         "source": "Bayut",
         "listed": "2026-04-02",
@@ -11574,6 +11588,34 @@
         "beds": 4,
         "baths": 5,
         "sqft": 2186,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14700969",
+        "href": "https://www.bayut.com/property/details-14700969.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 2186,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands 2",
+        "source": "Bayut",
+        "listed": "2026-03-31",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14701069",
+        "href": "https://www.bayut.com/property/details-14701069.html",
+        "price": 2990000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
         "cluster": "",
         "title": "",
         "community": "DAMAC Islands 2",
@@ -13681,7 +13723,7 @@
         "baths": 4,
         "sqft": 2026,
         "cluster": "Naseem Townhouses",
-        "title": "Removated Three Bedroom Townhiuse in Naseem - VOT - Great Deal",
+        "title": "Renovated Three Bedroom Townhouse in Naseem - VOT - Great Deal",
         "community": "Town Square",
         "source": "Bayut",
         "listed": "2026-03-26",
@@ -14021,6 +14063,20 @@
         "community": "Town Square",
         "source": "Bayut",
         "listed": "2026-04-02",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14742280",
+        "href": "https://www.bayut.com/property/details-14742280.html",
+        "price": 2849998,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1854,
+        "cluster": "",
+        "title": "",
+        "community": "Town Square",
+        "source": "Bayut",
+        "listed": "2026-04-04",
         "isOffPlan": false
       }
     ],
@@ -14727,6 +14783,6 @@
       }
     ]
   },
-  "total_listings": 1050,
-  "last_updated": "2026-04-04"
+  "total_listings": 1054,
+  "last_updated": "2026-04-05"
 }

@@ -372,7 +372,7 @@
   "apartment": [
     {
       "name": "Dubai Hills Estate",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -392,7 +392,7 @@
     },
     {
       "name": "Emaar South",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -411,7 +411,7 @@
     },
     {
       "name": "Mirdif Hills",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -430,7 +430,7 @@
     },
     {
       "name": "Mudon",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -449,28 +449,28 @@
       ]
     },
     {
-      "name": "DAMAC Hills 2",
+      "name": "Arjan",
       "enabled": true,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
-      "launch_3br": 650000,
-      "launch_4br": 900000,
+      "launch_3br": 1500000,
+      "launch_4br": 2000000,
       "pf": {
         "type": "id",
-        "value": 125,
+        "value": 126,
         "category": 2
       },
       "bayut": [
         {
-          "path": "damac-hills-2-akoya-by-damac",
+          "path": "arjan",
           "prop_type": "apartments"
         }
       ]
     },
     {
       "name": "JVC",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -489,7 +489,7 @@
     },
     {
       "name": "Motor City",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,

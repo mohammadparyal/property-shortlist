@@ -3754,6 +3754,62 @@
         "source": "PropertyFinder",
         "listed": "2026-04-07",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-HKK65S125NBFMAT13SXFJSFX2R",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-bali-at-damac-islands-75401270.html",
+        "price": 2375000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 16684,
+        "cluster": "Bali at Damac Islands",
+        "title": "Great Deal | Island Living | Prime Community",
+        "community": "DAMAC Islands",
+        "source": "PropertyFinder",
+        "listed": "2026-04-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14816555",
+        "href": "https://www.bayut.com/property/details-14816555.html",
+        "price": 2245000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "Fiji 1",
+        "title": "12% annually | 48% due 2028 | 35% at handover",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14816205",
+        "href": "https://www.bayut.com/property/details-14816205.html",
+        "price": 2250000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "Fiji 1",
+        "title": "1% Monthly | 48% in 2028 | No Bullet Payments",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14815915",
+        "href": "https://www.bayut.com/property/details-14815915.html",
+        "price": 2250000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1550,
+        "cluster": "Fiji 1",
+        "title": "VERIFIED | Pay 48% in 2028 | Multiple Options",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-11",
+        "isOffPlan": true
       }
     ],
     "The Valley": [
@@ -3989,7 +4045,7 @@
         "baths": 3,
         "sqft": 20419,
         "cluster": "Nara",
-        "title": "Single Row|Golden Beach Nearby|Brand New",
+        "title": "Single Row | Park Facing | Brand New",
         "community": "The Valley",
         "source": "PropertyFinder",
         "listed": "2026-03-02",
@@ -16967,6 +17023,6 @@
       }
     ]
   },
-  "total_listings": 1210,
-  "last_updated": "2026-04-10"
+  "total_listings": 1214,
+  "last_updated": "2026-04-11"
 }

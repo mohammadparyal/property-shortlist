@@ -1586,12 +1586,12 @@
       {
         "uid": "bayut-14677350",
         "href": "https://www.bayut.com/property/details-14677350.html",
-        "price": 2450000,
+        "price": 2350000,
         "beds": 3,
         "baths": 3,
         "sqft": 1550,
         "cluster": "Portofino",
-        "title": "3BR | Handover Soon | Payment Plan | Back to Back",
+        "title": "3BR | Handover Soon | Payment Plan | Single Row",
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-03-30",
@@ -2155,6 +2155,20 @@
         "community": "DAMAC Lagoons",
         "source": "Bayut",
         "listed": "2026-04-10",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14820032",
+        "href": "https://www.bayut.com/property/details-14820032.html",
+        "price": 2400000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Portofino",
+        "title": "Mortgage Applicable | Motivated Seller | Below Market | Handing Over Soon | Amazing Investment Opportunity",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-11",
         "isOffPlan": true
       }
     ],
@@ -3809,6 +3823,20 @@
         "community": "DAMAC Islands",
         "source": "Bayut",
         "listed": "2026-04-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14827589",
+        "href": "https://www.bayut.com/property/details-14827589.html",
+        "price": 2250000,
+        "beds": 4,
+        "baths": 4,
+        "sqft": 2208,
+        "cluster": "",
+        "title": "",
+        "community": "DAMAC Islands",
+        "source": "Bayut",
+        "listed": "2026-04-12",
         "isOffPlan": true
       }
     ],
@@ -9990,6 +10018,62 @@
         "source": "PropertyFinder",
         "listed": "2026-04-10",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-6VQ5QX0WYWD0DKKP3V9S7DSF3W",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-villanova-la-rosa-la-rosa-3-75781539.html",
+        "price": 3000000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 18912,
+        "cluster": "La Rosa 3",
+        "title": "3+Maid Villa | Prime Single Row | Park Facing VOT",
+        "community": "Villanova",
+        "source": "PropertyFinder",
+        "listed": "2026-04-12",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-12813130",
+        "href": "https://www.bayut.com/property/details-12813130.html",
+        "price": 2700000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1926,
+        "cluster": "",
+        "title": "",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2025-09-17",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14796660",
+        "href": "https://www.bayut.com/property/details-14796660.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1838,
+        "cluster": "Amaranta 2",
+        "title": "Private Garden | Large Layout | Motivated Seller",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-04-09",
+        "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14759015",
+        "href": "https://www.bayut.com/property/details-14759015.html",
+        "price": 2800000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1733,
+        "cluster": "Amaranta B",
+        "title": "3 Bed + Maid | Park backing | Close to Pool",
+        "community": "Villanova",
+        "source": "Bayut",
+        "listed": "2026-04-06",
+        "isOffPlan": false
       }
     ],
     "DAMAC Hills": [
@@ -13134,6 +13218,20 @@
         "source": "Bayut",
         "listed": "2026-04-10",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-A9R2TVZTH6FQTTWJQP8CTVD22W",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-2-antigua-1-75780962.html",
+        "price": 2994000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 23778,
+        "cluster": "Antigua 1",
+        "title": "4% DLD WAIVER-LUXURY SUV CAR GIFT AS GIFT-L. OFFER",
+        "community": "DAMAC Islands 2",
+        "source": "PropertyFinder",
+        "listed": "2026-04-12",
+        "isOffPlan": true
       }
     ],
     "Emaar South": [
@@ -15098,6 +15196,20 @@
         "source": "PropertyFinder",
         "listed": "2026-04-09",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-ArabianRanches3_Vaulters_3bths",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-arabian-ranches-3-anya-anya-2-75786217.html",
+        "price": 2850000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 20452,
+        "cluster": "Anya 2",
+        "title": "Just Listed | Single Row | Ready in Months | EMAAR",
+        "community": "Arabian Ranches 3",
+        "source": "PropertyFinder",
+        "listed": "2026-04-12",
+        "isOffPlan": true
       }
     ],
     "Town Square": [
@@ -17020,9 +17132,23 @@
         "source": "Bayut",
         "listed": "2026-04-10",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-WEI7KMTS7W7WA6FH1H72EWE1NP3W2G",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-mudon-mudon-al-ranim-7-75782481.html",
+        "price": 2950000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 25295,
+        "cluster": "Mudon Al Ranim 7",
+        "title": "20% Below Market | Risk-Controlled Opportunity",
+        "community": "Mudon",
+        "source": "PropertyFinder",
+        "listed": "2026-04-12",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 1214,
-  "last_updated": "2026-04-11"
+  "total_listings": 1223,
+  "last_updated": "2026-04-12"
 }

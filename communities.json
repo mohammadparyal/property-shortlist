@@ -457,9 +457,8 @@
       "launch_3br": 1500000,
       "launch_4br": 2000000,
       "pf": {
-        "type": "id",
-        "value": 126,
-        "category": 2
+        "type": "url",
+        "value": "https://www.propertyfinder.ae/en/search?l=126&c=1&t=1&bdr[]=3&pt=3000000&fu=0&ob=nd"
       },
       "bayut": [
         {

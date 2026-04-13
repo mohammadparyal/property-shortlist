@@ -137,6 +137,31 @@ def append_community(raw_data, community, listings):
     log(f"  {community}: {len(listings)} scraped, {added} new, {len(existing)} total")
 
 
+def cleanup_stale_listings(raw_data, scraped_uids):
+    """Remove listings that no longer exist on the property sites.
+
+    scraped_uids: dict of {community: set(uid, uid, ...)} — all UIDs found in THIS run.
+    Only cleans up communities that were actually scraped (present in scraped_uids).
+    If a community scrape returned 0 results (failed/blocked), it won't be in scraped_uids,
+    so its old listings are preserved.
+    """
+    total_removed = 0
+    for community, found_uids in scraped_uids.items():
+        if not found_uids:
+            continue  # Scrape returned nothing — keep old data
+        existing = raw_data["communities"].get(community, [])
+        if not existing:
+            continue
+        before = len(existing)
+        # Keep only listings whose UID was found in this scrape run
+        raw_data["communities"][community] = [l for l in existing if l["uid"] in found_uids]
+        removed = before - len(raw_data["communities"][community])
+        if removed > 0:
+            total_removed += removed
+            log(f"  🗑 {community}: removed {removed} stale listings ({before} → {len(raw_data['communities'][community])})")
+    return total_removed
+
+
 # ─── PROPERTY FINDER SCRAPER ────────────────────────────────────────────────
 PF_EXTRACT_JS = """
 () => {
@@ -977,6 +1002,9 @@ async def main():
         page = await context.new_page()
         await stealth.apply_stealth_async(page)
 
+        # Track all UIDs found in this run per community — for stale cleanup
+        scraped_uids = {}  # {community_name: set(uid1, uid2, ...)}
+
         # ── Property Finder ──────────────────────────────────────────────
         if not bayut_only:
             log("\n── Property Finder ──")
@@ -989,6 +1017,10 @@ async def main():
                 if listings:
                     append_community(raw_data, community, listings)
                     pf_total += len(listings)
+                    # Track found UIDs for stale cleanup
+                    if community not in scraped_uids:
+                        scraped_uids[community] = set()
+                    scraped_uids[community].update(l["uid"] for l in listings)
                 # Longer random delay between communities (human-like browsing pace)
                 delay = random.uniform(5, 10)
                 log(f"  Waiting {delay:.0f}s before next...")
@@ -1018,6 +1050,10 @@ async def main():
                     all_bayut.extend(listings)
                     append_community(raw_data, community, listings)
                     bayut_total += len(listings)
+                    # Track found UIDs for stale cleanup
+                    if community not in scraped_uids:
+                        scraped_uids[community] = set()
+                    scraped_uids[community].update(l["uid"] for l in listings)
                 elif not visible and await check_bayut_blocked(page):
                     # In headless mode, if blocked, stop trying remaining communities
                     log("  ⚠ Bayut is blocking us — stopping Bayut scraping")
@@ -1038,6 +1074,15 @@ async def main():
                         append_community(raw_data, community, comm_listings)
 
             log(f"Bayut done: {bayut_total} listings scraped")
+
+        # ── Remove stale listings (sold/delisted properties) ─────────────
+        if scraped_uids:
+            log("\n── Cleaning stale listings ──")
+            removed = cleanup_stale_listings(raw_data, scraped_uids)
+            if removed:
+                log(f"🗑 Removed {removed} stale listings (sold/delisted)")
+            else:
+                log("✓ No stale listings found")
 
         # ── Save cookies for future runs ─────────────────────────────────
         if not pf_only:

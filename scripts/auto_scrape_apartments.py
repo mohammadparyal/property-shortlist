@@ -759,6 +759,26 @@ def load_communities_from_config(config_path, mode="apartment"):
     return pf_list, bayut_list
 
 
+# ─── STALE LISTING CLEANUP ─────────────────────────────────────────────────
+def cleanup_stale_listings(raw_data, scraped_uids):
+    """Remove listings that were not found in the current scrape run.
+    Only cleans communities that were actually scraped (have entries in scraped_uids)."""
+    total_removed = 0
+    for community, found_uids in scraped_uids.items():
+        if not found_uids:
+            continue
+        existing = raw_data["communities"].get(community, [])
+        if not existing:
+            continue
+        before = len(existing)
+        raw_data["communities"][community] = [l for l in existing if l["uid"] in found_uids]
+        removed = before - len(raw_data["communities"][community])
+        if removed > 0:
+            total_removed += removed
+            log(f"  🗑 {community}: removed {removed} stale listings ({before} → {len(raw_data['communities'][community])})")
+    return total_removed
+
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 async def main():
     argv = sys.argv[1:]
@@ -844,6 +864,8 @@ async def main():
         page = await context.new_page()
         await stealth.apply_stealth_async(page)
 
+        scraped_uids = {}  # Track UIDs found per community for stale cleanup
+
         # ── Property Finder ──────────────────────────────────────────────
         if not bayut_only:
             log("\n── Property Finder (Apartments) ──")
@@ -854,6 +876,9 @@ async def main():
                 if listings:
                     append_community(raw_data, community, listings)
                     pf_total += len(listings)
+                    if community not in scraped_uids:
+                        scraped_uids[community] = set()
+                    scraped_uids[community].update(l["uid"] for l in listings)
                 delay = random.uniform(5, 10)
                 log(f"  Waiting {delay:.0f}s before next...")
                 await asyncio.sleep(delay)
@@ -878,6 +903,9 @@ async def main():
                     all_bayut.extend(listings)
                     append_community(raw_data, community, listings)
                     bayut_total += len(listings)
+                    if community not in scraped_uids:
+                        scraped_uids[community] = set()
+                    scraped_uids[community].update(l["uid"] for l in listings)
                 elif not visible and await check_bayut_blocked(page):
                     log("  ⚠ Bayut is blocking us — stopping Bayut scraping")
                     log("  💡 Tip: run with --visible to solve CAPTCHA manually")
@@ -902,6 +930,15 @@ async def main():
             log(f"Cookies saved → {COOKIES_PF}")
 
         await browser.close()
+
+    # ── Remove stale listings not found in this run ──────────────────────
+    if scraped_uids:
+        log("\n── Cleaning stale listings ──")
+        removed = cleanup_stale_listings(raw_data, scraped_uids)
+        if removed:
+            log(f"  ✓ Removed {removed} stale/delisted listings total")
+        else:
+            log("  ✓ No stale listings found")
 
     # ── Save raw data ────────────────────────────────────────────────────
     save_raw(raw_data)

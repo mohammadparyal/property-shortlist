@@ -240,20 +240,6 @@
         "isOffPlan": false
       },
       {
-        "uid": "bayut-14706873",
-        "href": "https://www.bayut.com/property/details-14706873.html",
-        "price": 2400000,
-        "beds": 4,
-        "baths": 3,
-        "sqft": 2280,
-        "cluster": "",
-        "title": "",
-        "community": "DAMAC Lagoons",
-        "source": "Bayut",
-        "listed": "2026-04-01",
-        "isOffPlan": true
-      },
-      {
         "uid": "pf-Boshra-Damac-Portofino",
         "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-lagoons-portofino-15747590.html",
         "price": 2400000,
@@ -520,20 +506,6 @@
         "isOffPlan": true
       },
       {
-        "uid": "bayut-14695343",
-        "href": "https://www.bayut.com/property/details-14695343.html",
-        "price": 2350000,
-        "beds": 4,
-        "baths": 3,
-        "sqft": 2270,
-        "cluster": "Malta",
-        "title": "Quick Sale | Mortgage Accepted | Next To Lagoon",
-        "community": "DAMAC Lagoons",
-        "source": "Bayut",
-        "listed": "",
-        "isOffPlan": true
-      },
-      {
         "uid": "bayut-14522659",
         "href": "https://www.bayut.com/property/details-14522659.html",
         "price": 2400000,
@@ -616,6 +588,34 @@
         "source": "Bayut",
         "listed": "2026-04-18",
         "isOffPlan": false
+      },
+      {
+        "uid": "bayut-14820032",
+        "href": "https://www.bayut.com/property/details-14820032.html",
+        "price": 2400000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1550,
+        "cluster": "Portofino",
+        "title": "Mortgage Applicable | Motivated Seller | Below Market | Handing Over Soon | Amazing Investment Opportunity",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-11",
+        "isOffPlan": true
+      },
+      {
+        "uid": "bayut-14716008",
+        "href": "https://www.bayut.com/property/details-14716008.html",
+        "price": 2400000,
+        "beds": 4,
+        "baths": 5,
+        "sqft": 1546,
+        "cluster": "Ibiza",
+        "title": "Open View | Near the Lagoon | Lower than OP",
+        "community": "DAMAC Lagoons",
+        "source": "Bayut",
+        "listed": "2026-04-02",
+        "isOffPlan": true
       }
     ],
     "DAMAC Islands": [
@@ -1336,20 +1336,6 @@
         "isOffPlan": true
       },
       {
-        "uid": "pf-L-181184",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-the-valley-orania-2Q35gAts7MG.html",
-        "price": 2700000,
-        "beds": 3,
-        "baths": 4,
-        "sqft": 20430,
-        "cluster": "Orania",
-        "title": "Ready | Mortgage | Multiple Options",
-        "community": "The Valley",
-        "source": "PropertyFinder",
-        "listed": "2026-03-10",
-        "isOffPlan": false
-      },
-      {
         "uid": "bayut-14596315",
         "href": "https://www.bayut.com/property/details-14596315.html",
         "price": 2250000,
@@ -1851,6 +1837,20 @@
         "community": "The Valley",
         "source": "Bayut",
         "listed": "2026-04-17",
+        "isOffPlan": true
+      },
+      {
+        "uid": "pf-rnsaustin-KTC0",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-the-valley-lillia-71466229.html",
+        "price": 2350000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 15963,
+        "cluster": "Lillia",
+        "title": "Stop Scrolling | 3BR + Maids Room | Single Row",
+        "community": "The Valley",
+        "source": "PropertyFinder",
+        "listed": "2026-04-02",
         "isOffPlan": true
       }
     ],

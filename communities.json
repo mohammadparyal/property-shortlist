@@ -331,17 +331,18 @@
       "launch_3br": 1200000,
       "launch_4br": 1600000,
       "pf": {
-        "type": "url",
-        "value": "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-circle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa"
+        "type": "id",
+        "value": 73,
+        "category": 1
       },
       "bayut": [
         {
           "path": "jumeirah-village-circle",
-          "prop_type": "villas"
+          "prop_type": "townhouses"
         },
         {
           "path": "jumeirah-village-circle",
-          "prop_type": "townhouses"
+          "prop_type": "villas"
         }
       ]
     },
@@ -354,17 +355,18 @@
       "launch_3br": 1300000,
       "launch_4br": 1700000,
       "pf": {
-        "type": "url",
-        "value": "https://www.propertyfinder.ae/en/buy/dubai/villas-townhouses-for-sale-jumeirah-village-triangle.html?beds_min=3&price_min=1000000&price_max=3000000&sort=pa"
+        "type": "id",
+        "value": 74,
+        "category": 1
       },
       "bayut": [
         {
           "path": "jumeirah-village-triangle",
-          "prop_type": "villas"
+          "prop_type": "townhouses"
         },
         {
           "path": "jumeirah-village-triangle",
-          "prop_type": "townhouses"
+          "prop_type": "villas"
         }
       ]
     }
@@ -457,8 +459,9 @@
       "launch_3br": 1500000,
       "launch_4br": 2000000,
       "pf": {
-        "type": "url",
-        "value": "https://www.propertyfinder.ae/en/search?l=126&c=1&t=1&bdr[]=3&pt=3000000&fu=0&ob=nd"
+        "type": "id",
+        "value": 126,
+        "category": 2
       },
       "bayut": [
         {

@@ -415,9 +415,9 @@ function filterCommunity(community) {
     var btnComm = btn.getAttribute('data-community');
     btn.classList.toggle('active', btnComm === community);
   });
-  // Reset bed/size filters when community changes
-  document.getElementById('bedsFilter').value = 'all';
-  document.getElementById('sizeFilter').value = 'all';
+  // Reset bed/size filters when community changes (tolerate missing <select>)
+  var _bf = document.getElementById('bedsFilter'); if (_bf) _bf.value = 'all';
+  var _sf = document.getElementById('sizeFilter'); if (_sf) _sf.value = 'all';
   renderTable();
 }
 
@@ -465,8 +465,9 @@ function getFiltered() {
            (l.signals || '').toLowerCase().indexOf(currentSearch) !== -1 ||
            (l.community || '').toLowerCase().indexOf(currentSearch) !== -1;
   });
-  // Bed filter
-  var bedsVal = document.getElementById('bedsFilter').value;
+  // Bed filter (tolerate missing <select> from cached/old HTML)
+  var _bedsEl = document.getElementById('bedsFilter');
+  var bedsVal = _bedsEl ? _bedsEl.value : 'all';
   if (bedsVal !== 'all') {
     if (bedsVal === '5') {
       filtered = filtered.filter(function(l) { return (l.beds || 0) >= 5; });
@@ -475,8 +476,9 @@ function getFiltered() {
       filtered = filtered.filter(function(l) { return l.beds === bn; });
     }
   }
-  // Size filter
-  var sizeVal = document.getElementById('sizeFilter').value;
+  // Size filter (tolerate missing <select>)
+  var _sizeEl = document.getElementById('sizeFilter');
+  var sizeVal = _sizeEl ? _sizeEl.value : 'all';
   if (sizeVal !== 'all') {
     if (sizeVal === '3000+') {
       filtered = filtered.filter(function(l) { return (l.sqft || 0) >= 3000; });

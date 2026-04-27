@@ -245,11 +245,11 @@ function gF(){
   return(DATA.listings||[]).filter(function(l){
     if(cF!=='all'&&l.community!==cF)return false;
     if(cS){var h=[l.community,l.cluster,l.title,l.ref,l.signals,l.source,l.note].join(' ').toLowerCase();if(h.indexOf(cS)===-1)return false}
-    // Bed filter
-    var bv=document.getElementById('bedsFilter').value;
+    // Bed filter (tolerate missing <select> from cached/old HTML)
+    var _bf=document.getElementById('bedsFilter');var bv=_bf?_bf.value:'all';
     if(bv!=='all'){if(bv==='5'){if((l.beds||0)<5)return false}else{if(l.beds!==parseInt(bv))return false}}
-    // Size filter
-    var sv=document.getElementById('sizeFilter').value;
+    // Size filter (tolerate missing <select>)
+    var _sf=document.getElementById('sizeFilter');var sv=_sf?_sf.value:'all';
     if(sv!=='all'){var sq=l.sqft||0;if(sv==='3000+'){if(sq<3000)return false}else{var ps=sv.split('-');if(sq<parseInt(ps[0])||sq>=parseInt(ps[1]))return false}}
     return true;
   }).sort(cmp);
@@ -258,9 +258,9 @@ function gF(){
 function fC(c){
   cF=c;
   document.querySelectorAll('.fbtn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-community')===c)});
-  // Reset bed/size filters when community changes
-  document.getElementById('bedsFilter').value='all';
-  document.getElementById('sizeFilter').value='all';
+  // Reset bed/size filters when community changes (tolerate missing <select>)
+  var _bf=document.getElementById('bedsFilter');if(_bf)_bf.value='all';
+  var _sf=document.getElementById('sizeFilter');if(_sf)_sf.value='all';
   rT();
 }
 

@@ -24,7 +24,7 @@ import re
 import subprocess
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 
 # ─── PATHS ───────────────────────────────────────────────────────────────────
 BASE       = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -206,7 +206,7 @@ PF_EXTRACT_JS = """
             isOffPlan: isOffPlan
         });
     }
-    return {listings: results, total: properties.length, filtered: results.length};
+    return {listings: results, total: rawItems.length, filtered: results.length};
 }
 """
 
@@ -836,6 +836,41 @@ def cleanup_stale_listings(raw_data, scraped_uids):
     return total_removed
 
 
+def cleanup_old_listings(raw_data, scraped_uids, days=30):
+    """Drop listings whose source `listed` date is more than `days` days old.
+
+    Only operates on communities present in `scraped_uids` so a failed/blocked
+    community keeps its data. Listings missing or with an unparseable `listed`
+    date are kept (no signal to age them out).
+    """
+    cutoff = datetime.now().date() - timedelta(days=days)
+    total_removed = 0
+    for community in scraped_uids.keys():
+        existing = raw_data["communities"].get(community, [])
+        if not existing:
+            continue
+        before = len(existing)
+        kept = []
+        for l in existing:
+            listed = l.get("listed")
+            if not listed:
+                kept.append(l)
+                continue
+            try:
+                listed_date = datetime.strptime(listed, "%Y-%m-%d").date()
+            except (ValueError, TypeError):
+                kept.append(l)
+                continue
+            if listed_date >= cutoff:
+                kept.append(l)
+        raw_data["communities"][community] = kept
+        removed = before - len(kept)
+        if removed > 0:
+            total_removed += removed
+            log(f"  🕒 {community}: removed {removed} listings older than {days}d ({before} → {len(kept)})")
+    return total_removed
+
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 async def main():
     argv = sys.argv[1:]
@@ -996,6 +1031,14 @@ async def main():
             log(f"  ✓ Removed {removed} stale/delisted listings total")
         else:
             log("  ✓ No stale listings found")
+
+        # ── Drop listings older than 30 days (no fresh activity) ─────────
+        log("\n── Cleaning listings older than 30 days ──")
+        removed_old = cleanup_old_listings(raw_data, scraped_uids, days=30)
+        if removed_old:
+            log(f"  🕒 Removed {removed_old} listings older than 30 days")
+        else:
+            log("  ✓ No listings older than 30 days")
 
     # ── Save raw data ────────────────────────────────────────────────────
     save_raw(raw_data)

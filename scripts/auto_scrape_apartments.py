@@ -39,7 +39,8 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 # ─── COMMUNITY CONFIGS ──────────────────────────────────────────────────────
 # PF apartments: (community_name, location_id_or_url, min_beds, price_min, price_max)
-# c=2 for apartments on Property Finder
+# PF URL params: c=1 = for-sale (buy), rt[]=1 = apartments
+# (NB: c=2 is RENT, not "apartments" — that's a PF transaction-type param)
 PF_COMMUNITIES = [
     # ── Emaar communities (top-tier developer) ──
     ("Dubai Hills Estate",  105,   3, 1_500_000, 2_500_000),
@@ -366,7 +367,8 @@ async def scrape_pf(page, community, location_id, beds, price_min, price_max, vi
     if isinstance(location_id, str) and location_id.startswith("http"):
         url = location_id
     else:
-        url = f"https://www.propertyfinder.ae/en/search?l={location_id}&c=2&bdr%5B%5D={beds}&pf={price_min}&pt={price_max}&ob=pr"
+        # c=1 = for-sale (NOT c=2 — that's rent); rt[]=1 = apartment property type
+        url = f"https://www.propertyfinder.ae/en/search?l={location_id}&c=1&rt%5B%5D=1&bdr%5B%5D={beds}&pf={price_min}&pt={price_max}&ob=pr"
     log(f"  PF: {community}")
 
     for attempt in range(max_retries + 1):

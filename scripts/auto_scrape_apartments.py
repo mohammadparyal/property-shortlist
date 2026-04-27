@@ -129,11 +129,19 @@ PF_EXTRACT_JS = """
         return {error: 'No searchResult in pageProps', keys: Object.keys(pp || {})};
     }
 
-    var properties = searchResult.properties || searchResult.listings || [];
+    // PF structure: searchResult.listings = [{property: {...}, ...}, ...]
+    // searchResult.properties may exist but be empty — prefer listings
+    var rawItems = (searchResult.listings && searchResult.listings.length > 0)
+        ? searchResult.listings
+        : (searchResult.properties && searchResult.properties.length > 0)
+            ? searchResult.properties
+            : [];
     var results = [];
 
-    for (var i = 0; i < properties.length; i++) {
-        var p = properties[i];
+    for (var i = 0; i < rawItems.length; i++) {
+        var item = rawItems[i];
+        // Unwrap nested property object if present
+        var p = item.property || item;
         var type = (p.property_type || p.type || '').toLowerCase();
         // Filter for apartments/flats only
         if (type.indexOf('apartment') === -1 && type.indexOf('flat') === -1 && type.indexOf('penthouse') === -1 && type.indexOf('duplex') === -1) continue;
@@ -149,8 +157,18 @@ PF_EXTRACT_JS = """
         var bathsRaw = p.bathrooms || p.baths || 0;
         var baths = (typeof bathsRaw === 'string') ? parseInt(bathsRaw) : bathsRaw;
         var sizeVal = p.size || p.area || 0;
-        var sqft = (typeof sizeVal === 'object') ? (sizeVal.value || 0) : (sizeVal || 0);
-        sqft = sqft > 0 ? Math.round(sqft * 10.764) : 0;
+        var sqft = 0;
+        if (typeof sizeVal === 'object') {
+            sqft = sizeVal.value || 0;
+            var unit = (sizeVal.unit || '').toLowerCase();
+            if (unit === 'sqm' || unit === 'm²' || unit === 'meter') {
+                sqft = Math.round(sqft * 10.764);
+            } else {
+                sqft = Math.round(sqft);
+            }
+        } else {
+            sqft = Math.round(sizeVal || 0);
+        }
         var ref    = (p.reference || p.ref || '') + '';
         var title  = p.title || p.name || '';
         var listed = (p.listed_date || p.added_on || '').slice(0, 10);
@@ -159,6 +177,8 @@ PF_EXTRACT_JS = """
         var locTree = p.location_tree || p.location || [];
         if (Array.isArray(locTree) && locTree.length >= 3) {
             cluster = locTree[locTree.length - 1].name || locTree[locTree.length - 1] || '';
+        } else if (Array.isArray(locTree) && locTree.length > 0) {
+            cluster = locTree[locTree.length - 1].name || '';
         } else if (locTree && locTree.name) {
             cluster = locTree.name;
         }
@@ -647,8 +667,12 @@ async def scrape_bayut(page, community, url, visible_mode=False, retries=2):
 # ─── BAYUT DATE ENRICHMENT ──────────────────────────────────────────────────
 BAYUT_DATE_JS = """
 async (urls) => {
+    // Parallel fetch with concurrency limit of 5
     const results = {};
-    for (const url of urls) {
+    const concurrency = 5;
+    let idx = 0;
+
+    async function fetchOne(url) {
         try {
             const resp = await fetch(url);
             const html = await resp.text();
@@ -657,17 +681,49 @@ async (urls) => {
                 results[url] = match[1].slice(0, 10);
             }
         } catch (e) {}
-        await new Promise(r => setTimeout(r, 500));
     }
+
+    async function worker() {
+        while (idx < urls.length) {
+            const i = idx++;
+            await fetchOne(urls[i]);
+        }
+    }
+
+    // Launch concurrent workers
+    const workers = [];
+    for (let w = 0; w < Math.min(concurrency, urls.length); w++) {
+        workers.push(worker());
+    }
+    await Promise.all(workers);
     return results;
 }
 """
 
-async def enrich_bayut_dates(context, listings):
+async def enrich_bayut_dates(context, listings, raw_data=None):
+    """Fetch detail pages to get datePosted for Bayut listings.
+    Uses parallel fetch (5 concurrent) for speed. Checks existing raw_data for cached dates."""
+    # First, carry over dates from existing raw_data (avoids re-fetching)
+    if raw_data:
+        existing_dates = {}
+        for comm_listings in raw_data.get("communities", {}).values():
+            for l in comm_listings:
+                if l.get("listed") and l.get("uid"):
+                    existing_dates[l["uid"]] = l["listed"]
+        carried = 0
+        for l in listings:
+            if not l.get("listed") and l.get("uid") in existing_dates:
+                l["listed"] = existing_dates[l["uid"]]
+                carried += 1
+        if carried:
+            log(f"  ✓ Carried over {carried} cached dates from existing data")
+
     to_enrich = [l for l in listings if l.get("source") == "Bayut" and l.get("href") and not l.get("listed")]
     if not to_enrich:
+        log("  ✓ All Bayut listings already have dates — skipping enrichment")
         return
-    log(f"  Enriching dates for {len(to_enrich)} Bayut listings...")
+
+    log(f"  Enriching dates for {len(to_enrich)} Bayut listings (parallel fetch)...")
     date_page = await context.new_page()
     try:
         await date_page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=20000)
@@ -675,19 +731,20 @@ async def enrich_bayut_dates(context, listings):
     except Exception as e:
         log(f"  Date page warmup failed (non-fatal): {e}")
     all_dates = {}
-    batch_size = 10
+    batch_size = 30
     urls = [l["href"] for l in to_enrich]
     for i in range(0, len(urls), batch_size):
         batch = urls[i:i+batch_size]
         batch_num = i // batch_size + 1
+        total_batches = (len(urls) + batch_size - 1) // batch_size
         try:
             if "bayut.com" not in date_page.url:
                 await date_page.goto("https://www.bayut.com/", wait_until="domcontentloaded", timeout=15000)
                 await asyncio.sleep(1)
             dates = await date_page.evaluate(BAYUT_DATE_JS, batch)
             all_dates.update(dates)
-            log(f"    Batch {batch_num}: got {len(dates)} dates")
-            await asyncio.sleep(random.uniform(1, 2))
+            log(f"    Batch {batch_num}/{total_batches}: got {len(dates)}/{len(batch)} dates")
+            await asyncio.sleep(random.uniform(0.5, 1))
         except Exception as e:
             log(f"    Batch {batch_num} error: {e} — re-anchoring...")
             try:
@@ -696,7 +753,7 @@ async def enrich_bayut_dates(context, listings):
                 dates = await date_page.evaluate(BAYUT_DATE_JS, batch)
                 all_dates.update(dates)
                 log(f"    Batch {batch_num} retry: got {len(dates)} dates")
-                await asyncio.sleep(random.uniform(1, 2))
+                await asyncio.sleep(random.uniform(0.5, 1))
             except Exception as e2:
                 log(f"    Batch {batch_num} retry failed: {e2}")
     await date_page.close()
@@ -914,7 +971,7 @@ async def main():
                 log(f"  Waiting {delay:.0f}s before next...")
                 await asyncio.sleep(delay)
             if all_bayut:
-                await enrich_bayut_dates(context, all_bayut)
+                await enrich_bayut_dates(context, all_bayut, raw_data)
                 for community in set(l["community"] for l in all_bayut):
                     comm_listings = [l for l in all_bayut if l["community"] == community]
                     if comm_listings:

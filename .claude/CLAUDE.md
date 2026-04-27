@@ -57,9 +57,41 @@ python server.py
 # Open http://localhost:5000/scraper_panel.html
 ```
 
+### PF Data Extraction
+- PF's `__NEXT_DATA__` uses nested structure: `searchResult.listings[].property` (not flat)
+- `searchResult.properties` exists but is empty `[]` (truthy!) — must prefer `searchResult.listings`
+- Size field is `{value: 1550, unit: "sqft"}` — already in sqft, do NOT multiply by 10.764
+- Price field is `{value: 2600000, currency: "AED", ...}` — extract `.value`
+
+### Bayut Date Enrichment
+- Bayut listing cards don't include posted date — must fetch each detail page
+- Uses in-browser `fetch()` with 5 parallel workers per batch (30 URLs/batch)
+- Caches dates: carries over dates from existing raw_data to avoid re-fetching known listings
+- Only enriches NEW listings that don't have a date yet
+
+### Dashboard Filters
+- Both dashboards have: community buttons, bed filter dropdown (3/4/5+), size filter dropdown
+- Filters reset to "All" when community selection changes
+- index.html uses `getFiltered()` + `renderTable()` + `applyFilters()`
+- apartments.html uses `gF()` + `rT()` (minified names)
+
+## How to Run
+```bash
+cd /mnt/dubai-property-shortlist
+python server.py
+# Open http://localhost:5000/scraper_panel.html
+```
+
 ## Recent Changes (April 2026)
 1. Fixed race condition in communities.json (Lock + atomic writes + batch toggle endpoint)
 2. Connected scrapers to communities.json (--config flag, load_communities_from_config)
 3. Added PF CAPTCHA pause/resume with Continue button
 4. Added Bayut CAPTCHA pause/resume with smart positive/negative signal detection
 5. Added stale listing cleanup to both villa and apartment scrapers
+6. Fixed SQFT/PSF parsing: PF size is already in sqft (was incorrectly ×10.764). Fixed nested `item.property` unwrapping in PF extractor
+7. Added bed/size filter dropdowns to both dashboards (reset on community change)
+8. Sped up Bayut date enrichment: parallel fetch (5 workers), larger batches (30), date caching from raw_data
+
+## Pending / Known Issues
+- End-to-end test of full scraper flow still needed after all recent changes
+- Dashboard GitHub Pages deployment needed after sqft fix + filter addition

@@ -312,13 +312,18 @@
       "launch_3br": 2300000,
       "launch_4br": 2800000,
       "pf": {
-        "type": "url",
-        "value": "https://www.propertyfinder.ae/en/buy/dubai/townhouses-for-sale-al-barsha-al-barsha-south-al-barsha-south-second.html?beds_min=3&price_min=1500000&price_max=3000000&sort=pa"
+        "type": "id",
+        "value": 2119,
+        "category": 1
       },
       "bayut": [
         {
           "path": "al-barsha/al-barsha-south/al-barsha-south-2",
           "prop_type": "townhouses"
+        },
+        {
+          "path": "al-barsha/al-barsha-south/al-barsha-south-2",
+          "prop_type": "villas"
         }
       ]
     },

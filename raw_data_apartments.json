@@ -14,6 +14,20 @@
         "source": "PropertyFinder",
         "listed": "2026-04-17",
         "isOffPlan": false
+      },
+      {
+        "uid": "pf-AR-OP-Verge-23BAP-533",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-golf-verge-73117815.html",
+        "price": 3420000,
+        "beds": 3,
+        "baths": 3,
+        "sqft": 1773,
+        "cluster": "Golf Verge",
+        "title": "Spacious Unit | 3 BR | Handover May 2029",
+        "community": "Emaar South",
+        "source": "PropertyFinder",
+        "listed": "2026-04-06",
+        "isOffPlan": true
       }
     ],
     "Al Furjan": [
@@ -188,20 +202,6 @@
         "isOffPlan": false
       },
       {
-        "uid": "pf-F50819DDP2H4MKWSTWEB7HN828",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-binghatti-apex-76162551.html",
-        "price": 650000,
-        "beds": NaN,
-        "baths": 1,
-        "sqft": 403,
-        "cluster": "Binghatti Apex",
-        "title": "High Floor - Multiple Options - Handover soon",
-        "community": "JVC",
-        "source": "PropertyFinder",
-        "listed": "2026-04-13",
-        "isOffPlan": true
-      },
-      {
         "uid": "bayut-14977284",
         "href": "https://www.bayut.com/property/details-14977284.html",
         "price": 1500000,
@@ -217,20 +217,6 @@
       }
     ],
     "Motor City": [
-      {
-        "uid": "pf-PF-Apr-Twenty-Three-Twenty-Six-AS-166787",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-the-community-80267433.html",
-        "price": 650000,
-        "beds": NaN,
-        "baths": 1,
-        "sqft": 447,
-        "cluster": "The Community",
-        "title": "Brand New | First Class Amenities | Prime Location",
-        "community": "Motor City",
-        "source": "PropertyFinder",
-        "listed": "2026-04-23",
-        "isOffPlan": true
-      },
       {
         "uid": "pf-DREL-6840",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-oia-residence-73856440.html",
@@ -812,20 +798,6 @@
         "isOffPlan": true
       },
       {
-        "uid": "pf-3bed-new-ready",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-78193919.html",
-        "price": 1959999,
-        "beds": 3,
-        "baths": 3,
-        "sqft": 1562,
-        "cluster": "48 Parkside",
-        "title": "Lowest | BrandNew | 3bed Study pvt pool Pool View",
-        "community": "Arjan",
-        "source": "PropertyFinder",
-        "listed": "2026-04-18",
-        "isOffPlan": false
-      },
-      {
         "uid": "pf-Mohit-48 Parkside - Arjan-19",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-78580649.html",
         "price": 2299000,
@@ -868,20 +840,6 @@
         "isOffPlan": false
       },
       {
-        "uid": "pf-ZTD106A1YR46VR30D03PWA2R0R",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-81122003.html",
-        "price": 2299000,
-        "beds": 3,
-        "baths": 4,
-        "sqft": 1562,
-        "cluster": "48 Parkside",
-        "title": "20/80 Payment Plan | Study Room | Ready to Move",
-        "community": "Arjan",
-        "source": "PropertyFinder",
-        "listed": "2026-04-25",
-        "isOffPlan": true
-      },
-      {
         "uid": "pf-PF-Apr-Fifteen-Twenty-Six-AS-162924",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-76965104.html",
         "price": 2490000,
@@ -894,9 +852,23 @@
         "source": "PropertyFinder",
         "listed": "2026-04-15",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-BARNES-13768",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-74256119.html",
+        "price": 2335000,
+        "beds": 3,
+        "baths": 4,
+        "sqft": 1441,
+        "cluster": "48 Parkside",
+        "title": "3BHK+Pool|Ready for Handover|Luxury Ameneties",
+        "community": "Arjan",
+        "source": "PropertyFinder",
+        "listed": "2026-04-08",
+        "isOffPlan": true
       }
     ]
   },
-  "total_listings": 63,
-  "last_updated": "2026-04-27"
+  "total_listings": 61,
+  "last_updated": "2026-04-28"
 }

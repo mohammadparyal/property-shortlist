@@ -379,7 +379,7 @@
   "apartment": [
     {
       "name": "Dubai Hills Estate",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -399,7 +399,7 @@
     },
     {
       "name": "Emaar South",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -418,7 +418,7 @@
     },
     {
       "name": "Mirdif Hills",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -437,7 +437,7 @@
     },
     {
       "name": "Mudon",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -477,7 +477,7 @@
     },
     {
       "name": "JVC",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,
@@ -496,7 +496,7 @@
     },
     {
       "name": "Motor City",
-      "enabled": true,
+      "enabled": false,
       "beds_min": 3,
       "price_min": 1500000,
       "price_max": 2500000,

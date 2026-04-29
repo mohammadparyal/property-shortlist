@@ -270,13 +270,27 @@ TX_EXTRACT_JS = r"""
         const spanTexts = Array.from(locTd.querySelectorAll('span'))
             .map(s => (s.textContent || '').trim())
             .filter(Boolean);
+        // De-dup adjacent duplicates (status badge often double-wraps in nested spans)
         const deduped = [];
         spanTexts.forEach(t => {
             if (deduped.length === 0 || deduped[deduped.length - 1] !== t) deduped.push(t);
         });
-        const community     = deduped[0] || '';
-        const subCommunity  = deduped[1] || '';
-        const status        = deduped[deduped.length - 1] || '';
+        // Identify status by matching against known badge values. If the only badges
+        // we see are community / sub-community names, status stays empty rather than
+        // mis-pulling the last span (the previous bug).
+        const KNOWN_STATUSES = ['Off-Plan', 'Off Plan', 'Initial Sale', 'Resale', 'Sale'];
+        let status = '';
+        const remaining = [];
+        for (const t of deduped) {
+            if (status === '' && KNOWN_STATUSES.indexOf(t) !== -1) {
+                status = t;          // first match wins; don't push to remaining
+            } else {
+                remaining.push(t);
+            }
+        }
+        const community    = remaining[0] || '';
+        const subCommunity = remaining[1] || '';
+        // Building name = whatever leading text is left after subtracting all spans
         let building = locTd.textContent || '';
         deduped.forEach(s => { building = building.split(s).join(''); });
         building = building.trim();

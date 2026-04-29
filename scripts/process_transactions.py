@@ -106,6 +106,23 @@ def main():
 
         community = raw.get("community", "") or ""
         building  = raw.get("building", "") or ""
+        sub_community = raw.get("sub_community", "") or ""
+        status        = raw.get("status", "") or ""
+
+        # ── Normalize legacy/buggy status data ────────────────────────────
+        # Older scraper versions sometimes wrote sub_community or community
+        # into the status field when no real status badge was present.
+        # Repair here so the dashboard shows clean values.
+        KNOWN_STATUSES = {"Off-Plan", "Off Plan", "Initial Sale", "Resale", "Sale"}
+        if status and status not in KNOWN_STATUSES:
+            # status was wrongly populated with community/sub-community text
+            status = ""
+        if sub_community in KNOWN_STATUSES:
+            # Sub-community wrongly carries the status badge — promote it.
+            if not status:
+                status = sub_community
+            sub_community = ""
+
         # Pass building in cluster slot (most-specific signal); skip title (transactions have none).
         dev_name, dev_tier, dev_match = match_developer(devs_data, community, building, "")
 
@@ -118,8 +135,8 @@ def main():
             "transaction_date": d,
             "building":         building,
             "community":        community,
-            "sub_community":    raw.get("sub_community", "") or "",
-            "status":           raw.get("status", "") or "",
+            "sub_community":    sub_community,
+            "status":           status,
             "prop_type":        (raw.get("prop_type") or "").lower(),
             "beds":             int(raw.get("beds") or 0),
             "sqft":             sqft,

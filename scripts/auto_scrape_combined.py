@@ -1053,10 +1053,27 @@ async def main():
 
         await browser.close()
 
-    # ── Cleanup phases (in spec order) ──────────────────────────────────
-    if scraped_uids:
-        log("\n── Soft-delete sweep ──")
-        soft_delete_sweep(raw_data, scraped_uids)
+    # ── Cleanup phases ──────────────────────────────────────────────────
+    # NOTE: soft_delete_sweep() is intentionally DISABLED here. With the
+    # incremental newest-first scraper that early-stops at the first known
+    # UID, scraped_uids is by design incomplete — it only contains the new
+    # listings at the top of the feed. Marking everything else "stale" was
+    # producing false positives on every rerun. The dashboard now shows a
+    # "⚠ Nd unseen" warning chip in the UI based on last_seen, so the user
+    # can spot-check possible delistings without auto-removal. Real cleanup
+    # is purely age-based via thirty_day_cleanup().
+
+    # One-time revive: if a previous (buggy) run marked listings as
+    # removed_reason=="stale", revert them — they were false positives.
+    revived = 0
+    for l in raw_data["listings"]:
+        if l.get("removed") and l.get("removed_reason") == "stale":
+            l["removed"]        = False
+            l["removed_date"]   = None
+            l["removed_reason"] = None
+            revived += 1
+    if revived:
+        log(f"  ↺ Revived {revived} listings previously mis-flagged as stale")
 
     log("\n── 30-day cleanup ──")
     thirty_day_cleanup(raw_data)

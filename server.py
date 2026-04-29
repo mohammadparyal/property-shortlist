@@ -706,6 +706,72 @@ def run_combined_scraper_thread():
             proc2.wait()
             emit_log("Combined pipeline complete!", "ok")
 
+        # ── Chain: Bayut Transactions scraper ─────────────────────────────
+        if not scraper_state["stop_requested"]:
+            emit_log("Starting transactions scraper: auto_scrape_transactions.py", "info")
+            tx_script = os.path.join(SCRIPTS, "auto_scrape_transactions.py")
+            tx_cmd = [sys.executable, "-u", tx_script, "--visible", "--no-process"]
+            try:
+                tx_proc = subprocess.Popen(
+                    tx_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                    text=True, bufsize=1, cwd=BASE,
+                    preexec_fn=os.setsid
+                )
+                scraper_state["proc"] = tx_proc
+                for tx_line in iter(tx_proc.stdout.readline, ""):
+                    tx_line = tx_line.strip()
+                    if not tx_line:
+                        continue
+
+                    if scraper_state["stop_requested"]:
+                        try:
+                            os.killpg(os.getpgid(tx_proc.pid), signal.SIGTERM)
+                        except (OSError, ProcessLookupError):
+                            tx_proc.terminate()
+                        emit_log("Transactions scraper stopped by user", "warn")
+                        break
+
+                    clean = tx_line
+                    if clean.startswith("[") and "]" in clean:
+                        clean = clean[clean.index("]") + 1:].strip()
+
+                    if "CAPTCHA:WAITING:" in clean:
+                        captcha_comm = clean.split("CAPTCHA:WAITING:")[-1].strip()
+                        emit_alert("captcha_pause",
+                                   f"CAPTCHA detected on {captcha_comm or 'Transactions'} — solve it in the browser, then click Continue",
+                                   captcha_comm or "Transactions")
+                    elif "CAPTCHA solved" in clean or "✅" in clean:
+                        emit_alert("success", "CAPTCHA solved! Continuing...")
+
+                    level = "info"
+                    if "✓" in clean or "✅" in clean:
+                        level = "ok"
+                    elif "✗" in clean or "ERROR" in clean:
+                        level = "err"
+                    elif "⚠" in clean or "CAPTCHA" in clean.upper() or "warn" in clean.lower():
+                        level = "warn"
+                    emit_log(clean, level)
+                tx_proc.wait()
+
+                # ── Run process_transactions.py ──
+                if not scraper_state["stop_requested"]:
+                    tx_proc_path = os.path.join(SCRIPTS, "process_transactions.py")
+                    emit_log("Running processor: process_transactions.py...", "info")
+                    tx_proc2 = subprocess.Popen(
+                        [sys.executable, "-u", tx_proc_path],
+                        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                        text=True, cwd=BASE
+                    )
+                    for line3 in iter(tx_proc2.stdout.readline, ""):
+                        line3 = line3.strip()
+                        if line3:
+                            emit_log(line3, "ok" if "✓" in line3 else "info")
+                    tx_proc2.wait()
+                    emit_log("Transactions pipeline complete!", "ok")
+            except Exception as e:
+                emit_log(f"Transactions scraper error: {e}", "err")
+                scraper_state["errors"] += 1
+
     except Exception as e:
         emit_log(f"Combined scraper error: {e}", "err")
         scraper_state["errors"] += 1

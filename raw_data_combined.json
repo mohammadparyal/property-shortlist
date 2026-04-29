@@ -17,9 +17,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-NCSBP343W0T34EE378H745WDJ0",
@@ -38,9 +38,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-Huaxia-S-3695179091",
@@ -59,9 +59,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP24985-15",
@@ -80,9 +80,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP24774-19",
@@ -101,9 +101,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP24868-7",
@@ -122,9 +122,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-101708-w3fa-RUM-S-X2-PM",
@@ -143,9 +143,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-E3KFTVSNEFZSKJRFC2S96747VW",
@@ -164,9 +164,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-DREL-7918",
@@ -185,9 +185,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-W-049M5F",
@@ -206,9 +206,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-YW4V7MM5760KD277245BYFBMCR",
@@ -227,9 +227,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-HB2TK2QK2MKE7ADSAPA36X2P5C",
@@ -248,9 +248,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-8DHRWS1M57TCSQ6FKF942R8204",
@@ -269,9 +269,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-H4L-3623112",
@@ -290,9 +290,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP8147",
@@ -311,9 +311,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-BI-S-20-3421",
@@ -332,9 +332,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-IRE-RKG2025-S13-E",
@@ -353,9 +353,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-DREL-8009",
@@ -374,9 +374,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-143136",
@@ -395,9 +395,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-143168",
@@ -416,9 +416,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-reportage_2bed_hanane",
@@ -437,9 +437,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-8C7GPMH5FF379B111Q27PZR8H4",
@@ -458,9 +458,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-OGY_B38GSR0KRRD6T69XR4RQ0J6TZ4",
@@ -479,9 +479,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-lagovistasale_sm",
@@ -500,9 +500,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-A0N3W3W8G5Y95J9AT55N1HN3P0",
@@ -521,9 +521,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-9SK18ZSWG6Y8QY0VGEMKD5S3GC",
@@ -542,9 +542,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ARTA_GREENS",
@@ -563,9 +563,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-BF4TV3RQ5FGZHVYVWA06P0TPXM",
@@ -584,9 +584,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ALAN202-SELL",
@@ -605,9 +605,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-S-TIERONE475",
@@ -626,9 +626,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-SM RJFT14WBCXVQH3XBYS5NKH00RR",
@@ -647,9 +647,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-1JAP2H8MWYJHW28WZV0BFEA85W",
@@ -668,9 +668,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-MK0E8SVH8FDBEG2STWFQ2FS2ZR",
@@ -689,9 +689,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-S-KP-2412",
@@ -710,9 +710,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-XY0AZ1A5E0VFPE0G2BRH0W8M98",
@@ -731,9 +731,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-93SFQZ0FXT9TR6QVS52S18CE94",
@@ -752,9 +752,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ML21-915",
@@ -773,9 +773,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PHRE-04",
@@ -794,9 +794,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-LUL-S-14961",
@@ -815,9 +815,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-168327",
@@ -836,9 +836,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-C0D29J01ZK5V6ZR4B2AM772MS8",
@@ -857,9 +857,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-KZMWSWA79QPRRH9W3W0MV0K52G",
@@ -878,9 +878,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ES-39719",
@@ -899,9 +899,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-CPR1654",
@@ -920,9 +920,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-5EW9NVS0QKGEJQW4NC70K7MYQW",
@@ -941,9 +941,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-YEJR5P98SR00W7QHECYP07TMTM",
@@ -962,9 +962,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-7372TA0QJVWSYC04RVSQT5ZWT8",
@@ -983,9 +983,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-594-25383095",
@@ -1004,9 +1004,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-Z5V7KVMJBJ23EKDTY4651KH884",
@@ -1025,9 +1025,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-BRE-S-AVAZ-007",
@@ -1046,9 +1046,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-J61P93RNXV9KJHYQZ147WJSMHW",
@@ -1067,9 +1067,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-RL-199012",
@@ -1088,9 +1088,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP22204",
@@ -1109,9 +1109,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-griffin-266200605",
@@ -1130,9 +1130,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-FNY8PA7DFZJQH50AWK5TFKFDM8",
@@ -1151,9 +1151,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-5W60HQHAFCQH7J61YEX8243H18",
@@ -1172,9 +1172,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-LPH-S-463046",
@@ -1193,9 +1193,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PSXY0298A213W62SGB242RQMM8",
@@ -1214,9 +1214,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-6N0BZP8TRJM10A55CDX2QC3PF4",
@@ -1235,9 +1235,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-SZQC2JSHAGQ7JBJ2855MJSBWQM",
@@ -1256,9 +1256,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-Z36VNARHJBKCR1J1NDMB26Y2EG",
@@ -1277,9 +1277,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-dav -PXE4ACQNTN1D7SXQXBJ0EXDN9M",
@@ -1298,9 +1298,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AQ-S-26-00475",
@@ -1319,9 +1319,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-45731-AP-S-0703",
@@ -1340,9 +1340,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-LDR-A-S-422",
@@ -1361,9 +1361,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-583-25383095",
@@ -1382,9 +1382,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-4HT1Q1RSYNA5DCBJN5FCK9SEVR",
@@ -1403,9 +1403,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-VAR-RL-S-3BR-DOM",
@@ -1424,9 +1424,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ARZ-S-5791-1",
@@ -1445,9 +1445,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-T4TKEGG8VJHZRKSQK8BRW1NJG0",
@@ -1466,9 +1466,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-DREL-7958",
@@ -1487,9 +1487,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-ARZ-S-5800-1",
@@ -1508,9 +1508,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-laforet-603",
@@ -1529,9 +1529,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AW-S-768",
@@ -1550,9 +1550,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-MKT260347",
@@ -1571,9 +1571,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-GOU006-S-CREEK-2BR",
@@ -1592,9 +1592,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-RL-183506",
@@ -1613,9 +1613,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PF-4799-HkaneZ1",
@@ -1634,9 +1634,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-LRE-S-226733",
@@ -1655,9 +1655,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-1028201665821",
@@ -1676,9 +1676,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-RL-213551",
@@ -1697,9 +1697,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-DVA11JCDM73XF1J8227N9Y855R",
@@ -1718,9 +1718,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-SkyView-32571",
@@ -1739,9 +1739,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-CEXFMG0M4YX0PMDC33MXW3K3G8",
@@ -1760,9 +1760,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-SkyView-32594",
@@ -1781,9 +1781,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-BG1DANXHTJMCT0HEF1ASNPC9EG",
@@ -1802,9 +1802,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP7990",
@@ -1823,9 +1823,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-MCC-S-52613-1",
@@ -1844,9 +1844,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-AP22200",
@@ -1865,9 +1865,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-UberHomes-1397",
@@ -1886,9 +1886,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-PS-2804262",
@@ -1907,9 +1907,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-Huaxia-S-3695179090",
@@ -1928,9 +1928,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-MCC-S-52680-2",
@@ -1949,9 +1949,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-cereb-16844",
@@ -1970,9 +1970,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-MCC-S-51915-2",
@@ -1991,9 +1991,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-HW89N01FJAZ9W3P7HSPA9QM1Q0",
@@ -2012,9 +2012,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-SP-S-6503",
@@ -2033,9 +2033,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "pf-Z48ZYAZ4NR335AQ2W0BK1ES780",
@@ -2054,9 +2054,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "bayut-15013282",
@@ -2537,9 +2537,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "bayut-15013375",
@@ -2558,9 +2558,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "bayut-15013377",
@@ -2579,9 +2579,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "bayut-15013376",
@@ -2600,9 +2600,9 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
-      "removed": false,
-      "removed_date": null,
-      "removed_reason": null
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
     },
     {
       "uid": "bayut-15013365",
@@ -2621,11 +2621,1019 @@
       "scrape_date": "2026-04-29",
       "last_seen": "2026-04-29",
       "hidden": false,
+      "removed": true,
+      "removed_date": "2026-04-29",
+      "removed_reason": "stale"
+    },
+    {
+      "uid": "pf-01KCK8CPE7BSXNVKBS7RZFXCWK",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-sparklz-by-danube-82801218.html",
+      "price": 1810000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1216,
+      "cluster": "Sparklz By Danube",
+      "title": "Premium 2 BHK | Convertible Layout in Al Furjan",
+      "community": "Al Furjan",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-101708-XV1DT-JC1-R-X2",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-azizi-aliyah-82800885.html",
+      "price": 1995000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1638,
+      "cluster": "Azizi Aliyah",
+      "title": "Exclusive Apartment | Prime Location | Creek Views",
+      "community": "Al Jaddaf",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BARNES-15681",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-parkside-boulevard-82800626.html",
+      "price": 1876500,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1682,
+      "cluster": "Parkside Boulevard",
+      "title": "With Study Room | Near Completion | Below Market",
+      "community": "Arjan",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BARNES-15686",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-bond-enclave-82800624.html",
+      "price": 2034777,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1320,
+      "cluster": "Bond Enclave",
+      "title": "1% Monthly | Garden View | 3yrs PHPP",
+      "community": "Arjan",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BK9YW8J564BPZN9PCB1R96S6TC",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-11-hadley-heights-82800489.html",
+      "price": 1790000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1423,
+      "cluster": "Hadley Heights",
+      "title": "Motivated Seller | Vacant | Open Park View",
+      "community": "District 11",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-143184",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-rabdan-building-82800458.html",
+      "price": 1472778,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1176,
+      "cluster": "Rabdan Building",
+      "title": "Exclusive Listing | Apartment | High ROI",
+      "community": "Motor City",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-Vero-S-1462",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-hills-estate-park-point-park-point-building-d-82800457.html",
+      "price": 2299950,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1012,
+      "cluster": "Park Point Building D",
+      "title": "Vacant Unit | Closed Kitchen | Motivated Seller",
+      "community": "Park Point",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-MCC-S-52230-1",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-binghatti-orchid-82800377.html",
+      "price": 2170000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1762,
+      "cluster": "Binghatti Orchid",
+      "title": "Big Terrace +Pool | Closed Kitchen | Close to Exit",
+      "community": "District 10",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-4Y20R6NGXYYPJMSEB387QREY7G",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-dubai-land-residence-complex-empire-gardens-82800369.html",
+      "price": 1449000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1068,
+      "cluster": "Empire Gardens",
+      "title": "0% Down | 1.8% Monthly Installment | Post-Handover",
+      "community": "Dubai Land Residence Complex",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-MZ5MH67AYXKJSY0MDTA1VW0NMG",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-town-square-elaya-82800329.html",
+      "price": 1475000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1016,
+      "cluster": "Elaya",
+      "title": "Boulevard View | Good Investment | handover 2026",
+      "community": "Town Square",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-SR-S-UR-4584",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-yacht-bay-82800178.html",
+      "price": 2050000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1382,
+      "cluster": "Yacht Bay",
+      "title": "Spacious 2 Bedroom | Next to Metro | Furnished",
+      "community": "Dubai Marina",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-Ghalib001i-SELL",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-investment-park-dip-dubai-investment-park-2-dip-2-damac-riverside-sage-82800033.html",
+      "price": 2300000,
+      "beds": 4,
+      "baths": 5,
+      "sqft": 2272,
+      "cluster": "Damac Riverside - Sage",
+      "title": "Motivated Seller|Urgent Sale |Slightly Negotiable",
+      "community": "Dubai Investment Park 2 (DIP 2)",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "villa",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-IV-S-2311",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-oxford-gardens-82799985.html",
+      "price": 2240000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1358,
+      "cluster": "Oxford Gardens",
+      "title": "Full park view | 2BR+Study | Private pool | Vacant",
+      "community": "Arjan",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-931PR7DSEXYE6WS3VDYKS4SGE8",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-15-binghatti-onyx-82800009.html",
+      "price": 2200000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1537,
+      "cluster": "Binghatti Onyx",
+      "title": "2BHK HIGH FLOOR | PRIVATE POOL | BINGHATTI ONYX",
+      "community": "District 15",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BMHMF8JP4DX2BEY3V4QKZWM1FR",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-emaar-south-dubai-south-dubai-world-central-urbana-stacked-house-block-03-82799935.html",
+      "price": 1649000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1302,
+      "cluster": "Urbana Stacked House Block 03",
+      "title": "2-Bedroom End Unit | Tenanted | Call Now",
+      "community": "EMAAR South",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-PGNC5031M43C1E8WNE19A46ES4",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-production-city-impz-vista-by-vision-82798596.html",
+      "price": 1570000,
+      "beds": 2,
+      "baths": 4,
+      "sqft": 1473,
+      "cluster": "Vista by Vision",
+      "title": "20-80 Payment Plan| Upcoming Metro| Spacious unit",
+      "community": "Dubai Production City (IMPZ)",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BC2Y57QB30DJ94KVH0TMGYDED4",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-creek-harbour-the-lagoons-creek-rise-creek-rise-podium-82796618.html",
+      "price": 2200000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1168,
+      "cluster": "Creek Rise Podium",
+      "title": "Exclusive | Brand New | Amazing Park View",
+      "community": "Creek Rise",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-L-1520",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-city-of-arabia-mag-330-82796356.html",
+      "price": 1900000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1425,
+      "cluster": "MAG 330",
+      "title": "Spacious Layout | Pool View | Original Price | Furnished",
+      "community": "City of Arabia",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-E9RFVH19ZPPNEWCZAQ595XS7H4",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-business-bay-aykon-city-aykon-city-tower-c-82796319.html",
+      "price": 1600000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 954,
+      "cluster": "Aykon City Tower C",
+      "title": "2 Bedroom + Study Room | High Floor",
+      "community": "Aykon City",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-RXCNAA74929DBBASQG5N05766G",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-13-amaris-residences-82795067.html",
+      "price": 1765000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1345,
+      "cluster": "Amaris Residences",
+      "title": "Floor-to-Ceiling Glass | Skyline Views |  JVC",
+      "community": "District 13",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-1010001668441",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-al-thamam-al-thamam-24-82793350.html",
+      "price": 1600000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1149,
+      "cluster": "Al Thamam 24",
+      "title": "Spacious Renovated 2BR | Vacant on Transfer",
+      "community": "Al Thamam",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-OBG-002580",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-the-nook-the-nook-1-82793126.html",
+      "price": 1000000,
+      "beds": 2,
+      "baths": 1,
+      "sqft": 778,
+      "cluster": "The Nook 1",
+      "title": "Investment Deal | Pool View  | Fully Furnished",
+      "community": "The Nook",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-DPF-S-48327",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-silicon-oasis-timez-by-danube-82792934.html",
+      "price": 1590000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 838,
+      "cluster": "Timez By Danube",
+      "title": "Great Opportunity | Early Entry | Near OP",
+      "community": "Dubai Silicon Oasis",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-AP26152-3",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-damac-hills-artesia-artesia-b-82792406.html",
+      "price": 1799000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1280,
+      "cluster": "Artesia B",
+      "title": "Ready to Move | Golf and Pool View | Furnished",
+      "community": "Artesia",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-Huspy-GY6R0PVB4CXB9Q72EWS2M39FQM",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-camelia-82792280.html",
+      "price": 2100000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 1535,
+      "cluster": "Camelia",
+      "title": "Corner Plot | Ready New Build | Near Greenery",
+      "community": "Damac Hills 2",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "townhouse",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-01KCKMMFWSS6ZX0F818QATV7V0",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-sparklz-by-danube-82792117.html",
+      "price": 1994000,
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1125,
+      "cluster": "Sparklz By Danube",
+      "title": "\u201cHigh ROI 3 BHK | Convertible Layout Al Furjan",
+      "community": "Al Furjan",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-H4L-3623108",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-reportage-village-82792059.html",
+      "price": 1480000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1146,
+      "cluster": "Reportage Village",
+      "title": "Investor Deal I Great Community I Motivated Seller",
+      "community": "Dubai Land",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "villa",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-RL-115039",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-business-bay-churchill-towers-churchill-residency-tower-82792013.html",
+      "price": 2150000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1472,
+      "cluster": "Churchill Residency Tower",
+      "title": "Vacant on transfer |Maids room| High floor",
+      "community": "Churchill Towers",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-CrestTowerB-1.7M-Alia",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-mohammed-bin-rashid-city-sobha-hartland-the-crest-the-crest-tower-b-82792015.html",
+      "price": 1700000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 808,
+      "cluster": "The Crest Tower B",
+      "title": "Quality Finishing | Prime Location | Rented",
+      "community": "The Crest",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-SkyView-32598",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-nadd-al-hammar-myra-onyx-82791929.html",
+      "price": 1520000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1352,
+      "cluster": "Myra Onyx",
+      "title": "High Floor | Closed Kitchen | Near to Handover",
+      "community": "Nadd Al Hammar",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-TH26249-2",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-bianca-82791889.html",
+      "price": 2000000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1079,
+      "cluster": "Bianca",
+      "title": "GARDEN VIEW | LUXURY FINISH | PRIME LOCATION",
+      "community": "Dubai Land",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "townhouse",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-BNGT-LUXURIA-2BR-1.690",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-triangle-district-4-binghatti-luxuria-82791882.html",
+      "price": 1690000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 963,
+      "cluster": "Binghatti Luxuria",
+      "title": "Spacious Living | High ROI | Smart Investment",
+      "community": "District 4",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-5NY1FWAVTCN57SR4K5E9Z2E0BW",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-barsha-al-barsha-south-al-barsha-south-4-82791842.html",
+      "price": 1820000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1216,
+      "cluster": "Al Barsha South 4",
+      "title": "2BR Resale | Bright Unit | Great Value",
+      "community": "Al Barsha South",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-AP26398-1",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-lake-towers-jlt-cluster-l-icon-tower-2-82791748.html",
+      "price": 1425000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 937,
+      "cluster": "Icon Tower 2",
+      "title": "UPGRADED | FULLY FURNISHED | CLOSE TO METRO",
+      "community": "JLT Cluster L",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "pf-45731-AP-S-0709",
+      "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-business-bay-regalia-by-deyaar-82791716.html",
+      "price": 2250000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1180,
+      "cluster": "Regalia By Deyaar",
+      "title": "Creek and Lagoon View| Hand Over Soon| Luxury View",
+      "community": "Business Bay",
+      "source": "PropertyFinder",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15014023",
+      "href": "https://www.bayut.com/property/details-15014023.html",
+      "price": 2000000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1373,
+      "cluster": "Burj Al Nujoom",
+      "title": "Unfurnished | Closed Kitchen | Rented",
+      "community": "Downtown Dubai",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15014020",
+      "href": "https://www.bayut.com/property/details-15014020.html",
+      "price": 2300000,
+      "beds": 4,
+      "baths": 5,
+      "sqft": 2272,
+      "cluster": "Sage",
+      "title": "Motivated Seller|Urgent Sale |Slightly Negotiable",
+      "community": "DAMAC Riverside",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "villa",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013925",
+      "href": "https://www.bayut.com/property/details-15013925.html",
+      "price": 1877000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1387,
+      "cluster": "MAG 777",
+      "title": "Limited Discount!_Ready in 2 Months_Pay Only 560K now and Pay remaining on Mortgage!",
+      "community": "Dubai Sports City",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013877",
+      "href": "https://www.bayut.com/property/details-15013877.html",
+      "price": 2150000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1472,
+      "cluster": "Churchill Residence",
+      "title": "Vacant on transfer |Maids room| High floor",
+      "community": "Churchill Towers",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013821",
+      "href": "https://www.bayut.com/property/details-15013821.html",
+      "price": 1699999,
+      "beds": 3,
+      "baths": 5,
+      "sqft": 1882,
+      "cluster": "Zinnia",
+      "title": "R2EM | Back to Back | Best Price I Spacious",
+      "community": "DAMAC Hills 2 (Akoya by DAMAC)",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "townhouse",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013768",
+      "href": "https://www.bayut.com/property/details-15013768.html",
+      "price": 1799000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1280,
+      "cluster": "Artesia B",
+      "title": "Ready to Move | Golf and Pool View | Furnished",
+      "community": "Artesia",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013728",
+      "href": "https://www.bayut.com/property/details-15013728.html",
+      "price": 1358608,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 954,
+      "cluster": "Verdana Residence 3",
+      "title": "Polished Finish | elegant | Vibrant Dubai Setting",
+      "community": "Verdana 3",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013723",
+      "href": "https://www.bayut.com/property/details-15013723.html",
+      "price": 1300000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1312,
+      "cluster": "Hanover Square",
+      "title": "Spacious Fully Furnished 2BR in JVC |Ready to move | Great Amenities | High ROI",
+      "community": "JVC District 10",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013703",
+      "href": "https://www.bayut.com/property/details-15013703.html",
+      "price": 1770000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 1963,
+      "cluster": "Tulip Oasis 10",
+      "title": "READY IN 2 MONTH COLLECT UR ROI | 20\\80 PP | 8% ROI",
+      "community": "Majan",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013551",
+      "href": "https://www.bayut.com/property/details-15013551.html",
+      "price": 2100000,
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2417,
+      "cluster": "Camelia",
+      "title": "Corner Plot | Ready New Build | Near Greenery",
+      "community": "DAMAC Hills 2 (Akoya by DAMAC)",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "townhouse",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013541",
+      "href": "https://www.bayut.com/property/details-15013541.html",
+      "price": 1520000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1352,
+      "cluster": "Myra Onyx",
+      "title": "High Floor | Closed Kitchen | Near to Handover",
+      "community": "Nad Al Hamar Gardens",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013488",
+      "href": "https://www.bayut.com/property/details-15013488.html",
+      "price": 1425000,
+      "beds": 2,
+      "baths": 2,
+      "sqft": 937,
+      "cluster": "Icon Tower 2",
+      "title": "UPGRADED | FULLY FURNISHED | CLOSE TO METRO",
+      "community": "JLT Cluster L",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": false,
+      "prop_type": "apartment",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
+      "removed": false,
+      "removed_date": null,
+      "removed_reason": null
+    },
+    {
+      "uid": "bayut-15013478",
+      "href": "https://www.bayut.com/property/details-15013478.html",
+      "price": 2000000,
+      "beds": 2,
+      "baths": 3,
+      "sqft": 976,
+      "cluster": "Bianca",
+      "title": "GARDEN VIEW | LUXURY FINISH | PRIME LOCATION",
+      "community": "Dubailand",
+      "source": "Bayut",
+      "listed": "2026-04-29",
+      "isOffPlan": true,
+      "prop_type": "townhouse",
+      "scrape_date": "2026-04-29",
+      "last_seen": "2026-04-29",
+      "hidden": false,
       "removed": false,
       "removed_date": null,
       "removed_reason": null
     }
   ],
   "last_updated": "2026-04-29",
-  "total_listings": 125
+  "total_listings": 173
 }

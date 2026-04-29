@@ -534,6 +534,205 @@ def handle_start(data):
     emit("scrape_started", {"mode": mode, "source": source})
 
 
+def run_combined_scraper_thread():
+    """Run the Dubai-wide combined scraper as a subprocess.
+    Mirrors run_scraper_thread but launches auto_scrape_combined.py without --config.
+    Post-processor: process_combined.py."""
+    scraper_state["running"] = True
+    scraper_state["stop_requested"] = False
+    scraper_state["start_time"] = time.time()
+    scraper_state["progress"] = {}
+    scraper_state["total_scraped"] = 0
+    scraper_state["total_deduped"] = 0
+    scraper_state["errors"] = 0
+    scraper_state["proc"] = None
+
+    script_path = os.path.join(SCRIPTS, "auto_scrape_combined.py")
+    cmd = [sys.executable, "-u", script_path, "--visible", "--no-process"]
+
+    emit_log("Starting combined scraper: auto_scrape_combined.py", "info")
+    emit_log("  Dubai-wide, <= 2.3M, 2-7 beds, newest first, low-rise filtered", "info")
+
+    # Seed two progress entries (PF + Bayut) for the single Dubai-wide scrape
+    emit_progress("combined_Dubai_pf", {
+        "community": "Dubai (PF)", "source": "PF", "mode": "combined",
+        "status": "queued", "listings": 0, "time": "—"
+    })
+    emit_progress("combined_Dubai_bayut", {
+        "community": "Dubai (Bayut)", "source": "Bayut", "mode": "combined",
+        "status": "queued", "listings": 0, "time": "—"
+    })
+
+    try:
+        proc = subprocess.Popen(
+            cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+            text=True, bufsize=1, cwd=BASE,
+            preexec_fn=os.setsid
+        )
+        scraper_state["proc"] = proc
+
+        current_community = None
+        current_source = None
+
+        for line in iter(proc.stdout.readline, ""):
+            line = line.strip()
+            if not line:
+                continue
+
+            if scraper_state["stop_requested"]:
+                try:
+                    os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+                except (OSError, ProcessLookupError):
+                    proc.terminate()
+                emit_log("Scraper stopped by user", "warn")
+                break
+
+            clean = line
+            if clean.startswith("[") and "]" in clean:
+                clean = clean[clean.index("]") + 1:].strip()
+
+            pf_match = re.match(r'^PF:\s+(.+)$', clean)
+            bayut_match = re.match(r'^Bayut:\s+(.+)$', clean)
+
+            if pf_match:
+                current_source = "PF"
+                current_community = pf_match.group(1).strip()
+                for tid, p in scraper_state["progress"].items():
+                    if p["source"] == "PF" and p["status"] == "queued":
+                        emit_progress(tid, {**p, "status": "running"})
+                        break
+            elif bayut_match:
+                current_source = "Bayut"
+                current_community = bayut_match.group(1).strip()
+                for tid, p in scraper_state["progress"].items():
+                    if p["source"] == "Bayut" and p["status"] == "queued":
+                        emit_progress(tid, {**p, "status": "running"})
+                        break
+            elif "── Property Finder" in clean:
+                current_source = "PF"
+            elif "── Bayut" in clean:
+                current_source = "Bayut"
+
+            # Detect collected counts: "✓ PF Dubai (PF): collected N new/recent listings"
+            collected_match = re.search(r'✓\s+(PF|Bayut)\s+.+?:\s+collected\s+(\d+)', clean)
+            if collected_match:
+                src = collected_match.group(1)
+                count = int(collected_match.group(2))
+                scraper_state["total_scraped"] += count
+                for tid, p in scraper_state["progress"].items():
+                    if p["source"] == src and p["status"] in ("running", "retrying", "captcha"):
+                        emit_progress(tid, {**p, "status": "done", "listings": count})
+                        break
+                emit_stats()
+
+            elif "No __NEXT_DATA__ found" in clean:
+                scraper_state["errors"] += 1
+                emit_alert("error", f"Cookie issue on {current_community or 'PF'}. Auto-retrying...")
+                for tid, p in scraper_state["progress"].items():
+                    if p["status"] == "running":
+                        emit_progress(tid, {**p, "status": "retrying"})
+                        break
+                emit_stats()
+
+            elif "CAPTCHA:WAITING:" in clean:
+                captcha_comm = clean.split("CAPTCHA:WAITING:")[-1].strip()
+                emit_alert("captcha_pause",
+                           f"CAPTCHA detected on {captcha_comm or current_community} — solve it in the browser, then click Continue",
+                           captcha_comm or current_community)
+                for tid, p in scraper_state["progress"].items():
+                    if p["status"] in ("running", "retrying"):
+                        emit_progress(tid, {**p, "status": "captcha"})
+                        break
+
+            elif "CAPTCHA" in clean.upper() and ("detected" in clean.lower() or "🔒" in clean):
+                emit_alert("captcha", "CAPTCHA detected — please solve it in the browser window", current_community)
+                for tid, p in scraper_state["progress"].items():
+                    if p["status"] in ("running", "retrying"):
+                        emit_progress(tid, {**p, "status": "captcha"})
+                        break
+
+            elif "CAPTCHA solved" in clean or "✅" in clean:
+                emit_alert("success", "CAPTCHA solved! Continuing...")
+                for tid, p in scraper_state["progress"].items():
+                    if p["status"] == "captcha":
+                        emit_progress(tid, {**p, "status": "running"})
+                        break
+
+            elif "Continue signal received" in clean:
+                for tid, p in scraper_state["progress"].items():
+                    if p["status"] == "captcha":
+                        emit_progress(tid, {**p, "status": "running"})
+                        break
+
+            elif "✗" in clean and current_source:
+                scraper_state["errors"] += 1
+                emit_stats()
+
+            level = "info"
+            if "✓" in clean or "✅" in clean:
+                level = "ok"
+            elif "✗" in clean or "ERROR" in clean:
+                level = "err"
+            elif "⚠" in clean or "CAPTCHA" in clean.upper() or "warn" in clean.lower():
+                level = "warn"
+            emit_log(clean, level)
+
+        proc.wait()
+
+        # Mark any still-queued/running tasks as done if scrape finished cleanly,
+        # else error if stopped
+        if scraper_state["stop_requested"]:
+            for tid, p in scraper_state["progress"].items():
+                if p["status"] in ("queued", "running"):
+                    emit_progress(tid, {**p, "status": "error"})
+        else:
+            for tid, p in scraper_state["progress"].items():
+                if p["status"] in ("queued", "running"):
+                    emit_progress(tid, {**p, "status": "done"})
+
+        # Run processor (process_combined.py)
+        if not scraper_state["stop_requested"]:
+            proc_path = os.path.join(SCRIPTS, "process_combined.py")
+            emit_log("Running processor: process_combined.py...", "info")
+            proc2 = subprocess.Popen(
+                [sys.executable, "-u", proc_path],
+                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                text=True, cwd=BASE
+            )
+            for line2 in iter(proc2.stdout.readline, ""):
+                line2 = line2.strip()
+                if line2:
+                    emit_log(line2, "ok" if "✓" in line2 else "info")
+            proc2.wait()
+            emit_log("Combined pipeline complete!", "ok")
+
+    except Exception as e:
+        emit_log(f"Combined scraper error: {e}", "err")
+        scraper_state["errors"] += 1
+
+    scraper_state["running"] = False
+    scraper_state["proc"] = None
+    emit_log("All scraping complete!", "ok")
+    socketio.emit("scrape_done", {
+        "total_scraped": scraper_state["total_scraped"],
+        "total_deduped": scraper_state["total_deduped"],
+        "errors": scraper_state["errors"],
+    })
+
+
+@socketio.on("start_scrape_combined")
+def handle_start_combined(_data=None):
+    if scraper_state["running"]:
+        emit("log", {"time": datetime.now().strftime("%H:%M:%S"),
+                     "msg": "Scraper already running!", "level": "warn"})
+        return
+    scraper_state["mode"] = "combined"
+    scraper_state["source"] = "all"
+    thread = threading.Thread(target=run_combined_scraper_thread, daemon=True)
+    thread.start()
+    emit("scrape_started", {"mode": "combined", "source": "all"})
+
+
 @socketio.on("stop_scrape")
 def handle_stop(_data=None):
     scraper_state["stop_requested"] = True

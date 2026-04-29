@@ -207,6 +207,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
       <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Start Scraping
     </button>
+    <button class="btn btn-primary" id="startCombinedBtn" onclick="startCombinedScrape()" style="background:var(--purple)">
+      <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Run Combined Scrape (Dubai-wide)
+    </button>
+    <div style="font-size:9px;color:var(--muted);text-align:center;line-height:1.3;margin-top:-2px">Manual trigger &mdash; Dubai-wide, &le; 2.3M, 2&ndash;7 beds, newest first, low-rise filtered</div>
     <button class="btn btn-danger" id="stopBtn" onclick="stopScrape()" style="display:none">
       <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>
       Stop All
@@ -334,6 +339,7 @@ socket.on('alert', (d) => showAlert(d));
 socket.on('stats', (d) => updateStats(d));
 socket.on('scrape_started', () => {
   document.getElementById('startBtn').style.display = 'none';
+  var cb = document.getElementById('startCombinedBtn'); if (cb) cb.style.display = 'none';
   document.getElementById('stopBtn').style.display = 'flex';
   document.getElementById('statusBadge').className = 'badge badge-run';
   document.getElementById('statusBadge').textContent = 'IN PROGRESS';
@@ -346,6 +352,7 @@ socket.on('scrape_started', () => {
 });
 socket.on('scrape_done', (d) => {
   document.getElementById('startBtn').style.display = 'flex';
+  var cb = document.getElementById('startCombinedBtn'); if (cb) cb.style.display = 'flex';
   document.getElementById('stopBtn').style.display = 'none';
   document.getElementById('statusBadge').className = 'badge badge-done';
   document.getElementById('statusBadge').textContent = 'COMPLETE';
@@ -449,6 +456,13 @@ function startScrape() {
   document.getElementById('progressBody').innerHTML = '<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:16px">Starting...</td></tr>';
   document.getElementById('alertArea').innerHTML = '';
   socket.emit('start_scrape', {mode, source});
+}
+
+function startCombinedScrape() {
+  progressMap = {};
+  document.getElementById('progressBody').innerHTML = '<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:16px">Starting Dubai-wide combined scrape...</td></tr>';
+  document.getElementById('alertArea').innerHTML = '';
+  socket.emit('start_scrape_combined');
 }
 
 function stopScrape() {

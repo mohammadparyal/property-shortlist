@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Dubai Combined Deal Tracker</title>
+<style>
+  :root {
+    --bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--text:#e1e4ed;--muted:#8b8fa3;
+    --green:#22c55e;--green-bg:rgba(34,197,94,.12);--yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);
+    --red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);
+    --gold:#f59e0b;--orange:#f97316;--orange-bg:rgba(249,115,22,.15);
+    --purple:#8b5cf6;--purple-bg:rgba(139,92,246,.12);
+    --header-bg:linear-gradient(135deg,#1a1d27,#0f1117);
+    --bar-track:rgba(255,255,255,.04);--hover-row:rgba(59,130,246,.06);
+    --amber:#d97706;--amber-bg:rgba(217,119,6,.12);
+  }
+  [data-theme="light"]{
+    --bg:#f5f7fa;--card:#fff;--border:#e2e6ed;--text:#1a1d27;--muted:#64748b;
+    --green:#16a34a;--green-bg:rgba(22,163,74,.1);--yellow:#ca8a04;--yellow-bg:rgba(202,138,4,.1);
+    --red:#dc2626;--red-bg:rgba(220,38,38,.1);--blue:#2563eb;--blue-bg:rgba(37,99,235,.08);
+    --gold:#d97706;--orange:#ea580c;--orange-bg:rgba(234,88,12,.1);
+    --purple:#7c3aed;--purple-bg:rgba(124,58,237,.08);
+    --header-bg:linear-gradient(135deg,#fff,#f0f4f8);
+    --bar-track:rgba(0,0,0,.05);--hover-row:rgba(37,99,235,.04);
+    --amber:#b45309;--amber-bg:rgba(180,83,9,.08);
+  }
+  [data-theme="dark"]{
+    --bg:#0f1117;--card:#1a1d27;--border:#2a2d3a;--text:#e1e4ed;--muted:#8b8fa3;
+    --green:#22c55e;--green-bg:rgba(34,197,94,.12);--yellow:#eab308;--yellow-bg:rgba(234,179,8,.12);
+    --red:#ef4444;--red-bg:rgba(239,68,68,.12);--blue:#3b82f6;--blue-bg:rgba(59,130,246,.12);
+    --gold:#f59e0b;--orange:#f97316;--orange-bg:rgba(249,115,22,.15);
+    --purple:#8b5cf6;--purple-bg:rgba(139,92,246,.12);
+    --header-bg:linear-gradient(135deg,#1a1d27,#0f1117);
+    --bar-track:rgba(255,255,255,.04);--hover-row:rgba(59,130,246,.06);
+    --amber:#d97706;--amber-bg:rgba(217,119,6,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .3s,color .3s}
+
+  /* Header */
+  .header{background:var(--header-bg);border-bottom:1px solid var(--border);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .header-left h1{font-size:16px;font-weight:700} .header-left h1 span{color:var(--purple)}
+  .header-left .sub{color:var(--muted);font-size:10px;margin-top:1px}
+  .header-left .upd{color:var(--blue);font-size:10px;margin-top:1px}
+  .hdr-actions{margin-left:auto;display:flex;gap:6px;align-items:center}
+  .hdr-actions a,.hdr-actions button{padding:4px 10px;border-radius:5px;font-size:10px;font-weight:600;text-decoration:none;border:1px solid var(--border);background:var(--card);color:var(--text);cursor:pointer;transition:all .2s;white-space:nowrap}
+  .hdr-actions .nav-villa{border-color:var(--blue);color:var(--blue);background:var(--blue-bg)}
+  .hdr-actions .nav-villa:hover{background:var(--blue);color:#fff}
+  .hdr-actions .nav-apt{border-color:var(--green);color:var(--green);background:var(--green-bg)}
+  .hdr-actions .nav-apt:hover{background:var(--green);color:#fff}
+  .hdr-actions .theme-btn:hover{border-color:var(--purple)}
+
+  /* Stats */
+  .stats{display:flex;gap:6px;padding:8px 24px;flex-wrap:wrap}
+  .st{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:6px 12px;flex:1;min-width:85px;display:flex;align-items:center;gap:7px}
+  .st .ico{font-size:14px;opacity:.65}
+  .st .lbl{color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.3px}
+  .st .val{font-size:16px;font-weight:700;line-height:1.1}
+  .st .sub{color:var(--muted);font-size:9px;line-height:1.2;margin-top:1px}
+
+  /* Toolbar */
+  .toolbar{display:flex;align-items:center;gap:8px;padding:6px 24px;flex-wrap:wrap}
+  .search-box{background:var(--card);border:1px solid var(--border);border-radius:5px;padding:5px 10px;color:var(--text);font-size:11px;width:220px;outline:none}
+  .search-box:focus{border-color:var(--purple)}
+  .rcnt{font-size:10px;color:var(--muted)}
+  .toggle-row{display:flex;align-items:center;gap:14px;font-size:10px;color:var(--muted)}
+  .toggle-row label{display:flex;align-items:center;gap:5px;cursor:pointer}
+  .toggle-row input{accent-color:var(--purple)}
+
+  /* Filters */
+  .filters{display:flex;gap:4px;flex-wrap:wrap;padding:2px 24px 6px;align-items:center}
+  .filt-group{display:inline-flex;gap:4px;align-items:center;margin-right:10px}
+  .filt-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.3px;margin-right:4px}
+  .fbtn{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:3px 10px;color:var(--muted);font-size:10px;cursor:pointer;transition:all .2s;white-space:nowrap}
+  .fbtn:hover{border-color:var(--purple);color:var(--text)}
+  .fbtn.active{background:var(--purple-bg);border-color:var(--purple);color:var(--purple);font-weight:600}
+
+  /* Table */
+  .tw{padding:0 24px 16px;overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:11px}
+  thead th{text-align:left;padding:6px 6px;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:.3px;border-bottom:2px solid var(--border);white-space:nowrap;position:sticky;top:0;background:var(--bg);z-index:2;user-select:none}
+  thead th.sortable{cursor:pointer} thead th.sortable:hover{color:var(--text)}
+  thead th .sa{font-size:8px;margin-left:2px;opacity:.4}
+  thead th.sort-active{color:var(--purple)} thead th.sort-active .sa{opacity:1;color:var(--purple)}
+  tbody tr{border-bottom:1px solid var(--border);transition:background .12s}
+  tbody tr:hover{background:var(--hover-row)}
+  tbody tr.removed{opacity:.55}
+  td{padding:5px 6px;vertical-align:middle}
+
+  .cn{font-weight:600;font-size:11px} .cl{color:var(--muted);font-size:9px}
+  .pm{font-weight:700;font-size:12px}
+
+  .ptype{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px}
+  .ptype-apartment{background:var(--blue-bg);color:var(--blue)}
+  .ptype-villa{background:var(--green-bg);color:var(--green)}
+  .ptype-townhouse{background:var(--amber-bg);color:var(--amber)}
+
+  .src{display:inline-block;padding:2px 5px;border-radius:3px;font-size:9px;font-weight:600}
+  .src-b{background:rgba(239,68,68,.12);color:var(--red)} .src-p{background:rgba(139,92,246,.12);color:var(--purple)}
+
+  .devbadge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:700;color:#fff;cursor:pointer}
+  .devbadge:hover{opacity:.85}
+  .lowconf{font-size:9px;color:var(--muted);margin-left:2px}
+
+  .stdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .stdot-active{background:var(--green)}
+  .stdot-removed{background:var(--red)}
+  .stdot-hidden{background:var(--muted)}
+  .stlabel{font-size:9px}
+
+  .hide-btn{background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;font-size:11px;padding:1px 6px;border-radius:3px;line-height:1;transition:all .15s}
+  .hide-btn:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
+  .unhide-btn{background:none;border:1px solid var(--border);color:var(--blue);cursor:pointer;font-size:9px;padding:1px 5px;border-radius:3px;transition:all .15s}
+  .unhide-btn:hover{background:var(--blue-bg)}
+
+  a.lnk{color:var(--purple);text-decoration:none;font-size:10px;font-weight:600} a.lnk:hover{text-decoration:underline}
+  .footer{text-align:center;padding:16px;color:var(--muted);font-size:9px;border-top:1px solid var(--border);margin-top:10px}
+
+  @media(max-width:900px){
+    .header,.stats,.toolbar,.filters,.tw{padding-left:10px;padding-right:10px}
+    .st{min-width:70px;padding:4px 8px} .st .val{font-size:13px}
+    table{font-size:10px} td,th{padding:4px 3px}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <h1>Dubai <span>Combined</span> Deal Tracker</h1>
+    <div class="sub">Apartments + Villas + Townhouses &middot; Dubai-wide &middot; &le; AED 2.3M &middot; 2&ndash;7+ beds &middot; newest first</div>
+    <div class="upd" id="lastUpdated"></div>
+  </div>
+  <div class="hdr-actions">
+    <a href="index.html" class="nav-villa">Villa Tracker</a>
+    <a href="apartments.html" class="nav-apt">Apartment Tracker</a>
+    <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">&#9790;</button>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="st"><div class="ico">&#128202;</div><div><div class="lbl">Active</div><div class="val" style="color:var(--green)" id="sActive">0</div></div></div>
+  <div class="st"><div class="ico">&#128465;</div><div><div class="lbl">Removed</div><div class="val" style="color:var(--red)" id="sRemoved">0</div></div></div>
+  <div class="st"><div class="ico">&#11088;</div><div><div class="lbl">Premium dev (T1)</div><div class="val" style="color:var(--gold)" id="sT1">0</div></div></div>
+  <div class="st"><div class="ico">&#127968;</div><div><div class="lbl">By type</div><div class="val" style="color:var(--purple);font-size:12px" id="sByType">&mdash;</div><div class="sub">Apt / Villa / TH</div></div></div>
+</div>
+
+<div class="toolbar">
+  <input type="text" class="search-box" id="sBox" placeholder="Search community, cluster, title, dev...">
+  <span class="rcnt" id="rCnt"></span>
+  <div class="toggle-row" style="margin-left:auto">
+    <label><input type="checkbox" id="showRemoved" onchange="rT()"> Show removed listings</label>
+    <label><input type="checkbox" id="showHidden" onchange="rT()"> Show hidden listings</label>
+  </div>
+</div>
+
+<div class="filters" id="fBar">
+  <div class="filt-group">
+    <span class="filt-lbl">Type</span>
+    <button class="fbtn active" data-type="all" onclick="fType('all')">All</button>
+    <button class="fbtn" data-type="apartment" onclick="fType('apartment')">Apartment</button>
+    <button class="fbtn" data-type="villa" onclick="fType('villa')">Villa</button>
+    <button class="fbtn" data-type="townhouse" onclick="fType('townhouse')">Townhouse</button>
+  </div>
+  <div class="filt-group">
+    <span class="filt-lbl">Dev tier</span>
+    <button class="fbtn active" data-tier="all" onclick="fTier('all')">All</button>
+    <button class="fbtn" data-tier="1" onclick="fTier('1')">Premium</button>
+    <button class="fbtn" data-tier="2" onclick="fTier('2')">Established</button>
+    <button class="fbtn" data-tier="3" onclick="fTier('3')">Mid-tier</button>
+  </div>
+  <div class="filt-group">
+    <select id="bedsFilter" onchange="rT()" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;">
+      <option value="all">All Beds</option>
+      <option value="2">2 Beds</option>
+      <option value="3">3 Beds</option>
+      <option value="4">4 Beds</option>
+      <option value="5">5 Beds</option>
+      <option value="6">6 Beds</option>
+      <option value="7">7+ Beds</option>
+    </select>
+    <select id="sizeFilter" onchange="rT()" style="background:var(--card);border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:6px;font-size:11px;cursor:pointer;">
+      <option value="all">All Sizes</option>
+      <option value="0-1500">Under 1,500 sqft</option>
+      <option value="1500-2000">1,500&ndash;2,000 sqft</option>
+      <option value="2000-2500">2,000&ndash;2,500 sqft</option>
+      <option value="2500-3000">2,500&ndash;3,000 sqft</option>
+      <option value="3000+">3,000+ sqft</option>
+    </select>
+  </div>
+</div>
+
+<div class="tw">
+  <table>
+    <thead><tr>
+      <th class="sortable sort-active" data-sort="listed" onclick="sB('listed')">Listed <span class="sa">&#9660;</span></th>
+      <th>Type</th>
+      <th class="sortable" data-sort="community" onclick="sB('community')">Community <span class="sa">&#9660;</span></th>
+      <th>Cluster</th>
+      <th class="sortable" data-sort="dev" onclick="sB('dev')">Dev <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="beds" onclick="sB('beds')">Beds <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="sqft" onclick="sB('sqft')">Size <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="price" onclick="sB('price')">Price <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="psf" onclick="sB('psf')">PSF <span class="sa">&#9660;</span></th>
+      <th class="sortable" data-sort="source" onclick="sB('source')">Source <span class="sa">&#9660;</span></th>
+      <th>Status</th>
+      <th>Hide</th>
+      <th>Link</th>
+    </tr></thead>
+    <tbody id="tB"></tbody>
+  </table>
+</div>
+
+<div class="footer">Dubai Combined Deal Tracker &mdash; Dubai-wide &mdash; Apartments + Villas + Townhouses &mdash; Playwright</div>
+
+<script>
+const DATA = {"last_updated": "2026-04-29", "total_active": 86, "total_removed": 22, "tiers": {"1": {"label": "Premium", "color": "#fbbf24"}, "2": {"label": "Established", "color": "#3b82f6"}, "3": {"label": "Mid-tier", "color": "#9ca3af"}}, "listings": [{"uid": "pf-V7RC39TZVYGDMCXGWWE8R16WJW", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-pacifica-82791548.html", "price": 1750000, "beds": 3, "baths": 5, "sqft": 1889, "psf": 926, "cluster": "Pacifica", "community": "Damac Hills 2", "title": "Elegant 3BR + Maid Townhouse | Ready to Move", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-AP24985-15", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-14-eleganz-by-danube-82791355.html", "price": 2200000, "beds": 2, "baths": 3, "sqft": 1343, "psf": 1638, "cluster": "Eleganz by Danube", "community": "District 14", "title": "For Sale - Luxury 2BR+M | BNB Income | High ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Danube", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-AP24774-19", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-muhaisnah-madinat-badr-qamar-9-82791168.html", "price": 2199999, "beds": 2, "baths": 2, "sqft": 1399, "psf": 1573, "cluster": "Qamar 9", "community": "Madinat Badr", "title": "Open View | 2BR + Maid |  Spacious Layout", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-101708-w3fa-RUM-S-X2-PM", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-15-seasons-community-summer-82791072.html", "price": 1150000, "beds": 2, "baths": 3, "sqft": 1190, "psf": 966, "cluster": "Summer", "community": "Seasons Community", "title": "Open Plan Layout | Family Home | Prime Area", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-E3KFTVSNEFZSKJRFC2S96747VW", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-rabdan-building-82790940.html", "price": 1400000, "beds": 2, "baths": 3, "sqft": 1204, "psf": 1163, "cluster": "Rabdan Building", "community": "Motor City", "title": "Turnkey | Prime Location | Steps to Mall |View Now", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-DREL-7918", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-rukan-rukan-3-82790974.html", "price": 2280000, "beds": 3, "baths": 5, "sqft": 1138, "psf": 2004, "cluster": "Rukan 3", "community": "Rukan", "title": "Negotiable | Upgraded | Park Facing", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-W-049M5F", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-11-oakley-square-residences-82790900.html", "price": 2200000, "beds": 2, "baths": 3, "sqft": 1123, "psf": 1959, "cluster": "Oakley Square Residences", "community": "District 11", "title": "Exclusive Fully Furnished | Pool View | VOT", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-YW4V7MM5760KD277245BYFBMCR", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-liwan-queue-point-mazaya-25-82790860.html", "price": 850000, "beds": 2, "baths": 3, "sqft": 953, "psf": 892, "cluster": "Mazaya 25", "community": "Queue Point", "title": "2 BR Apartment | Ready to Move | Covered Parking", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-HB2TK2QK2MKE7ADSAPA36X2P5C", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-emaar-south-dubai-south-dubai-world-central-urbana-stacked-house-block-03-82790844.html", "price": 1649000, "beds": 2, "baths": 2, "sqft": 1302, "psf": 1267, "cluster": "Urbana Stacked House Block 03", "community": "EMAAR South", "title": "2-Bedroom End Unit | Tenanted | Call Now", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Emaar", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-8DHRWS1M57TCSQ6FKF942R8204", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-ras-al-khor-ras-al-khor-industrial-sobha-one-82790650.html", "price": 2099999, "beds": 2, "baths": 3, "sqft": 1262, "psf": 1664, "cluster": "Sobha One", "community": "Ras Al Khor Industrial", "title": "URGENT SALE | 15% BELOW OP | HIGH FLOOR | RAK VIEW", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Sobha", "dev_tier": 1, "dev_match_field": "cluster"}, {"uid": "pf-H4L-3623112", "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-damac-hills-2-violet-82790638.html", "price": 2250000, "beds": 4, "baths": 4, "sqft": 1214, "psf": 1853, "cluster": "Violet", "community": "Damac Hills 2", "title": "For Sale \u2013 4BR Villa | Violet 3, DAMAC Hills 2", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "villa", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-AP8147", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-12-belgravia-heights-belgravia-heights-2-82790595.html", "price": 2100000, "beds": 2, "baths": 3, "sqft": 1206, "psf": 1741, "cluster": "Belgravia Heights 2", "community": "Belgravia Heights", "title": "2BR | Unfurnished-Fitted Kitchen | Only For Buyers", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-BI-S-20-3421", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-creek-harbour-the-lagoons-17-icon-bay-82790223.html", "price": 1900000, "beds": 2, "baths": 2, "sqft": 100, "psf": 19000, "cluster": "17 Icon Bay", "community": "Dubai Creek Harbour (The Lagoons)", "title": "Beautiful amazing Brand New Specious", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Emaar", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-IRE-RKG2025-S13-E", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-the-haven-ii-82789987.html", "price": 1500000, "beds": 2, "baths": 2, "sqft": 1089, "psf": 1377, "cluster": "The Haven II", "community": "Majan", "title": "Park View | Semi-Furnished | Vastu Compliance", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-DREL-8009", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-investment-park-dip-dubai-investment-park-2-dip-2-damac-riverside-sage-82789875.html", "price": 2200000, "beds": 4, "baths": 3, "sqft": 1550, "psf": 1419, "cluster": "Damac Riverside - Sage", "community": "Dubai Investment Park 2 (DIP 2)", "title": "Below OP | Payment Plan | Negotiable", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "cluster"}, {"uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-143136", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-rabdan-building-82789804.html", "price": 1455133, "beds": 2, "baths": 3, "sqft": 1176, "psf": 1237, "cluster": "Rabdan Building", "community": "Motor City", "title": "Immediate Returns | Rented Unit For Investors", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-143168", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-rabdan-building-82789724.html", "price": 1424305, "beds": 2, "baths": 3, "sqft": 1199, "psf": 1188, "cluster": "Rabdan Building", "community": "Motor City", "title": "Vacant Unit |  Great Location  | 2 Bedroom", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-reportage_2bed_hanane", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-reportage-village-reportage-village-1-82789648.html", "price": 1115000, "beds": 2, "baths": 3, "sqft": 947, "psf": 1177, "cluster": "Reportage Village 1", "community": "Reportage Village", "title": "2BR Townhouse | Best Deal | Prime Location Value", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Reportage", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "pf-OGY_B38GSR0KRRD6T69XR4RQ0J6TZ4", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-almaara-residences-82789513.html", "price": 2000000, "beds": 3, "baths": 4, "sqft": 1740, "psf": 1149, "cluster": "ALmaara Residences", "community": "Al Furjan", "title": "CHEAPEST 3BHK IN FURJAN | 30\\70 PP | READY SEP. 26", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-lagovistasale_sm", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-production-city-impz-lago-vista-lago-vista-a-82789268.html", "price": 1100000, "beds": 2, "baths": 2, "sqft": 1378, "psf": 798, "cluster": "Lago Vista A", "community": "Lago Vista", "title": "Good Investment | High ROI | Good Location", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-A0N3W3W8G5Y95J9AT55N1HN3P0", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-dubai-land-residence-complex-reef-998-82789159.html", "price": 1790000, "beds": 3, "baths": 4, "sqft": 1397, "psf": 1281, "cluster": "Reef 998", "community": "Dubai Land Residence Complex", "title": "No Commission |  Cash /air-conditioned  balcony", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-9SK18ZSWG6Y8QY0VGEMKD5S3GC", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-15-binghatti-gate-82789124.html", "price": 1100000, "beds": 2, "baths": 3, "sqft": 960, "psf": 1146, "cluster": "Binghatti Gate", "community": "District 15", "title": "Vacant I Ready I Prime Location I Unfurnished", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-ARTA_GREENS", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-greens-al-arta-al-arta-2-82788929.html", "price": 2300000, "beds": 2, "baths": 2, "sqft": 1305, "psf": 1762, "cluster": "Al Arta 2", "community": "Al Arta", "title": "Best Priced Large 2BR |High Floor |Pool,Park Views", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-BF4TV3RQ5FGZHVYVWA06P0TPXM", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-kappa-acca-1-82788897.html", "price": 1050000, "beds": 2, "baths": 2, "sqft": 935, "psf": 1123, "cluster": "Kappa Acca 1", "community": "Dubai South (Dubai World Central)", "title": "Investment Opportunity | Good ROI | Prime Location", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-ALAN202-SELL", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-camelia-82788660.html", "price": 2200000, "beds": 3, "baths": 4, "sqft": 1812, "psf": 1214, "cluster": "Camelia", "community": "Damac Hills 2", "title": "EUROPEAN STYLED-SINGLE ROW-CORNER-L-SHAPED GARDEN", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-S-TIERONE475", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-investment-park-dip-green-community-green-community-west-northwest-garden-apartments-northwest-apartments-7-82788656.html", "price": 2000000, "beds": 2, "baths": 3, "sqft": 1548, "psf": 1292, "cluster": "Northwest Apartments 7", "community": "Northwest Garden Apartments", "title": "Tenanted | Renovated | Spacious", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-SM RJFT14WBCXVQH3XBYS5NKH00RR", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-sufouh-the-biltmore-residences-82788458.html", "price": 2200000, "beds": 2, "baths": 3, "sqft": 1322, "psf": 1664, "cluster": "THE BILTMORE RESIDENCES", "community": "Al Sufouh", "title": "25% OFF NOW!_READY VIEWING_LAST CHEAPEST 2BR LEFT", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-1JAP2H8MWYJHW28WZV0BFEA85W", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-bali-at-damac-islands-82788454.html", "price": 2299888, "beds": 4, "baths": 3, "sqft": 2208, "psf": 1042, "cluster": "Bali at Damac Islands", "community": "DAMAC Islands", "title": "Vastu+Partial Canal View+Single Row", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "cluster"}, {"uid": "pf-S-KP-2412", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-11-terrazzo-residences-82788361.html", "price": 1820000, "beds": 2, "baths": 3, "sqft": 1178, "psf": 1545, "cluster": "Terrazzo Residences", "community": "District 11", "title": "2 Bedroom | Boutique Living | Prime JVC Location", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-XY0AZ1A5E0VFPE0G2BRH0W8M98", "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-reportage-village-reportage-village-1-82788213.html", "price": 2300000, "beds": 4, "baths": 5, "sqft": 947, "psf": 2429, "cluster": "Reportage Village 1", "community": "Reportage Village", "title": "On The Park | Strong Rental Demand | Single Row", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "villa", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Reportage", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "pf-93SFQZ0FXT9TR6QVS52S18CE94", "href": "https://www.propertyfinder.ae/en/plp/buy/villa-for-sale-dubai-dubai-land-reportage-village-reportage-village-1-82788174.html", "price": 1700000, "beds": 2, "baths": 3, "sqft": 947, "psf": 1795, "cluster": "Reportage Village 1", "community": "Reportage Village", "title": "On The Park | Single Row | Great Deal | Book Now", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "villa", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Reportage", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "pf-ML21-915", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-reportage-village-reportage-village-1-82788158.html", "price": 1300000, "beds": 2, "baths": 3, "sqft": 1145, "psf": 1135, "cluster": "Reportage Village 1", "community": "Reportage Village", "title": "Resale Opportunity | Perfect for Family | High-ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Reportage", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "pf-PF-Apr-Twenty-Nine-Twenty-Six-AS-168327", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-south-garden-south-garden-e-82787992.html", "price": 1799999, "beds": 2, "baths": 2, "sqft": 1153, "psf": 1561, "cluster": "South Garden E", "community": "South Garden", "title": "Motivated Seller, Best Deal, Payment Plan", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-C0D29J01ZK5V6ZR4B2AM772MS8", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-twilight-by-binghatti-82788028.html", "price": 1219980, "beds": 2, "baths": 3, "sqft": 1073, "psf": 1137, "cluster": "Twilight by Binghatti", "community": "Al Jaddaf", "title": "Practical Living | Central Reach | High Occupancy", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-KZMWSWA79QPRRH9W3W0MV0K52G", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-town-square-safi-safi-1-safi-1b-82787687.html", "price": 1150000, "beds": 2, "baths": 2, "sqft": 881, "psf": 1305, "cluster": "SAFI 1B", "community": "Safi 1", "title": "Rented, Lovely open views, Low floor", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-ES-39719", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-silicon-oasis-the-hillgate-82787632.html", "price": 2062828, "beds": 2, "baths": 3, "sqft": 1247, "psf": 1654, "cluster": "The Hillgate", "community": "Dubai Silicon Oasis", "title": "2 BR | Ellington | Ideal for Investors", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Ellington", "dev_tier": 2, "dev_match_field": "title"}, {"uid": "pf-CPR1654", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-sanctnary-aurum-villas-82787572.html", "price": 1585000, "beds": 3, "baths": 5, "sqft": 1881, "psf": 843, "cluster": "Aurum Villas", "community": "Sanctnary", "title": "3BR Townhouse | Garden | Maid | Damac Hills 2", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "title"}, {"uid": "pf-5EW9NVS0QKGEJQW4NC70K7MYQW", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-dubai-land-damac-islands-bali-at-damac-islands-82787465.html", "price": 2299888, "beds": 4, "baths": 3, "sqft": 2208, "psf": 1042, "cluster": "Bali at Damac Islands", "community": "DAMAC Islands", "title": "Vastu+ Single Row+ Partial Canal View", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "cluster"}, {"uid": "pf-YEJR5P98SR00W7QHECYP07TMTM", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-twilight-by-binghatti-82787463.html", "price": 1219980, "beds": 2, "baths": 3, "sqft": 1286, "psf": 949, "cluster": "Twilight by Binghatti", "community": "Al Jaddaf", "title": "Urban Core Location | Smart Planning | Stable Cash", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-7372TA0QJVWSYC04RVSQT5ZWT8", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-beach-residence-bahar-bahar-1-82787353.html", "price": 2000000, "beds": 2, "baths": 3, "sqft": 1300, "psf": 1538, "cluster": "Bahar 1", "community": "Bahar", "title": "High Floor\u23d0Partly Sea and Marina Views\u23d0Tenanted", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-594-25383095", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-elite-residence-82787270.html", "price": 2100000, "beds": 2, "baths": 2, "sqft": 1331, "psf": 1578, "cluster": "Elite Residence", "community": "Dubai Marina", "title": "High Floor | Sea View  | Partially upgraded", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-Z5V7KVMJBJ23EKDTY4651KH884", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-damac-hills-2-elo-elo-2-82787260.html", "price": 860000, "beds": 2, "baths": 2, "sqft": 802, "psf": 1072, "cluster": "Elo 2", "community": "Elo", "title": "Sale Low Than OP | Best Location | 2 BHK", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-BRE-S-AVAZ-007", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-zazen-ivy-82787226.html", "price": 2200000, "beds": 2, "baths": 3, "sqft": 1370, "psf": 1606, "cluster": "Zazen Ivy", "community": "Al Furjan", "title": "Premium Luxury | Handover Soon | Prime Location", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-J61P93RNXV9KJHYQZ147WJSMHW", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-boulevard-park-boulevard-park-1-82787159.html", "price": 2205000, "beds": 2, "baths": 3, "sqft": 1294, "psf": 1704, "cluster": "Boulevard Park 1", "community": "Boulevard Park", "title": "Investor Deal | Park Facing | Premium 2 Bed", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-RL-199012", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-vardon-aknan-villas-82787058.html", "price": 1300000, "beds": 3, "baths": 3, "sqft": 1668, "psf": 779, "cluster": "Aknan Villas", "community": "Vardon", "title": "Owner Occupied | Upgraded | 3 Bedroom TH", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-AP22204", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-silicon-oasis-the-eighty-eight-82786975.html", "price": 1937760, "beds": 2, "baths": 3, "sqft": 1614, "psf": 1201, "cluster": "The Eighty Eight", "community": "Dubai Silicon Oasis", "title": "25%DP 75% Over 5Yrs | DLD fees covered by the seller", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-FNY8PA7DFZJQH50AWK5TFKFDM8", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-14-provenza-residences-82786853.html", "price": 1490000, "beds": 2, "baths": 3, "sqft": 1192, "psf": 1250, "cluster": "Provenza Residences", "community": "District 14", "title": "No Commission \\ HOT LIMITED OFFER_LAST UNITS\\CASH", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-5W60HQHAFCQH7J61YEX8243H18", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-warsan-al-warsan-1-ayami-residence-82786736.html", "price": 1350900, "beds": 2, "baths": 3, "sqft": 1151, "psf": 1174, "cluster": "Ayami Residence", "community": "Al Warsan 1", "title": "Freehold Unit /Brand New/Modern 2BHK | Balcony", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-LPH-S-463046", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-windsor-house-2-82786751.html", "price": 2149828, "beds": 2, "baths": 3, "sqft": 1131, "psf": 1901, "cluster": "Windsor House 2", "community": "Dubai South (Dubai World Central)", "title": "Prime Unit | 50/50 Plan | Investor Deal", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-PSXY0298A213W62SGB242RQMM8", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-boulevard-park-boulevard-park-1-82786721.html", "price": 2160000, "beds": 2, "baths": 3, "sqft": 1352, "psf": 1598, "cluster": "Boulevard Park 1", "community": "Boulevard Park", "title": "Park Facing | Prime Location | Luxury 2 Bed", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-dav -PXE4ACQNTN1D7SXQXBJ0EXDN9M", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-13-levanto-by-oro24-82786564.html", "price": 1700000, "beds": 3, "baths": 4, "sqft": 1289, "psf": 1319, "cluster": "Levanto By Oro24", "community": "District 13", "title": "High-Floor | Good Investment | Pool & City Views", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-AQ-S-26-00475", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-the-central-downtown-the-central-downtown-d-82786508.html", "price": 1499999, "beds": 2, "baths": 2, "sqft": 1118, "psf": 1342, "cluster": "The Central Downtown D", "community": "The Central Downtown", "title": "Luxury Living l Premium Finish l Spacious", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-45731-AP-S-0703", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-business-bay-regalia-by-deyaar-82786426.html", "price": 2250000, "beds": 2, "baths": 3, "sqft": 1179, "psf": 1908, "cluster": "Regalia By Deyaar", "community": "Business Bay", "title": "High Floor Living | Prime Location | Handover Soon", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Deyaar", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "pf-LDR-A-S-422", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-urbana-urbana-1-block-11-82786234.html", "price": 1430000, "beds": 2, "baths": 2, "sqft": 1210, "psf": 1182, "cluster": "Block 11", "community": "Urbana 1", "title": "Hot Deal | Unfurnished | Stacked House", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-583-25383095", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-elite-residence-82786226.html", "price": 2100000, "beds": 2, "baths": 2, "sqft": 1331, "psf": 1578, "cluster": "Elite Residence", "community": "Dubai Marina", "title": "High Floor | Vacant | Fully Furnished", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-4HT1Q1RSYNA5DCBJN5FCK9SEVR", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-binghatti-pinnacle-82785998.html", "price": 2000000, "beds": 2, "baths": 3, "sqft": 1067, "psf": 1874, "cluster": "Binghatti Pinnacle", "community": "Al Jaddaf", "title": "Ready Soon | Special Promotional Price |CASH", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-VAR-RL-S-3BR-DOM", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-vardon-aknan-villas-82785881.html", "price": 1275000, "beds": 3, "baths": 3, "sqft": 1670, "psf": 763, "cluster": "Aknan Villas", "community": "Vardon", "title": "Motivated Seller | Rented | Genuine Resale", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-DREL-7958", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-affini-tribute-portfolio-residences-82785516.html", "price": 2300000, "beds": 2, "baths": 2, "sqft": 1165, "psf": 1974, "cluster": "Affini Tribute Portfolio Residences", "community": "Al Jaddaf", "title": "Burj Khalifa Views | Marriott Branded Residences", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-ARZ-S-5800-1", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-marina-marina-diamonds-marina-diamond-6-82785469.html", "price": 1550000, "beds": 2, "baths": 2, "sqft": 1084, "psf": 1430, "cluster": "Marina Diamond 6", "community": "Marina Diamonds", "title": "VACANT | Motivated Seller|Renovated |Near to Metro", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-laforet-603", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-science-park-skyhills-residences-skyhills-residences-1-82785414.html", "price": 1600000, "beds": 2, "baths": 2, "sqft": 1284, "psf": 1246, "cluster": "Skyhills Residences 1", "community": "Skyhills Residences", "title": "Spacious 2BR Apartment in Skyhills Residences", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-MKT260347", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-avenew-888-modo-at-avenew-888-82784983.html", "price": 2199000, "beds": 3, "baths": 3, "sqft": 1291, "psf": 1703, "cluster": "Modo at Avenew 888", "community": "Avenew 888", "title": "Genuine Resale | Pool Facing | Agent\u2019s Welcome", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-RL-183506", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-business-bay-damac-maison-cour-jardin-82784511.html", "price": 1800000, "beds": 2, "baths": 3, "sqft": 1290, "psf": 1395, "cluster": "Damac Maison Cour Jardin", "community": "Business Bay", "title": "High ROI | Fully Furnished | 2 Bedroom", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "cluster"}, {"uid": "pf-PF-4799-HkaneZ1", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-town-square-rawda-apartments-rawda-apartments-2-82784033.html", "price": 1600000, "beds": 2, "baths": 2, "sqft": 1596, "psf": 1003, "cluster": "Rawda Apartments 2", "community": "Rawda Apartments", "title": "2BR + Large Terrace | 7% ROI | Parkside Living", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-LRE-S-226733", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-town-square-symphony-on-the-park-82783980.html", "price": 1350000, "beds": 2, "baths": 2, "sqft": 925, "psf": 1459, "cluster": "Symphony On The Park", "community": "Town Square", "title": "Corner unit | Pool view | Spacious | HO soon", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Nshama", "dev_tier": 2, "dev_match_field": "community"}, {"uid": "pf-1028201665821", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-taiyo-residences-82783882.html", "price": 1400000, "beds": 2, "baths": 3, "sqft": 1007, "psf": 1390, "cluster": "Taiyo Residences", "community": "Wasl Gate", "title": "Amazing Deal | Prime Location | High ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-RL-213551", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-the-haven-residences-82783946.html", "price": 1950000, "beds": 2, "baths": 3, "sqft": 1158, "psf": 1684, "cluster": "The Haven Residences", "community": "District 10", "title": "Full Upgrade | High Rent |Great Investment", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-DVA11JCDM73XF1J8227N9Y855R", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-al-thamam-al-thamam-26-82783863.html", "price": 1300000, "beds": 2, "baths": 2, "sqft": 1133, "psf": 1147, "cluster": "Al Thamam 26", "community": "Al Thamam", "title": "Exclusive I Closed Kitchen I Vacant on Transfer", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-SkyView-32571", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-nadd-al-hammar-myra-onyx-82783717.html", "price": 1530000, "beds": 2, "baths": 2, "sqft": 1352, "psf": 1132, "cluster": "Myra Onyx", "community": "Nadd Al Hammar", "title": "Mortgage Friendly 20/80 | Pool View | Chiller Free", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-SkyView-32594", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-land-amethyst-by-siroya-82783592.html", "price": 1399999, "beds": 2, "baths": 3, "sqft": 974, "psf": 1437, "cluster": "Amethyst by Siroya", "community": "Majan", "title": "Cheapest | Chiller-free | Handover Soon | Majan", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-BG1DANXHTJMCT0HEF1ASNPC9EG", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-boulevard-park-boulevard-park-2-82783257.html", "price": 2282000, "beds": 2, "baths": 3, "sqft": 1295, "psf": 1762, "cluster": "Boulevard Park 2", "community": "Boulevard Park", "title": "Prime Location | High ROI | Luxury Living", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-AP7990", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-15-binghatti-onyx-82783254.html", "price": 2250000, "beds": 2, "baths": 2, "sqft": 1724, "psf": 1305, "cluster": "Binghatti Onyx", "community": "District 15", "title": "Private Pool | Marina + Burj Al Arab View | VOT", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-MCC-S-52613-1", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-golf-dale-82783195.html", "price": 2150000, "beds": 2, "baths": 2, "sqft": 1394, "psf": 1542, "cluster": "Golf Dale", "community": "EMAAR South", "title": "Golf-Front Living | Motivated | Prime Location", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Emaar", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "pf-AP22200", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-silicon-oasis-the-eighty-eight-82783114.html", "price": 1562789, "beds": 2, "baths": 3, "sqft": 1302, "psf": 1200, "cluster": "The Eighty Eight", "community": "Dubai Silicon Oasis", "title": "75% Over 5 Years | DLD fees covered by the Seller", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-UberHomes-1397", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-wasl-gate-the-nook-the-nook-1-82782974.html", "price": 1140000, "beds": 2, "baths": 1, "sqft": 727, "psf": 1568, "cluster": "The Nook 1", "community": "The Nook", "title": "Fully Furnished | High Floor | Spacious Balcony", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-PS-2804262", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-amazonia-amazonia-ex-82782970.html", "price": 1650000, "beds": 3, "baths": 3, "sqft": 1560, "psf": 1058, "cluster": "Amazonia EX", "community": "Amazonia", "title": "Single Row Corner Unit | Upgraded | Park View", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-Huaxia-S-3695179090", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-triangle-district-4-fashionz-by-danube-82782930.html", "price": 1850000, "beds": 2, "baths": 3, "sqft": 1070, "psf": 1729, "cluster": "Fashionz by Danube", "community": "District 4", "title": "Off-Plan 2BR | Post Handover Plan | High ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Danube", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-MCC-S-52680-2", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-the-pulse-the-pulse-townhouses-the-pulse-townhouses-cluster-34-82782952.html", "price": 2150000, "beds": 2, "baths": 3, "sqft": 1866, "psf": 1152, "cluster": "The Pulse Townhouses Cluster 34", "community": "The Pulse Townhouses", "title": "Vacant | Spacious Layout | Rare Find", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-cereb-16844", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-investment-park-dip-verdana-verdana-5-82782901.html", "price": 810000, "beds": 3, "baths": 4, "sqft": 1692, "psf": 479, "cluster": "Verdana 5", "community": "Verdana", "title": "Up to 15% OFF|3BR Apartment from AED 810K|High ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-MCC-S-51915-2", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-south-living-82782771.html", "price": 2200000, "beds": 3, "baths": 4, "sqft": 1675, "psf": 1313, "cluster": "South Living", "community": "Dubai South (Dubai World Central)", "title": "Best Price | Pool Facing | Payment Plan", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-HW89N01FJAZ9W3P7HSPA9QM1Q0", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-furjan-gemz-by-danube-82782678.html", "price": 2023000, "beds": 2, "baths": 3, "sqft": 1445, "psf": 1400, "cluster": "Gemz by Danube", "community": "Al Furjan", "title": "Premium 2 BR | Modern Interior | High ROI", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Danube", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "pf-SP-S-6503", "href": "https://www.propertyfinder.ae/en/plp/buy/townhouse-for-sale-dubai-damac-hills-2-violet-violet-4-82782670.html", "price": 1650000, "beds": 4, "baths": 4, "sqft": 1208, "psf": 1366, "cluster": "Violet 4", "community": "Violet", "title": "Urgent Sale | Amazing Deal |  4 BR Townhouse", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "pf-Z48ZYAZ4NR335AQ2W0BK1ES780", "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-al-jaddaf-binghatti-pinnacle-82782658.html", "price": 1900000, "beds": 2, "baths": 3, "sqft": 1319, "psf": 1440, "cluster": "Binghatti Pinnacle", "community": "Al Jaddaf", "title": "Rental Demand | Strategic Positioning| Yield Focus", "source": "PropertyFinder", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "bayut-15013282", "href": "https://www.bayut.com/property/details-15013282.html", "price": 2250000, "beds": 2, "baths": 3, "sqft": 1180, "psf": 1907, "cluster": "Regalia by Deyaar", "community": "Business Bay", "title": "Creek and Lagoon View| Hand Over Soon| Luxury View", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "Deyaar", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "bayut-14062329", "href": "https://www.bayut.com/property/details-14062329.html", "price": 2140000, "beds": 2, "baths": 3, "sqft": 1270, "psf": 1685, "cluster": "Vincitore Aqua Dimore", "community": "Dubai Science Park", "title": "High ROI | Best Deal | Prime Location | Victorian Elegance", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-14019941", "href": "https://www.bayut.com/property/details-14019941.html", "price": 1570000, "beds": 2, "baths": 3, "sqft": 1169, "psf": 1343, "cluster": "Eleve by Deyaar", "community": "Downtown Jebel Ali", "title": "Metro Soon | High ROI | Flexible PP | Prime Location", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "Deyaar", "dev_tier": 3, "dev_match_field": "cluster"}, {"uid": "bayut-13649740", "href": "https://www.bayut.com/property/details-13649740.html", "price": 2300000, "beds": 2, "baths": 3, "sqft": 1078, "psf": 2134, "cluster": "Binghatti Pinnacle", "community": "Dubai Healthcare City Phase 2", "title": "World-Class Amenities | Mortgage Option | Payment Plan", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "Binghatti", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "bayut-15013120", "href": "https://www.bayut.com/property/details-15013120.html", "price": 1550000, "beds": 3, "baths": 3, "sqft": 1208, "psf": 1283, "cluster": "Aquilegia", "community": "DAMAC Hills 2 (Akoya by DAMAC)", "title": "Modern Living Community | Prime Location | Well Maintained Unit", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "villa", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "bayut-15013078", "href": "https://www.bayut.com/property/details-15013078.html", "price": 1750000, "beds": 3, "baths": 5, "sqft": 1889, "psf": 926, "cluster": "Pacifica", "community": "DAMAC Hills 2 (Akoya by DAMAC)", "title": "Elegant 3BR + Maid Townhouse | Ready to Move | Pacifica, Damac Hills 2", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "bayut-15013030", "href": "https://www.bayut.com/property/details-15013030.html", "price": 1250000, "beds": 2, "baths": 3, "sqft": 1055, "psf": 1185, "cluster": "Bond Living", "community": "Dubai Land Residence Complex", "title": "EXCLUSIVE 12% DISCOUNT GAIN UR POTENTIAL ROI IN 2026", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15013029", "href": "https://www.bayut.com/property/details-15013029.html", "price": 2200000, "beds": 3, "baths": 4, "sqft": 1671, "psf": 1317, "cluster": "Bond Living", "community": "Dubai Land Residence Complex", "title": "EXCLUSIVE 12% DISCOUNT GAIN UR POTENTIAL ROI IN 2026", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15013028", "href": "https://www.bayut.com/property/details-15013028.html", "price": 1370000, "beds": 2, "baths": 3, "sqft": 1055, "psf": 1299, "cluster": "Bond Living", "community": "Dubai Land Residence Complex", "title": "EXCLUSIVE 12% DISCOUNT GAIN UR POTENTIAL ROI IN 2026", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012998", "href": "https://www.bayut.com/property/details-15012998.html", "price": 2200000, "beds": 4, "baths": 3, "sqft": 1550, "psf": 1419, "cluster": "Sage", "community": "DAMAC Riverside", "title": "Below OP | Payment Plan | Negotiable", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "DAMAC", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "bayut-15012978", "href": "https://www.bayut.com/property/details-15012978.html", "price": 1500000, "beds": 2, "baths": 2, "sqft": 1089, "psf": 1377, "cluster": "The Haven II Residences", "community": "Majan", "title": "Park View | Semi-Furnished | Vastu Compliance", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012955", "href": "https://www.bayut.com/property/details-15012955.html", "price": 1571888, "beds": 2, "baths": 3, "sqft": 1076, "psf": 1461, "cluster": "Golf Vale", "community": "Emaar South", "title": "Premium 2BR | Golfside Living | Smart Investment", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": "Emaar", "dev_tier": 1, "dev_match_field": "community"}, {"uid": "bayut-15012873", "href": "https://www.bayut.com/property/details-15012873.html", "price": 2013581, "beds": 2, "baths": 3, "sqft": 1128, "psf": 1785, "cluster": "Ananda Residences Tower A", "community": "Ananda Residences", "title": "Discounts Available | Fully Furnished | High ROI | 3Years Post Handover", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012756", "href": "https://www.bayut.com/property/details-15012756.html", "price": 1455133, "beds": 2, "baths": 3, "sqft": 1176, "psf": 1237, "cluster": "Rabdan Building", "community": "Motor City", "title": "Immediate Returns | Rented Unit For Investors", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012721", "href": "https://www.bayut.com/property/details-15012721.html", "price": 1424305, "beds": 2, "baths": 3, "sqft": 1200, "psf": 1187, "cluster": "Rabdan Building", "community": "Motor City", "title": "Vacant Unit | Great Location | 2 Bedroom", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012717", "href": "https://www.bayut.com/property/details-15012717.html", "price": 2237500, "beds": 2, "baths": 3, "sqft": 1245, "psf": 1797, "cluster": "Luma Park Views", "community": "JVC District 14", "title": "LUXURY PARK VIEW APARTMENTS | JVC | CAPITAL APPRECIATION | HOT DEAL", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012709", "href": "https://www.bayut.com/property/details-15012709.html", "price": 2235000, "beds": 2, "baths": 3, "sqft": 1238, "psf": 1805, "cluster": "Luma Park Views", "community": "JVC District 14", "title": "LUXURY PARK VIEW APARTMENTS | JVC | CAPITAL APPRECIATION | HOT DEAL", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012694", "href": "https://www.bayut.com/property/details-15012694.html", "price": 1115000, "beds": 2, "baths": 3, "sqft": 1145, "psf": 974, "cluster": "", "community": "", "title": "", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "villa", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012684", "href": "https://www.bayut.com/property/details-15012684.html", "price": 2100000, "beds": 2, "baths": 3, "sqft": 1206, "psf": 1741, "cluster": "The Sloane by Belgravia Heights", "community": "JVC District 12", "title": "2BR | Unfurnished-Fitted Kitchen | Only For Buyers", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-14118956", "href": "https://www.bayut.com/property/details-14118956.html", "price": 1670500, "beds": 3, "baths": 4, "sqft": 1539, "psf": 1085, "cluster": "09 Life Residences", "community": "Dubai Land Residence Complex", "title": "GET CAR WITH YOUR APPARTMENT | FULLY FURNISHED | 24% ON CASH", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012646", "href": "https://www.bayut.com/property/details-15012646.html", "price": 2150000, "beds": 2, "baths": 3, "sqft": 1360, "psf": 1581, "cluster": "Luma Park Views", "community": "JVC District 14", "title": "LUXURY PARK VIEW APARTMENTS | JVC | CAPITAL APPRECIATION | HOT DEAL", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15012642", "href": "https://www.bayut.com/property/details-15012642.html", "price": 2149140, "beds": 2, "baths": 3, "sqft": 1245, "psf": 1726, "cluster": "Luma Park Views", "community": "JVC District 14", "title": "LUXURY PARK VIEW APARTMENTS | JVC | CAPITAL APPRECIATION | HOT DEAL", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": true, "removed_date": "2026-04-29", "removed_reason": "stale", "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15013444", "href": "https://www.bayut.com/property/details-15013444.html", "price": 1500000, "beds": 2, "baths": 3, "sqft": 1074, "psf": 1397, "cluster": "Amethyst by Siroya", "community": "Majan", "title": "INVESTOR DEAL | BRAND NEW", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15013377", "href": "https://www.bayut.com/property/details-15013377.html", "price": 2199999, "beds": 2, "baths": 2, "sqft": 1400, "psf": 1571, "cluster": "Qamar 9", "community": "Madinat Badr", "title": "Open View | 2BR + Maid | Spacious Layout", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}, {"uid": "bayut-15013376", "href": "https://www.bayut.com/property/details-15013376.html", "price": 2200000, "beds": 2, "baths": 3, "sqft": 1344, "psf": 1637, "cluster": "Eleganz by Danube", "community": "JVC District 14", "title": "For Sale - Luxury 2BR+M | BNB Income | High ROI", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": false, "prop_type": "apartment", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": "Danube", "dev_tier": 2, "dev_match_field": "cluster"}, {"uid": "bayut-15013365", "href": "https://www.bayut.com/property/details-15013365.html", "price": 2157313, "beds": 4, "baths": 5, "sqft": 852, "psf": 2532, "cluster": "Taormina Village 1", "community": "Dubailand", "title": "Spacious Living | Modern Design | Family Comfort", "source": "Bayut", "listed": "2026-04-29", "isOffPlan": true, "prop_type": "townhouse", "scrape_date": "2026-04-29", "last_seen": "2026-04-29", "removed": false, "removed_date": null, "removed_reason": null, "hidden": false, "dev_name": null, "dev_tier": null, "dev_match_field": null}]};
+
+// ── State ──
+var cType='all', cTier='all', cS='', sK='listed', sA=false; // sA=false = descending
+var hidden_by_user = {};
+
+// ── Init: load hidden state ──
+(function(){
+  try{
+    var raw = localStorage.getItem('combined-hidden');
+    if (raw) hidden_by_user = JSON.parse(raw) || {};
+  }catch(e){ hidden_by_user = {}; }
+})();
+
+function persistHidden(){
+  try{ localStorage.setItem('combined-hidden', JSON.stringify(hidden_by_user)); }catch(e){}
+}
+
+// ── Helpers ──
+function fp(v){
+  if(!v) return '—';
+  if(v>=1e6) return 'AED '+(v/1e6).toFixed(v%1e6===0?0:v%1e5===0?1:2)+'M';
+  if(v>=1e3) return 'AED '+(v/1e3).toFixed(v%1e3===0?0:1)+'K';
+  return 'AED '+v.toLocaleString();
+}
+
+function toggleTheme(){
+  var h=document.documentElement, c=h.getAttribute('data-theme');
+  h.setAttribute('data-theme', c==='dark'?'light':'dark');
+  try{ localStorage.setItem('combined-theme', h.getAttribute('data-theme')); }catch(e){}
+}
+(function(){ try{ var s=localStorage.getItem('combined-theme'); if(s) document.documentElement.setAttribute('data-theme', s); }catch(e){} })();
+
+function daysSince(dateStr){
+  if(!dateStr) return null;
+  try{
+    var d = Math.floor((new Date() - new Date(dateStr))/864e5);
+    return d;
+  }catch(e){ return null; }
+}
+
+// ── Sorting ──
+function sB(key){
+  if(sK===key){ sA = !sA; }
+  else{ sK = key; sA = (key==='community' || key==='source' || key==='dev'); }
+  document.querySelectorAll('thead th').forEach(function(th){
+    th.classList.remove('sort-active');
+    var a = th.querySelector('.sa'); if(a) a.innerHTML='&#9660;';
+  });
+  var th = document.querySelector('th[data-sort="'+key+'"]');
+  if(th){
+    th.classList.add('sort-active');
+    var a = th.querySelector('.sa'); if(a) a.innerHTML = sA?'&#9650;':'&#9660;';
+  }
+  rT();
+}
+
+function cmp(a,b){
+  var va, vb;
+  switch(sK){
+    case 'listed':    va=a.listed||''; vb=b.listed||''; return sA ? va.localeCompare(vb) : vb.localeCompare(va);
+    case 'community': va=(a.community||'').toLowerCase(); vb=(b.community||'').toLowerCase(); return sA ? va.localeCompare(vb) : vb.localeCompare(va);
+    case 'dev':       va=(a.dev_name||'').toLowerCase(); vb=(b.dev_name||'').toLowerCase(); return sA ? va.localeCompare(vb) : vb.localeCompare(va);
+    case 'price':     va=a.price||0; vb=b.price||0; break;
+    case 'beds':      va=a.beds||0; vb=b.beds||0; break;
+    case 'sqft':      va=a.sqft||0; vb=b.sqft||0; break;
+    case 'psf':       va=a.psf||0; vb=b.psf||0; break;
+    case 'source':    va=(a.source||'').toLowerCase(); vb=(b.source||'').toLowerCase(); return sA ? va.localeCompare(vb) : vb.localeCompare(va);
+    default:          va=0; vb=0;
+  }
+  return sA ? (va-vb) : (vb-va);
+}
+
+// ── Filters ──
+function gF(){
+  var showRemovedEl = document.getElementById('showRemoved');
+  var showRemoved   = showRemovedEl ? !!showRemovedEl.checked : false;
+  var showHiddenEl  = document.getElementById('showHidden');
+  var showHidden    = showHiddenEl ? !!showHiddenEl.checked : false;
+
+  return (DATA.listings || []).filter(function(l){
+    // Removed filter
+    if (l.removed && !showRemoved) return false;
+    // Hidden filter (user-hidden via localStorage)
+    if (hidden_by_user[l.uid] && !showHidden) return false;
+    // Type filter
+    if (cType !== 'all' && (l.prop_type || '') !== cType) return false;
+    // Tier filter
+    if (cTier !== 'all') {
+      if (String(l.dev_tier || '') !== cTier) return false;
+    }
+    // Search
+    if (cS) {
+      var hay = [l.community, l.cluster, l.title, l.uid, l.source, l.dev_name].join(' ').toLowerCase();
+      if (hay.indexOf(cS) === -1) return false;
+    }
+    // Beds dropdown
+    var bf = document.getElementById('bedsFilter');
+    var bv = bf ? bf.value : 'all';
+    if (bv !== 'all') {
+      if (bv === '7') { if ((l.beds||0) < 7) return false; }
+      else if (l.beds !== parseInt(bv)) return false;
+    }
+    // Size dropdown
+    var sf = document.getElementById('sizeFilter');
+    var sv = sf ? sf.value : 'all';
+    if (sv !== 'all') {
+      var sq = l.sqft || 0;
+      if (sv === '3000+') { if (sq < 3000) return false; }
+      else {
+        var ps = sv.split('-');
+        if (sq < parseInt(ps[0]) || sq >= parseInt(ps[1])) return false;
+      }
+    }
+    return true;
+  }).sort(cmp);
+}
+
+function fType(t){
+  cType = t;
+  document.querySelectorAll('.fbtn[data-type]').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-type') === t);
+  });
+  rT();
+}
+
+function fTier(t){
+  cTier = t;
+  document.querySelectorAll('.fbtn[data-tier]').forEach(function(b){
+    b.classList.toggle('active', b.getAttribute('data-tier') === t);
+  });
+  rT();
+}
+
+function fDev(name){
+  // Filter by clicking a dev badge: use search box
+  cS = (name || '').toLowerCase();
+  var sb = document.getElementById('sBox');
+  if (sb) sb.value = name || '';
+  rT();
+}
+
+// ── Stats ──
+function rS(){
+  var L = DATA.listings || [];
+  var active   = L.filter(function(l){ return !l.removed; });
+  var removed  = L.filter(function(l){ return l.removed; });
+  var t1 = active.filter(function(l){ return l.dev_tier === 1; }).length;
+  var apt = active.filter(function(l){ return (l.prop_type||'') === 'apartment'; }).length;
+  var vil = active.filter(function(l){ return (l.prop_type||'') === 'villa'; }).length;
+  var th  = active.filter(function(l){ return (l.prop_type||'') === 'townhouse'; }).length;
+
+  var lu = document.getElementById('lastUpdated');
+  if (lu) lu.textContent = 'Updated: ' + (DATA.last_updated || 'N/A');
+  document.getElementById('sActive').textContent  = active.length;
+  document.getElementById('sRemoved').textContent = removed.length;
+  document.getElementById('sT1').textContent      = t1;
+  document.getElementById('sByType').textContent  = apt + ' / ' + vil + ' / ' + th;
+}
+
+// ── Hide/unhide ──
+function hideListing(uid){
+  hidden_by_user[uid] = true;
+  persistHidden();
+  rS(); rT();
+}
+
+function unhideListing(uid){
+  delete hidden_by_user[uid];
+  persistHidden();
+  rS(); rT();
+}
+
+// ── Render Table ──
+function rT(){
+  var fl = gF();
+  document.getElementById('rCnt').textContent = fl.length + ' listings';
+
+  var tiers = (DATA.tiers || {});
+  var html = '';
+
+  fl.forEach(function(l){
+    var rowCls = l.removed ? ' class="removed"' : '';
+    var ptype  = (l.prop_type || '').toLowerCase();
+    var ptypeLabel = ptype ? (ptype.charAt(0).toUpperCase() + ptype.slice(1)) : '—';
+    var ptypeChip = ptype ? '<span class="ptype ptype-'+ptype+'">'+ptypeLabel+'</span>' : '—';
+
+    var srcCls = l.source === 'Bayut' ? 'src-b' : 'src-p';
+    var srcLbl = l.source === 'PropertyFinder' ? 'PF' : (l.source || '—');
+    var srcChip = l.source ? '<span class="src '+srcCls+'">'+srcLbl+'</span>' : '—';
+
+    // Dev badge
+    var devChip = '—';
+    if (l.dev_name) {
+      var t = tiers[String(l.dev_tier)] || {color:'#9ca3af', label:''};
+      var lc = (l.dev_match_field === 'title') ? '<span class="lowconf" title="Low confidence — matched in title only">?</span>' : '';
+      var safeName = String(l.dev_name).replace(/'/g, "\\'");
+      devChip = '<span class="devbadge" style="background:'+t.color+'" onclick="fDev(\''+safeName+'\')">'+l.dev_name+lc+'</span>';
+    }
+
+    // Status
+    var statusHtml;
+    if (hidden_by_user[l.uid]) {
+      statusHtml = '<span class="stdot stdot-hidden"></span><span class="stlabel">Hidden by you</span>';
+    } else if (l.removed) {
+      var d = daysSince(l.removed_date);
+      var lbl = (d != null) ? ('Removed ('+d+'d)') : 'Removed';
+      if (l.removed_reason === 'old_30d') lbl = 'Removed (>30d)';
+      statusHtml = '<span class="stdot stdot-removed"></span><span class="stlabel">'+lbl+'</span>';
+    } else {
+      statusHtml = '<span class="stdot stdot-active"></span><span class="stlabel">Active</span>';
+    }
+
+    // Hide column
+    var hideHtml;
+    if (hidden_by_user[l.uid]) {
+      hideHtml = '<button class="unhide-btn" onclick="unhideListing(\''+(l.uid||'').replace(/'/g,"\\'")+'\')">Unhide</button>';
+    } else {
+      hideHtml = '<button class="hide-btn" onclick="hideListing(\''+(l.uid||'').replace(/'/g,"\\'")+'\')" title="Hide this listing">&times;</button>';
+    }
+
+    var listed = l.listed || '—';
+    var community = l.community || '—';
+    var cluster   = l.cluster || '';
+    var beds      = l.beds || '—';
+    var sqft      = l.sqft ? l.sqft.toLocaleString() : '—';
+    var price     = fp(l.price);
+    var psf       = l.psf ? l.psf.toLocaleString() : '—';
+    var link      = l.href || l.link || '#';
+
+    html += '<tr'+rowCls+'>'
+      + '<td style="font-size:10px;color:var(--muted)">'+listed+'</td>'
+      + '<td>'+ptypeChip+'</td>'
+      + '<td><div class="cn">'+community+'</div></td>'
+      + '<td><div class="cl">'+cluster+'</div></td>'
+      + '<td>'+devChip+'</td>'
+      + '<td>'+beds+'</td>'
+      + '<td>'+sqft+'</td>'
+      + '<td><div class="pm">'+price+'</div></td>'
+      + '<td style="font-size:10px">'+psf+'</td>'
+      + '<td>'+srcChip+'</td>'
+      + '<td>'+statusHtml+'</td>'
+      + '<td>'+hideHtml+'</td>'
+      + '<td><a href="'+link+'" target="_blank" class="lnk" onclick="event.stopPropagation()">View</a></td>'
+      + '</tr>';
+  });
+
+  document.getElementById('tB').innerHTML = html
+    || '<tr><td colspan="13" style="text-align:center;padding:24px;color:var(--muted)">No listings yet. Run the combined scraper first.</td></tr>';
+}
+
+// ── Init ──
+rS();
+rT();
+
+var sBoxEl = document.getElementById('sBox');
+if (sBoxEl) sBoxEl.addEventListener('input', function(){ cS = this.value.toLowerCase(); rT(); });
+</script>
+</body>
+</html>

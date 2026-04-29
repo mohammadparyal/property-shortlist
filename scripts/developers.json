@@ -1,0 +1,35 @@
+{
+  "_comment": "Developer reputation tiers used by process_combined.py. Edit freely. Aliases match against community/cluster/title (case-insensitive, word-boundary).",
+  "tiers": {
+    "1": {"label": "Premium",     "color": "#fbbf24"},
+    "2": {"label": "Established", "color": "#3b82f6"},
+    "3": {"label": "Mid-tier",    "color": "#9ca3af"}
+  },
+  "developers": [
+    {"name": "Emaar",            "tier": 1, "aliases": ["emaar", "emaar properties", "emaar south", "dubai hills estate", "arabian ranches", "downtown dubai", "emaar beachfront", "the valley", "creek harbour", "dubai creek harbour", "the springs", "the meadows", "the lakes"]},
+    {"name": "DAMAC",            "tier": 1, "aliases": ["damac", "damac properties", "damac hills", "damac lagoons", "damac islands", "damac riverside", "damac bay", "akoya"]},
+    {"name": "Sobha",            "tier": 1, "aliases": ["sobha", "sobha realty", "sobha hartland", "hartland"]},
+    {"name": "Nakheel",          "tier": 1, "aliases": ["nakheel", "palm jumeirah", "the world islands"]},
+    {"name": "Meraas",           "tier": 1, "aliases": ["meraas", "city walk", "bluewaters", "la mer", "port de la mer"]},
+    {"name": "Aldar",            "tier": 1, "aliases": ["aldar", "aldar properties"]},
+    {"name": "Majid Al Futtaim", "tier": 1, "aliases": ["majid al futtaim", "tilal al ghaf", "maf"]},
+
+    {"name": "Binghatti",        "tier": 2, "aliases": ["binghatti"]},
+    {"name": "Azizi",            "tier": 2, "aliases": ["azizi", "azizi developments", "riviera", "azizi venice"]},
+    {"name": "Ellington",        "tier": 2, "aliases": ["ellington", "ellington properties"]},
+    {"name": "Danube",           "tier": 2, "aliases": ["danube", "danube properties"]},
+    {"name": "OMNIYAT",          "tier": 2, "aliases": ["omniyat", "the lana"]},
+    {"name": "Samana",           "tier": 2, "aliases": ["samana", "samana developers"]},
+    {"name": "Dubai Properties", "tier": 2, "aliases": ["dubai properties", "mudon", "villanova", "remraam"]},
+    {"name": "Nshama",           "tier": 2, "aliases": ["nshama", "town square"]},
+
+    {"name": "Tiger",            "tier": 3, "aliases": ["tiger properties", "tiger group"]},
+    {"name": "Reportage",        "tier": 3, "aliases": ["reportage", "reportage properties"]},
+    {"name": "Union Properties", "tier": 3, "aliases": ["union properties", "uptown mirdif", "green community"]},
+    {"name": "Deyaar",           "tier": 3, "aliases": ["deyaar"]},
+    {"name": "MAG",              "tier": 3, "aliases": ["mag eye", "mag city", "mag 5", "mag 318"]},
+    {"name": "Select Group",     "tier": 3, "aliases": ["select group"]},
+    {"name": "GFH",              "tier": 3, "aliases": ["gfh", "gfh properties"]},
+    {"name": "AYS",              "tier": 3, "aliases": ["ays", "ays developers"]}
+  ]
+}

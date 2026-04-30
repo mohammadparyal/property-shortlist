@@ -14,20 +14,6 @@
         "source": "PropertyFinder",
         "listed": "2026-04-17",
         "isOffPlan": false
-      },
-      {
-        "uid": "pf-AR-OP-Verge-23BAP-533",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-dubai-south-dubai-world-central-emaar-south-golf-verge-73117815.html",
-        "price": 3420000,
-        "beds": 3,
-        "baths": 3,
-        "sqft": 1773,
-        "cluster": "Golf Verge",
-        "title": "Spacious Unit | 3 BR | Handover May 2029",
-        "community": "Emaar South",
-        "source": "PropertyFinder",
-        "listed": "2026-04-06",
-        "isOffPlan": true
       }
     ],
     "Al Furjan": [
@@ -160,20 +146,6 @@
     ],
     "JVC": [
       {
-        "uid": "pf-D6QPT58AMT6GJ8JX6EKZDQGVHG",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-11-casa-grande-79829464.html",
-        "price": 619999,
-        "beds": NaN,
-        "baths": 1,
-        "sqft": 481,
-        "cluster": "Casa Grande",
-        "title": "Fully Furnished | Ideal for End-User | Investment",
-        "community": "JVC",
-        "source": "PropertyFinder",
-        "listed": "2026-04-22",
-        "isOffPlan": false
-      },
-      {
         "uid": "pf-MCC-S-71380",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-binghatti-apex-77388461.html",
         "price": 700000,
@@ -214,6 +186,20 @@
         "source": "Bayut",
         "listed": "2026-04-26",
         "isOffPlan": true
+      },
+      {
+        "uid": "pf-F50819DDP2H4MKWSTWEB7HN828",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-jumeirah-village-circle-district-10-binghatti-apex-76162551.html",
+        "price": 650000,
+        "beds": NaN,
+        "baths": 1,
+        "sqft": 403,
+        "cluster": "Binghatti Apex",
+        "title": "High Floor - Multiple Options - Handover soon",
+        "community": "JVC",
+        "source": "PropertyFinder",
+        "listed": "2026-04-13",
+        "isOffPlan": true
       }
     ],
     "Motor City": [
@@ -229,6 +215,20 @@
         "community": "Motor City",
         "source": "PropertyFinder",
         "listed": "2026-04-07",
+        "isOffPlan": false
+      },
+      {
+        "uid": "pf-HS-RS-04",
+        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-motor-city-green-community-motor-city-terraced-apartments-terraced-apartments-1-terraced-apartment-1d-82806915.html",
+        "price": 5800000,
+        "beds": 3,
+        "baths": 5,
+        "sqft": 5261,
+        "cluster": "Terraced Apartment 1D",
+        "title": "Vacant | Duplex Penthouse | Spacious",
+        "community": "Motor City",
+        "source": "PropertyFinder",
+        "listed": "2026-04-29",
         "isOffPlan": false
       }
     ],
@@ -826,34 +826,6 @@
         "isOffPlan": false
       },
       {
-        "uid": "pf-SN_SIRAJTOWER_3BHK",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-siraj-tower-80266367.html",
-        "price": 2228000,
-        "beds": 3,
-        "baths": 4,
-        "sqft": 2015,
-        "cluster": "Siraj Tower",
-        "title": "VACANT | FULLY FURNISHED | BRIGHT AND SPACIOUS",
-        "community": "Arjan",
-        "source": "PropertyFinder",
-        "listed": "2026-04-23",
-        "isOffPlan": false
-      },
-      {
-        "uid": "pf-PF-Apr-Fifteen-Twenty-Six-AS-162924",
-        "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-76965104.html",
-        "price": 2490000,
-        "beds": 3,
-        "baths": 4,
-        "sqft": 1511,
-        "cluster": "48 Parkside",
-        "title": "3 Bed + Maid + Pool | Ultra Luxury | Brand New",
-        "community": "Arjan",
-        "source": "PropertyFinder",
-        "listed": "2026-04-15",
-        "isOffPlan": true
-      },
-      {
         "uid": "pf-BARNES-13768",
         "href": "https://www.propertyfinder.ae/en/plp/buy/apartment-for-sale-dubai-arjan-48-parkside-74256119.html",
         "price": 2335000,
@@ -869,6 +841,6 @@
       }
     ]
   },
-  "total_listings": 61,
-  "last_updated": "2026-04-28"
+  "total_listings": 59,
+  "last_updated": "2026-04-30"
 }
